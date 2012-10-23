@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceManager$ResourceLoader;)V
+.method public constructor <init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceLoader;)V
     .registers 5
     .parameter "context"
     .parameter "loader"
@@ -37,7 +37,7 @@
     .line 37
     new-instance v0, Lmiui/app/screenelement/ResourceManager;
 
-    invoke-direct {v0, p2}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceManager$ResourceLoader;)V
+    invoke-direct {v0, p2}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceLoader;)V
 
     new-instance v1, Lmiui/app/screenelement/elements/ScreenElementFactory;
 
@@ -49,7 +49,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceManager$ResourceLoader;Lmiui/app/screenelement/elements/ScreenElementFactory;)V
+.method public constructor <init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceLoader;Lmiui/app/screenelement/elements/ScreenElementFactory;)V
     .registers 5
     .parameter "context"
     .parameter "loader"
@@ -59,7 +59,7 @@
     .line 41
     new-instance v0, Lmiui/app/screenelement/ResourceManager;
 
-    invoke-direct {v0, p2}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceManager$ResourceLoader;)V
+    invoke-direct {v0, p2}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceLoader;)V
 
     invoke-direct {p0, p1, v0, p3}, Lmiui/app/screenelement/ScreenContext;-><init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceManager;Lmiui/app/screenelement/elements/ScreenElementFactory;)V
 

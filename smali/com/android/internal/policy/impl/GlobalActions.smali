@@ -609,9 +609,9 @@
     :goto_11
     new-instance v1, Lcom/android/internal/policy/impl/GlobalActions$1;
 
-    const v3, 0x10802db
+    const v3, 0x10802dc
 
-    const v4, 0x10802dc
+    const v4, 0x10802dd
 
     const v5, 0x104013b
 
@@ -749,7 +749,7 @@
     :goto_93
     new-instance v14, Lcom/android/internal/policy/impl/GlobalActions$3;
 
-    const v2, 0x1080320
+    const v2, 0x1080321
 
     new-instance v3, Ljava/lang/StringBuilder;
 

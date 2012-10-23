@@ -14,6 +14,7 @@ import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import javax.xml.parsers.*;
+import miui.app.screenelement.ResourceLoader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -21,8 +22,7 @@ import org.xml.sax.SAXException;
 // Referenced classes of package miui.app.screenelement.util:
 //            Utils
 
-public class ZipResourceLoader
-    implements miui.app.screenelement.ResourceManager.ResourceLoader {
+public class ZipResourceLoader extends ResourceLoader {
 
     public ZipResourceLoader(String s) {
         this(s, null, "manifest.xml");
@@ -50,11 +50,17 @@ public class ZipResourceLoader
         zipfile = null;
         inputstream = null;
         ZipFile zipfile1 = new ZipFile(mResourcePath);
+        ZipEntry zipentry = null;
         Rect rect;
         android.graphics.Bitmap bitmap;
-        ZipEntry zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(s).toString());
+        if(!TextUtils.isEmpty(super.mLanguageCountrySuffix))
+            zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append("images").append("_").append(super.mLanguageCountrySuffix).append("/").append(s).toString());
+        if(zipentry == null && !TextUtils.isEmpty(super.mLanguageSuffix))
+            zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append("images").append("_").append(super.mLanguageSuffix).append("/").append(s).toString());
         if(zipentry == null)
-            break MISSING_BLOCK_LABEL_148;
+            zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(s).toString());
+        if(zipentry == null)
+            break MISSING_BLOCK_LABEL_281;
         inputstream = zipfile1.getInputStream(zipentry);
         rect = new Rect();
         bitmap = BitmapFactory.decodeStream(inputstream, rect, options);
@@ -95,7 +101,7 @@ label0:
             }
             catch(IOException ioexception9) { }
         bitmapinfo = bitmapinfo1;
-        break MISSING_BLOCK_LABEL_107;
+        break MISSING_BLOCK_LABEL_240;
         if(false)
             try {
                 throw null;
@@ -107,7 +113,7 @@ label0:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception7) { }
-        break MISSING_BLOCK_LABEL_107;
+        break MISSING_BLOCK_LABEL_240;
         ioexception;
 _L6:
         Log.e("MAML_ZipResourceLoader", ioexception.toString());
@@ -122,7 +128,7 @@ _L6:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception3) { }
-        break MISSING_BLOCK_LABEL_107;
+        break MISSING_BLOCK_LABEL_240;
         outofmemoryerror;
 _L4:
         Log.e("MAML_ZipResourceLoader", outofmemoryerror.toString());
@@ -137,7 +143,7 @@ _L4:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception5) { }
-        break MISSING_BLOCK_LABEL_107;
+        break MISSING_BLOCK_LABEL_240;
         exception;
 _L2:
         if(inputstream != null)
@@ -308,10 +314,6 @@ _L7:
     }
 
     public Element getManifestRoot() {
-        return getManifestRoot(null);
-    }
-
-    public Element getManifestRoot(String s) {
         Element element;
         ZipFile zipfile;
         InputStream inputstream;
@@ -319,17 +321,20 @@ _L7:
         zipfile = null;
         inputstream = null;
         ZipFile zipfile1 = new ZipFile(mResourcePath);
+        ZipEntry zipentry = null;
         InputStream inputstream1;
-        mManifestName;
-        if(!TextUtils.isEmpty(s)) {
-            String s1 = Utils.addFileNameSuffix(mManifestName, s);
-            if(zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(s1).toString()) != null) {
-                mManifestName;
-            }
+        if(!TextUtils.isEmpty(super.mLanguageCountrySuffix)) {
+            String s1 = Utils.addFileNameSuffix(mManifestName, super.mLanguageCountrySuffix);
+            zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(s1).toString());
         }
-        ZipEntry zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(mManifestName).toString());
+        if(zipentry == null && !TextUtils.isEmpty(super.mLanguageSuffix)) {
+            String s = Utils.addFileNameSuffix(mManifestName, super.mLanguageSuffix);
+            zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(s).toString());
+        }
         if(zipentry == null)
-            break MISSING_BLOCK_LABEL_197;
+            zipentry = zipfile1.getEntry((new StringBuilder()).append(mInnerPath).append(mManifestName).toString());
+        if(zipentry == null)
+            break MISSING_BLOCK_LABEL_249;
         inputstream1 = zipfile1.getInputStream(zipentry);
         IOException ioexception;
         Exception exception;
@@ -375,7 +380,7 @@ label0:
                 zipfile1.close();
             }
             catch(IOException ioexception15) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         if(false)
             try {
                 throw null;
@@ -387,7 +392,7 @@ label0:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception13) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         ioexception;
 _L12:
         Log.e("MAML_ZipResourceLoader", ioexception.toString());
@@ -402,7 +407,7 @@ _L12:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception3) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         outofmemoryerror;
 _L10:
         Log.e("MAML_ZipResourceLoader", outofmemoryerror.toString());
@@ -417,7 +422,7 @@ _L10:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception5) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         parserconfigurationexception;
 _L8:
         Log.e("MAML_ZipResourceLoader", parserconfigurationexception.toString());
@@ -432,7 +437,7 @@ _L8:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception7) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         saxexception;
 _L6:
         Log.e("MAML_ZipResourceLoader", saxexception.toString());
@@ -447,7 +452,7 @@ _L6:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception9) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         exception1;
 _L4:
         Log.e("MAML_ZipResourceLoader", exception1.toString());
@@ -462,7 +467,7 @@ _L4:
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception11) { }
-        break MISSING_BLOCK_LABEL_151;
+        break MISSING_BLOCK_LABEL_206;
         exception;
 _L2:
         if(inputstream != null)
@@ -502,8 +507,11 @@ _L9:
 _L11:
     }
 
+    private static final String IMAGES_FOLDER_NAME = "images";
     private static final String MANIFEST_FILE_NAME = "manifest.xml";
     private static final String TAG = "MAML_ZipResourceLoader";
+    private Boolean mImagesLanguageCountryFolderExists;
+    private Boolean mImagesLanguageFolderExists;
     private String mInnerPath;
     private String mManifestName;
     private String mResourcePath;

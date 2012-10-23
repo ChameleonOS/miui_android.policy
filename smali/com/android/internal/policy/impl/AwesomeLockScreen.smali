@@ -147,15 +147,31 @@
 
     invoke-direct {v2}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenResourceLoader;-><init>()V
 
+    iget-object v3, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    iget-object v3, v3, Landroid/content/res/Configuration;->locale:Ljava/util/Locale;
+
+    invoke-virtual {v2, v3}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenResourceLoader;->setLocal(Ljava/util/Locale;)Lmiui/app/screenelement/ResourceLoader;
+
+    move-result-object v2
+
     const-wide/32 v3, 0x36ee80
 
     const-wide/32 v5, 0x36ee80
 
-    invoke-direct/range {v1 .. v6}, Lmiui/app/screenelement/LifecycleResourceManager;-><init>(Lmiui/app/screenelement/ResourceManager$ResourceLoader;JJ)V
+    invoke-direct/range {v1 .. v6}, Lmiui/app/screenelement/LifecycleResourceManager;-><init>(Lmiui/app/screenelement/ResourceLoader;JJ)V
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mResourceMgr:Lmiui/app/screenelement/LifecycleResourceManager;
 
-    .line 117
+    .line 118
     new-instance v1, Lmiui/app/screenelement/ScreenContext;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mContext:Landroid/content/Context;
@@ -170,10 +186,10 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenContext:Lmiui/app/screenelement/ScreenContext;
 
-    .line 119
+    .line 120
     invoke-direct {p0}, Lcom/android/internal/policy/impl/AwesomeLockScreen;->loadConfig()V
 
-    .line 122
+    .line 123
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/AwesomeLockScreen;->getContext()Landroid/content/Context;
 
     move-result-object v1
@@ -182,7 +198,7 @@
 
     move-result-object v12
 
-    .line 123
+    .line 124
     .local v12, res:Landroid/content/ContentResolver;
     const-string v1, "lock_screen_owner_info_enabled"
 
@@ -192,14 +208,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_dd
+    if-eqz v1, :cond_ed
 
     const/4 v9, 0x1
 
-    .line 125
+    .line 126
     .local v9, ownerInfoEnabled:Z
-    :goto_77
-    if-eqz v9, :cond_df
+    :goto_87
+    if-eqz v9, :cond_ef
 
     const-string v1, "lock_screen_owner_info"
 
@@ -207,9 +223,9 @@
 
     move-result-object v10
 
-    .line 127
+    .line 128
     .local v10, ownerString:Ljava/lang/String;
-    :goto_7f
+    :goto_8f
     const-string v1, "owner_info"
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenContext:Lmiui/app/screenelement/ScreenContext;
@@ -218,7 +234,7 @@
 
     invoke-static {v1, v2, v10}, Lmiui/app/screenelement/util/Utils;->putVariableString(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/String;)V
 
-    .line 129
+    .line 130
     new-instance v1, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenContext:Lmiui/app/screenelement/ScreenContext;
@@ -227,12 +243,12 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
-    .line 130
+    .line 131
     iget-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     invoke-virtual {v1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->load()Z
 
-    .line 131
+    .line 132
     new-instance v1, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mContext:Landroid/content/Context;
@@ -243,7 +259,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenView:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;
 
-    .line 132
+    .line 133
     new-instance v11, Landroid/widget/FrameLayout$LayoutParams;
 
     const/4 v1, -0x1
@@ -252,13 +268,13 @@
 
     invoke-direct {v11, v1, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    .line 134
+    .line 135
     .local v11, params:Landroid/widget/FrameLayout$LayoutParams;
     iget-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenView:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;
 
     invoke-virtual {p0, v1, v11}, Lcom/android/internal/policy/impl/AwesomeLockScreen;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 136
+    .line 137
     iget-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->shouldShowBatteryInfo()Z
@@ -279,16 +295,16 @@
 
     invoke-virtual {p0, v1, v2, v3}, Lcom/android/internal/policy/impl/AwesomeLockScreen;->onRefreshBatteryInfo(ZZI)V
 
-    .line 140
+    .line 141
     sget-wide v1, Lcom/android/internal/policy/impl/AwesomeLockScreen;->sStartTime:J
 
     const-wide/16 v3, 0x0
 
     cmp-long v1, v1, v3
 
-    if-nez v1, :cond_d3
+    if-nez v1, :cond_e3
 
-    .line 141
+    .line 142
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
@@ -299,8 +315,8 @@
 
     sput-wide v1, Lcom/android/internal/policy/impl/AwesomeLockScreen;->sStartTime:J
 
-    .line 143
-    :cond_d3
+    .line 144
+    :cond_e3
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v1
@@ -311,24 +327,24 @@
 
     iput-wide v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mWakeStartTime:J
 
-    .line 145
+    .line 146
     return-void
 
-    .line 123
+    .line 124
     .end local v9           #ownerInfoEnabled:Z
     .end local v10           #ownerString:Ljava/lang/String;
     .end local v11           #params:Landroid/widget/FrameLayout$LayoutParams;
-    :cond_dd
+    :cond_ed
     const/4 v9, 0x0
 
-    goto :goto_77
+    goto :goto_87
 
-    .line 125
+    .line 126
     .restart local v9       #ownerInfoEnabled:Z
-    :cond_df
+    :cond_ef
     const/4 v10, 0x0
 
-    goto :goto_7f
+    goto :goto_8f
 .end method
 
 .method static synthetic access$000(Lcom/android/internal/policy/impl/AwesomeLockScreen;)Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
@@ -346,14 +362,14 @@
     .registers 10
 
     .prologue
-    .line 148
+    .line 149
     new-instance v5, Lmiui/app/screenelement/util/LockscreenConfigFile;
 
     invoke-direct {v5}, Lmiui/app/screenelement/util/LockscreenConfigFile;-><init>()V
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mConfig:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
-    .line 149
+    .line 150
     iget-object v5, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mConfig:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
     sget-object v6, Lmiui/content/res/ThemeResources;->sAppliedLockstyleConfigPath:Ljava/lang/String;
@@ -364,16 +380,16 @@
 
     if-nez v5, :cond_15
 
-    .line 150
+    .line 151
     const/4 v5, 0x0
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mConfig:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
-    .line 169
+    .line 170
     :cond_14
     return-void
 
-    .line 153
+    .line 154
     :cond_15
     iget-object v5, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mConfig:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
@@ -400,7 +416,7 @@
 
     check-cast v4, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;
 
-    .line 154
+    .line 155
     .local v4, v:Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;
     iget-object v5, v4, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;->type:Ljava/lang/String;
 
@@ -412,7 +428,7 @@
 
     if-eqz v5, :cond_41
 
-    .line 155
+    .line 156
     iget-object v5, v4, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;->name:Ljava/lang/String;
 
     iget-object v6, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenContext:Lmiui/app/screenelement/ScreenContext;
@@ -425,7 +441,7 @@
 
     goto :goto_1f
 
-    .line 156
+    .line 157
     :cond_41
     iget-object v5, v4, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;->type:Ljava/lang/String;
 
@@ -437,7 +453,7 @@
 
     if-eqz v5, :cond_1f
 
-    .line 158
+    .line 159
     :try_start_4b
     iget-object v5, v4, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;->value:Ljava/lang/String;
 
@@ -445,7 +461,7 @@
 
     move-result-wide v0
 
-    .line 159
+    .line 160
     .local v0, d:D
     iget-object v5, v4, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;->name:Ljava/lang/String;
 
@@ -463,14 +479,14 @@
 
     goto :goto_1f
 
-    .line 160
+    .line 161
     .end local v0           #d:D
     :catch_5f
     move-exception v5
 
     goto :goto_1f
 
-    .line 164
+    .line 165
     .end local v4           #v:Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;
     :cond_61
     iget-object v5, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mConfig:Lmiui/app/screenelement/util/LockscreenConfigFile;
@@ -496,7 +512,7 @@
 
     check-cast v3, Lmiui/app/screenelement/util/Task;
 
-    .line 165
+    .line 166
     .local v3, t:Lmiui/app/screenelement/util/Task;
     iget-object v5, v3, Lmiui/app/screenelement/util/Task;->id:Ljava/lang/String;
 
@@ -510,7 +526,7 @@
 
     invoke-static {v5, v6, v7, v8}, Lmiui/app/screenelement/util/Utils;->putVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/String;)V
 
-    .line 166
+    .line 167
     iget-object v5, v3, Lmiui/app/screenelement/util/Task;->id:Ljava/lang/String;
 
     const-string v6, "package"
@@ -523,7 +539,7 @@
 
     invoke-static {v5, v6, v7, v8}, Lmiui/app/screenelement/util/Utils;->putVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/String;)V
 
-    .line 167
+    .line 168
     iget-object v5, v3, Lmiui/app/screenelement/util/Task;->id:Ljava/lang/String;
 
     const-string v6, "class"
@@ -547,23 +563,23 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 231
+    .line 232
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenView:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;->cleanUp()V
 
-    .line 232
+    .line 233
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
     invoke-virtual {v0, p0}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;->removeCallback(Ljava/lang/Object;)V
 
-    .line 233
+    .line 234
     iput-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    .line 234
+    .line 235
     iput-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 235
+    .line 236
     return-void
 .end method
 
@@ -572,17 +588,17 @@
     .parameter "ele"
 
     .prologue
-    .line 306
+    .line 307
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     if-eqz v0, :cond_9
 
-    .line 307
+    .line 308
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     invoke-virtual {v0, p1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->endUnlockMoving(Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerScreenElement;)V
 
-    .line 309
+    .line 310
     :cond_9
     return-void
 .end method
@@ -592,7 +608,7 @@
     .parameter "id"
 
     .prologue
-    .line 296
+    .line 297
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mConfig:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
     if-nez v0, :cond_6
@@ -617,7 +633,7 @@
     .parameter "effectId"
 
     .prologue
-    .line 290
+    .line 291
     sget-object v0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mHapticFeedbackUtil:Lmiui/util/HapticFeedbackUtil;
 
     const/4 v1, 0x1
@@ -626,7 +642,7 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/util/HapticFeedbackUtil;->performHapticFeedback(IZ)Z
 
-    .line 292
+    .line 293
     return-void
 .end method
 
@@ -634,7 +650,7 @@
     .registers 2
 
     .prologue
-    .line 183
+    .line 184
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->isDisplayDesktop()Z
@@ -648,7 +664,7 @@
     .registers 2
 
     .prologue
-    .line 340
+    .line 341
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isSecure()Z
@@ -662,7 +678,7 @@
     .registers 3
 
     .prologue
-    .line 301
+    .line 302
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v0}, Landroid/media/AudioManager;->getRingerMode()I
@@ -688,7 +704,7 @@
     .registers 2
 
     .prologue
-    .line 204
+    .line 205
     const/4 v0, 0x0
 
     return v0
@@ -698,10 +714,10 @@
     .registers 1
 
     .prologue
-    .line 188
+    .line 189
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
-    .line 189
+    .line 190
     return-void
 .end method
 
@@ -709,7 +725,7 @@
     .registers 1
 
     .prologue
-    .line 324
+    .line 325
     return-void
 .end method
 
@@ -718,10 +734,10 @@
     .parameter "newConfig"
 
     .prologue
-    .line 199
+    .line 200
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    .line 200
+    .line 201
     return-void
 .end method
 
@@ -729,10 +745,10 @@
     .registers 1
 
     .prologue
-    .line 193
+    .line 194
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
 
-    .line 194
+    .line 195
     return-void
 .end method
 
@@ -740,7 +756,7 @@
     .registers 1
 
     .prologue
-    .line 347
+    .line 348
     return-void
 .end method
 
@@ -748,7 +764,7 @@
     .registers 1
 
     .prologue
-    .line 328
+    .line 329
     return-void
 .end method
 
@@ -756,29 +772,29 @@
     .registers 7
 
     .prologue
-    .line 209
+    .line 210
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenView:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;
 
     invoke-virtual {v2}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;->onPause()V
 
-    .line 210
+    .line 211
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     const-string v3, "pause"
 
     invoke-virtual {v2, v3}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->onCommand(Ljava/lang/String;)V
 
-    .line 211
+    .line 212
     const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->isPaused:Z
 
-    .line 213
+    .line 214
     iget-object v2, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mResourceMgr:Lmiui/app/screenelement/LifecycleResourceManager;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/LifecycleResourceManager;->checkCache()V
 
-    .line 216
+    .line 217
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v2
@@ -791,7 +807,7 @@
 
     sub-long v0, v2, v4
 
-    .line 217
+    .line 218
     .local v0, wakenTime:J
     sget-wide v2, Lcom/android/internal/policy/impl/AwesomeLockScreen;->sTotalWakenTime:J
 
@@ -799,7 +815,7 @@
 
     sput-wide v2, Lcom/android/internal/policy/impl/AwesomeLockScreen;->sTotalWakenTime:J
 
-    .line 218
+    .line 219
     return-void
 .end method
 
@@ -808,7 +824,7 @@
     .parameter "phoneState"
 
     .prologue
-    .line 320
+    .line 321
     return-void
 .end method
 
@@ -817,7 +833,7 @@
     .parameter "newState"
 
     .prologue
-    .line 243
+    .line 244
     return-void
 .end method
 
@@ -828,17 +844,17 @@
     .parameter "batteryLevel"
 
     .prologue
-    .line 247
+    .line 248
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     if-eqz v0, :cond_9
 
-    .line 248
+    .line 249
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->onRefreshBatteryInfo(ZZI)V
 
-    .line 250
+    .line 251
     :cond_9
     return-void
 .end method
@@ -849,7 +865,7 @@
     .parameter "spn"
 
     .prologue
-    .line 180
+    .line 181
     return-void
 .end method
 
@@ -860,7 +876,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 332
+    .line 333
     return-void
 .end method
 
@@ -868,24 +884,24 @@
     .registers 5
 
     .prologue
-    .line 222
+    .line 223
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mLockscreenView:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/AwesomeLockScreenView;->onResume()V
 
-    .line 223
+    .line 224
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     const-string v1, "resume"
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->onCommand(Ljava/lang/String;)V
 
-    .line 224
+    .line 225
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->isPaused:Z
 
-    .line 226
+    .line 227
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
@@ -896,7 +912,7 @@
 
     iput-wide v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mWakeStartTime:J
 
-    .line 227
+    .line 228
     return-void
 .end method
 
@@ -905,7 +921,7 @@
     .parameter "state"
 
     .prologue
-    .line 240
+    .line 241
     return-void
 .end method
 
@@ -914,7 +930,7 @@
     .parameter "simState"
 
     .prologue
-    .line 254
+    .line 255
     return-void
 .end method
 
@@ -924,7 +940,7 @@
     .parameter "subscription"
 
     .prologue
-    .line 336
+    .line 337
     return-void
 .end method
 
@@ -932,7 +948,7 @@
     .registers 1
 
     .prologue
-    .line 174
+    .line 175
     return-void
 .end method
 
@@ -941,7 +957,7 @@
     .parameter "userId"
 
     .prologue
-    .line 353
+    .line 354
     return-void
 .end method
 
@@ -949,12 +965,12 @@
     .registers 2
 
     .prologue
-    .line 280
+    .line 281
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 281
+    .line 282
     return-void
 .end method
 
@@ -963,12 +979,12 @@
     .parameter "millis"
 
     .prologue
-    .line 285
+    .line 286
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0, p1}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 286
+    .line 287
     return-void
 .end method
 
@@ -977,17 +993,17 @@
     .parameter "ele"
 
     .prologue
-    .line 313
+    .line 314
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     if-eqz v0, :cond_9
 
-    .line 314
+    .line 315
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mRoot:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;
 
     invoke-virtual {v0, p1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->startUnlockMoving(Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerScreenElement;)V
 
-    .line 316
+    .line 317
     :cond_9
     return-void
 .end method
@@ -997,19 +1013,19 @@
     .parameter "intent"
 
     .prologue
-    .line 258
+    .line 259
     iget-object v0, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen;->mCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v0, p1}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->setPendingIntent(Landroid/content/Intent;)V
 
-    .line 261
+    .line 262
     new-instance v0, Lcom/android/internal/policy/impl/AwesomeLockScreen$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/AwesomeLockScreen$1;-><init>(Lcom/android/internal/policy/impl/AwesomeLockScreen;)V
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/AwesomeLockScreen;->post(Ljava/lang/Runnable;)Z
 
-    .line 274
+    .line 275
     const-string v0, "AwesomeLockScreen"
 
     const-string v1, "lockscreen awake time: [%d sec] in time range: [%d sec]"
@@ -1054,6 +1070,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 276
+    .line 277
     return-void
 .end method

@@ -8,11 +8,11 @@ import android.util.Log;
 import java.util.*;
 
 // Referenced classes of package miui.app.screenelement:
-//            ResourceManager
+//            ResourceManager, ResourceLoader
 
 public class LifecycleResourceManager extends ResourceManager {
 
-    public LifecycleResourceManager(ResourceManager.ResourceLoader resourceloader, long l, long l1) {
+    public LifecycleResourceManager(ResourceLoader resourceloader, long l, long l1) {
         super(resourceloader);
         mInactiveTime = l;
         mCheckTime = l1;

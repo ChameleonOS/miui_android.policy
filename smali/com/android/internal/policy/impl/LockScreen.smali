@@ -449,13 +449,13 @@
     invoke-virtual {v3, v6}, Lcom/android/internal/widget/SlidingTab;->setLeftHintText(I)V
 
     .line 488
-    const v6, 0x10802d8
+    const v6, 0x10802d9
 
-    const v7, 0x10803ab
+    const v7, 0x10803ac
 
-    const v8, 0x108038c
+    const v8, 0x108038d
 
-    const v9, 0x108039f
+    const v9, 0x10803a0
 
     invoke-virtual {v3, v6, v7, v8, v9}, Lcom/android/internal/widget/SlidingTab;->setLeftTabResources(IIII)V
 
@@ -756,7 +756,7 @@
 
     check-cast v5, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;
 
-    const v8, 0x10802e0
+    const v8, 0x10802e1
 
     invoke-virtual {v5, v8}, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;->isTargetPresent(I)Z
 
@@ -775,7 +775,7 @@
 
     check-cast v5, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;
 
-    const v8, 0x1080297
+    const v8, 0x1080298
 
     invoke-virtual {v5, v8}, Lcom/android/internal/policy/impl/LockScreen$GlowPadViewMethods;->isTargetPresent(I)Z
 

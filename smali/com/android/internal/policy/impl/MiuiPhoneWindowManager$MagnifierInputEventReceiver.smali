@@ -214,27 +214,27 @@
     :try_start_6b
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getMagnifier()Lcom/android/internal/policy/impl/MagnifierPopupWindow;
+    const/4 v4, 0x0
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->hide()V
+    #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mIsTouchDown:Z
+    invoke-static {v2, v4}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$402(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
 
     .line 626
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v4, 0x0
 
-    #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mIsTouchDown:Z
-    invoke-static {v2, v4}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$402(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
+    #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mShowMagnifier:Z
+    invoke-static {v2, v4}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$502(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
 
     .line 627
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
-    const/4 v4, 0x0
+    invoke-virtual {v2}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getMagnifier()Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
-    #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mShowMagnifier:Z
-    invoke-static {v2, v4}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$502(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->hide()V
     :try_end_80
     .catchall {:try_start_6b .. :try_end_80} :catchall_63
 

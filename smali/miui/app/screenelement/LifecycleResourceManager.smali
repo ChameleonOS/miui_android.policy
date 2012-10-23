@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lmiui/app/screenelement/ResourceManager$ResourceLoader;JJ)V
+.method public constructor <init>(Lmiui/app/screenelement/ResourceLoader;JJ)V
     .registers 6
     .parameter "resourceLoader"
     .parameter "inactiveTime"
@@ -24,7 +24,7 @@
 
     .prologue
     .line 18
-    invoke-direct {p0, p1}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceManager$ResourceLoader;)V
+    invoke-direct {p0, p1}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceLoader;)V
 
     .line 19
     iput-wide p2, p0, Lmiui/app/screenelement/LifecycleResourceManager;->mInactiveTime:J

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 225
+    .line 228
     iput-object p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$1;->this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "animation"
 
     .prologue
-    .line 228
+    .line 231
     return-void
 .end method
 
@@ -51,12 +51,12 @@
     .parameter "animation"
 
     .prologue
-    .line 232
+    .line 235
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$1;->this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->dismiss()V
 
-    .line 233
+    .line 236
     return-void
 .end method
 
@@ -65,7 +65,7 @@
     .parameter "animation"
 
     .prologue
-    .line 237
+    .line 240
     return-void
 .end method
 
@@ -74,6 +74,6 @@
     .parameter "animation"
 
     .prologue
-    .line 241
+    .line 244
     return-void
 .end method

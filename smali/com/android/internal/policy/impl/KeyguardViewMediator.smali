@@ -1964,7 +1964,7 @@
 
     const-string v3, "secure"
 
-    const v4, 0x108054a
+    const v4, 0x108054b
 
     invoke-virtual {v2, v3, v4, v5, v0}, Landroid/app/StatusBarManager;->setIcon(Ljava/lang/String;IILjava/lang/String;)V
 

@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 168
+    .line 173
     iput-object p1, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "v"
 
     .prologue
-    .line 170
+    .line 175
     iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -52,6 +52,6 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 171
+    .line 176
     return-void
 .end method

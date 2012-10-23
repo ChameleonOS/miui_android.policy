@@ -502,7 +502,7 @@ _L3:
 _L5:
         if(!mShowingLockIcon) {
             String s = mContext.getString(0x10404f6);
-            mStatusBarManager.setIcon("secure", 0x108054a, 0, s);
+            mStatusBarManager.setIcon("secure", 0x108054b, 0, s);
             mShowingLockIcon = true;
         }
 _L4:

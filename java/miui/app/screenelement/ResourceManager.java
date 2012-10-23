@@ -12,18 +12,10 @@ import android.util.Log;
 import java.util.*;
 import org.w3c.dom.Element;
 
+// Referenced classes of package miui.app.screenelement:
+//            ResourceLoader
+
 public class ResourceManager {
-    public static interface ResourceLoader {
-
-        public abstract BitmapInfo getBitmapInfo(String s, android.graphics.BitmapFactory.Options options);
-
-        public abstract MemoryFile getFile(String s);
-
-        public abstract Element getManifestRoot();
-
-        public abstract Element getManifestRoot(String s);
-    }
-
     public static class BitmapInfo {
 
         public final Bitmap mBitmap;
@@ -145,10 +137,6 @@ public class ResourceManager {
 
     public Element getManifestRoot() {
         return mResourceLoader.getManifestRoot();
-    }
-
-    public Element getManifestRoot(String s) {
-        return mResourceLoader.getManifestRoot(s);
     }
 
     public Bitmap getMaskBufferBitmap(int i, int j, String s, boolean flag) {

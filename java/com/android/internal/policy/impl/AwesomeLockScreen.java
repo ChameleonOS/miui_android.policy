@@ -6,6 +6,7 @@ package com.android.internal.policy.impl;
 
 import android.content.*;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.AudioManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -40,7 +41,7 @@ class AwesomeLockScreen extends FrameLayout
         mAudioManager = (AudioManager)context.getSystemService("audio");
         keyguardupdatemonitor.registerInfoCallback(this);
         keyguardupdatemonitor.registerSimStateCallback(this);
-        mResourceMgr = new LifecycleResourceManager(new LockScreenResourceLoader(), 0x36ee80L, 0x36ee80L);
+        mResourceMgr = new LifecycleResourceManager((new LockScreenResourceLoader()).setLocal(mContext.getResources().getConfiguration().locale), 0x36ee80L, 0x36ee80L);
         mLockscreenContext = new ScreenContext(mContext, mResourceMgr, new LockScreenElementFactory(this, this));
         loadConfig();
         android.content.ContentResolver contentresolver = getContext().getContentResolver();

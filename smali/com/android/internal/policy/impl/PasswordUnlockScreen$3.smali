@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 173
+    .line 178
     iput-object p1, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
     .parameter "s"
 
     .prologue
-    .line 181
+    .line 186
     iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mResuming:Z
@@ -52,7 +52,7 @@
 
     if-nez v0, :cond_11
 
-    .line 182
+    .line 187
     iget-object v0, p0, Lcom/android/internal/policy/impl/PasswordUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/PasswordUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/PasswordUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -62,7 +62,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 184
+    .line 189
     :cond_11
     return-void
 .end method
@@ -75,7 +75,7 @@
     .parameter "after"
 
     .prologue
-    .line 178
+    .line 183
     return-void
 .end method
 
@@ -87,6 +87,6 @@
     .parameter "count"
 
     .prologue
-    .line 175
+    .line 180
     return-void
 .end method

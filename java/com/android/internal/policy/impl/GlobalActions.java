@@ -119,7 +119,7 @@ class GlobalActions
 
         public SilentModeToggleAction() {
             this$0 = GlobalActions.this;
-            super(0x10802a6, 0x10802a5, 0x1040138, 0x1040139, 0x104013a);
+            super(0x10802a7, 0x10802a6, 0x1040138, 0x1040139, 0x104013a);
         }
     }
 
@@ -563,7 +563,7 @@ _L5:
             mSilentModeAction = new SilentModeToggleAction();
         else
             mSilentModeAction = new SilentModeTriStateAction(mContext, mAudioManager, mHandler);
-        mAirplaneModeOn = new ToggleAction(0x10802db, 0x10802dc, 0x104013b, 0x104013c, 0x104013d) {
+        mAirplaneModeOn = new ToggleAction(0x10802dc, 0x10802dd, 0x104013b, 0x104013c, 0x104013d) {
 
             protected void changeStateFromPress(boolean flag1) {
                 if(mHasTelephony && !Boolean.parseBoolean(SystemProperties.get("ril.cdma.inecmmode"))) {

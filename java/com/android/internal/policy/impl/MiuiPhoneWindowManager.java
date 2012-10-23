@@ -234,9 +234,9 @@ _L3:
             exception;
             finishInputEvent(inputevent, flag);
             throw exception;
-            getMagnifier().hide();
             mIsTouchDown = false;
             mShowMagnifier = false;
+            getMagnifier().hide();
               goto _L5
         }
 

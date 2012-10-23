@@ -77,11 +77,11 @@ class LockScreen extends LinearLayout
         public void onTrigger(View view, int i) {
             mGlowPadView.getResourceIdForTarget(i);
             JVM INSTR lookupswitch 5: default 60
-        //                       17302167: 61
-        //                       17302240: 107
-        //                       17302265: 135
-        //                       17302273: 157
-        //                       17302276: 157;
+        //                       17302168: 61
+        //                       17302241: 107
+        //                       17302266: 135
+        //                       17302274: 157
+        //                       17302277: 157;
                goto _L1 _L2 _L3 _L4 _L5 _L5
 _L1:
             return;
@@ -244,24 +244,24 @@ _L3:
             slidingtab = mSlidingTab;
             if(mSilentMode) {
                 if(i != 0)
-                    j = 0x10802d9;
+                    j = 0x10802da;
                 else
-                    j = 0x10802d6;
+                    j = 0x10802d7;
             } else {
-                j = 0x10802d7;
+                j = 0x10802d8;
             }
             if(mSilentMode)
-                k = 0x10803ad;
+                k = 0x10803ae;
             else
-                k = 0x10803aa;
+                k = 0x10803ab;
             if(mSilentMode)
+                l = 0x1080397;
+            else
                 l = 0x1080396;
-            else
-                l = 0x1080395;
             if(mSilentMode)
-                i1 = 0x10803a9;
+                i1 = 0x10803aa;
             else
-                i1 = 0x10803a8;
+                i1 = 0x10803a9;
             slidingtab.setRightTabResources(j, k, l, i1);
         }
 
@@ -366,7 +366,7 @@ _L3:
             SlidingTab slidingtab = (SlidingTab)view;
             slidingtab.setHoldAfterTrigger(true, false);
             slidingtab.setLeftHintText(0x1040327);
-            slidingtab.setLeftTabResources(0x10802d8, 0x10803ab, 0x108038c, 0x108039f);
+            slidingtab.setLeftTabResources(0x10802d9, 0x10803ac, 0x108038d, 0x10803a0);
             obj = new SlidingTabMethods(slidingtab);
             slidingtab.setOnTriggerListener(((com.android.internal.widget.SlidingTab.OnTriggerListener) (obj)));
         } else
@@ -451,11 +451,11 @@ _L3:
         boolean flag5;
         boolean flag6;
         if(mUnlockWidgetMethods instanceof GlowPadViewMethods)
-            flag3 = ((GlowPadViewMethods)mUnlockWidgetMethods).isTargetPresent(0x10802e0);
+            flag3 = ((GlowPadViewMethods)mUnlockWidgetMethods).isTargetPresent(0x10802e1);
         else
             flag3 = false;
         if(mUnlockWidgetMethods instanceof GlowPadViewMethods)
-            flag4 = ((GlowPadViewMethods)mUnlockWidgetMethods).isTargetPresent(0x1080297);
+            flag4 = ((GlowPadViewMethods)mUnlockWidgetMethods).isTargetPresent(0x1080298);
         else
             flag4 = false;
         if(flag1)

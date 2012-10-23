@@ -11,15 +11,15 @@ import miui.app.screenelement.data.Variables;
 import miui.app.screenelement.elements.ScreenElementFactory;
 
 // Referenced classes of package miui.app.screenelement:
-//            ResourceManager, RendererController
+//            ResourceManager, RendererController, ResourceLoader
 
 public class ScreenContext {
 
-    public ScreenContext(Context context, ResourceManager.ResourceLoader resourceloader) {
+    public ScreenContext(Context context, ResourceLoader resourceloader) {
         this(context, new ResourceManager(resourceloader), new ScreenElementFactory());
     }
 
-    public ScreenContext(Context context, ResourceManager.ResourceLoader resourceloader, ScreenElementFactory screenelementfactory) {
+    public ScreenContext(Context context, ResourceLoader resourceloader, ScreenElementFactory screenelementfactory) {
         this(context, new ResourceManager(resourceloader), screenelementfactory);
     }
 

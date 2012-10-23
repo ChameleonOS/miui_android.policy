@@ -21,12 +21,13 @@ import android.widget.*;
 import com.android.internal.widget.*;
 import java.util.Iterator;
 import java.util.List;
+import miui.view.inputmethod.CustomizedImeForMiui;
 
 // Referenced classes of package com.android.internal.policy.impl:
 //            KeyguardScreen, KeyguardStatusViewManager, KeyguardScreenCallback, KeyguardUpdateMonitor
 
 public class PasswordUnlockScreen extends LinearLayout
-    implements KeyguardScreen, android.widget.TextView.OnEditorActionListener {
+    implements KeyguardScreen, android.widget.TextView.OnEditorActionListener, android.view.View.OnKeyListener {
 
     public PasswordUnlockScreen(Context context, Configuration configuration, LockPatternUtils lockpatternutils, KeyguardUpdateMonitor keyguardupdatemonitor, KeyguardScreenCallback keyguardscreencallback) {
         super(context);
@@ -53,6 +54,7 @@ public class PasswordUnlockScreen extends LinearLayout
             flag = false;
         mIsAlpha = flag;
         mPasswordEntry.setOnEditorActionListener(this);
+        mPasswordEntry.setOnKeyListener(this);
         mKeyboardHelper = new PasswordEntryKeyboardHelper(context, mKeyboardView, this, false);
         mKeyboardHelper.setEnableHaptics(mLockPatternUtils.isTactileFeedbackEnabled());
         flag1 = false;
@@ -91,10 +93,10 @@ public class PasswordUnlockScreen extends LinearLayout
         mPasswordEntry.requestFocus();
         if(mIsAlpha) {
             mPasswordEntry.setKeyListener(TextKeyListener.getInstance());
-            mPasswordEntry.setInputType(129);
+            mPasswordEntry.setInputType(0x800081);
         } else {
             mPasswordEntry.setKeyListener(DigitsKeyListener.getInstance());
-            mPasswordEntry.setInputType(18);
+            mPasswordEntry.setInputType(0x800012);
         }
         mPasswordEntry.setOnClickListener(new android.view.View.OnClickListener() {
 
@@ -159,6 +161,7 @@ public class PasswordUnlockScreen extends LinearLayout
             }
         }
         initLockByFindDevice();
+        hideKeyBoardViewIfNeed();
     }
 
     private void clearPinLockForFindDevice(String s) {
@@ -241,6 +244,11 @@ _L2:
           goto _L1
     }
 
+    private void hideKeyBoardViewIfNeed() {
+        if(CustomizedImeForMiui.defaultImeIsCustomizedForMiui(getContext().getContentResolver()))
+            mKeyboardView.setVisibility(8);
+    }
+
     private void initLockByFindDevice() {
         boolean flag = true;
         if(android.provider.Settings.Secure.getInt(mContext.getContentResolver(), miui.provider.ExtraSettings.Secure.FIND_DEVICE_PIN_LOCK, 0) != flag)
@@ -276,8 +284,17 @@ _L3:
         mUpdateMonitor.removeCallback(this);
     }
 
+    public boolean isAlphaOrDefaultImeIsCustomizedForMiui() {
+        boolean flag;
+        if(mIsAlpha || CustomizedImeForMiui.defaultImeIsCustomizedForMiui(getContext().getContentResolver()))
+            flag = true;
+        else
+            flag = false;
+        return flag;
+    }
+
     public boolean needsInput() {
-        return mIsAlpha;
+        return isAlphaOrDefaultImeIsCustomizedForMiui();
     }
 
     protected void onAttachedToWindow() {
@@ -301,6 +318,15 @@ _L3:
         } else {
             flag = false;
         }
+        return flag;
+    }
+
+    public boolean onKey(View view, int i, KeyEvent keyevent) {
+        boolean flag = true;
+        if(keyevent.getAction() == flag && i == 5)
+            mCallback.takeEmergencyCallAction();
+        else
+            flag = false;
         return flag;
     }
 

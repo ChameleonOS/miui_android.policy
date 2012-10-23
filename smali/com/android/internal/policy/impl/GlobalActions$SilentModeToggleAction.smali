@@ -28,9 +28,9 @@
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$SilentModeToggleAction;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     .line 617
-    const v1, 0x10802a6
+    const v1, 0x10802a7
 
-    const v2, 0x10802a5
+    const v2, 0x10802a6
 
     const v3, 0x1040138
 

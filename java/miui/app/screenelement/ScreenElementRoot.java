@@ -5,14 +5,13 @@
 package miui.app.screenelement;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 import miui.app.screenelement.data.BatteryVariableUpdater;
 import miui.app.screenelement.data.DateTimeVariableUpdater;
 import miui.app.screenelement.data.VariableBinder;
@@ -240,9 +239,7 @@ _L3:
     }
 
     public boolean load() {
-        Element element;
-        String s = super.mContext.mContext.getResources().getConfiguration().locale.getLanguage();
-        element = super.mContext.mResourceManager.getManifestRoot(s);
+        Element element = super.mContext.mResourceManager.getManifestRoot();
         if(element != null) goto _L2; else goto _L1
 _L1:
         boolean flag = false;
@@ -253,8 +250,6 @@ _L2:
         mFrameRate = mNormalFrameRate;
         i = Utils.getAttrAsInt(element, "screenWidth", 0);
         Element element1;
-        VariableBinderManager variablebindermanager;
-        Element element2;
         Display display;
         int j;
         int k;
@@ -267,14 +262,10 @@ _L2:
         mDefaultResourceDensity = (240 * mDefaultScreenWidth) / 480;
         super.mContext.setResourceDensity(mDefaultResourceDensity);
         mElementGroup = createElementGroup(element, super.mContext);
-        element1 = Utils.getChild(element, "VariableBinders");
-        variablebindermanager = new VariableBinderManager(element1, super.mContext);
-        mVariableBinderManager = variablebindermanager;
-        element2 = Utils.getChild(element, "ExternalCommands");
-        if(element2 != null) {
-            ExternalCommandManager externalcommandmanager = new ExternalCommandManager(element2, super.mContext, this);
-            mExternalCommandManager = externalcommandmanager;
-        }
+        mVariableBinderManager = new VariableBinderManager(Utils.getChild(element, "VariableBinders"), super.mContext);
+        element1 = Utils.getChild(element, "ExternalCommands");
+        if(element1 != null)
+            mExternalCommandManager = new ExternalCommandManager(element1, super.mContext, this);
         display = ((WindowManager)super.mContext.mContext.getSystemService("window")).getDefaultDisplay();
         j = display.getWidth();
         k = display.getHeight();
@@ -286,7 +277,7 @@ _L2:
             flag1 = true;
         else
             flag1 = false;
-        break MISSING_BLOCK_LABEL_489;
+        break MISSING_BLOCK_LABEL_454;
 _L5:
         if(mTargetDensity == 0) {
             mScale = (float)i1 / (float)mDefaultScreenWidth;

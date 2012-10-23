@@ -42,9 +42,11 @@ _L5:
         }
 
         private void refresh() {
-            mHandler.sendEmptyMessage(2);
-            mUpdateHandler.removeMessages(1);
-            mUpdateHandler.sendEmptyMessageDelayed(1, 1000L);
+            if(isShowing()) {
+                mHandler.sendEmptyMessage(4);
+                mUpdateHandler.removeMessages(1);
+                mUpdateHandler.sendEmptyMessageDelayed(1, 1000L);
+            }
         }
 
         public void hide() {
@@ -260,6 +262,10 @@ _L5:
         setLayoutInScreenEnabled(true);
     }
 
+    private void refreshMagnifier() {
+        mMagnifierView.updateMagnifier(new Rect(mX, mY, mX, mY));
+    }
+
     private void showMagnifier() {
         showMagnifier(new Rect(mX, mY, mX, mY));
     }
@@ -313,8 +319,8 @@ _L5:
 
     public static final float DEFAULT_TIMES = 1.2F;
     public static final String LOG_TAG = "MagnifierPopupWindow";
-    private static final int MSG_DISMISS = 4;
     private static final int MSG_HIDE_MAGNIFIER = 3;
+    private static final int MSG_REFRESH_MAGNIFIER = 4;
     private static final int MSG_SHOW_MAGNIFIER = 2;
     private static final int MSG_UPDATE_CACHE = 1;
     private static final int REFRESH_DELAY = 1000;
@@ -337,7 +343,7 @@ _L2:
                 mMagnifierView.hide();
             else
             if(message.what == 4)
-                dismiss();
+                refreshMagnifier();
             if(true) goto _L4; else goto _L3
 _L3:
         }
@@ -376,6 +382,7 @@ _L3:
     }
 
 */
+
 
 
 
