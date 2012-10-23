@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 160
+    .line 157
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$2;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,6 +42,6 @@
     .parameter "windowToken"
 
     .prologue
-    .line 161
+    .line 158
     return-void
 .end method

@@ -4,6 +4,7 @@
 
 package com.android.internal.policy.impl;
 
+import android.app.MiuiThemeHelper;
 import android.content.*;
 import android.content.res.Resources;
 import android.database.ContentObserver;
@@ -412,7 +413,7 @@ _L4:
 
     private static boolean isPluggedIn(BatteryStatus batterystatus) {
         boolean flag = true;
-        if(batterystatus.plugged != flag && batterystatus.plugged != 2)
+        if(batterystatus.plugged != flag && batterystatus.plugged != 2 || MiuiThemeHelper.isScreenshotMode())
             flag = false;
         return flag;
     }
@@ -576,7 +577,7 @@ _L3:
 
     public boolean shouldShowBatteryInfo() {
         boolean flag;
-        if(isPluggedIn(mBatteryStatus) || isBatteryLow(mBatteryStatus))
+        if((isPluggedIn(mBatteryStatus) || isBatteryLow(mBatteryStatus)) && !MiuiThemeHelper.isScreenshotMode())
             flag = true;
         else
             flag = false;

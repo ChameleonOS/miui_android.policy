@@ -524,7 +524,6 @@ _L5:
 
     public void init(Context context, IWindowManager iwindowmanager, android.view.WindowManagerPolicy.WindowManagerFuncs windowmanagerfuncs, LocalPowerManager localpowermanager) {
         super.init(context, iwindowmanager, windowmanagerfuncs, localpowermanager);
-        android.provider.Settings.Secure.putInt(context.getContentResolver(), "device_provisioned", 1);
         (new MiuiSettingsObserver(super.mHandler)).observe();
         super.mPowerLongPress = new Runnable() {
 
@@ -568,7 +567,7 @@ _L5:
             flag = true;
         else
             flag = false;
-        if(!mShortcutTriggered && (!super.mSystemReady || !mProximitySensor.isHeld())) goto _L2; else goto _L1
+        if(!mShortcutTriggered && (!super.mSystemReady || !mProximitySensor.shouldBeBlocked(keyevent))) goto _L2; else goto _L1
 _L1:
         l = -1L;
 _L10:
@@ -680,9 +679,10 @@ _L14:
     public int interceptKeyBeforeQueueing(KeyEvent keyevent, int i, boolean flag) {
         int j;
         boolean flag1;
-        boolean flag2;
+        boolean flag3;
         int k;
         j = keyevent.getKeyCode();
+        boolean flag2;
         if(keyevent.getAction() == 0)
             flag1 = true;
         else
@@ -695,11 +695,11 @@ _L14:
 _L1:
         j;
         JVM INSTR lookupswitch 5: default 88
-    //                   3: 198
-    //                   4: 204
-    //                   26: 210
-    //                   82: 204
-    //                   84: 204;
+    //                   3: 234
+    //                   4: 240
+    //                   26: 246
+    //                   82: 240
+    //                   84: 240;
            goto _L2 _L3 _L4 _L5 _L4 _L4
 _L2:
         if(j == 82)
@@ -715,59 +715,51 @@ _L2:
             mVolumeDownPressed = flag1;
         if(!mMenuPressed && !mBackPressed && !mVolumeUpPressed && !mVolumeDownPressed)
             mShortcutTriggered = false;
-        if(!super.mSystemReady) goto _L7; else goto _L6
-_L6:
-        if(!mShortcutTriggered && mBackPressed && mVolumeUpPressed)
+        if(!mShortcutTriggered && super.mSystemReady && mBackPressed && mVolumeUpPressed)
             mShortcutTriggered = releaseScreenOnProximitySensor();
-        if(!mProximitySensor.isHeld()) goto _L7; else goto _L8
+        if(flag)
+            flag3 = super.mKeyguardMediator.isShowingAndNotHidden();
+        else
+            flag3 = super.mKeyguardMediator.isShowing();
+        if(!flag && !flag2) goto _L7; else goto _L6
+_L6:
+        if(!mCameraKeyWakeScreen || !flag3 || j != 27 || flag1) goto _L9; else goto _L8
 _L8:
-        k = 0;
-_L9:
+        k = 4;
+_L10:
         return k;
 _L3:
         super.mHomePressed = flag1;
 _L4:
         k = 0;
-          goto _L9
+          goto _L10
 _L5:
-        if(!super.mHomePressed) goto _L2; else goto _L10
-_L10:
+        if(!super.mHomePressed) goto _L2; else goto _L11
+_L11:
         if(!flag1) {
             super.mHomePressed = false;
             interceptPowerKeyUp(false);
             super.mContext.sendBroadcast(new Intent("com.miui.app.ExtraStatusBarManager.TRIGGER_TOGGLE_SCREEN_BUTTONS"));
         }
         k = 0;
-          goto _L9
+          goto _L10
 _L7:
-        boolean flag3;
-        if(flag)
-            flag3 = super.mKeyguardMediator.isShowingAndNotHidden();
-        else
-            flag3 = super.mKeyguardMediator.isShowing();
-        if(!flag && !flag2) goto _L12; else goto _L11
-_L11:
-        if(!mCameraKeyWakeScreen || !flag3 || j != 27 || flag1)
-            break MISSING_BLOCK_LABEL_511;
-        k = 4;
-          goto _L9
-_L12:
         boolean flag5;
         boolean flag6;
         flag5 = true;
         flag6 = false;
         j;
-        JVM INSTR lookupswitch 4: default 416
-    //                   24: 458
-    //                   25: 458
-    //                   27: 449
-    //                   272: 440;
-           goto _L13 _L14 _L14 _L15 _L16
-_L13:
+        JVM INSTR lookupswitch 4: default 400
+    //                   24: 442
+    //                   25: 442
+    //                   27: 433
+    //                   272: 424;
+           goto _L12 _L13 _L13 _L14 _L15
+_L12:
         flag5 = false;
 _L19:
-        if(!flag5)
-            break MISSING_BLOCK_LABEL_511;
+        if(!flag5) goto _L9; else goto _L16
+_L16:
         if(!flag6) goto _L18; else goto _L17
 _L17:
         if(flag1)
@@ -779,20 +771,21 @@ _L17:
         } else {
             k = 2;
         }
-          goto _L9
-_L16:
+          goto _L10
+_L15:
         flag6 = mTrackballWakeScreen;
           goto _L19
-_L15:
+_L14:
         flag6 = mCameraKeyWakeScreen;
           goto _L19
-_L14:
+_L13:
         flag6 = mVolumeKeyWakeScreen;
         if(mScreenOffReason == 4)
             flag6 = false;
           goto _L19
 _L18:
         i &= -4;
+_L9:
         boolean flag4;
         if(!mShortcutTriggered && mMenuPressed && mVolumeUpPressed) {
             mShortcutTriggered = true;
@@ -804,7 +797,7 @@ _L18:
             super.mHandler.postDelayed(super.mScreenshotChordLongPress, 0L);
         }
         if(!flag1)
-            break MISSING_BLOCK_LABEL_678;
+            break MISSING_BLOCK_LABEL_662;
         IStatusBarService istatusbarservice;
         IWindowManager iwindowmanager;
         if(j == 26)
@@ -825,7 +818,7 @@ _L21:
         }
 _L22:
         k = super.interceptKeyBeforeQueueing(keyevent, i, flag);
-          goto _L9
+          goto _L10
         remoteexception;
           goto _L22
     }
@@ -869,7 +862,7 @@ _L22:
                 super();
             }
             });
-        if(super.mSystemReady && !mDisableProximitor && miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "enable_screen_on_proximity_sensor", true))
+        if(super.mSystemReady && !mDisableProximitor && isDeviceProvisioned() && miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "enable_screen_on_proximity_sensor", true))
             mProximitySensor.aquire();
     }
 
@@ -943,7 +936,7 @@ _L22:
 
     public void systemReady() {
         super.systemReady();
-        mProximitySensor = new MiuiScreenOnProximityLock(super.mContext);
+        mProximitySensor = new MiuiScreenOnProximityLock(super.mContext, super.mKeyguardMediator);
     }
 
     private static final int BTN_MOUSE = 272;

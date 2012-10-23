@@ -83,6 +83,7 @@ _L5:
         }
 
         void takeScreenshot() {
+            Trace.traceBegin(2L, "Magnifier");
             mDisplay.getRealMetrics(mDisplayMetrics);
             float af[] = new float[2];
             af[0] = mDisplayMetrics.widthPixels;
@@ -123,6 +124,7 @@ _L5:
             bitmap.setHasAlpha(false);
             bitmap.prepareToDraw();
             mBitmap = bitmap;
+            Trace.traceEnd(2L);
         }
 
         public void updateCache() {
