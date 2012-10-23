@@ -59,6 +59,10 @@ _L3:
 
     }
 
+    public ArrayList getElements() {
+        return mElements;
+    }
+
     public void init() {
         super.init();
         for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).init());

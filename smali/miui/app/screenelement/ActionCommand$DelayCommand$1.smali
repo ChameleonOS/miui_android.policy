@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 895
+    .line 896
     iput-object p1, p0, Lmiui/app/screenelement/ActionCommand$DelayCommand$1;->this$0:Lmiui/app/screenelement/ActionCommand$DelayCommand;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
     .registers 2
 
     .prologue
-    .line 898
+    .line 899
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$DelayCommand$1;->this$0:Lmiui/app/screenelement/ActionCommand$DelayCommand;
 
     #getter for: Lmiui/app/screenelement/ActionCommand$DelayCommand;->mCommand:Lmiui/app/screenelement/ActionCommand;
@@ -49,8 +49,8 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->doPerform()V
+    invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->perform()V
 
-    .line 899
+    .line 900
     return-void
 .end method

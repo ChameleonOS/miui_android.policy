@@ -20,6 +20,7 @@ public class TextScreenElement extends AnimatedScreenElement {
 
     public TextScreenElement(Element element, ScreenContext screencontext, ScreenElementRoot screenelementroot) throws ScreenElementLoadException {
         super(element, screencontext, screenelementroot);
+        mColor = -1;
         mPaint = new TextPaint();
         mMarqueePos = 3.402823E+38F;
         load(element);

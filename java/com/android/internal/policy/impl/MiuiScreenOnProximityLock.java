@@ -18,11 +18,14 @@ public class MiuiScreenOnProximityLock {
 _L1:
             mHandler.sendEmptyMessage(1);
             mHandler.removeMessages(2);
+            mHandler.removeMessages(3);
 _L4:
             return;
 _L2:
-            if(!mHandler.hasMessages(2))
-                mHandler.sendEmptyMessageDelayed(2, 1000L);
+            if(!mHandler.hasMessages(3)) {
+                mHandler.sendEmptyMessageDelayed(2, 300L);
+                mHandler.sendEmptyMessageDelayed(3, 1300L);
+            }
             if(true) goto _L4; else goto _L3
 _L3:
         }
@@ -66,6 +69,9 @@ _L3:
 
                 case 2: // '\002'
                     mPowerManager.userActivityWithForce(SystemClock.uptimeMillis(), false, true);
+                    break;
+
+                case 3: // '\003'
                     Intent intent = new Intent("miui.intent.action.RELEASE_PROXIMITY_SENSOR");
                     intent.putExtra("miui.intent.extra.DISABLE_PROXIMITY_SENSOR", true);
                     mContext.sendBroadcast(intent);
@@ -138,6 +144,7 @@ _L3:
         JVM INSTR monitorenter ;
         mHandler.removeMessages(1);
         mHandler.removeMessages(2);
+        mHandler.removeMessages(3);
         if(mHeld) {
             mHeld = false;
             mSensorManager.unregisterListener(mSensorEventListener);
@@ -152,10 +159,12 @@ _L3:
 
     private static final boolean DEBUG = false;
     private static final int EVENT_FAR_AWAY = 2;
+    private static final int EVENT_RELEASE = 3;
     private static final int EVENT_TOO_CLOSE = 1;
+    private static final int FAR_AWAR_DELAY = 300;
     private static final String LOG_TAG = "MiuiDelayedProximitySensorLock";
     private static final float PROXIMITY_THRESHOLD = 5F;
-    private static final int RELEASE_FAR_AWAR_DELAY = 1000;
+    private static final int RELEASE_DELAY = 1300;
     private Context mContext;
     private Handler mHandler;
     private boolean mHeld;

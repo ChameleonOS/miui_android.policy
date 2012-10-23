@@ -29,7 +29,7 @@
     .parameter
 
     .prologue
-    .line 40
+    .line 42
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     .parameter "x1"
 
     .prologue
-    .line 40
+    .line 42
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;-><init>(Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;)V
 
     return-void
@@ -52,17 +52,19 @@
 
 # virtual methods
 .method public handleChanges()V
-    .registers 5
+    .registers 6
 
     .prologue
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    .line 45
+    const/4 v3, 0x3
+
+    .line 47
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->mIsTooClose:Z
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_23
 
-    .line 46
+    .line 48
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
@@ -74,7 +76,17 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 47
+    .line 49
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
+
+    #getter for: Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->access$100(Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 50
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
@@ -84,13 +96,13 @@
 
     invoke-virtual {v0, v3}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 53
-    :cond_18
-    :goto_18
+    .line 57
+    :cond_22
+    :goto_22
     return-void
 
-    .line 49
-    :cond_19
+    .line 52
+    :cond_23
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
@@ -102,9 +114,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_22
 
-    .line 50
+    .line 53
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
@@ -112,11 +124,23 @@
 
     move-result-object v0
 
-    const-wide/16 v1, 0x3e8
+    const-wide/16 v1, 0x12c
+
+    invoke-virtual {v0, v4, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
+
+    .line 54
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->this$0:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;
+
+    #getter for: Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->access$100(Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;)Landroid/os/Handler;
+
+    move-result-object v0
+
+    const-wide/16 v1, 0x514
 
     invoke-virtual {v0, v3, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_18
+    goto :goto_22
 .end method
 
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
@@ -125,7 +149,7 @@
     .parameter "accuracy"
 
     .prologue
-    .line 67
+    .line 71
     return-void
 .end method
 
@@ -136,12 +160,12 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 57
+    .line 61
     iget-object v2, p1, Landroid/hardware/SensorEvent;->values:[F
 
     aget v0, v2, v1
 
-    .line 60
+    .line 64
     .local v0, distance:F
     float-to-double v2, v0
 
@@ -177,9 +201,9 @@
     :cond_21
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->mIsTooClose:Z
 
-    .line 62
+    .line 66
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->handleChanges()V
 
-    .line 63
+    .line 67
     return-void
 .end method

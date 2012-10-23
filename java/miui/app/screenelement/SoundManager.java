@@ -24,7 +24,7 @@ public class SoundManager
         mPlayingSoundMap = new ArrayList();
         mResourceManager = resourcemanager;
         mContext = context;
-        mSoundPool = new SoundPool(4, 3, 100);
+        mSoundPool = new SoundPool(4, 1, 100);
         mSoundPool.setOnLoadCompleteListener(this);
         mAudioManager = (AudioManager)context.getSystemService("audio");
     }

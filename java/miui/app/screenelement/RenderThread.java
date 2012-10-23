@@ -52,11 +52,17 @@ _L2:
 _L1:
         return;
 _L2:
+        long l = SystemClock.elapsedRealtime();
         ArrayList arraylist = mRendererControllerList;
         arraylist;
         JVM INSTR monitorenter ;
-        for(Iterator iterator = mRendererControllerList.iterator(); iterator.hasNext(); ((RendererController)iterator.next()).init());
-        break MISSING_BLOCK_LABEL_55;
+        RendererController renderercontroller;
+        for(Iterator iterator = mRendererControllerList.iterator(); iterator.hasNext(); renderercontroller.init()) {
+            renderercontroller = (RendererController)iterator.next();
+            renderercontroller.setLastUpdateTime(l);
+        }
+
+        break MISSING_BLOCK_LABEL_74;
         Exception exception;
         exception;
         throw exception;

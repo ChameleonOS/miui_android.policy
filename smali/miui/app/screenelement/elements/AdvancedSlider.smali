@@ -95,7 +95,7 @@
     .registers 1
 
     .prologue
-    .line 28
+    .line 29
     const-class v0, Lmiui/app/screenelement/elements/AdvancedSlider;
 
     invoke-virtual {v0}, Ljava/lang/Class;->desiredAssertionStatus()Z
@@ -129,17 +129,17 @@
     .end annotation
 
     .prologue
-    .line 267
+    .line 268
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 68
+    .line 69
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
-    .line 76
+    .line 77
     new-instance v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     const/4 v1, 0x0
@@ -148,12 +148,12 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
-    .line 268
+    .line 269
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_52
 
-    .line 269
+    .line 270
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -168,7 +168,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 270
+    .line 271
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -183,7 +183,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveXVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 271
+    .line 272
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -198,7 +198,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveYVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 272
+    .line 273
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -213,11 +213,11 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveDistVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 274
+    .line 275
     :cond_52
     invoke-virtual {p0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider;->load(Lorg/w3c/dom/Element;)V
 
-    .line 275
+    .line 276
     return-void
 .end method
 
@@ -226,7 +226,7 @@
     .parameter "x0"
 
     .prologue
-    .line 28
+    .line 29
     invoke-direct {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
 
     return-void
@@ -237,7 +237,7 @@
     .parameter "x0"
 
     .prologue
-    .line 28
+    .line 29
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     return-object v0
@@ -250,7 +250,7 @@
     .parameter "x2"
 
     .prologue
-    .line 28
+    .line 29
     invoke-direct {p0, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider;->moveStartPoint(FF)V
 
     return-void
@@ -261,7 +261,7 @@
     .parameter "x0"
 
     .prologue
-    .line 28
+    .line 29
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mPressed:Z
 
     return v0
@@ -272,7 +272,7 @@
     .parameter "x0"
 
     .prologue
-    .line 28
+    .line 29
     iget v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mTouchOffsetX:F
 
     return v0
@@ -283,7 +283,7 @@
     .parameter "x0"
 
     .prologue
-    .line 28
+    .line 29
     iget v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mTouchOffsetY:F
 
     return v0
@@ -297,10 +297,10 @@
 
     const-wide/16 v5, 0x0
 
-    .line 1094
+    .line 1101
     iput-boolean v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mPressed:Z
 
-    .line 1095
+    .line 1102
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
@@ -317,14 +317,14 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->moveTo(FF)V
 
-    .line 1096
+    .line 1103
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     sget-object v3, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Normal:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     invoke-virtual {v2, v3}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->setState(Lmiui/app/screenelement/elements/AdvancedSlider$State;)V
 
-    .line 1097
+    .line 1104
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -345,7 +345,7 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1098
+    .line 1105
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     sget-object v2, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Normal:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
@@ -353,41 +353,41 @@
 
     goto :goto_23
 
-    .line 1101
+    .line 1108
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_35
     iget-boolean v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v2, :cond_4d
 
-    .line 1102
+    .line 1109
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveXVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v2, v5, v6}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1103
+    .line 1110
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveYVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v2, v5, v6}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1104
+    .line 1111
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveDistVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v2, v5, v6}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1105
+    .line 1112
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v2, v5, v6}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1107
+    .line 1114
     :cond_4d
     iput-boolean v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
-    .line 1108
+    .line 1115
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->requestUpdate()V
 
-    .line 1109
+    .line 1116
     return-void
 .end method
 
@@ -397,10 +397,10 @@
     .parameter "endPoint"
 
     .prologue
-    .line 1045
+    .line 1052
     const/4 v2, 0x0
 
-    .line 1046
+    .line 1053
     .local v2, reached:Z
     iget-wide v3, p1, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
@@ -416,7 +416,7 @@
 
     if-eqz v3, :cond_3b
 
-    .line 1047
+    .line 1054
     invoke-virtual {p2}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->getState()Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     move-result-object v3
@@ -425,12 +425,12 @@
 
     if-eq v3, v4, :cond_39
 
-    .line 1048
+    .line 1055
     sget-object v3, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Reached:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     invoke-virtual {p2, v3}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->setState(Lmiui/app/screenelement/elements/AdvancedSlider$State;)V
 
-    .line 1049
+    .line 1056
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -452,34 +452,34 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1050
+    .line 1057
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     if-eq v0, p2, :cond_20
 
-    .line 1051
+    .line 1058
     sget-object v3, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Pressed:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     invoke-virtual {v0, v3}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->setState(Lmiui/app/screenelement/elements/AdvancedSlider$State;)V
 
     goto :goto_20
 
-    .line 1053
+    .line 1060
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_34
     iget-object v3, p2, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;->mName:Ljava/lang/String;
 
     invoke-virtual {p0, v3}, Lmiui/app/screenelement/elements/AdvancedSlider;->onReach(Ljava/lang/String;)V
 
-    .line 1055
+    .line 1062
     .end local v1           #i$:Ljava/util/Iterator;
     :cond_39
     const/4 v2, 0x1
 
-    .line 1059
+    .line 1066
     :goto_3a
     return v2
 
-    .line 1057
+    .line 1064
     :cond_3b
     sget-object v3, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Pressed:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
@@ -496,20 +496,20 @@
     .prologue
     const/4 v8, 0x0
 
-    .line 984
+    .line 991
     const v3, 0x7f7fffff
 
-    .line 985
+    .line 992
     .local v3, minDist:F
     const/4 v4, 0x0
 
-    .line 986
+    .line 993
     .local v4, point:Lmiui/app/screenelement/util/Utils$Point;
     new-instance v7, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
 
     invoke-direct {v7, p0, v8}, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;-><init>(Lmiui/app/screenelement/elements/AdvancedSlider;Lmiui/app/screenelement/elements/AdvancedSlider$1;)V
 
-    .line 988
+    .line 995
     .local v7, result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     iget-object v9, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
@@ -532,44 +532,44 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 989
+    .line 996
     .local v1, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     #calls: Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->getNearestPoint(FF)Lmiui/app/screenelement/util/Utils$Point;
     invoke-static {v1, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->access$1000(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;FF)Lmiui/app/screenelement/util/Utils$Point;
 
     move-result-object v5
 
-    .line 990
+    .line 997
     .local v5, pt:Lmiui/app/screenelement/util/Utils$Point;
     invoke-virtual {v1, v5, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->getTransformedDist(Lmiui/app/screenelement/util/Utils$Point;FF)F
 
     move-result v0
 
-    .line 991
+    .line 998
     .local v0, di:F
     cmpg-float v9, v0, v3
 
     if-gez v9, :cond_10
 
-    .line 992
+    .line 999
     move v3, v0
 
-    .line 993
+    .line 1000
     move-object v4, v5
 
-    .line 994
+    .line 1001
     iput-object v1, v7, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->endPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     goto :goto_10
 
-    .line 997
+    .line 1004
     .end local v0           #di:F
     .end local v1           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     .end local v5           #pt:Lmiui/app/screenelement/util/Utils$Point;
     :cond_2d
     const/4 v6, 0x0
 
-    .line 1000
+    .line 1007
     .local v6, reached:Z
     const v9, 0x7f7fffff
 
@@ -577,7 +577,7 @@
 
     if-gez v9, :cond_85
 
-    .line 1001
+    .line 1008
     iget-wide v8, v4, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
     double-to-float v8, v8
@@ -588,21 +588,21 @@
 
     invoke-direct {p0, v8, v9}, Lmiui/app/screenelement/elements/AdvancedSlider;->moveStartPoint(FF)V
 
-    .line 1004
+    .line 1011
     const v8, 0x7effffff
 
     cmpg-float v8, v3, v8
 
     if-gez v8, :cond_64
 
-    .line 1006
+    .line 1013
     iget-object v8, v7, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->endPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     invoke-direct {p0, v4, v8}, Lmiui/app/screenelement/elements/AdvancedSlider;->checkEndPoint(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Z
 
     move-result v6
 
-    .line 1023
+    .line 1030
     :cond_4b
     :goto_4b
     iget-object v9, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
@@ -614,12 +614,12 @@
     :goto_51
     invoke-virtual {v9, v8}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->setState(Lmiui/app/screenelement/elements/AdvancedSlider$State;)V
 
-    .line 1024
+    .line 1031
     iget-boolean v8, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v8, :cond_61
 
-    .line 1025
+    .line 1032
     iget-object v10, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     if-eqz v6, :cond_91
@@ -629,16 +629,16 @@
     :goto_5e
     invoke-virtual {v10, v8, v9}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1027
+    .line 1034
     :cond_61
     iput-boolean v6, v7, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->reached:Z
 
-    .line 1028
+    .line 1035
     .end local v7           #result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     :goto_63
     return-object v7
 
-    .line 1009
+    .line 1016
     .restart local v7       #result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     :cond_64
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
@@ -660,7 +660,7 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1010
+    .line 1017
     .restart local v1       #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mPath:Ljava/util/ArrayList;
     invoke-static {v1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->access$300(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Ljava/util/ArrayList;
@@ -669,19 +669,19 @@
 
     if-nez v8, :cond_6a
 
-    .line 1012
+    .line 1019
     invoke-direct {p0, v4, v1}, Lmiui/app/screenelement/elements/AdvancedSlider;->checkEndPoint(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Z
 
     move-result v6
 
     if-eqz v6, :cond_6a
 
-    .line 1013
+    .line 1020
     iput-object v1, v7, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->endPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     goto :goto_4b
 
-    .line 1019
+    .line 1026
     .end local v1           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_85
     const-string v9, "LockScreen_AdvancedSlider"
@@ -692,16 +692,16 @@
 
     move-object v7, v8
 
-    .line 1020
+    .line 1027
     goto :goto_63
 
-    .line 1023
+    .line 1030
     :cond_8e
     sget-object v8, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Pressed:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     goto :goto_51
 
-    .line 1025
+    .line 1032
     :cond_91
     const-wide/high16 v8, 0x3ff0
 
@@ -713,23 +713,23 @@
     .parameter "endPoint"
 
     .prologue
-    .line 1064
+    .line 1071
     const/4 v0, 0x0
 
-    .line 1065
+    .line 1072
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p1, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mAction:Lmiui/app/screenelement/elements/AdvancedSlider$UnlockAction;
 
     if-eqz v1, :cond_b
 
-    .line 1066
+    .line 1073
     iget-object v1, p1, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mAction:Lmiui/app/screenelement/elements/AdvancedSlider$UnlockAction;
 
     invoke-virtual {v1}, Lmiui/app/screenelement/elements/AdvancedSlider$UnlockAction;->perform()Landroid/content/Intent;
 
     move-result-object v0
 
-    .line 1069
+    .line 1076
     :cond_b
     iget-object v1, p1, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;->mName:Ljava/lang/String;
 
@@ -750,19 +750,19 @@
     .end annotation
 
     .prologue
-    .line 295
+    .line 296
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->clear()V
 
-    .line 296
+    .line 297
     const-string v3, "EndPoint"
 
     invoke-interface {p1, v3}, Lorg/w3c/dom/Element;->getElementsByTagName(Ljava/lang/String;)Lorg/w3c/dom/NodeList;
 
     move-result-object v2
 
-    .line 297
+    .line 298
     .local v2, nodeList:Lorg/w3c/dom/NodeList;
     const/4 v0, 0x0
 
@@ -774,14 +774,14 @@
 
     if-ge v0, v3, :cond_25
 
-    .line 298
+    .line 299
     invoke-interface {v2, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v1
 
     check-cast v1, Lorg/w3c/dom/Element;
 
-    .line 299
+    .line 300
     .local v1, item:Lorg/w3c/dom/Element;
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
@@ -791,12 +791,12 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 297
+    .line 298
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_c
 
-    .line 301
+    .line 302
     .end local v1           #item:Lorg/w3c/dom/Element;
     :cond_25
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
@@ -814,10 +814,10 @@
 
     invoke-static {v3, v4}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 302
+    .line 303
     return-void
 
-    .line 301
+    .line 302
     :cond_34
     const/4 v3, 0x0
 
@@ -834,14 +834,14 @@
     .end annotation
 
     .prologue
-    .line 289
+    .line 290
     const-string v1, "StartPoint"
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v0
 
-    .line 290
+    .line 291
     .local v0, ele:Lorg/w3c/dom/Element;
     if-eqz v0, :cond_16
 
@@ -852,17 +852,17 @@
 
     invoke-static {v1, v2}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 291
+    .line 292
     new-instance v1, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-direct {v1, p0, v0}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;-><init>(Lmiui/app/screenelement/elements/AdvancedSlider;Lorg/w3c/dom/Element;)V
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
-    .line 292
+    .line 293
     return-void
 
-    .line 290
+    .line 291
     :cond_16
     const/4 v1, 0x0
 
@@ -875,17 +875,17 @@
     .parameter "y"
 
     .prologue
-    .line 1032
+    .line 1039
     iget-object v6, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v6, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->moveTo(FF)V
 
-    .line 1034
+    .line 1041
     iget-boolean v6, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v6, :cond_4f
 
-    .line 1035
+    .line 1042
     iget-object v6, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     iget v6, v6, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;->mCurrentX:F
@@ -910,7 +910,7 @@
 
     sub-double v2, v6, v8
 
-    .line 1036
+    .line 1043
     .local v2, move_x:D
     iget-object v6, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
@@ -936,7 +936,7 @@
 
     sub-double v4, v6, v8
 
-    .line 1037
+    .line 1044
     .local v4, move_y:D
     mul-double v6, v2, v2
 
@@ -948,23 +948,23 @@
 
     move-result-wide v0
 
-    .line 1038
+    .line 1045
     .local v0, move_dist:D
     iget-object v6, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveXVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v6, v2, v3}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1039
+    .line 1046
     iget-object v6, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveYVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v6, v4, v5}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1040
+    .line 1047
     iget-object v6, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoveDistVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {v6, v0, v1}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 1042
+    .line 1049
     .end local v0           #move_dist:D
     .end local v2           #move_x:D
     .end local v4           #move_y:D
@@ -979,22 +979,22 @@
     .parameter "name"
 
     .prologue
-    .line 1149
+    .line 1156
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
 
     move-result-object v0
 
-    .line 1150
+    .line 1157
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
     if-eqz v0, :cond_8
 
     move-object v3, v0
 
-    .line 1163
+    .line 1170
     :goto_7
     return-object v3
 
-    .line 1153
+    .line 1160
     :cond_8
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
@@ -1002,15 +1002,15 @@
 
     move-result-object v0
 
-    .line 1154
+    .line 1161
     if-eqz v0, :cond_12
 
     move-object v3, v0
 
-    .line 1155
+    .line 1162
     goto :goto_7
 
-    .line 1157
+    .line 1164
     :cond_12
     iget-object v3, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
@@ -1032,21 +1032,21 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1158
+    .line 1165
     .local v1, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v1, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
 
     move-result-object v0
 
-    .line 1159
+    .line 1166
     if-eqz v0, :cond_18
 
     move-object v3, v0
 
-    .line 1160
+    .line 1167
     goto :goto_7
 
-    .line 1163
+    .line 1170
     .end local v1           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_2c
     const/4 v3, 0x0
@@ -1058,15 +1058,15 @@
     .registers 4
 
     .prologue
-    .line 857
+    .line 864
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->finish()V
 
-    .line 858
+    .line 865
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->finish()V
 
-    .line 859
+    .line 866
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1087,13 +1087,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 860
+    .line 867
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->finish()V
 
     goto :goto_e
 
-    .line 862
+    .line 869
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_1e
     return-void
@@ -1103,20 +1103,20 @@
     .registers 4
 
     .prologue
-    .line 847
+    .line 854
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->init()V
 
-    .line 848
+    .line 855
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->init()V
 
-    .line 849
+    .line 856
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->init()V
 
-    .line 850
+    .line 857
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1137,13 +1137,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 851
+    .line 858
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->init()V
 
     goto :goto_13
 
-    .line 853
+    .line 860
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_23
     return-void
@@ -1153,7 +1153,7 @@
     .registers 2
 
     .prologue
-    .line 1112
+    .line 1119
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->isVisible()Z
 
     move-result v0
@@ -1185,7 +1185,7 @@
     .end annotation
 
     .prologue
-    .line 278
+    .line 279
     sget-boolean v0, Lmiui/app/screenelement/elements/AdvancedSlider;->$assertionsDisabled:Z
 
     if-nez v0, :cond_16
@@ -1208,19 +1208,19 @@
 
     throw v0
 
-    .line 283
+    .line 284
     :cond_16
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->load(Lorg/w3c/dom/Element;)V
 
-    .line 284
+    .line 285
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider;->loadStartPoint(Lorg/w3c/dom/Element;)V
 
-    .line 285
+    .line 286
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider;->loadEndPoint(Lorg/w3c/dom/Element;)V
 
-    .line 286
+    .line 287
     return-void
 .end method
 
@@ -1228,14 +1228,14 @@
     .registers 3
 
     .prologue
-    .line 1077
+    .line 1084
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/ScreenElementRoot;->haptic(I)V
 
-    .line 1078
+    .line 1085
     return-void
 .end method
 
@@ -1245,17 +1245,17 @@
     .parameter "intent"
 
     .prologue
-    .line 1088
+    .line 1095
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mOnLaunchListener:Lmiui/app/screenelement/elements/AdvancedSlider$OnLaunchListener;
 
     if-eqz v0, :cond_9
 
-    .line 1089
+    .line 1096
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mOnLaunchListener:Lmiui/app/screenelement/elements/AdvancedSlider$OnLaunchListener;
 
     invoke-interface {v0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$OnLaunchListener;->onLaunch(Ljava/lang/String;)V
 
-    .line 1090
+    .line 1097
     :cond_9
     const/4 v0, 0x0
 
@@ -1267,14 +1267,14 @@
     .parameter "name"
 
     .prologue
-    .line 1082
+    .line 1089
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/ScreenElementRoot;->haptic(I)V
 
-    .line 1083
+    .line 1090
     return-void
 .end method
 
@@ -1282,14 +1282,14 @@
     .registers 3
 
     .prologue
-    .line 1073
+    .line 1080
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/ScreenElementRoot;->haptic(I)V
 
-    .line 1074
+    .line 1081
     return-void
 .end method
 
@@ -1304,7 +1304,7 @@
 
     const/4 v7, 0x0
 
-    .line 896
+    .line 903
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->isVisible()Z
 
     move-result v8
@@ -1313,28 +1313,28 @@
 
     move v4, v7
 
-    .line 971
+    .line 978
     :cond_a
     :goto_a
     return v4
 
-    .line 899
+    .line 906
     :cond_b
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v5
 
-    .line 900
+    .line 907
     .local v5, x:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result v6
 
-    .line 902
+    .line 909
     .local v6, y:F
     const/4 v4, 0x0
 
-    .line 903
+    .line 910
     .local v4, ret:Z
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -1344,7 +1344,7 @@
 
     goto :goto_a
 
-    .line 905
+    .line 912
     :pswitch_1c
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
@@ -1354,10 +1354,10 @@
 
     if-eqz v7, :cond_a
 
-    .line 906
+    .line 913
     iput-boolean v9, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
-    .line 907
+    .line 914
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v7}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->getX()F
@@ -1368,7 +1368,7 @@
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mTouchOffsetX:F
 
-    .line 908
+    .line 915
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v7}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->getY()F
@@ -1379,14 +1379,14 @@
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mTouchOffsetY:F
 
-    .line 909
+    .line 916
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     sget-object v8, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Pressed:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     invoke-virtual {v7, v8}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->setState(Lmiui/app/screenelement/elements/AdvancedSlider$State;)V
 
-    .line 910
+    .line 917
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1407,7 +1407,7 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 911
+    .line 918
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     sget-object v7, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Pressed:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
@@ -1415,66 +1415,66 @@
 
     goto :goto_47
 
-    .line 913
+    .line 920
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_59
     iput-boolean v9, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mPressed:Z
 
-    .line 917
+    .line 924
     iget-boolean v7, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v7, :cond_66
 
-    .line 918
+    .line 925
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-wide/high16 v8, 0x3ff0
 
     invoke-virtual {v7, v8, v9}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 920
+    .line 927
     :cond_66
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     invoke-virtual {v7}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->init()V
 
-    .line 921
+    .line 928
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->onStart()V
 
-    .line 922
+    .line 929
     const/4 v4, 0x1
 
     goto :goto_a
 
-    .line 926
+    .line 933
     .end local v1           #i$:Ljava/util/Iterator;
     :pswitch_70
     iget-boolean v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
     if-eqz v8, :cond_a
 
-    .line 927
+    .line 934
     invoke-direct {p0, v5, v6}, Lmiui/app/screenelement/elements/AdvancedSlider;->checkTouch(FF)Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
 
     move-result-object v3
 
-    .line 928
+    .line 935
     .local v3, result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     if-eqz v3, :cond_80
 
-    .line 929
+    .line 936
     iget-object v7, v3, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->endPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     iput-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mCurrentEndPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 935
+    .line 942
     :goto_7e
     const/4 v4, 0x1
 
-    .line 936
+    .line 943
     goto :goto_a
 
-    .line 931
+    .line 938
     :cond_80
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
@@ -1482,84 +1482,84 @@
 
     invoke-virtual {v8, v9}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->startCancelMoving(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)V
 
-    .line 932
+    .line 939
     iput-boolean v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
-    .line 933
+    .line 940
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->onCancel()V
 
     goto :goto_7e
 
-    .line 940
+    .line 947
     .end local v3           #result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     :pswitch_8d
     const/4 v2, 0x0
 
-    .line 941
+    .line 948
     .local v2, launched:Z
     iget-boolean v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
     if-eqz v8, :cond_a
 
-    .line 942
+    .line 949
     const-string v8, "LockScreen_AdvancedSlider"
 
     const-string v9, "unlock touch up"
 
     invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 943
+    .line 950
     invoke-direct {p0, v5, v6}, Lmiui/app/screenelement/elements/AdvancedSlider;->checkTouch(FF)Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
 
     move-result-object v3
 
-    .line 944
+    .line 951
     .restart local v3       #result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     if-eqz v3, :cond_ad
 
-    .line 945
+    .line 952
     iget-boolean v8, v3, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->reached:Z
 
     if-eqz v8, :cond_a9
 
-    .line 946
+    .line 953
     iget-object v8, v3, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->endPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     invoke-direct {p0, v8}, Lmiui/app/screenelement/elements/AdvancedSlider;->doLaunch(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Z
 
     move-result v2
 
-    .line 948
+    .line 955
     :cond_a9
     iget-object v8, v3, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->endPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     iput-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mCurrentEndPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 951
+    .line 958
     :cond_ad
     iput-boolean v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
-    .line 952
+    .line 959
     if-nez v2, :cond_bb
 
-    .line 953
+    .line 960
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mCurrentEndPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
     invoke-virtual {v7, v8}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->startCancelMoving(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)V
 
-    .line 954
+    .line 961
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->onCancel()V
 
-    .line 956
+    .line 963
     :cond_bb
     const/4 v4, 0x1
 
-    .line 957
+    .line 964
     goto/16 :goto_a
 
-    .line 961
+    .line 968
     .end local v2           #launched:Z
     .end local v3           #result:Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;
     :pswitch_be
@@ -1567,26 +1567,26 @@
 
     if-eqz v8, :cond_a
 
-    .line 962
+    .line 969
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     invoke-virtual {v8, v10}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->startCancelMoving(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)V
 
-    .line 963
+    .line 970
     iput-object v10, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mCurrentEndPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 964
+    .line 971
     iput-boolean v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mMoving:Z
 
-    .line 965
+    .line 972
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->onCancel()V
 
-    .line 966
+    .line 973
     const/4 v4, 0x1
 
     goto/16 :goto_a
 
-    .line 903
+    .line 910
     nop
 
     :pswitch_data_d2
@@ -1603,18 +1603,18 @@
     .registers 4
 
     .prologue
-    .line 866
+    .line 873
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->pause()V
 
-    .line 868
+    .line 875
     invoke-direct {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
 
-    .line 870
+    .line 877
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->pause()V
 
-    .line 871
+    .line 878
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1635,13 +1635,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 872
+    .line 879
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->pause()V
 
     goto :goto_11
 
-    .line 874
+    .line 881
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_21
     return-void
@@ -1652,18 +1652,18 @@
     .parameter "c"
 
     .prologue
-    .line 1117
+    .line 1124
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->isVisible()Z
 
     move-result v2
 
     if-nez v2, :cond_7
 
-    .line 1124
+    .line 1131
     :goto_6
     return-void
 
-    .line 1120
+    .line 1127
     :cond_7
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
@@ -1685,13 +1685,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1121
+    .line 1128
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->render(Landroid/graphics/Canvas;)V
 
     goto :goto_d
 
-    .line 1123
+    .line 1130
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_1d
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
@@ -1705,15 +1705,15 @@
     .registers 4
 
     .prologue
-    .line 887
+    .line 894
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->reset()V
 
-    .line 888
+    .line 895
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->reset()V
 
-    .line 889
+    .line 896
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1734,13 +1734,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 890
+    .line 897
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->reset()V
 
     goto :goto_e
 
-    .line 892
+    .line 899
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_1e
     return-void
@@ -1750,15 +1750,15 @@
     .registers 4
 
     .prologue
-    .line 878
+    .line 885
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->resume()V
 
-    .line 879
+    .line 886
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->resume()V
 
-    .line 880
+    .line 887
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1779,13 +1779,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 881
+    .line 888
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->resume()V
 
     goto :goto_e
 
-    .line 883
+    .line 890
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_1e
     return-void
@@ -1796,10 +1796,10 @@
     .parameter "l"
 
     .prologue
-    .line 305
+    .line 306
     iput-object p1, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mOnLaunchListener:Lmiui/app/screenelement/elements/AdvancedSlider$OnLaunchListener;
 
-    .line 306
+    .line 307
     return-void
 .end method
 
@@ -1809,12 +1809,12 @@
     .parameter "show"
 
     .prologue
-    .line 1141
+    .line 1148
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->showCategory(Ljava/lang/String;Z)V
 
-    .line 1142
+    .line 1149
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1835,13 +1835,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1143
+    .line 1150
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->showCategory(Ljava/lang/String;Z)V
 
     goto :goto_b
 
-    .line 1145
+    .line 1152
     .end local v0           #ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     :cond_1b
     return-void
@@ -1852,32 +1852,32 @@
     .parameter "currentTime"
 
     .prologue
-    .line 1128
+    .line 1135
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->tick(J)V
 
-    .line 1129
+    .line 1136
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/AdvancedSlider;->isVisible()Z
 
     move-result v2
 
     if-nez v2, :cond_a
 
-    .line 1138
+    .line 1145
     :cond_9
     return-void
 
-    .line 1132
+    .line 1139
     :cond_a
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mBounceAnimationController:Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;
 
     invoke-virtual {v2, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->tick(J)V
 
-    .line 1134
+    .line 1141
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
     invoke-virtual {v2, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->tick(J)V
 
-    .line 1135
+    .line 1142
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1898,7 +1898,7 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 1136
+    .line 1143
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->tick(J)V
 

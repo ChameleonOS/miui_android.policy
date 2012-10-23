@@ -69,6 +69,10 @@ _L2:
 _L3:
     }
 
+    public RendererController getRenderController() {
+        return mController;
+    }
+
     public void requestUpdate() {
         if(mController != null)
             mController.requestUpdate();

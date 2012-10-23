@@ -66,7 +66,8 @@ public class DateTimeVariableUpdater extends VariableUpdater {
     public void init() {
         super.init();
         refreshAlarm();
-        mHandler.post(mTimeUpdater);
+        updateTime();
+        mHandler.postDelayed(mTimeUpdater, 500L);
     }
 
     public void pause() {

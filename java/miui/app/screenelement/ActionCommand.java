@@ -134,7 +134,7 @@ _L3:
             mContext.mHandler.postDelayed(new Runnable() {
 
                 public void run() {
-                    mCommand.doPerform();
+                    mCommand.perform();
                 }
 
                 final DelayCommand this$0;
@@ -165,7 +165,7 @@ _L3:
 
         protected void doPerform() {
             if(mCondition.evaluate(mContext.mVariables) > 0.0D)
-                mCommand.doPerform();
+                mCommand.perform();
         }
 
         public void init() {
@@ -344,7 +344,7 @@ _L3:
 
     private static class UsbStorageSwitchCommand extends NotificationReceiver {
 
-        public void doPerform() {
+        protected void doPerform() {
             if(mStorageManager != null) goto _L2; else goto _L1
 _L1:
             return;
@@ -448,7 +448,7 @@ _L4:
             return flag;
         }
 
-        public void doPerform() {
+        protected void doPerform() {
             if(ensureBluetoothAdapter()) goto _L2; else goto _L1
 _L1:
             return;
@@ -517,7 +517,7 @@ _L4:
             return flag;
         }
 
-        public void doPerform() {
+        protected void doPerform() {
             if(ensureConnectivityManager()) goto _L2; else goto _L1
 _L1:
             return;
@@ -562,7 +562,7 @@ _L3:
 
     private static class WifiSwitchCommand extends NotificationReceiver {
 
-        public void doPerform() {
+        protected void doPerform() {
             if(!mOnOffHelper.mIsToggle) goto _L2; else goto _L1
 _L1:
             mWifiState.toggleState(mContext.mContext);
@@ -914,7 +914,7 @@ _L3:
 
     private static class RingModeCommand extends NotificationReceiver {
 
-        public void doPerform() {
+        protected void doPerform() {
             if(mAudioManager != null) {
                 mToggleHelper.click();
                 int i = mToggleHelper.getModeId();

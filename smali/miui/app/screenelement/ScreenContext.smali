@@ -128,15 +128,15 @@
     .parameter "name"
 
     .prologue
-    .line 99
+    .line 103
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     if-nez v0, :cond_6
 
-    .line 100
+    .line 104
     const/4 v0, 0x0
 
-    .line 101
+    .line 105
     :goto_5
     return-object v0
 
@@ -220,6 +220,16 @@
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
 
     goto :goto_6
+.end method
+
+.method public getRenderController()Lmiui/app/screenelement/RendererController;
+    .registers 2
+
+    .prologue
+    .line 99
+    iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
+
+    return-object v0
 .end method
 
 .method public requestUpdate()V

@@ -98,25 +98,27 @@ _L2:
         if(l - mLastUpdateTimeMillis >= 1000L) {
             if(super.mBitmap == null)
                 createBitmap();
-            mCalendar.setTimeInMillis(System.currentTimeMillis());
-            CharSequence charsequence = DateFormat.format(mFormat, mCalendar);
-            if(!charsequence.equals(mPreTime)) {
-                mPreTime = charsequence;
-                Canvas canvas = new Canvas(super.mBitmap);
-                canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
-                int i = 0;
-                for(int j = 0; j < charsequence.length(); j++) {
-                    Bitmap bitmap = getDigitBmp(charsequence.charAt(j));
-                    if(bitmap != null) {
-                        canvas.drawBitmap(bitmap, i, 0.0F, null);
-                        i += bitmap.getWidth();
+            if(super.mBitmap != null) {
+                mCalendar.setTimeInMillis(System.currentTimeMillis());
+                CharSequence charsequence = DateFormat.format(mFormat, mCalendar);
+                if(!charsequence.equals(mPreTime)) {
+                    mPreTime = charsequence;
+                    Canvas canvas = new Canvas(super.mBitmap);
+                    canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+                    int i = 0;
+                    for(int j = 0; j < charsequence.length(); j++) {
+                        Bitmap bitmap = getDigitBmp(charsequence.charAt(j));
+                        if(bitmap != null) {
+                            canvas.drawBitmap(bitmap, i, 0.0F, null);
+                            i += bitmap.getWidth();
+                        }
                     }
-                }
 
-                mBmpWidth = i;
-                setActualWidth(descale(mBmpWidth));
-                requestUpdate();
-                mLastUpdateTimeMillis = l;
+                    mBmpWidth = i;
+                    setActualWidth(descale(mBmpWidth));
+                    requestUpdate();
+                    mLastUpdateTimeMillis = l;
+                }
             }
         }
         if(true) goto _L1; else goto _L3

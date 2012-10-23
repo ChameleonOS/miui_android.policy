@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 356
+    .line 363
     iput-object p1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$2;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,18 +41,18 @@
     .registers 4
 
     .prologue
-    .line 359
+    .line 366
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$2;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #calls: Lmiui/app/screenelement/elements/MusicControlScreenElement;->updateMusic()V
     invoke-static {v0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->access$600(Lmiui/app/screenelement/elements/MusicControlScreenElement;)V
 
-    .line 360
+    .line 367
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$2;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->updateSpectrumVisualizer()V
 
-    .line 361
+    .line 368
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$2;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
@@ -64,6 +64,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 362
+    .line 369
     return-void
 .end method

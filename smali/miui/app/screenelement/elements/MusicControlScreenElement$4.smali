@@ -30,7 +30,7 @@
     .parameter
 
     .prologue
-    .line 410
+    .line 417
     iput-object p1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     iput-object p2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->val$_name:Ljava/lang/String;
@@ -50,7 +50,7 @@
 
     const/4 v2, 0x1
 
-    .line 413
+    .line 420
     const-string v0, "music_pause"
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->val$_name:Ljava/lang/String;
@@ -61,7 +61,7 @@
 
     if-eqz v0, :cond_7b
 
-    .line 414
+    .line 421
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
@@ -71,7 +71,7 @@
 
     invoke-virtual {v0, v3}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 415
+    .line 422
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPlay:Lmiui/app/screenelement/elements/ButtonScreenElement;
@@ -81,20 +81,20 @@
 
     invoke-virtual {v0, v2}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 416
+    .line 423
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #setter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
     invoke-static {v0, v2}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->access$1102(Lmiui/app/screenelement/elements/MusicControlScreenElement;I)I
 
-    .line 417
+    .line 424
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     iget-boolean v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_34
 
-    .line 418
+    .line 425
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -106,7 +106,7 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 420
+    .line 427
     :cond_34
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
@@ -114,7 +114,7 @@
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestFramerate(F)V
 
-    .line 433
+    .line 440
     :cond_3a
     :goto_3a
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
@@ -133,7 +133,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 434
+    .line 441
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
@@ -152,7 +152,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 436
+    .line 443
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
@@ -169,7 +169,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 437
+    .line 444
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
@@ -188,10 +188,10 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 438
+    .line 445
     return-void
 
-    .line 421
+    .line 428
     :cond_7b
     const-string v0, "music_play"
 
@@ -203,7 +203,7 @@
 
     if-eqz v0, :cond_3a
 
-    .line 422
+    .line 429
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPlay:Lmiui/app/screenelement/elements/ButtonScreenElement;
@@ -213,7 +213,7 @@
 
     invoke-virtual {v0, v3}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 423
+    .line 430
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
@@ -223,7 +223,7 @@
 
     invoke-virtual {v0, v2}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 424
+    .line 431
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     const/4 v1, 0x2
@@ -231,14 +231,14 @@
     #setter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
     invoke-static {v0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->access$1102(Lmiui/app/screenelement/elements/MusicControlScreenElement;I)I
 
-    .line 425
+    .line 432
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     iget-boolean v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_ae
 
-    .line 426
+    .line 433
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -250,7 +250,7 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 428
+    .line 435
     :cond_ae
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
@@ -258,7 +258,7 @@
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestFramerate(F)V
 
-    .line 429
+    .line 436
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$4;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #calls: Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum()V

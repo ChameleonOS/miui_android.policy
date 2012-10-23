@@ -23,8 +23,8 @@ import miui.util.AudioOutputHelper;
 import org.w3c.dom.Element;
 
 // Referenced classes of package miui.app.screenelement.elements:
-//            ElementGroup, ScreenElement, ButtonScreenElement, TextScreenElement, 
-//            ImageScreenElement, SpectrumVisualizerScreenElement
+//            ElementGroup, ButtonScreenElement, TextScreenElement, ImageScreenElement, 
+//            ScreenElement, SpectrumVisualizerScreenElement
 
 public class MusicControlScreenElement extends ElementGroup
     implements ButtonScreenElement.ButtonActionListener {
@@ -138,32 +138,13 @@ _L3:
                 super();
             }
         };
-        Iterator iterator = super.mElements.iterator();
-        do {
-            if(!iterator.hasNext())
-                break;
-            ScreenElement screenelement = (ScreenElement)iterator.next();
-            if(screenelement.getName().equals("music_prev"))
-                mButtonPrev = (ButtonScreenElement)screenelement;
-            else
-            if(screenelement.getName().equals("music_next"))
-                mButtonNext = (ButtonScreenElement)screenelement;
-            else
-            if(screenelement.getName().equals("music_play"))
-                mButtonPlay = (ButtonScreenElement)screenelement;
-            else
-            if(screenelement.getName().equals("music_pause"))
-                mButtonPause = (ButtonScreenElement)screenelement;
-            else
-            if(screenelement.getName().equals("music_display"))
-                mTextDisplay = (TextScreenElement)screenelement;
-            else
-            if(screenelement.getName().equals("music_album_cover"))
-                mImageAlbumCover = (ImageScreenElement)screenelement;
-            else
-            if(screenelement instanceof SpectrumVisualizerScreenElement)
-                mSpectrumVisualizer = (SpectrumVisualizerScreenElement)screenelement;
-        } while(true);
+        mButtonPrev = (ButtonScreenElement)findElement("music_prev");
+        mButtonNext = (ButtonScreenElement)findElement("music_next");
+        mButtonPlay = (ButtonScreenElement)findElement("music_play");
+        mButtonPause = (ButtonScreenElement)findElement("music_pause");
+        mTextDisplay = (TextScreenElement)findElement("music_display");
+        mImageAlbumCover = (ImageScreenElement)findElement("music_album_cover");
+        mSpectrumVisualizer = findSpectrumVisualizer(this);
         if(mButtonPrev == null || mButtonNext == null || mButtonPlay == null || mButtonPause == null)
             throw new ScreenElementLoadException("invalid music control");
         setupButton(mButtonPrev);
@@ -184,6 +165,31 @@ _L3:
         mAudioManager = (AudioManager)screencontext.mContext.getSystemService("audio");
         if(super.mHasName)
             mMusicStateVar = new IndexedNumberVariable(super.mName, "music_state", screencontext.mVariables);
+    }
+
+    private SpectrumVisualizerScreenElement findSpectrumVisualizer(ElementGroup elementgroup) {
+        Iterator iterator = elementgroup.getElements().iterator();
+_L2:
+        SpectrumVisualizerScreenElement spectrumvisualizerscreenelement;
+        ScreenElement screenelement;
+        SpectrumVisualizerScreenElement spectrumvisualizerscreenelement1;
+        if(iterator.hasNext()) {
+            screenelement = (ScreenElement)iterator.next();
+            if(!(screenelement instanceof SpectrumVisualizerScreenElement))
+                continue; /* Loop/switch isn't completed */
+            spectrumvisualizerscreenelement = (SpectrumVisualizerScreenElement)screenelement;
+        } else {
+            spectrumvisualizerscreenelement = null;
+        }
+_L4:
+        return spectrumvisualizerscreenelement;
+        if(!(screenelement instanceof ElementGroup)) goto _L2; else goto _L1
+_L1:
+        spectrumvisualizerscreenelement1 = findSpectrumVisualizer((ElementGroup)screenelement);
+        if(spectrumvisualizerscreenelement1 == null) goto _L2; else goto _L3
+_L3:
+        spectrumvisualizerscreenelement = spectrumvisualizerscreenelement1;
+          goto _L4
     }
 
     private int getKeyCode(String s) {
@@ -493,13 +499,13 @@ _L3:
         }
     }
 
-    private static final String BUTTON_MUSIC_ALBUM_COVER = "music_album_cover";
-    private static final String BUTTON_MUSIC_DISPLAY = "music_display";
     private static final String BUTTON_MUSIC_NEXT = "music_next";
     private static final String BUTTON_MUSIC_PAUSE = "music_pause";
     private static final String BUTTON_MUSIC_PLAY = "music_play";
     private static final String BUTTON_MUSIC_PREV = "music_prev";
     private static final int CHECK_STREAM_MUSIC_DELAY = 1000;
+    private static final String ELE_MUSIC_ALBUM_COVER = "music_album_cover";
+    private static final String ELE_MUSIC_DISPLAY = "music_display";
     private static final int FRAMERATE_PLAYING = 30;
     private static final String LOG_TAG = "MusicControlScreenElement";
     private static final int MUSIC_NONE = 0;

@@ -74,30 +74,35 @@
     .end annotation
 
     .prologue
-    .line 72
+    .line 71
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/AnimatedScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 44
+    .line 39
+    const/4 v0, -0x1
+
+    iput v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mColor:I
+
+    .line 43
     new-instance v0, Landroid/text/TextPaint;
 
     invoke-direct {v0}, Landroid/text/TextPaint;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
-    .line 49
+    .line 48
     const v0, 0x7f7fffff
 
     iput v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
-    .line 73
+    .line 72
     invoke-virtual {p0, p1}, Lmiui/app/screenelement/elements/TextScreenElement;->load(Lorg/w3c/dom/Element;)V
 
-    .line 74
+    .line 73
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_33
 
-    .line 75
+    .line 74
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -110,7 +115,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextWidthVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 76
+    .line 75
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -123,8 +128,8 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextHeightVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 78
-    :cond_30
+    .line 77
+    :cond_33
     return-void
 .end method
 
@@ -132,10 +137,10 @@
     .registers 4
 
     .prologue
-    .line 196
+    .line 195
     sget-object v0, Landroid/text/Layout$Alignment;->ALIGN_NORMAL:Landroid/text/Layout$Alignment;
 
-    .line 197
+    .line 196
     .local v0, align:Landroid/text/Layout$Alignment;
     sget-object v1, Lmiui/app/screenelement/elements/TextScreenElement$1;->$SwitchMap$miui$app$screenelement$elements$ScreenElement$Align:[I
 
@@ -149,31 +154,31 @@
 
     packed-switch v1, :pswitch_data_1a
 
-    .line 208
+    .line 207
     :goto_f
     return-object v0
 
-    .line 199
+    .line 198
     :pswitch_10
     sget-object v0, Landroid/text/Layout$Alignment;->ALIGN_LEFT:Landroid/text/Layout$Alignment;
 
-    .line 200
+    .line 199
     goto :goto_f
 
-    .line 202
+    .line 201
     :pswitch_13
     sget-object v0, Landroid/text/Layout$Alignment;->ALIGN_CENTER:Landroid/text/Layout$Alignment;
 
-    .line 203
+    .line 202
     goto :goto_f
 
-    .line 205
+    .line 204
     :pswitch_16
     sget-object v0, Landroid/text/Layout$Alignment;->ALIGN_RIGHT:Landroid/text/Layout$Alignment;
 
     goto :goto_f
 
-    .line 197
+    .line 196
     nop
 
     :pswitch_data_1a
@@ -190,7 +195,7 @@
     .registers 3
 
     .prologue
-    .line 230
+    .line 229
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -208,7 +213,7 @@
     .registers 3
 
     .prologue
-    .line 238
+    .line 237
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -232,17 +237,17 @@
     .end annotation
 
     .prologue
-    .line 81
+    .line 80
     if-nez p1, :cond_11
 
-    .line 82
+    .line 81
     const-string v1, "TextScreenElement"
 
     const-string v2, "node is null"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 83
+    .line 82
     new-instance v1, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v2, "node is null"
@@ -251,7 +256,7 @@
 
     throw v1
 
-    .line 86
+    .line 85
     :cond_11
     invoke-static {p1}, Lmiui/app/screenelement/util/TextFormatter;->fromElement(Lorg/w3c/dom/Element;)Lmiui/app/screenelement/util/TextFormatter;
 
@@ -259,7 +264,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
-    .line 87
+    .line 86
     const-string v1, "color"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -272,7 +277,7 @@
 
     iput v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mColor:I
 
-    .line 88
+    .line 87
     const-string v1, "size"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -285,7 +290,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mSizeExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 89
+    .line 88
     const-string v1, "marqueeSpeed"
 
     const/4 v2, 0x0
@@ -296,7 +301,7 @@
 
     iput v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueeSpeed:I
 
-    .line 90
+    .line 89
     const-string v1, "bold"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -307,7 +312,7 @@
 
     move-result v0
 
-    .line 91
+    .line 90
     .local v0, bold:Z
     const-string v1, "spacingMult"
 
@@ -319,7 +324,7 @@
 
     iput v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mSpacingMult:F
 
-    .line 92
+    .line 91
     const-string v1, "spacingAdd"
 
     const/4 v2, 0x0
@@ -330,7 +335,7 @@
 
     iput v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mSpacingAdd:F
 
-    .line 93
+    .line 92
     const-string v1, "multiLine"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -343,33 +348,33 @@
 
     iput-boolean v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMultiLine:Z
 
-    .line 94
+    .line 93
     iget-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
     iget v2, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mColor:I
 
     invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setColor(I)V
 
-    .line 95
+    .line 94
     iget-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
     const/high16 v2, 0x4190
 
     invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 96
+    .line 95
     iget-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setAntiAlias(Z)V
 
-    .line 97
+    .line 96
     iget-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v1, v0}, Landroid/text/TextPaint;->setFakeBoldText(Z)V
 
-    .line 98
+    .line 97
     return-void
 .end method
 
@@ -380,32 +385,32 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 212
+    .line 211
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->onVisibilityChange(Z)V
 
-    .line 215
+    .line 214
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getWidth()F
 
     move-result v2
 
-    .line 216
+    .line 215
     .local v2, width:F
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getText()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 217
+    .line 216
     .local v0, text:Ljava/lang/String;
     if-nez v0, :cond_12
 
-    .line 218
+    .line 217
     invoke-virtual {p0, v4}, Lmiui/app/screenelement/elements/TextScreenElement;->requestFramerate(F)V
 
-    .line 227
+    .line 226
     :goto_11
     return-void
 
-    .line 221
+    .line 220
     :cond_12
     iget-object v3, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
@@ -415,7 +420,7 @@
 
     float-to-int v1, v3
 
-    .line 222
+    .line 221
     .local v1, textWidth:I
     if-eqz p1, :cond_2e
 
@@ -433,14 +438,14 @@
 
     if-lez v3, :cond_2e
 
-    .line 223
+    .line 222
     const/high16 v3, 0x41f0
 
     invoke-virtual {p0, v3}, Lmiui/app/screenelement/elements/TextScreenElement;->requestFramerate(F)V
 
     goto :goto_11
 
-    .line 225
+    .line 224
     :cond_2e
     invoke-virtual {p0, v4}, Lmiui/app/screenelement/elements/TextScreenElement;->requestFramerate(F)V
 
@@ -452,19 +457,19 @@
     .parameter "c"
 
     .prologue
-    .line 102
+    .line 101
     invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/TextScreenElement;->isVisible()Z
 
     move-result v1
 
     if-nez v1, :cond_7
 
-    .line 147
+    .line 146
     :cond_6
     :goto_6
     return-void
 
-    .line 104
+    .line 103
     :cond_7
     move-object/from16 v0, p0
 
@@ -476,14 +481,14 @@
 
     if-nez v1, :cond_6
 
-    .line 107
+    .line 106
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lmiui/app/screenelement/elements/TextScreenElement;->mSizeExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v1, :cond_32
 
-    .line 108
+    .line 107
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
@@ -510,7 +515,7 @@
 
     invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    .line 110
+    .line 109
     :cond_32
     move-object/from16 v0, p0
 
@@ -522,12 +527,12 @@
 
     invoke-virtual {v1, v2}, Landroid/text/TextPaint;->setAlpha(I)V
 
-    .line 112
+    .line 111
     invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getWidth()F
 
     move-result v14
 
-    .line 113
+    .line 112
     .local v14, width:F
     const/4 v1, 0x0
 
@@ -545,7 +550,7 @@
 
     if-lez v1, :cond_54
 
-    .line 114
+    .line 113
     :cond_4f
     move-object/from16 v0, p0
 
@@ -553,13 +558,13 @@
 
     int-to-float v14, v1
 
-    .line 117
+    .line 116
     :cond_54
     invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getHeight()F
 
     move-result v9
 
-    .line 118
+    .line 117
     .local v9, height:F
     move-object/from16 v0, p0
 
@@ -569,7 +574,7 @@
 
     move-result v12
 
-    .line 119
+    .line 118
     .local v12, lineHeight:F
     const/4 v1, 0x0
 
@@ -583,10 +588,10 @@
 
     if-nez v1, :cond_6c
 
-    .line 120
+    .line 119
     move v9, v12
 
-    .line 122
+    .line 121
     :cond_6c
     invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getX()F
 
@@ -598,7 +603,7 @@
 
     move-result v15
 
-    .line 123
+    .line 122
     .local v15, x:F
     const/4 v1, 0x0
 
@@ -616,12 +621,12 @@
 
     move-result v16
 
-    .line 125
+    .line 124
     .local v16, y:F
     :goto_85
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 126
+    .line 125
     invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getAngle()F
 
     move-result v1
@@ -642,7 +647,7 @@
 
     invoke-virtual {v0, v1, v2, v5}, Landroid/graphics/Canvas;->rotate(FFF)V
 
-    .line 128
+    .line 127
     const/4 v1, 0x0
 
     cmpl-float v1, v14, v1
@@ -655,7 +660,7 @@
 
     if-lez v1, :cond_b6
 
-    .line 129
+    .line 128
     const/high16 v1, 0x4120
 
     sub-float v1, v16, v1
@@ -672,7 +677,7 @@
 
     invoke-virtual {v0, v15, v1, v2, v5}, Landroid/graphics/Canvas;->clipRect(FFFF)Z
 
-    .line 132
+    .line 131
     :cond_b6
     move-object/from16 v0, p0
 
@@ -680,7 +685,7 @@
 
     if-eqz v1, :cond_102
 
-    .line 134
+    .line 133
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
@@ -689,7 +694,7 @@
 
     move-result v8
 
-    .line 135
+    .line 134
     .local v8, count:I
     const/4 v10, 0x0
 
@@ -697,7 +702,7 @@
     :goto_c5
     if-ge v10, v8, :cond_11e
 
-    .line 136
+    .line 135
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
@@ -706,7 +711,7 @@
 
     move-result v3
 
-    .line 137
+    .line 136
     .local v3, start:I
     move-object/from16 v0, p0
 
@@ -716,7 +721,7 @@
 
     move-result v4
 
-    .line 138
+    .line 137
     .local v4, end:I
     move-object/from16 v0, p0
 
@@ -726,7 +731,7 @@
 
     move-result v13
 
-    .line 139
+    .line 138
     .local v13, top:I
     move-object/from16 v0, p0
 
@@ -736,7 +741,7 @@
 
     move-result v11
 
-    .line 140
+    .line 139
     .local v11, left:F
     move-object/from16 v0, p0
 
@@ -758,12 +763,12 @@
 
     invoke-virtual/range {v1 .. v7}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;IIFFLandroid/graphics/Paint;)V
 
-    .line 135
+    .line 134
     add-int/lit8 v10, v10, 0x1
 
     goto :goto_c5
 
-    .line 123
+    .line 122
     .end local v3           #start:I
     .end local v4           #end:I
     .end local v8           #count:I
@@ -778,7 +783,7 @@
 
     goto :goto_85
 
-    .line 143
+    .line 142
     .restart local v16       #y:F
     :cond_102
     move-object/from16 v0, p0
@@ -810,13 +815,13 @@
 
     invoke-virtual {v0, v2, v1, v5, v6}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    .line 146
+    .line 145
     :cond_11e
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
     goto/16 :goto_6
 
-    .line 143
+    .line 142
     :cond_123
     move-object/from16 v0, p0
 
@@ -830,12 +835,12 @@
     .parameter "text"
 
     .prologue
-    .line 234
+    .line 233
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/util/TextFormatter;->setText(Ljava/lang/String;)V
 
-    .line 235
+    .line 234
     return-void
 .end method
 
@@ -850,28 +855,28 @@
 
     const/high16 v5, 0x4248
 
-    .line 151
+    .line 150
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->tick(J)V
 
-    .line 152
+    .line 151
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/TextScreenElement;->isVisible()Z
 
     move-result v0
 
     if-nez v0, :cond_10
 
-    .line 193
+    .line 192
     :cond_f
     :goto_f
     return-void
 
-    .line 155
+    .line 154
     :cond_10
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getWidth()F
 
     move-result v8
 
-    .line 156
+    .line 155
     .local v8, width:F
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/TextScreenElement;->getText()Ljava/lang/String;
 
@@ -879,7 +884,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mText:Ljava/lang/String;
 
-    .line 157
+    .line 156
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mText:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -888,12 +893,12 @@
 
     if-eqz v0, :cond_25
 
-    .line 158
+    .line 157
     iput-object v4, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
 
     goto :goto_f
 
-    .line 162
+    .line 161
     :cond_25
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPaint:Landroid/text/TextPaint;
 
@@ -907,12 +912,12 @@
 
     iput v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextWidth:I
 
-    .line 163
+    .line 162
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_3c
 
-    .line 164
+    .line 163
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextWidthVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextWidth:I
@@ -921,7 +926,7 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 167
+    .line 166
     :cond_3c
     const/4 v0, 0x0
 
@@ -937,12 +942,12 @@
 
     if-lez v0, :cond_ba
 
-    .line 168
+    .line 167
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMultiLine:Z
 
     if-eqz v0, :cond_8a
 
-    .line 169
+    .line 168
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
 
     if-eqz v0, :cond_5a
@@ -957,13 +962,13 @@
 
     if-nez v0, :cond_f
 
-    .line 170
+    .line 169
     :cond_5a
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mText:Ljava/lang/String;
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPreText:Ljava/lang/String;
 
-    .line 171
+    .line 170
     new-instance v0, Landroid/text/StaticLayout;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mText:Ljava/lang/String;
@@ -986,12 +991,12 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
 
-    .line 173
+    .line 172
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_f
 
-    .line 174
+    .line 173
     iget-object v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextHeightVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
@@ -1012,30 +1017,30 @@
 
     goto :goto_f
 
-    .line 177
+    .line 176
     :cond_8a
     iget v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueeSpeed:I
 
     if-lez v0, :cond_f
 
-    .line 178
+    .line 177
     iget v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
     cmpl-float v0, v0, v3
 
     if-nez v0, :cond_9a
 
-    .line 180
+    .line 179
     iput v5, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
-    .line 187
+    .line 186
     :cond_96
     :goto_96
     iput-wide p1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mPreviousTime:J
 
     goto/16 :goto_f
 
-    .line 182
+    .line 181
     :cond_9a
     iget v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
@@ -1059,7 +1064,7 @@
 
     iput v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
-    .line 183
+    .line 182
     iget v0, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
     iget v1, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextWidth:I
@@ -1074,16 +1079,16 @@
 
     if-gez v0, :cond_96
 
-    .line 184
+    .line 183
     iput v5, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
     goto :goto_96
 
-    .line 190
+    .line 189
     :cond_ba
     iput-object v4, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mTextLayout:Landroid/text/StaticLayout;
 
-    .line 191
+    .line 190
     iput v3, p0, Lmiui/app/screenelement/elements/TextScreenElement;->mMarqueePos:F
 
     goto/16 :goto_f

@@ -35,10 +35,10 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 950
+    .line 951
     invoke-direct {p0, p1, p2, p3, p4}, Lmiui/app/screenelement/ActionCommand$PropertyCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;Lmiui/app/screenelement/util/Variable;Ljava/lang/String;)V
 
-    .line 951
+    .line 952
     const-string v0, "toggle"
 
     invoke-virtual {p4, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -47,15 +47,15 @@
 
     if-eqz v0, :cond_f
 
-    .line 952
+    .line 953
     iput-boolean v1, p0, Lmiui/app/screenelement/ActionCommand$VisibilityProperty;->mIsToggle:Z
 
-    .line 957
+    .line 958
     :cond_e
     :goto_e
     return-void
 
-    .line 953
+    .line 954
     :cond_f
     const-string v0, "true"
 
@@ -65,12 +65,12 @@
 
     if-eqz v0, :cond_1a
 
-    .line 954
+    .line 955
     iput-boolean v1, p0, Lmiui/app/screenelement/ActionCommand$VisibilityProperty;->mIsShow:Z
 
     goto :goto_e
 
-    .line 955
+    .line 956
     :cond_1a
     const-string v0, "false"
 
@@ -80,7 +80,7 @@
 
     if-eqz v0, :cond_e
 
-    .line 956
+    .line 957
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$VisibilityProperty;->mIsShow:Z
@@ -94,12 +94,12 @@
     .registers 3
 
     .prologue
-    .line 961
+    .line 962
     iget-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$VisibilityProperty;->mIsToggle:Z
 
     if-eqz v0, :cond_15
 
-    .line 962
+    .line 963
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
 
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
@@ -115,17 +115,17 @@
     :goto_f
     invoke-virtual {v1, v0}, Lmiui/app/screenelement/elements/ScreenElement;->show(Z)V
 
-    .line 965
+    .line 966
     :goto_12
     return-void
 
-    .line 962
+    .line 963
     :cond_13
     const/4 v0, 0x0
 
     goto :goto_f
 
-    .line 964
+    .line 965
     :cond_15
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
 

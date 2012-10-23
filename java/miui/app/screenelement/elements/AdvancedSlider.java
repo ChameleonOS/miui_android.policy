@@ -458,12 +458,18 @@ _L4:
         public void init() {
             mCurrentX = scale(mX.evaluate(mContext.mVariables));
             mCurrentY = scale(mY.evaluate(mContext.mVariables));
-            if(mNormalStateElements != null)
+            if(mNormalStateElements != null) {
                 mNormalStateElements.init();
-            if(mPressedStateElements != null)
+                mNormalStateElements.show(true);
+            }
+            if(mPressedStateElements != null) {
                 mPressedStateElements.init();
-            if(mReachedStateElements != null)
+                mPressedStateElements.show(false);
+            }
+            if(mReachedStateElements != null) {
                 mReachedStateElements.init();
+                mReachedStateElements.show(false);
+            }
             setState(State.Normal);
         }
 

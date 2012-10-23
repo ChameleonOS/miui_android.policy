@@ -7,8 +7,7 @@ package miui.app.screenelement;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
+import android.view.*;
 import miui.app.screenelement.util.Utils;
 
 // Referenced classes of package miui.app.screenelement:
@@ -134,11 +133,16 @@ _L3:
 _L1:
         if(motionevent.getPointerCount() > 1)
             motionevent.setAction(4);
+        boolean flag1 = mRoot.needDisallowInterceptTouchEvent();
+        if(mNeedDisallowInterceptTouchEvent != flag1) {
+            getParent().requestDisallowInterceptTouchEvent(flag1);
+            mNeedDisallowInterceptTouchEvent = flag1;
+        }
         ScreenElementRoot screenelementroot = mRoot;
         screenelementroot;
         JVM INSTR monitorenter ;
-        boolean flag1 = mRoot.onTouch(motionevent);
-        boolean flag = flag1;
+        boolean flag2 = mRoot.onTouch(motionevent);
+        boolean flag = flag2;
         screenelementroot;
         JVM INSTR monitorexit ;
           goto _L3
@@ -195,6 +199,7 @@ _L3:
     private static final String LOG_TAG = "MiAdvancedView";
     private static final String VARIABLE_VIEW_HEIGHT = "view_height";
     private static final String VARIABLE_VIEW_WIDTH = "view_width";
+    private boolean mNeedDisallowInterceptTouchEvent;
     private boolean mPaused;
     private RendererController mRendererController;
     protected ScreenElementRoot mRoot;

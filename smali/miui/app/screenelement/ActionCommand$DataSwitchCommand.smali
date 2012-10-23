@@ -29,21 +29,21 @@
     .parameter "value"
 
     .prologue
-    .line 581
+    .line 582
     const-string v0, "data_state"
 
     sget-object v1, Lmiui/app/screenelement/NotifierManager$NotifierType;->MobileData:Lmiui/app/screenelement/NotifierManager$NotifierType;
 
     invoke-direct {p0, p1, v0, v1}, Lmiui/app/screenelement/ActionCommand$NotificationReceiver;-><init>(Lmiui/app/screenelement/ScreenContext;Ljava/lang/String;Lmiui/app/screenelement/NotifierManager$NotifierType;)V
 
-    .line 582
+    .line 583
     new-instance v0, Lmiui/app/screenelement/ActionCommand$OnOffCommandHelper;
 
     invoke-direct {v0, p2}, Lmiui/app/screenelement/ActionCommand$OnOffCommandHelper;-><init>(Ljava/lang/String;)V
 
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mOnOffHelper:Lmiui/app/screenelement/ActionCommand$OnOffCommandHelper;
 
-    .line 583
+    .line 584
     return-void
 .end method
 
@@ -51,12 +51,12 @@
     .registers 3
 
     .prologue
-    .line 586
+    .line 587
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mCm:Landroid/net/ConnectivityManager;
 
     if-nez v0, :cond_12
 
-    .line 587
+    .line 588
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -71,7 +71,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mCm:Landroid/net/ConnectivityManager;
 
-    .line 589
+    .line 590
     :cond_12
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mCm:Landroid/net/ConnectivityManager;
 
@@ -90,27 +90,27 @@
 
 
 # virtual methods
-.method public doPerform()V
+.method protected doPerform()V
     .registers 3
 
     .prologue
-    .line 603
+    .line 604
     invoke-direct {p0}, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->ensureConnectivityManager()Z
 
     move-result v1
 
     if-nez v1, :cond_7
 
-    .line 614
+    .line 615
     :cond_6
     :goto_6
     return-void
 
-    .line 606
+    .line 607
     :cond_7
     iget-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mApnEnable:Z
 
-    .line 607
+    .line 608
     .local v0, enable:Z
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mOnOffHelper:Lmiui/app/screenelement/ActionCommand$OnOffCommandHelper;
 
@@ -118,33 +118,33 @@
 
     if-eqz v1, :cond_20
 
-    .line 608
+    .line 609
     iget-boolean v1, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mApnEnable:Z
 
     if-nez v1, :cond_1e
 
     const/4 v0, 0x1
 
-    .line 612
+    .line 613
     :goto_14
     iget-boolean v1, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mApnEnable:Z
 
     if-eq v1, v0, :cond_6
 
-    .line 613
+    .line 614
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mCm:Landroid/net/ConnectivityManager;
 
     invoke-virtual {v1, v0}, Landroid/net/ConnectivityManager;->setMobileDataEnabled(Z)V
 
     goto :goto_6
 
-    .line 608
+    .line 609
     :cond_1e
     const/4 v0, 0x0
 
     goto :goto_14
 
-    .line 610
+    .line 611
     :cond_20
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mOnOffHelper:Lmiui/app/screenelement/ActionCommand$OnOffCommandHelper;
 
@@ -157,18 +157,18 @@
     .registers 2
 
     .prologue
-    .line 594
+    .line 595
     invoke-direct {p0}, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->ensureConnectivityManager()Z
 
     move-result v0
 
     if-nez v0, :cond_7
 
-    .line 599
+    .line 600
     :goto_6
     return-void
 
-    .line 597
+    .line 598
     :cond_7
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mCm:Landroid/net/ConnectivityManager;
 
@@ -178,7 +178,7 @@
 
     iput-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mApnEnable:Z
 
-    .line 598
+    .line 599
     iget-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;->mApnEnable:Z
 
     if-eqz v0, :cond_18

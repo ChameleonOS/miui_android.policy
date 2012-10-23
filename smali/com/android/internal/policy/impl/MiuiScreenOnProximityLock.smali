@@ -16,13 +16,17 @@
 
 .field private static final EVENT_FAR_AWAY:I = 0x2
 
+.field private static final EVENT_RELEASE:I = 0x3
+
 .field private static final EVENT_TOO_CLOSE:I = 0x1
+
+.field private static final FAR_AWAR_DELAY:I = 0x12c
 
 .field private static final LOG_TAG:Ljava/lang/String; = "MiuiDelayedProximitySensorLock"
 
 .field private static final PROXIMITY_THRESHOLD:F = 5.0f
 
-.field private static final RELEASE_FAR_AWAR_DELAY:I = 0x3e8
+.field private static final RELEASE_DELAY:I = 0x514
 
 
 # instance fields
@@ -47,10 +51,10 @@
     .parameter "context"
 
     .prologue
-    .line 70
+    .line 74
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 39
+    .line 41
     new-instance v1, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
 
     const/4 v2, 0x0
@@ -59,10 +63,10 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
 
-    .line 71
+    .line 75
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mContext:Landroid/content/Context;
 
-    .line 72
+    .line 76
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mContext:Landroid/content/Context;
 
     const-string v2, "sensor"
@@ -75,7 +79,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorManager:Landroid/hardware/SensorManager;
 
-    .line 73
+    .line 77
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorManager:Landroid/hardware/SensorManager;
 
     const/16 v2, 0x8
@@ -86,14 +90,14 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensor:Landroid/hardware/Sensor;
 
-    .line 75
+    .line 79
     const-string v1, "power"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object v0
 
-    .line 76
+    .line 80
     .local v0, b:Landroid/os/IBinder;
     invoke-static {v0}, Landroid/os/IPowerManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/os/IPowerManager;
 
@@ -101,7 +105,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mPowerManager:Landroid/os/IPowerManager;
 
-    .line 78
+    .line 82
     new-instance v1, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$1;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mContext:Landroid/content/Context;
@@ -114,7 +118,7 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
-    .line 100
+    .line 109
     return-void
 .end method
 
@@ -168,7 +172,7 @@
     .registers 5
 
     .prologue
-    .line 108
+    .line 117
     monitor-enter p0
 
     :try_start_1
@@ -176,19 +180,19 @@
 
     if-nez v0, :cond_19
 
-    .line 110
+    .line 119
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
-    .line 111
+    .line 120
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
 
     const/4 v1, 0x0
 
     iput-boolean v1, v0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;->mIsTooClose:Z
 
-    .line 112
+    .line 121
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
@@ -201,13 +205,13 @@
     :try_end_17
     .catchall {:try_start_1 .. :try_end_17} :catchall_1f
 
-    .line 117
+    .line 126
     :goto_17
     monitor-exit p0
 
     return-void
 
-    .line 115
+    .line 124
     :cond_19
     :try_start_19
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
@@ -218,7 +222,7 @@
 
     goto :goto_17
 
-    .line 108
+    .line 117
     :catchall_1f
     move-exception v0
 
@@ -231,7 +235,7 @@
     .registers 2
 
     .prologue
-    .line 103
+    .line 112
     monitor-enter p0
 
     :try_start_1
@@ -255,7 +259,7 @@
     .registers 3
 
     .prologue
-    .line 120
+    .line 129
     monitor-enter p0
 
     :try_start_1
@@ -265,40 +269,47 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 121
+    .line 130
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 123
+    .line 131
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 133
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_21
 
-    .line 125
+    .line 135
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
-    .line 126
+    .line 136
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
 
     invoke-virtual {v0, v1}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
-    :try_end_1b
-    .catchall {:try_start_1 .. :try_end_1b} :catchall_1d
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
-    .line 128
-    :cond_1b
+    .line 138
+    :cond_21
     monitor-exit p0
 
     return-void
 
-    .line 120
-    :catchall_1d
+    .line 129
+    :catchall_23
     move-exception v0
 
     monitor-exit p0

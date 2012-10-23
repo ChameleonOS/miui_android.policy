@@ -183,6 +183,25 @@
     return-void
 .end method
 
+.method public getElements()Ljava/util/ArrayList;
+    .registers 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lmiui/app/screenelement/elements/ScreenElement;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 155
+    iget-object v0, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
 .method public init()V
     .registers 4
 
@@ -397,10 +416,10 @@
     .parameter "visible"
 
     .prologue
-    .line 156
+    .line 160
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->onVisibilityChange(Z)V
 
-    .line 157
+    .line 161
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -421,13 +440,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 158
+    .line 162
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->onVisibilityChange(Z)V
 
     goto :goto_9
 
-    .line 160
+    .line 164
     .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_19
     return-void

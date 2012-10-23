@@ -319,6 +319,7 @@ _L7:
 
     public MiuiPhoneWindowManager() {
         mPowerLongPressOriginal = super.mPowerLongPress;
+        mDisableProximitor = true;
         mBinder = new Binder();
         mStatusBarExitFullscreenReceiver = new BroadcastReceiver() {
 
@@ -528,7 +529,6 @@ _L5:
     }
 
     public void init(Context context, IWindowManager iwindowmanager, android.view.WindowManagerPolicy.WindowManagerFuncs windowmanagerfuncs, LocalPowerManager localpowermanager) {
-        mProximitySensor = new MiuiScreenOnProximityLock(context);
         super.init(context, iwindowmanager, windowmanagerfuncs, localpowermanager);
         android.provider.Settings.Secure.putInt(context.getContentResolver(), "device_provisioned", 1);
         (new MiuiSettingsObserver(super.mHandler)).observe();
@@ -564,6 +564,7 @@ _L5:
         IntentFilter intentfilter3 = new IntentFilter();
         intentfilter3.addAction("miui.intent.action.RELEASE_PROXIMITY_SENSOR");
         context.registerReceiver(mReleaseProximitySensorReceiver, intentfilter3);
+        mProximitySensor = new MiuiScreenOnProximityLock(context);
     }
 
     public long interceptKeyBeforeDispatching(android.view.WindowManagerPolicy.WindowState windowstate, KeyEvent keyevent, int i) {
@@ -878,7 +879,7 @@ _L23:
                 super();
             }
             });
-        if(!mDisableProximitor)
+        if(!mDisableProximitor && mProximitySensor != null)
             mProximitySensor.aquire();
     }
 

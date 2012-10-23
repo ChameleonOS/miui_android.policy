@@ -119,7 +119,7 @@
     .registers 5
 
     .prologue
-    .line 244
+    .line 246
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -128,17 +128,17 @@
 
     if-nez v2, :cond_9
 
-    .line 252
+    .line 254
     :goto_8
     return-void
 
-    .line 247
+    .line 249
     :cond_9
     iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     monitor-enter v3
 
-    .line 248
+    .line 250
     :try_start_c
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
@@ -160,13 +160,13 @@
 
     check-cast v0, Lmiui/app/screenelement/RendererController;
 
-    .line 249
+    .line 251
     .local v0, c:Lmiui/app/screenelement/RendererController;
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->finish()V
 
     goto :goto_12
 
-    .line 251
+    .line 253
     .end local v0           #c:Lmiui/app/screenelement/RendererController;
     .end local v1           #i$:Ljava/util/Iterator;
     :catchall_22
@@ -189,74 +189,83 @@
 .end method
 
 .method private doInit()V
-    .registers 5
+    .registers 7
 
     .prologue
     .line 182
-    iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
+    iget-object v4, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v4
 
-    if-nez v2, :cond_9
+    if-nez v4, :cond_9
 
-    .line 190
+    .line 192
     :goto_8
     return-void
 
     .line 185
     :cond_9
-    iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    monitor-enter v3
+    move-result-wide v1
 
     .line 186
-    :try_start_c
-    iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
+    .local v1, currentTime:J
+    iget-object v5, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    monitor-enter v5
 
-    move-result-object v1
+    .line 187
+    :try_start_10
+    iget-object v4, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
-    .local v1, i$:Ljava/util/Iterator;
-    :goto_12
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result v2
+    move-result-object v3
 
-    if-eqz v2, :cond_25
+    .local v3, i$:Ljava/util/Iterator;
+    :goto_16
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result v4
+
+    if-eqz v4, :cond_2c
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lmiui/app/screenelement/RendererController;
 
-    .line 187
+    .line 188
     .local v0, c:Lmiui/app/screenelement/RendererController;
-    invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->init()V
-
-    goto :goto_12
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/RendererController;->setLastUpdateTime(J)V
 
     .line 189
+    invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->init()V
+
+    goto :goto_16
+
+    .line 191
     .end local v0           #c:Lmiui/app/screenelement/RendererController;
-    .end local v1           #i$:Ljava/util/Iterator;
-    :catchall_22
-    move-exception v2
+    .end local v3           #i$:Ljava/util/Iterator;
+    :catchall_29
+    move-exception v4
 
-    monitor-exit v3
-    :try_end_24
-    .catchall {:try_start_c .. :try_end_24} :catchall_22
+    monitor-exit v5
+    :try_end_2b
+    .catchall {:try_start_10 .. :try_end_2b} :catchall_29
 
-    throw v2
+    throw v4
 
-    .restart local v1       #i$:Ljava/util/Iterator;
-    :cond_25
-    :try_start_25
-    monitor-exit v3
-    :try_end_26
-    .catchall {:try_start_25 .. :try_end_26} :catchall_22
+    .restart local v3       #i$:Ljava/util/Iterator;
+    :cond_2c
+    :try_start_2c
+    monitor-exit v5
+    :try_end_2d
+    .catchall {:try_start_2c .. :try_end_2d} :catchall_29
 
     goto :goto_8
 .end method
@@ -265,7 +274,7 @@
     .registers 5
 
     .prologue
-    .line 205
+    .line 207
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -274,17 +283,17 @@
 
     if-nez v2, :cond_9
 
-    .line 213
+    .line 215
     :goto_8
     return-void
 
-    .line 208
+    .line 210
     :cond_9
     iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     monitor-enter v3
 
-    .line 209
+    .line 211
     :try_start_c
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
@@ -306,13 +315,13 @@
 
     check-cast v0, Lmiui/app/screenelement/RendererController;
 
-    .line 210
+    .line 212
     .local v0, c:Lmiui/app/screenelement/RendererController;
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->pause()V
 
     goto :goto_12
 
-    .line 212
+    .line 214
     .end local v0           #c:Lmiui/app/screenelement/RendererController;
     .end local v1           #i$:Ljava/util/Iterator;
     :catchall_22
@@ -338,7 +347,7 @@
     .registers 5
 
     .prologue
-    .line 216
+    .line 218
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -347,17 +356,17 @@
 
     if-nez v2, :cond_9
 
-    .line 224
+    .line 226
     :goto_8
     return-void
 
-    .line 219
+    .line 221
     :cond_9
     iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     monitor-enter v3
 
-    .line 220
+    .line 222
     :try_start_c
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
@@ -379,13 +388,13 @@
 
     check-cast v0, Lmiui/app/screenelement/RendererController;
 
-    .line 221
+    .line 223
     .local v0, c:Lmiui/app/screenelement/RendererController;
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->resume()V
 
     goto :goto_12
 
-    .line 223
+    .line 225
     .end local v0           #c:Lmiui/app/screenelement/RendererController;
     .end local v1           #i$:Ljava/util/Iterator;
     :catchall_22
@@ -412,7 +421,7 @@
     .parameter "time"
 
     .prologue
-    .line 228
+    .line 230
     iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
@@ -421,24 +430,24 @@
 
     if-nez v3, :cond_a
 
-    .line 229
+    .line 231
     const/4 v0, 0x1
 
-    .line 240
+    .line 242
     :goto_9
     return v0
 
-    .line 231
+    .line 233
     :cond_a
     const/4 v0, 0x1
 
-    .line 232
+    .line 234
     .local v0, allPaused:Z
     iget-object v4, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     monitor-enter v4
 
-    .line 233
+    .line 235
     :try_start_e
     iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
@@ -461,7 +470,7 @@
 
     check-cast v1, Lmiui/app/screenelement/RendererController;
 
-    .line 234
+    .line 236
     .local v1, c:Lmiui/app/screenelement/RendererController;
     invoke-virtual {v1}, Lmiui/app/screenelement/RendererController;->isSelfPaused()Z
 
@@ -469,15 +478,15 @@
 
     if-nez v3, :cond_14
 
-    .line 235
+    .line 237
     invoke-virtual {v1, p1, p2}, Lmiui/app/screenelement/RendererController;->updateFramerate(J)V
 
-    .line 236
+    .line 238
     const/4 v0, 0x0
 
     goto :goto_14
 
-    .line 239
+    .line 241
     .end local v1           #c:Lmiui/app/screenelement/RendererController;
     :cond_2b
     monitor-exit v4
@@ -550,7 +559,7 @@
     .registers 5
 
     .prologue
-    .line 193
+    .line 195
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -559,17 +568,17 @@
 
     if-nez v2, :cond_9
 
-    .line 202
+    .line 204
     :goto_8
     return-void
 
-    .line 196
+    .line 198
     :cond_9
     iget-object v3, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
     monitor-enter v3
 
-    .line 197
+    .line 199
     :try_start_c
     iget-object v2, p0, Lmiui/app/screenelement/RenderThread;->mRendererControllerList:Ljava/util/ArrayList;
 
@@ -591,16 +600,16 @@
 
     check-cast v0, Lmiui/app/screenelement/RendererController;
 
-    .line 198
+    .line 200
     .local v0, c:Lmiui/app/screenelement/RendererController;
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->doRender()V
 
-    .line 199
+    .line 201
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->requestUpdate()V
 
     goto :goto_12
 
-    .line 201
+    .line 203
     .end local v0           #c:Lmiui/app/screenelement/RendererController;
     .end local v1           #i$:Ljava/util/Iterator;
     :catchall_25
@@ -677,7 +686,7 @@
     .registers 3
 
     .prologue
-    .line 256
+    .line 258
     :try_start_0
     iget-object v1, p0, Lmiui/app/screenelement/RenderThread;->mResumeSignal:Ljava/lang/Object;
 
@@ -685,15 +694,15 @@
     :try_end_5
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_5} :catch_6
 
-    .line 260
+    .line 262
     :goto_5
     return-void
 
-    .line 257
+    .line 259
     :catch_6
     move-exception v0
 
-    .line 258
+    .line 260
     .local v0, e:Ljava/lang/InterruptedException;
     invoke-virtual {v0}, Ljava/lang/InterruptedException;->printStackTrace()V
 

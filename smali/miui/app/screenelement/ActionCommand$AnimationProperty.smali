@@ -31,10 +31,10 @@
     .parameter "value"
 
     .prologue
-    .line 974
+    .line 975
     invoke-direct {p0, p1, p2, p3, p4}, Lmiui/app/screenelement/ActionCommand$PropertyCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;Lmiui/app/screenelement/util/Variable;Ljava/lang/String;)V
 
-    .line 975
+    .line 976
     const-string v0, "play"
 
     invoke-virtual {p4, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
@@ -43,12 +43,12 @@
 
     if-eqz v0, :cond_e
 
-    .line 976
+    .line 977
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$AnimationProperty;->mIsPlay:Z
 
-    .line 977
+    .line 978
     :cond_e
     return-void
 .end method
@@ -59,17 +59,17 @@
     .registers 2
 
     .prologue
-    .line 981
+    .line 982
     iget-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$AnimationProperty;->mIsPlay:Z
 
     if-eqz v0, :cond_9
 
-    .line 982
+    .line 983
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/ScreenElement;->reset()V
 
-    .line 984
+    .line 985
     :cond_9
     return-void
 .end method

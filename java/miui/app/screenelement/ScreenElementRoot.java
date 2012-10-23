@@ -44,6 +44,7 @@ public class ScreenElementRoot extends ScreenElement
         mTouchBeginX = new IndexedNumberVariable("touch_begin_x", getContext().mVariables);
         mTouchBeginY = new IndexedNumberVariable("touch_begin_y", getContext().mVariables);
         mTouchBeginTime = new IndexedNumberVariable("touch_begin_time", getContext().mVariables);
+        mNeedDisallowInterceptTouchEventVar = new IndexedNumberVariable("intercept_sys_touch", getContext().mVariables);
         onAddVariableUpdater(mVariableUpdaterManager);
     }
 
@@ -163,14 +164,14 @@ _L3:
 
     public void init() {
         super.init();
-        if(mElementGroup != null)
-            mElementGroup.init();
+        if(mVariableUpdaterManager != null)
+            mVariableUpdaterManager.init();
         if(mVariableBinderManager != null)
             mVariableBinderManager.init();
         if(mExternalCommandManager != null)
             mExternalCommandManager.init();
-        if(mVariableUpdaterManager != null)
-            mVariableUpdaterManager.init();
+        if(mElementGroup != null)
+            mElementGroup.init();
         requestFramerate(mFrameRate);
     }
 
@@ -232,7 +233,7 @@ _L2:
             flag1 = true;
         else
             flag1 = false;
-        break MISSING_BLOCK_LABEL_613;
+        break MISSING_BLOCK_LABEL_617;
 _L16:
         if(mTargetDensity != 0) goto _L5; else goto _L4
 _L4:
@@ -301,6 +302,10 @@ _L3:
           goto _L16
     }
 
+    public boolean needDisallowInterceptTouchEvent() {
+        return mNeedDisallowInterceptTouchEvent;
+    }
+
     protected void onAddVariableUpdater(VariableUpdaterManager variableupdatermanager) {
         variableupdatermanager.add(new DateTimeVariableUpdater(variableupdatermanager));
     }
@@ -326,10 +331,9 @@ _L1:
     }
 
     public boolean onTouch(MotionEvent motionevent) {
+        boolean flag = false;
         if(mElementGroup != null) goto _L2; else goto _L1
 _L1:
-        boolean flag = false;
-_L7:
         return flag;
 _L2:
         float f;
@@ -338,24 +342,30 @@ _L2:
         f1 = descale(motionevent.getY());
         mTouchX.set(f);
         mTouchY.set(f1);
-        motionevent.getActionMasked();
-        JVM INSTR tableswitch 0 2: default 80
-    //                   0 97
-    //                   1 80
-    //                   2 80;
-           goto _L3 _L4 _L3 _L3
-_L3:
+        switch(motionevent.getActionMasked()) {
+        case 2: // '\002'
+        default:
+            break;
+
+        case 0: // '\0'
+            break; /* Loop/switch isn't completed */
+
+        case 1: // '\001'
+            break;
+        }
+        break MISSING_BLOCK_LABEL_134;
+_L4:
         flag = mElementGroup.onTouch(motionevent);
         requestUpdate();
-          goto _L5
-_L4:
+        if(true) goto _L1; else goto _L3
+_L3:
         mTouchBeginX.set(f);
         mTouchBeginY.set(f1);
         mTouchBeginTime.set(System.currentTimeMillis());
-        if(true) goto _L3; else goto _L5
-_L5:
-        if(true) goto _L7; else goto _L6
-_L6:
+        mNeedDisallowInterceptTouchEvent = false;
+          goto _L4
+        mNeedDisallowInterceptTouchEvent = false;
+          goto _L4
     }
 
     public void pause() {
@@ -432,6 +442,15 @@ _L6:
         mVariableUpdaterManager.tick(l);
         if(mElementGroup != null)
             mElementGroup.tick(l);
+        Double double1 = mNeedDisallowInterceptTouchEventVar.get();
+        if(double1 != null) {
+            boolean flag;
+            if(double1.doubleValue() > 0.0D)
+                flag = true;
+            else
+                flag = false;
+            mNeedDisallowInterceptTouchEvent = flag;
+        }
     }
 
     public void update(long l, Canvas canvas) {
@@ -466,12 +485,8 @@ _L3:
     private static final boolean CALCULATE_FRAME_RATE = true;
     private static final int DEFAULT_SCREEN_WIDTH = 480;
     private static final String LOG_TAG = "ScreenElementRoot";
-    public static final String RAW_SCREEN_HEIGHT = "raw_screen_height";
-    public static final String RAW_SCREEN_WIDTH = "raw_screen_width";
     private static final int RES_DENSITY = 240;
     private static final String ROOT_NAME = "__root";
-    public static final String SCREEN_HEIGHT = "screen_height";
-    public static final String SCREEN_WIDTH = "screen_width";
     private float DEFAULT_FRAME_RATE;
     private long mCheckPoint;
     private int mDefaultResourceDensity;
@@ -483,6 +498,8 @@ _L3:
     private IndexedNumberVariable mFrameRateVar;
     private ArrayList mFramerateControllers;
     private int mFrames;
+    private boolean mNeedDisallowInterceptTouchEvent;
+    private IndexedNumberVariable mNeedDisallowInterceptTouchEventVar;
     protected float mNormalFrameRate;
     private float mScale;
     private SoundManager mSoundManager;
