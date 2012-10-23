@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.*;
@@ -235,6 +236,7 @@ _L3:
         if(mElementGroup != null)
             mElementGroup.init();
         requestFramerate(mFrameRate);
+        tick(SystemClock.elapsedRealtime());
     }
 
     public boolean load() {

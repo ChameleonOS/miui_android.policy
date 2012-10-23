@@ -30,9 +30,9 @@
 
 
 # instance fields
-.field private mAnimationEnter:Landroid/view/animation/Animation;
+.field private mAnimationEnter:Landroid/animation/AnimatorSet;
 
-.field private mAnimationExit:Landroid/view/animation/Animation;
+.field private mAnimationExit:Landroid/animation/AnimatorSet;
 
 .field private mDisplay:Landroid/view/Display;
 
@@ -64,142 +64,171 @@
     .parameter "maxLayer"
 
     .prologue
-    .line 209
+    .line 205
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;-><init>(Landroid/content/Context;II)V
 
-    .line 210
+    .line 206
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;II)V
-    .registers 7
+    .registers 9
     .parameter "context"
     .parameter "maxLayer"
     .parameter "type"
 
     .prologue
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
-    .line 213
+    .line 209
     invoke-direct {p0, p1}, Landroid/widget/PopupWindow;-><init>(Landroid/content/Context;)V
 
-    .line 41
-    new-instance v0, Landroid/util/DisplayMetrics;
+    .line 44
+    new-instance v2, Landroid/util/DisplayMetrics;
 
-    invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
+    invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplayMetrics:Landroid/util/DisplayMetrics;
 
-    .line 250
-    new-instance v0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$1;
+    .line 269
+    new-instance v2, Lcom/android/internal/policy/impl/MagnifierPopupWindow$2;
 
-    invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$1;-><init>(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)V
+    invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$2;-><init>(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)V
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mHandler:Landroid/os/Handler;
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mHandler:Landroid/os/Handler;
 
-    .line 214
+    .line 210
     iput p2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMaxLayer:I
 
+    .line 211
+    new-instance v2, Landroid/os/Binder;
+
+    invoke-direct {v2}, Landroid/os/Binder;-><init>()V
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mToken:Landroid/os/IBinder;
+
+    .line 212
+    const-string v2, "window"
+
+    invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/WindowManager;
+
+    invoke-interface {v2}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplay:Landroid/view/Display;
+
+    .line 213
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplay:Landroid/view/Display;
+
+    iget-object v3, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+
+    invoke-virtual {v2, v3}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+
+    .line 214
+    new-instance v2, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+
+    const v3, 0x3f99999a
+
+    invoke-direct {v2, p0, p1, v3}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;-><init>(Lcom/android/internal/policy/impl/MagnifierPopupWindow;Landroid/content/Context;F)V
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+
     .line 215
-    new-instance v0, Landroid/os/Binder;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
-    invoke-direct {v0}, Landroid/os/Binder;-><init>()V
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mToken:Landroid/os/IBinder;
+    invoke-virtual {v2, v4}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->setClickable(Z)V
 
     .line 216
-    const-string v0, "window"
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/WindowManager;
-
-    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplay:Landroid/view/Display;
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setContentView(Landroid/view/View;)V
 
     .line 217
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplay:Landroid/view/Display;
-
-    iget-object v1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    invoke-virtual {v0, v1}, Landroid/view/Display;->getMetrics(Landroid/util/DisplayMetrics;)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setFocusable(Z)V
 
     .line 218
-    new-instance v0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
-
-    const v1, 0x3f99999a
-
-    invoke-direct {v0, p0, p1, v1}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;-><init>(Lcom/android/internal/policy/impl/MagnifierPopupWindow;Landroid/content/Context;F)V
-
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setTouchable(Z)V
 
     .line 219
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
-
-    invoke-virtual {v0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->setClickable(Z)V
+    invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setClippingEnabled(Z)V
 
     .line 220
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    const/4 v2, 0x2
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setContentView(Landroid/view/View;)V
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setInputMethodMode(I)V
 
     .line 221
-    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setFocusable(Z)V
+    new-instance v2, Landroid/graphics/drawable/ColorDrawable;
 
-    .line 222
-    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setTouchable(Z)V
+    invoke-direct {v2, v4}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 223
-    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setClippingEnabled(Z)V
+    new-instance v2, Landroid/animation/AnimatorSet;
+
+    invoke-direct {v2}, Landroid/animation/AnimatorSet;-><init>()V
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationEnter:Landroid/animation/AnimatorSet;
 
     .line 224
-    const/4 v0, 0x2
+    new-instance v2, Landroid/animation/AnimatorSet;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setInputMethodMode(I)V
+    invoke-direct {v2}, Landroid/animation/AnimatorSet;-><init>()V
+
+    iput-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationExit:Landroid/animation/AnimatorSet;
 
     .line 225
-    new-instance v0, Landroid/graphics/drawable/ColorDrawable;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationExit:Landroid/animation/AnimatorSet;
 
-    invoke-direct {v0, v2}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+    new-instance v3, Lcom/android/internal/policy/impl/MagnifierPopupWindow$1;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$1;-><init>(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)V
 
-    .line 226
-    const v0, 0x6040010
+    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+    .line 243
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationEnter:Landroid/view/animation/Animation;
+    const/high16 v3, 0x10e
 
-    .line 227
-    const v0, 0x6040011
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
-    invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
+    move-result v2
 
-    move-result-object v0
+    int-to-long v0, v2
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationExit:Landroid/view/animation/Animation;
+    .line 244
+    .local v0, duration:J
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationExit:Landroid/animation/AnimatorSet;
 
-    .line 228
-    const/16 v0, 0x7e0
+    invoke-virtual {v2, v0, v1}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setWindowLayoutType(I)V
+    .line 245
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationEnter:Landroid/animation/AnimatorSet;
 
-    .line 229
-    const/4 v0, 0x1
+    invoke-virtual {v2, v0, v1}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setLayoutInScreenEnabled(Z)V
+    .line 247
+    const/16 v2, 0x7e0
 
-    .line 230
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setWindowLayoutType(I)V
+
+    .line 248
+    const/4 v2, 0x1
+
+    invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setLayoutInScreenEnabled(Z)V
+
+    .line 249
     return-void
 .end method
 
@@ -208,10 +237,33 @@
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 33
     iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mFingerOffset:I
 
     return v0
+.end method
+
+.method static synthetic access$1000(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationY:I
+
+    return v0
+.end method
+
+.method static synthetic access$1002(Lcom/android/internal/policy/impl/MagnifierPopupWindow;I)I
+    .registers 2
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 33
+    iput p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationY:I
+
+    return p1
 .end method
 
 .method static synthetic access$102(Lcom/android/internal/policy/impl/MagnifierPopupWindow;I)I
@@ -220,129 +272,128 @@
     .parameter "x1"
 
     .prologue
-    .line 30
+    .line 33
     iput p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mFingerOffset:I
 
     return p1
 .end method
 
-.method static synthetic access$200(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Landroid/view/animation/Animation;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationExit:Landroid/view/animation/Animation;
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Landroid/util/DisplayMetrics;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplayMetrics:Landroid/util/DisplayMetrics;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Landroid/view/Display;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplay:Landroid/view/Display;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMaxLayer:I
-
-    return v0
-.end method
-
-.method static synthetic access$600(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationX:I
-
-    return v0
-.end method
-
-.method static synthetic access$602(Lcom/android/internal/policy/impl/MagnifierPopupWindow;I)I
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 30
-    iput p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationX:I
-
-    return p1
-.end method
-
-.method static synthetic access$700(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 30
-    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationY:I
-
-    return v0
-.end method
-
-.method static synthetic access$702(Lcom/android/internal/policy/impl/MagnifierPopupWindow;I)I
-    .registers 2
-    .parameter "x0"
-    .parameter "x1"
-
-    .prologue
-    .line 30
-    iput p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationY:I
-
-    return p1
-.end method
-
-.method static synthetic access$800(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)V
+.method static synthetic access$1100(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)V
     .registers 1
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 33
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->showMagnifier()V
 
     return-void
 .end method
 
-.method static synthetic access$900(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+.method static synthetic access$200(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
     .registers 2
     .parameter "x0"
 
     .prologue
-    .line 30
+    .line 33
+    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mX:I
+
+    return v0
+.end method
+
+.method static synthetic access$300(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
     return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mY:I
+
+    return v0
+.end method
+
+.method static synthetic access$500(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Landroid/animation/AnimatorSet;
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationExit:Landroid/animation/AnimatorSet;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Landroid/util/DisplayMetrics;
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplayMetrics:Landroid/util/DisplayMetrics;
+
+    return-object v0
+.end method
+
+.method static synthetic access$700(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)Landroid/view/Display;
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mDisplay:Landroid/view/Display;
+
+    return-object v0
+.end method
+
+.method static synthetic access$800(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMaxLayer:I
+
+    return v0
+.end method
+
+.method static synthetic access$900(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)I
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 33
+    iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationX:I
+
+    return v0
+.end method
+
+.method static synthetic access$902(Lcom/android/internal/policy/impl/MagnifierPopupWindow;I)I
+    .registers 2
+    .parameter "x0"
+    .parameter "x1"
+
+    .prologue
+    .line 33
+    iput p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mLocationX:I
+
+    return p1
 .end method
 
 .method private showMagnifier()V
     .registers 6
 
     .prologue
-    .line 263
+    .line 282
     new-instance v0, Landroid/graphics/Rect;
 
     iget v1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mX:I
@@ -357,64 +408,141 @@
 
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->showMagnifier(Landroid/graphics/Rect;)V
 
-    .line 264
+    .line 283
     return-void
 .end method
 
 .method private showMagnifier(Landroid/graphics/Rect;)V
-    .registers 5
+    .registers 9
     .parameter "clip"
 
     .prologue
-    const/4 v1, -0x1
+    const/4 v3, -0x1
 
-    const/4 v2, 0x0
+    const/4 v6, 0x2
 
-    .line 267
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->updateMagnifier(Landroid/graphics/Rect;)V
+    .line 286
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
-    .line 268
+    invoke-virtual {v2, p1}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->updateMagnifier(Landroid/graphics/Rect;)V
+
+    .line 287
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->isShowing()Z
 
-    move-result v0
+    move-result v2
 
-    if-nez v0, :cond_2b
+    if-nez v2, :cond_60
 
-    .line 269
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    .line 288
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
-    invoke-virtual {v0, v2, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->measure(II)V
+    invoke-virtual {v2, v5, v5}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->measure(II)V
 
-    .line 270
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    .line 289
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->updateCache()V
+    invoke-virtual {v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->updateCache()V
 
-    .line 271
-    invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setWidth(I)V
+    .line 290
+    invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setWidth(I)V
 
-    .line 272
-    invoke-virtual {p0, v1}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setHeight(I)V
+    .line 291
+    invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->setHeight(I)V
 
-    .line 273
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mToken:Landroid/os/IBinder;
+    .line 292
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mToken:Landroid/os/IBinder;
 
-    const/16 v1, 0x33
+    const/16 v3, 0x33
 
-    invoke-virtual {p0, v0, v1, v2, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->showAtLocation(Landroid/os/IBinder;III)V
+    invoke-virtual {p0, v2, v3, v5, v5}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->showAtLocation(Landroid/os/IBinder;III)V
 
-    .line 274
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+    .line 294
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
-    iget-object v1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationEnter:Landroid/view/animation/Animation;
+    iget v3, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mX:I
 
-    invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->startAnimation(Landroid/view/animation/Animation;)V
+    int-to-float v3, v3
 
-    .line 276
-    :cond_2b
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->setPivotX(F)V
+
+    .line 295
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+
+    iget v3, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mY:I
+
+    int-to-float v3, v3
+
+    invoke-virtual {v2, v3}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->setPivotY(F)V
+
+    .line 296
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+
+    const-string v3, "scaleX"
+
+    new-array v4, v6, [F
+
+    fill-array-data v4, :array_62
+
+    invoke-static {v2, v3, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v0
+
+    .line 297
+    .local v0, animation1:Landroid/animation/ObjectAnimator;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
+
+    const-string v3, "scaleY"
+
+    new-array v4, v6, [F
+
+    fill-array-data v4, :array_6a
+
+    invoke-static {v2, v3, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v1
+
+    .line 298
+    .local v1, animation2:Landroid/animation/ObjectAnimator;
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationEnter:Landroid/animation/AnimatorSet;
+
+    new-array v3, v6, [Landroid/animation/Animator;
+
+    aput-object v0, v3, v5
+
+    const/4 v4, 0x1
+
+    aput-object v1, v3, v4
+
+    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+
+    .line 299
+    iget-object v2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mAnimationEnter:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v2}, Landroid/animation/AnimatorSet;->start()V
+
+    .line 301
+    .end local v0           #animation1:Landroid/animation/ObjectAnimator;
+    .end local v1           #animation2:Landroid/animation/ObjectAnimator;
+    :cond_60
     return-void
+
+    .line 296
+    nop
+
+    :array_62
+    .array-data 0x4
+        0x0t 0x0t 0x0t 0x0t
+        0x0t 0x0t 0x80t 0x3ft
+    .end array-data
+
+    .line 297
+    :array_6a
+    .array-data 0x4
+        0x0t 0x0t 0x0t 0x0t
+        0x0t 0x0t 0x80t 0x3ft
+    .end array-data
 .end method
 
 
@@ -423,21 +551,21 @@
     .registers 3
 
     .prologue
-    .line 233
+    .line 252
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x2
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 234
+    .line 253
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 235
+    .line 254
     return-void
 .end method
 
@@ -451,12 +579,12 @@
 
     const/4 v1, 0x1
 
-    .line 242
+    .line 261
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 243
+    .line 262
     iget v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mX:I
 
     sub-int v0, p1, v0
@@ -477,19 +605,19 @@
 
     if-lt v0, v1, :cond_24
 
-    .line 244
+    .line 263
     :cond_1b
     iput p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mX:I
 
-    .line 245
+    .line 264
     iput p2, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mY:I
 
-    .line 246
+    .line 265
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 248
+    .line 267
     :cond_24
     return-void
 .end method
@@ -498,11 +626,11 @@
     .registers 2
 
     .prologue
-    .line 238
+    .line 257
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->updateCache()V
 
-    .line 239
+    .line 258
     return-void
 .end method

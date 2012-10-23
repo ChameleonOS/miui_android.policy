@@ -1293,12 +1293,15 @@
 
 .method private handleShow()V
     .registers 3
+    .annotation build Landroid/annotation/MiuiHook;
+        value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->CHANGE_CODE:Landroid/annotation/MiuiHook$MiuiHookType;
+    .end annotation
 
     .prologue
-    .line 1152
+    .line 1153
     monitor-enter p0
 
-    .line 1154
+    .line 1155
     :try_start_1
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mSystemReady:Z
 
@@ -1310,30 +1313,35 @@
     :goto_6
     return-void
 
-    .line 1156
+    .line 1157
     :cond_7
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+
+    .line 1159
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mKeyguardViewManager:Lcom/android/internal/policy/impl/KeyguardViewManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
 
-    .line 1157
+    .line 1160
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowing:Z
 
-    .line 1158
+    .line 1161
     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->updateActivityLockScreenState()V
 
-    .line 1159
+    .line 1162
     invoke-direct {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->adjustUserActivityLocked()V
 
-    .line 1160
+    .line 1163
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->adjustStatusBarLocked()V
-    :try_end_18
-    .catchall {:try_start_1 .. :try_end_18} :catchall_2c
+    :try_end_1c
+    .catchall {:try_start_1 .. :try_end_1c} :catchall_2c
 
-    .line 1162
-    :try_start_18
+    .line 1165
+    :try_start_1c
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
     move-result-object v0
@@ -1341,18 +1349,13 @@
     const-string v1, "lock"
 
     invoke-interface {v0, v1}, Landroid/app/IActivityManager;->closeSystemDialogs(Ljava/lang/String;)V
-    :try_end_21
-    .catchall {:try_start_18 .. :try_end_21} :catchall_2c
-    .catch Landroid/os/RemoteException; {:try_start_18 .. :try_end_21} :catch_2f
-
-    .line 1167
-    :goto_21
-    const/4 v0, 0x1
-
-    :try_start_22
-    invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->playSounds(Z)V
+    :try_end_25
+    .catchall {:try_start_1c .. :try_end_25} :catchall_2c
+    .catch Landroid/os/RemoteException; {:try_start_1c .. :try_end_25} :catch_2f
 
     .line 1169
+    :goto_25
+    :try_start_25
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator;->mShowKeyguardWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
@@ -1367,15 +1370,15 @@
 
     monitor-exit p0
     :try_end_2e
-    .catchall {:try_start_22 .. :try_end_2e} :catchall_2c
+    .catchall {:try_start_25 .. :try_end_2e} :catchall_2c
 
     throw v0
 
-    .line 1163
+    .line 1166
     :catch_2f
     move-exception v0
 
-    goto :goto_21
+    goto :goto_25
 .end method
 
 .method private handleTimeout(I)V

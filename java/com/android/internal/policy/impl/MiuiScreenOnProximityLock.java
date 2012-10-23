@@ -103,20 +103,22 @@ _L3:
                 message.what;
                 JVM INSTR tableswitch 1 3: default 36
             //                           1 39
-            //                           2 98
-            //                           3 167;
+            //                           2 108
+            //                           3 177;
                    goto _L1 _L2 _L3 _L4
 _L1:
                 miuiscreenonproximitylock;
                 JVM INSTR monitorexit ;
                 return;
 _L2:
-                Log.d("MiuiScreenOnProximityLock", "too close screen, show hint...");
-                if(mDialog == null) {
-                    prepareHintDialog();
-                    mDialog.show();
+                if(isHeld()) {
+                    Log.d("MiuiScreenOnProximityLock", "too close screen, show hint...");
+                    if(mDialog == null) {
+                        prepareHintDialog();
+                        mDialog.show();
+                    }
+                    mKeyguardMediator.mRealPowerManager.enableUserActivity(false);
                 }
-                mKeyguardMediator.mRealPowerManager.enableUserActivity(false);
                   goto _L1
                 Exception exception;
                 exception;
@@ -156,7 +158,7 @@ _L4:
         mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0xcc000000));
         mDialog.getWindow().requestFeature(1);
         mDialog.setCancelable(false);
-        mDialog.setContentView(View.inflate(mDialog.getContext(), 0x6030042, null), new android.view.ViewGroup.LayoutParams(-1, -1));
+        mDialog.setContentView(View.inflate(mDialog.getContext(), 0x6030000, null), new android.view.ViewGroup.LayoutParams(-1, -1));
     }
 
     /**
@@ -258,6 +260,7 @@ _L2:
                 flag = false;
             break;
 
+        case 79: // 'O'
         case 85: // 'U'
         case 86: // 'V'
         case 87: // 'W'

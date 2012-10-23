@@ -28,7 +28,7 @@
     .parameter
 
     .prologue
-    .line 72
+    .line 74
     iput-object p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView$1;->this$1:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
     iput-object p3, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView$1;->val$this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
@@ -45,25 +45,25 @@
     .parameter "msg"
 
     .prologue
-    .line 75
+    .line 77
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
     if-ne v0, v1, :cond_f
 
-    .line 76
+    .line 78
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView$1;->this$1:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->takeScreenshot()V
 
-    .line 77
+    .line 79
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView$1;->this$1:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
 
     #calls: Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->refresh()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;->access$000(Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;)V
 
-    .line 79
+    .line 81
     :cond_f
     return-void
 .end method

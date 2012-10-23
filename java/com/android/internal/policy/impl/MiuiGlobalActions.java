@@ -614,9 +614,9 @@ _L3:
         else
             flag = false;
         if(flag)
-            i = 0x602014b;
+            i = 0x6020024;
         else
-            i = 0x602014c;
+            i = 0x6020023;
         return i;
     }
 

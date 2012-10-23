@@ -351,6 +351,7 @@ _L3:
         this;
         JVM INSTR monitorexit ;
         break MISSING_BLOCK_LABEL_75;
+        playSounds(true);
         mKeyguardViewManager.show();
         mShowing = true;
         updateActivityLockScreenState();
@@ -361,7 +362,6 @@ _L3:
             ActivityManagerNative.getDefault().closeSystemDialogs("lock");
         }
         catch(RemoteException remoteexception) { }
-        playSounds(true);
         mShowKeyguardWakeLock.release();
         this;
         JVM INSTR monitorexit ;

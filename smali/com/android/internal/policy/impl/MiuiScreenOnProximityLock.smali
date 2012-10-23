@@ -148,7 +148,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
-    .line 157
+    .line 159
     return-void
 .end method
 
@@ -352,7 +352,7 @@
 
     move-result-object v2
 
-    const v3, 0x6030042
+    const/high16 v3, 0x603
 
     const/4 v4, 0x0
 
@@ -376,7 +376,7 @@
     .registers 5
 
     .prologue
-    .line 164
+    .line 166
     monitor-enter p0
 
     :try_start_1
@@ -386,29 +386,29 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 165
+    .line 167
     iget-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
     if-nez v0, :cond_2d
 
-    .line 166
+    .line 168
     const-string v0, "MiuiScreenOnProximityLock"
 
     const-string v1, "aquire"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 167
+    .line 169
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
-    .line 168
+    .line 170
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mIsFirstChange:Z
 
-    .line 169
+    .line 171
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x3
@@ -417,7 +417,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    .line 170
+    .line 172
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
@@ -430,13 +430,13 @@
     :try_end_2b
     .catchall {:try_start_1 .. :try_end_2b} :catchall_33
 
-    .line 175
+    .line 177
     :goto_2b
     monitor-exit p0
 
     return-void
 
-    .line 173
+    .line 175
     :cond_2d
     :try_start_2d
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
@@ -447,7 +447,7 @@
 
     goto :goto_2b
 
-    .line 164
+    .line 166
     :catchall_33
     move-exception v0
 
@@ -460,7 +460,7 @@
     .registers 2
 
     .prologue
-    .line 160
+    .line 162
     monitor-enter p0
 
     :try_start_1
@@ -488,7 +488,7 @@
 
     const/4 v1, 0x0
 
-    .line 178
+    .line 180
     monitor-enter p0
 
     :try_start_3
@@ -498,57 +498,57 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 179
+    .line 181
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
     if-eqz v2, :cond_3e
 
-    .line 180
+    .line 182
     const-string v1, "MiuiScreenOnProximityLock"
 
     const-string v2, "release"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 181
+    .line 183
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
 
-    .line 182
+    .line 184
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mDownRecieved:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->clear()V
 
-    .line 183
+    .line 185
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mSensorEventListener:Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock$MySensorEventListener;
 
     invoke-virtual {v1, v2}, Landroid/hardware/SensorManager;->unregisterListener(Landroid/hardware/SensorEventListener;)V
 
-    .line 184
+    .line 186
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 185
+    .line 187
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x4
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 186
+    .line 188
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x3
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    .line 187
+    .line 189
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x2
@@ -557,7 +557,7 @@
     :try_end_3c
     .catchall {:try_start_3 .. :try_end_3c} :catchall_40
 
-    .line 190
+    .line 192
     :goto_3c
     monitor-exit p0
 
@@ -568,7 +568,7 @@
 
     goto :goto_3c
 
-    .line 178
+    .line 180
     :catchall_40
     move-exception v0
 
@@ -586,7 +586,7 @@
 
     const/4 v3, 0x0
 
-    .line 194
+    .line 196
     if-eqz p1, :cond_8
 
     iget-boolean v4, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mHeld:Z
@@ -596,12 +596,12 @@
     :cond_8
     move v2, v3
 
-    .line 214
+    .line 217
     :cond_9
     :goto_9
     return v2
 
-    .line 196
+    .line 198
     :cond_a
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
@@ -609,12 +609,12 @@
 
     sparse-switch v4, :sswitch_data_48
 
-    .line 210
+    .line 213
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
-    .line 211
+    .line 214
     .local v1, keyCode:I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
 
@@ -628,7 +628,7 @@
 
     if-nez v4, :cond_2a
 
-    .line 212
+    .line 215
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mDownRecieved:Landroid/util/SparseArray;
 
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -637,7 +637,7 @@
 
     invoke-virtual {v4, v1, v5}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    .line 214
+    .line 217
     :cond_2a
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mDownRecieved:Landroid/util/SparseArray;
 
@@ -651,7 +651,7 @@
 
     goto :goto_9
 
-    .line 199
+    .line 201
     .end local v1           #keyCode:I
     :sswitch_34
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiScreenOnProximityLock;->mContext:Landroid/content/Context;
@@ -664,7 +664,7 @@
 
     check-cast v0, Landroid/media/AudioManager;
 
-    .line 200
+    .line 202
     .local v0, audioManager:Landroid/media/AudioManager;
     invoke-virtual {v0}, Landroid/media/AudioManager;->isMusicActive()Z
 
@@ -680,14 +680,15 @@
     :sswitch_46
     move v2, v3
 
-    .line 207
+    .line 210
     goto :goto_9
 
-    .line 196
+    .line 198
     :sswitch_data_48
     .sparse-switch
         0x18 -> :sswitch_34
         0x19 -> :sswitch_34
+        0x4f -> :sswitch_46
         0x55 -> :sswitch_46
         0x56 -> :sswitch_46
         0x57 -> :sswitch_46

@@ -621,7 +621,7 @@
     :goto_a
     if-eqz v0, :cond_12
 
-    const v1, 0x602014b
+    const v1, 0x6020024
 
     :goto_f
     return v1
@@ -636,7 +636,7 @@
     .line 273
     .restart local v0       #silentModeOn:Z
     :cond_12
-    const v1, 0x602014c
+    const v1, 0x6020023
 
     goto :goto_f
 .end method

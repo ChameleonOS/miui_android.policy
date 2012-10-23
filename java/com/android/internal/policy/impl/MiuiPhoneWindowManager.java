@@ -914,7 +914,7 @@ _L22:
                     android.view.WindowManager.LayoutParams layoutparams = mMiuiBootMsgDialog.getWindow().getAttributes();
                     layoutparams.screenOrientation = 5;
                     mMiuiBootMsgDialog.getWindow().setAttributes(layoutparams);
-                    mMiuiBootMsgDialog.getWindow().setBackgroundDrawableResource(0x60201e4);
+                    mMiuiBootMsgDialog.getWindow().setBackgroundDrawableResource(0x6020034);
                     mMiuiBootMsgDialog.setCancelable(false);
                     mMiuiBootMsgDialog.show();
                     mAnimationDrawable = (AnimationDrawable)imageview.getDrawable();

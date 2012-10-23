@@ -4,6 +4,7 @@
 
 package com.android.internal.policy.impl;
 
+import android.animation.*;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.*;
@@ -12,8 +13,6 @@ import android.graphics.drawable.Drawable;
 import android.os.*;
 import android.util.DisplayMetrics;
 import android.view.*;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.PopupWindow;
 
 public class MagnifierPopupWindow extends PopupWindow {
@@ -50,18 +49,25 @@ _L5:
 
         public void hide() {
             mUpdateHandler.removeMessages(1);
-            if(isShowing() && !mIsHideAnimate.booleanValue()) {
-                mIsHideAnimate = Boolean.valueOf(true);
-                startAnimation(mAnimationExit);
-            }
-        }
-
-        protected void onAnimationEnd() {
-            super.onAnimationEnd();
-            if(mIsHideAnimate.booleanValue()) {
-                mHandler.removeMessages(2);
-                mHandler.sendEmptyMessage(4);
-                mIsHideAnimate = Boolean.valueOf(false);
+            if(isShowing()) {
+                mMagnifierView.setPivotX(mX);
+                mMagnifierView.setPivotY(mY);
+                MagnifierView magnifierview = mMagnifierView;
+                float af[] = new float[2];
+                af[0] = 1.0F;
+                af[1] = 0.0F;
+                ObjectAnimator objectanimator = ObjectAnimator.ofFloat(magnifierview, "scaleX", af);
+                MagnifierView magnifierview1 = mMagnifierView;
+                float af1[] = new float[2];
+                af1[0] = 1.0F;
+                af1[1] = 0.0F;
+                ObjectAnimator objectanimator1 = ObjectAnimator.ofFloat(magnifierview1, "scaleY", af1);
+                AnimatorSet animatorset = mAnimationExit;
+                Animator aanimator[] = new Animator[2];
+                aanimator[0] = objectanimator;
+                aanimator[1] = objectanimator1;
+                animatorset.playTogether(aanimator);
+                mAnimationExit.start();
             }
         }
 
@@ -79,7 +85,8 @@ _L5:
         }
 
         protected void onMeasure(int i, int j) {
-            setMeasuredDimension(-1, -1);
+            mDisplay.getRealMetrics(mDisplayMetrics);
+            setMeasuredDimension(mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels);
         }
 
         void takeScreenshot() {
@@ -148,7 +155,6 @@ _L5:
         private Rect mDstRect;
         private Drawable mFilterDrawable;
         private Drawable mFrontDrawable;
-        private Boolean mIsHideAnimate;
         private int mLastHeight;
         private int mLastWidth;
         private int mMagHeight;
@@ -192,15 +198,14 @@ _L5:
             mBitmapPaint.setAntiAlias(true);
             mBitmapPaint.setFilterBitmap(true);
             mBitmapPaint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.MULTIPLY));
-            mFilterDrawable = context.getResources().getDrawable(0x60201da);
-            mFrontDrawable = context.getResources().getDrawable(0x60201db);
+            mFilterDrawable = context.getResources().getDrawable(0x6020053);
+            mFrontDrawable = context.getResources().getDrawable(0x6020054);
             mMagWidth = mFilterDrawable.getIntrinsicWidth();
             mMagHeight = mFilterDrawable.getIntrinsicHeight();
             mSrcWidth = Math.round((float)mMagWidth / f);
             mSrcHeight = Math.round((float)mMagHeight / f);
             mDstRect.set(0, 0, mMagWidth, mMagHeight);
             mFingerOffset = (int)context.getResources().getDimension(0x60a0019);
-            mIsHideAnimate = Boolean.valueOf(false);
         }
     }
 
@@ -224,8 +229,33 @@ _L5:
         setClippingEnabled(false);
         setInputMethodMode(2);
         setBackgroundDrawable(new ColorDrawable(0));
-        mAnimationEnter = AnimationUtils.loadAnimation(context, 0x6040010);
-        mAnimationExit = AnimationUtils.loadAnimation(context, 0x6040011);
+        mAnimationEnter = new AnimatorSet();
+        mAnimationExit = new AnimatorSet();
+        mAnimationExit.addListener(new android.animation.Animator.AnimatorListener() {
+
+            public void onAnimationCancel(Animator animator) {
+            }
+
+            public void onAnimationEnd(Animator animator) {
+                dismiss();
+            }
+
+            public void onAnimationRepeat(Animator animator) {
+            }
+
+            public void onAnimationStart(Animator animator) {
+            }
+
+            final MagnifierPopupWindow this$0;
+
+             {
+                this$0 = MagnifierPopupWindow.this;
+                super();
+            }
+        });
+        long l = context.getResources().getInteger(0x10e0000);
+        mAnimationExit.setDuration(l);
+        mAnimationEnter.setDuration(l);
         setWindowLayoutType(2016);
         setLayoutInScreenEnabled(true);
     }
@@ -242,7 +272,24 @@ _L5:
             setWidth(-1);
             setHeight(-1);
             showAtLocation(mToken, 51, 0, 0);
-            mMagnifierView.startAnimation(mAnimationEnter);
+            mMagnifierView.setPivotX(mX);
+            mMagnifierView.setPivotY(mY);
+            MagnifierView magnifierview = mMagnifierView;
+            float af[] = new float[2];
+            af[0] = 0.0F;
+            af[1] = 1.0F;
+            ObjectAnimator objectanimator = ObjectAnimator.ofFloat(magnifierview, "scaleX", af);
+            MagnifierView magnifierview1 = mMagnifierView;
+            float af1[] = new float[2];
+            af1[0] = 0.0F;
+            af1[1] = 1.0F;
+            ObjectAnimator objectanimator1 = ObjectAnimator.ofFloat(magnifierview1, "scaleY", af1);
+            AnimatorSet animatorset = mAnimationEnter;
+            Animator aanimator[] = new Animator[2];
+            aanimator[0] = objectanimator;
+            aanimator[1] = objectanimator1;
+            animatorset.playTogether(aanimator);
+            mAnimationEnter.start();
         }
     }
 
@@ -272,8 +319,8 @@ _L5:
     private static final int MSG_UPDATE_CACHE = 1;
     private static final int REFRESH_DELAY = 1000;
     private static final int UPDATE_CACHE_DELAY = 80;
-    private Animation mAnimationEnter;
-    private Animation mAnimationExit;
+    private AnimatorSet mAnimationEnter;
+    private AnimatorSet mAnimationExit;
     private Display mDisplay;
     private DisplayMetrics mDisplayMetrics;
     private int mFingerOffset;
@@ -312,6 +359,16 @@ _L3:
 
 
 
+
+/*
+    static int access$1002(MagnifierPopupWindow magnifierpopupwindow, int i) {
+        magnifierpopupwindow.mLocationY = i;
+        return i;
+    }
+
+*/
+
+
 /*
     static int access$102(MagnifierPopupWindow magnifierpopupwindow, int i) {
         magnifierpopupwindow.mFingerOffset = i;
@@ -326,23 +383,15 @@ _L3:
 
 
 
+
+
+
+
 /*
-    static int access$602(MagnifierPopupWindow magnifierpopupwindow, int i) {
+    static int access$902(MagnifierPopupWindow magnifierpopupwindow, int i) {
         magnifierpopupwindow.mLocationX = i;
         return i;
     }
 
 */
-
-
-
-/*
-    static int access$702(MagnifierPopupWindow magnifierpopupwindow, int i) {
-        magnifierpopupwindow.mLocationY = i;
-        return i;
-    }
-
-*/
-
-
 }
