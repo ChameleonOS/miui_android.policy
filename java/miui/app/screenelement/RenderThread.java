@@ -240,12 +240,12 @@ _L2:
         doFinish();
         Log.i("RenderThread", "RenderThread stopped");
         return;
-        exception1;
+        exception2;
         obj;
         JVM INSTR monitorexit ;
         long l;
         try {
-            throw exception1;
+            throw exception2;
         }
         catch(Exception exception) {
             exception.printStackTrace();
@@ -267,6 +267,9 @@ _L5:
         boolean flag1;
         f = 0.0F;
         flag1 = false;
+        ArrayList arraylist = mRendererControllerList;
+        arraylist;
+        JVM INSTR monitorenter ;
         Iterator iterator = mRendererControllerList.iterator();
 _L10:
         if(!iterator.hasNext()) goto _L8; else goto _L7
@@ -288,9 +291,9 @@ _L11:
         renderercontroller.setCurFramerate(f1);
         Log.d("RenderThread", (new StringBuilder()).append("framerate changed: ").append(f1).append(" at time: ").append(l).toString());
         if(f1 == 0.0F)
-            break MISSING_BLOCK_LABEL_409;
+            break MISSING_BLOCK_LABEL_429;
         f2 = 1000F / f1;
-_L13:
+_L14:
         renderercontroller.setFrameTime((int)f2);
 _L12:
         if(!renderercontroller.pendingRender() && (l - renderercontroller.getLastUpdateTime() > (long)renderercontroller.getFrameTime() || renderercontroller.shouldUpdate() || flag2)) {
@@ -300,11 +303,17 @@ _L12:
         }
           goto _L10
 _L8:
-        if(!flag1)
-            sleepForFramerate(f);
+        if(flag1) goto _L6; else goto _L13
+_L13:
+        sleepForFramerate(f);
           goto _L6
+        Exception exception1;
+        exception1;
+        arraylist;
+        JVM INSTR monitorexit ;
+        throw exception1;
         f2 = 2.147484E+09F;
-          goto _L13
+          goto _L14
     }
 
     public void setPaused(boolean flag) {

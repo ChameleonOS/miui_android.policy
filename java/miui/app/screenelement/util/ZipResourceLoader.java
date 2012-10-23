@@ -510,8 +510,6 @@ _L11:
     private static final String IMAGES_FOLDER_NAME = "images";
     private static final String MANIFEST_FILE_NAME = "manifest.xml";
     private static final String TAG = "MAML_ZipResourceLoader";
-    private Boolean mImagesLanguageCountryFolderExists;
-    private Boolean mImagesLanguageFolderExists;
     private String mInnerPath;
     private String mManifestName;
     private String mResourcePath;

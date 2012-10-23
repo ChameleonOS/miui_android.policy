@@ -267,6 +267,17 @@ _L3:
         putVariableString(null, s, variables, s1);
     }
 
+    public static double stringToDouble(String s, double d) {
+        double d1 = Double.parseDouble(s);
+        d = d1;
+_L2:
+        return d;
+        NumberFormatException numberformatexception;
+        numberformatexception;
+        if(true) goto _L2; else goto _L1
+_L1:
+    }
+
     public static void traverseXmlElementChildren(Element element, String s, XmlTraverseListener xmltraverselistener) {
         NodeList nodelist = element.getChildNodes();
         for(int i = 0; i < nodelist.getLength(); i++) {

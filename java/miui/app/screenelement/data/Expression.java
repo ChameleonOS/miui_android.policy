@@ -63,6 +63,7 @@ public abstract class Expression {
             public static final Fun SIN;
             public static final Fun SINH;
             public static final Fun SQRT;
+            public static final Fun SUBSTR;
             public static final Fun TAN;
 
             static  {
@@ -93,7 +94,8 @@ public abstract class Expression {
                 NOT = new Fun("NOT", 24);
                 IFELSE = new Fun("IFELSE", 25);
                 EQS = new Fun("EQS", 26);
-                Fun afun[] = new Fun[27];
+                SUBSTR = new Fun("SUBSTR", 27);
+                Fun afun[] = new Fun[28];
                 afun[0] = INVALID;
                 afun[1] = SIN;
                 afun[2] = COS;
@@ -121,6 +123,7 @@ public abstract class Expression {
                 afun[24] = NOT;
                 afun[25] = IFELSE;
                 afun[26] = EQS;
+                afun[27] = SUBSTR;
                 $VALUES = afun;
             }
 
@@ -184,7 +187,7 @@ _L3:
 
                 static  {
                     $SwitchMap$miui$app$screenelement$data$Expression$Tokenizer$TokenType = new int[Tokenizer.TokenType.values().length];
-                    NoSuchFieldError nosuchfielderror38;
+                    NoSuchFieldError nosuchfielderror39;
                     try {
                         $SwitchMap$miui$app$screenelement$data$Expression$Tokenizer$TokenType[Tokenizer.TokenType.VAR.ordinal()] = 1;
                     }
@@ -318,70 +321,75 @@ _L3:
                         $SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun[FunctionExpression.Fun.EQS.ordinal()] = 26;
                     }
                     catch(NoSuchFieldError nosuchfielderror32) { }
+                    try {
+                        $SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun[FunctionExpression.Fun.SUBSTR.ordinal()] = 27;
+                    }
+                    catch(NoSuchFieldError nosuchfielderror33) { }
                     $SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope = new int[BinaryExpression.Ope.values().length];
                     try {
                         $SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope[BinaryExpression.Ope.ADD.ordinal()] = 1;
                     }
-                    catch(NoSuchFieldError nosuchfielderror33) { }
+                    catch(NoSuchFieldError nosuchfielderror34) { }
                     try {
                         $SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope[BinaryExpression.Ope.MIN.ordinal()] = 2;
                     }
-                    catch(NoSuchFieldError nosuchfielderror34) { }
+                    catch(NoSuchFieldError nosuchfielderror35) { }
                     try {
                         $SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope[BinaryExpression.Ope.MUL.ordinal()] = 3;
                     }
-                    catch(NoSuchFieldError nosuchfielderror35) { }
+                    catch(NoSuchFieldError nosuchfielderror36) { }
                     try {
                         $SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope[BinaryExpression.Ope.DIV.ordinal()] = 4;
                     }
-                    catch(NoSuchFieldError nosuchfielderror36) { }
+                    catch(NoSuchFieldError nosuchfielderror37) { }
                     try {
                         $SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope[BinaryExpression.Ope.MOD.ordinal()] = 5;
                     }
-                    catch(NoSuchFieldError nosuchfielderror37) { }
+                    catch(NoSuchFieldError nosuchfielderror38) { }
                     $SwitchMap$miui$app$screenelement$data$Expression$UnaryExpression$Ope = new int[UnaryExpression.Ope.values().length];
                     $SwitchMap$miui$app$screenelement$data$Expression$UnaryExpression$Ope[UnaryExpression.Ope.MIN.ordinal()] = 1;
 _L2:
                     return;
-                    nosuchfielderror38;
+                    nosuchfielderror39;
                     if(true) goto _L2; else goto _L1
 _L1:
                 }
             }
 
             _cls1..SwitchMap.miui.app.screenelement.data.Expression.FunctionExpression.Fun[mFun.ordinal()];
-            JVM INSTR tableswitch 1 26: default 148
-        //                       1 184
-        //                       2 193
-        //                       3 202
-        //                       4 211
-        //                       5 220
-        //                       6 229
-        //                       7 238
-        //                       8 247
-        //                       9 256
-        //                       10 265
-        //                       11 274
-        //                       12 286
-        //                       13 296
-        //                       14 304
-        //                       15 323
-        //                       16 343
-        //                       17 362
-        //                       18 381
-        //                       19 404
-        //                       20 426
-        //                       21 448
-        //                       22 470
-        //                       23 492
-        //                       24 514
-        //                       25 536
-        //                       26 664;
-               goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27
+            JVM INSTR tableswitch 1 27: default 152
+        //                       1 188
+        //                       2 197
+        //                       3 206
+        //                       4 215
+        //                       5 224
+        //                       6 233
+        //                       7 242
+        //                       8 251
+        //                       9 260
+        //                       10 269
+        //                       11 278
+        //                       12 296
+        //                       13 306
+        //                       14 314
+        //                       15 333
+        //                       16 353
+        //                       17 372
+        //                       18 391
+        //                       19 414
+        //                       20 436
+        //                       21 458
+        //                       22 480
+        //                       23 502
+        //                       24 524
+        //                       25 546
+        //                       26 674
+        //                       27 706;
+               goto _L1 _L2 _L3 _L4 _L5 _L6 _L7 _L8 _L9 _L10 _L11 _L12 _L13 _L14 _L15 _L16 _L17 _L18 _L19 _L20 _L21 _L22 _L23 _L24 _L25 _L26 _L27 _L28
 _L1:
             Log.e("Expression", (new StringBuilder()).append("fail to evalute FunctionExpression, invalid function: ").append(mFun.toString()).toString());
             d = d1;
-_L29:
+_L30:
             return d;
 _L2:
             d = Math.sin(d2);
@@ -414,7 +422,7 @@ _L11:
             d = Math.abs(d2);
             continue; /* Loop/switch isn't completed */
 _L12:
-            d = len((int)d2);
+            d = mParaExps[0].evaluateStr(variables).length();
             continue; /* Loop/switch isn't completed */
 _L13:
             d = Math.round(d2);
@@ -486,39 +494,62 @@ _L26:
 _L27:
             if(!TextUtils.equals(mParaExps[0].evaluateStr(variables), mParaExps[1].evaluateStr(variables)))
                 d = d1;
-            if(true) goto _L29; else goto _L28
+            continue; /* Loop/switch isn't completed */
 _L28:
+            d = Utils.stringToDouble(evaluateStr(variables), d1);
+            if(true) goto _L30; else goto _L29
+_L29:
         }
 
         public String evaluateStr(Variables variables) {
+            String s = null;
             _cls1..SwitchMap.miui.app.screenelement.data.Expression.FunctionExpression.Fun[mFun.ordinal()];
-            JVM INSTR tableswitch 25 25: default 28
-        //                       25 41;
-               goto _L1 _L2
+            JVM INSTR tableswitch 25 27: default 40
+        //                       25 51
+        //                       26 40
+        //                       27 175;
+               goto _L1 _L2 _L1 _L3
 _L1:
-            String s = Utils.doubleToString(evaluate(variables));
-_L4:
+            s = Utils.doubleToString(evaluate(variables));
+_L7:
             return s;
 _L2:
-            int i = mParaExps.length;
-            if(i % 2 != 1) {
+            int k = mParaExps.length;
+            if(k % 2 != 1) {
                 Log.e("Expression", (new StringBuilder()).append("function parameter number should be 2*n+1: ").append(mFun.toString()).toString());
-                s = null;
                 continue; /* Loop/switch isn't completed */
             }
-            int j = 0;
+            int l = 0;
             do {
-                if(j >= (i - 1) / 2)
+                if(l >= (k - 1) / 2)
                     break;
-                if(mParaExps[j * 2].evaluate(variables) > 0.0D) {
-                    s = mParaExps[1 + j * 2].evaluateStr(variables);
+                if(mParaExps[l * 2].evaluate(variables) > 0.0D) {
+                    s = mParaExps[1 + l * 2].evaluateStr(variables);
                     continue; /* Loop/switch isn't completed */
                 }
-                j++;
+                l++;
             } while(true);
-            s = mParaExps[i - 1].evaluateStr(variables);
-            if(true) goto _L4; else goto _L3
+            s = mParaExps[k - 1].evaluateStr(variables);
+            continue; /* Loop/switch isn't completed */
 _L3:
+            String s1;
+            int i;
+            int j;
+            s1 = mParaExps[0].evaluateStr(variables);
+            i = mParaExps.length;
+            j = (int)mParaExps[1].evaluate(variables);
+            if(i < 3) goto _L5; else goto _L4
+_L4:
+            s = s1.substring(j, (int)mParaExps[2].evaluate(variables));
+            continue; /* Loop/switch isn't completed */
+_L5:
+            String s2 = s1.substring(j);
+            s = s2;
+            continue; /* Loop/switch isn't completed */
+            IndexOutOfBoundsException indexoutofboundsexception;
+            indexoutofboundsexception;
+            if(true) goto _L7; else goto _L6
+_L6:
         }
 
         private static HashMap sFunMap;
@@ -553,6 +584,7 @@ _L3:
             sFunMap.put("lt", new FunctionDesc(Fun.LT, 2));
             sFunMap.put("ifelse", new FunctionDesc(Fun.IFELSE, 3));
             sFunMap.put("eqs", new FunctionDesc(Fun.EQS, 2));
+            sFunMap.put("substr", new FunctionDesc(Fun.SUBSTR, 2));
         }
 
         public FunctionExpression(Expression aexpression[], String s) throws ScreenElementLoadException {

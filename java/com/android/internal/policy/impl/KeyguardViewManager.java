@@ -263,7 +263,7 @@ _L2:
         }
         if(!flag)
             break MISSING_BLOCK_LABEL_410;
-        mWindowLayoutParams.screenOrientation = 4;
+        mWindowLayoutParams.screenOrientation = 2;
 _L1:
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         if(mKeyguardView == null) {

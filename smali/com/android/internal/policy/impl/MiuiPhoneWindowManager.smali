@@ -2259,7 +2259,7 @@
 
     const-string v1, "enable_screen_on_proximity_sensor"
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
     invoke-static {v0, v1, v2}, Lmiui/provider/ExtraSettings$System;->getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
 

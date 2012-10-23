@@ -27,15 +27,15 @@
     .parameter "i"
 
     .prologue
-    .line 466
+    .line 467
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 467
+    .line 468
     iput-object p1, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;->fun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
-    .line 468
+    .line 469
     iput p2, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;->params:I
 
-    .line 469
+    .line 470
     return-void
 .end method

@@ -21,7 +21,7 @@
     .line 13
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 174
+    .line 182
     return-void
 .end method
 
@@ -623,12 +623,12 @@
     .parameter "vars"
 
     .prologue
-    .line 232
+    .line 240
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 233
+    .line 241
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedNumberVariable;
     invoke-virtual {v0}, Lmiui/app/screenelement/util/IndexedNumberVariable;->get()Ljava/lang/Double;
 
@@ -647,7 +647,7 @@
     .parameter "vars"
 
     .prologue
-    .line 228
+    .line 236
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lmiui/app/screenelement/util/Utils;->getVariableNumber(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)D
@@ -664,12 +664,12 @@
     .parameter "vars"
 
     .prologue
-    .line 223
+    .line 231
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 224
+    .line 232
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedStringVariable;
     invoke-virtual {v0}, Lmiui/app/screenelement/util/IndexedStringVariable;->get()Ljava/lang/String;
 
@@ -684,7 +684,7 @@
     .parameter "vars"
 
     .prologue
-    .line 219
+    .line 227
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lmiui/app/screenelement/util/Utils;->getVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
@@ -702,25 +702,25 @@
     .prologue
     const/16 v0, 0xff
 
-    .line 190
+    .line 198
     if-lt p0, v0, :cond_5
 
-    .line 195
+    .line 203
     .end local p1
     :goto_4
     return p1
 
-    .line 192
+    .line 200
     .restart local p1
     :cond_5
     if-lt p1, v0, :cond_9
 
     move p1, p0
 
-    .line 193
+    .line 201
     goto :goto_4
 
-    .line 195
+    .line 203
     :cond_9
     mul-int v0, p0, p1
 
@@ -856,16 +856,16 @@
     .parameter "value"
 
     .prologue
-    .line 214
+    .line 222
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 215
+    .line 223
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedNumberVariable;
     invoke-virtual {v0, p3}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(Ljava/lang/Double;)V
 
-    .line 216
+    .line 224
     return-void
 .end method
 
@@ -876,12 +876,12 @@
     .parameter "value"
 
     .prologue
-    .line 210
+    .line 218
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 211
+    .line 219
     return-void
 .end method
 
@@ -893,16 +893,16 @@
     .parameter "str"
 
     .prologue
-    .line 205
+    .line 213
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 206
+    .line 214
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedStringVariable;
     invoke-virtual {v0, p3}, Lmiui/app/screenelement/util/IndexedStringVariable;->set(Ljava/lang/String;)V
 
-    .line 207
+    .line 215
     return-void
 .end method
 
@@ -913,13 +913,42 @@
     .parameter "str"
 
     .prologue
-    .line 201
+    .line 209
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Lmiui/app/screenelement/util/Utils;->putVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/String;)V
 
-    .line 202
+    .line 210
     return-void
+.end method
+
+.method public static stringToDouble(Ljava/lang/String;D)D
+    .registers 4
+    .parameter "value"
+    .parameter "def"
+
+    .prologue
+    .line 176
+    :try_start_0
+    invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
+    :try_end_3
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_3} :catch_5
+
+    move-result-wide p1
+
+    .line 178
+    .end local p1
+    :goto_4
+    return-wide p1
+
+    .line 177
+    .restart local p1
+    :catch_5
+    move-exception v0
+
+    .line 178
+    .local v0, e:Ljava/lang/NumberFormatException;
+    goto :goto_4
 .end method
 
 .method public static traverseXmlElementChildren(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/util/Utils$XmlTraverseListener;)V
@@ -929,12 +958,12 @@
     .parameter "l"
 
     .prologue
-    .line 179
+    .line 187
     invoke-interface {p0}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v0
 
-    .line 180
+    .line 188
     .local v0, children:Lorg/w3c/dom/NodeList;
     const/4 v1, 0x0
 
@@ -946,12 +975,12 @@
 
     if-ge v1, v3, :cond_2a
 
-    .line 181
+    .line 189
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
-    .line 182
+    .line 190
     .local v2, node:Lorg/w3c/dom/Node;
     invoke-interface {v2}, Lorg/w3c/dom/Node;->getNodeType()S
 
@@ -973,20 +1002,20 @@
 
     if-eqz v3, :cond_27
 
-    .line 184
+    .line 192
     :cond_22
     check-cast v2, Lorg/w3c/dom/Element;
 
     .end local v2           #node:Lorg/w3c/dom/Node;
     invoke-interface {p2, v2}, Lmiui/app/screenelement/util/Utils$XmlTraverseListener;->onChild(Lorg/w3c/dom/Element;)V
 
-    .line 180
+    .line 188
     :cond_27
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_5
 
-    .line 187
+    .line 195
     :cond_2a
     return-void
 .end method

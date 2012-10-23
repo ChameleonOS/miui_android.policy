@@ -29,7 +29,7 @@
     .registers 3
 
     .prologue
-    .line 696
+    .line 714
     invoke-static {}, Lmiui/app/screenelement/data/Expression$Tokenizer$TokenType;->values()[Lmiui/app/screenelement/data/Expression$Tokenizer$TokenType;
 
     move-result-object v0
@@ -53,7 +53,7 @@
 
     aput v2, v0, v1
     :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_24e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_25d
 
     :goto_14
     :try_start_14
@@ -69,7 +69,7 @@
 
     aput v2, v0, v1
     :try_end_1f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_24b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_25a
 
     :goto_1f
     :try_start_1f
@@ -85,7 +85,7 @@
 
     aput v2, v0, v1
     :try_end_2a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_248
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_257
 
     :goto_2a
     :try_start_2a
@@ -101,7 +101,7 @@
 
     aput v2, v0, v1
     :try_end_35
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_245
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_254
 
     :goto_35
     :try_start_35
@@ -117,7 +117,7 @@
 
     aput v2, v0, v1
     :try_end_40
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_242
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_251
 
     :goto_40
     :try_start_40
@@ -133,7 +133,7 @@
 
     aput v2, v0, v1
     :try_end_4b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_23f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_24e
 
     :goto_4b
     :try_start_4b
@@ -149,9 +149,9 @@
 
     aput v2, v0, v1
     :try_end_56
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_23c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_24b
 
-    .line 523
+    .line 525
     :goto_56
     invoke-static {}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->values()[Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
@@ -176,7 +176,7 @@
 
     aput v2, v0, v1
     :try_end_6a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_239
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5f .. :try_end_6a} :catch_248
 
     :goto_6a
     :try_start_6a
@@ -192,7 +192,7 @@
 
     aput v2, v0, v1
     :try_end_75
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_75} :catch_236
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6a .. :try_end_75} :catch_245
 
     :goto_75
     :try_start_75
@@ -208,7 +208,7 @@
 
     aput v2, v0, v1
     :try_end_80
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_75 .. :try_end_80} :catch_233
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_75 .. :try_end_80} :catch_242
 
     :goto_80
     :try_start_80
@@ -224,7 +224,7 @@
 
     aput v2, v0, v1
     :try_end_8b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_80 .. :try_end_8b} :catch_230
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_80 .. :try_end_8b} :catch_23f
 
     :goto_8b
     :try_start_8b
@@ -240,7 +240,7 @@
 
     aput v2, v0, v1
     :try_end_96
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8b .. :try_end_96} :catch_22d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8b .. :try_end_96} :catch_23c
 
     :goto_96
     :try_start_96
@@ -256,7 +256,7 @@
 
     aput v2, v0, v1
     :try_end_a1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_96 .. :try_end_a1} :catch_22a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_96 .. :try_end_a1} :catch_239
 
     :goto_a1
     :try_start_a1
@@ -272,7 +272,7 @@
 
     aput v2, v0, v1
     :try_end_ac
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a1 .. :try_end_ac} :catch_227
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a1 .. :try_end_ac} :catch_236
 
     :goto_ac
     :try_start_ac
@@ -288,7 +288,7 @@
 
     aput v2, v0, v1
     :try_end_b8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_ac .. :try_end_b8} :catch_224
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_ac .. :try_end_b8} :catch_233
 
     :goto_b8
     :try_start_b8
@@ -304,7 +304,7 @@
 
     aput v2, v0, v1
     :try_end_c4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b8 .. :try_end_c4} :catch_221
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b8 .. :try_end_c4} :catch_230
 
     :goto_c4
     :try_start_c4
@@ -320,7 +320,7 @@
 
     aput v2, v0, v1
     :try_end_d0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c4 .. :try_end_d0} :catch_21e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c4 .. :try_end_d0} :catch_22d
 
     :goto_d0
     :try_start_d0
@@ -336,7 +336,7 @@
 
     aput v2, v0, v1
     :try_end_dc
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d0 .. :try_end_dc} :catch_21b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d0 .. :try_end_dc} :catch_22a
 
     :goto_dc
     :try_start_dc
@@ -352,7 +352,7 @@
 
     aput v2, v0, v1
     :try_end_e8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_dc .. :try_end_e8} :catch_218
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_dc .. :try_end_e8} :catch_227
 
     :goto_e8
     :try_start_e8
@@ -368,7 +368,7 @@
 
     aput v2, v0, v1
     :try_end_f4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e8 .. :try_end_f4} :catch_215
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e8 .. :try_end_f4} :catch_224
 
     :goto_f4
     :try_start_f4
@@ -384,7 +384,7 @@
 
     aput v2, v0, v1
     :try_end_100
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f4 .. :try_end_100} :catch_212
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_f4 .. :try_end_100} :catch_221
 
     :goto_100
     :try_start_100
@@ -400,7 +400,7 @@
 
     aput v2, v0, v1
     :try_end_10c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_100 .. :try_end_10c} :catch_20f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_100 .. :try_end_10c} :catch_21e
 
     :goto_10c
     :try_start_10c
@@ -416,7 +416,7 @@
 
     aput v2, v0, v1
     :try_end_118
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10c .. :try_end_118} :catch_20c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_10c .. :try_end_118} :catch_21b
 
     :goto_118
     :try_start_118
@@ -432,7 +432,7 @@
 
     aput v2, v0, v1
     :try_end_124
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_118 .. :try_end_124} :catch_209
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_118 .. :try_end_124} :catch_218
 
     :goto_124
     :try_start_124
@@ -448,7 +448,7 @@
 
     aput v2, v0, v1
     :try_end_130
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_124 .. :try_end_130} :catch_206
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_124 .. :try_end_130} :catch_215
 
     :goto_130
     :try_start_130
@@ -464,7 +464,7 @@
 
     aput v2, v0, v1
     :try_end_13c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_130 .. :try_end_13c} :catch_203
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_130 .. :try_end_13c} :catch_212
 
     :goto_13c
     :try_start_13c
@@ -480,7 +480,7 @@
 
     aput v2, v0, v1
     :try_end_148
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_13c .. :try_end_148} :catch_200
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_13c .. :try_end_148} :catch_20f
 
     :goto_148
     :try_start_148
@@ -496,7 +496,7 @@
 
     aput v2, v0, v1
     :try_end_154
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_148 .. :try_end_154} :catch_1fd
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_148 .. :try_end_154} :catch_20c
 
     :goto_154
     :try_start_154
@@ -512,7 +512,7 @@
 
     aput v2, v0, v1
     :try_end_160
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_154 .. :try_end_160} :catch_1fa
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_154 .. :try_end_160} :catch_209
 
     :goto_160
     :try_start_160
@@ -528,7 +528,7 @@
 
     aput v2, v0, v1
     :try_end_16c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_160 .. :try_end_16c} :catch_1f7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_160 .. :try_end_16c} :catch_206
 
     :goto_16c
     :try_start_16c
@@ -544,7 +544,7 @@
 
     aput v2, v0, v1
     :try_end_178
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_16c .. :try_end_178} :catch_1f5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_16c .. :try_end_178} :catch_203
 
     :goto_178
     :try_start_178
@@ -560,7 +560,7 @@
 
     aput v2, v0, v1
     :try_end_184
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_178 .. :try_end_184} :catch_1f3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_178 .. :try_end_184} :catch_201
 
     :goto_184
     :try_start_184
@@ -576,10 +576,26 @@
 
     aput v2, v0, v1
     :try_end_190
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_184 .. :try_end_190} :catch_1f1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_184 .. :try_end_190} :catch_1ff
+
+    :goto_190
+    :try_start_190
+    sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun:[I
+
+    sget-object v1, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->SUBSTR:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+
+    invoke-virtual {v1}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0x1b
+
+    aput v2, v0, v1
+    :try_end_19c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_190 .. :try_end_19c} :catch_1fd
 
     .line 367
-    :goto_190
+    :goto_19c
     invoke-static {}, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->values()[Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     move-result-object v0
@@ -590,7 +606,7 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
-    :try_start_199
+    :try_start_1a5
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->ADD:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -602,11 +618,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_1a4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_199 .. :try_end_1a4} :catch_1ef
+    :try_end_1b0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1a5 .. :try_end_1b0} :catch_1fb
 
-    :goto_1a4
-    :try_start_1a4
+    :goto_1b0
+    :try_start_1b0
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MIN:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -618,11 +634,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1af
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1a4 .. :try_end_1af} :catch_1ed
+    :try_end_1bb
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1b0 .. :try_end_1bb} :catch_1f9
 
-    :goto_1af
-    :try_start_1af
+    :goto_1bb
+    :try_start_1bb
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MUL:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -634,11 +650,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_1ba
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1af .. :try_end_1ba} :catch_1eb
+    :try_end_1c6
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1bb .. :try_end_1c6} :catch_1f7
 
-    :goto_1ba
-    :try_start_1ba
+    :goto_1c6
+    :try_start_1c6
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->DIV:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -650,11 +666,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_1c5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1ba .. :try_end_1c5} :catch_1e9
+    :try_end_1d1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1c6 .. :try_end_1d1} :catch_1f5
 
-    :goto_1c5
-    :try_start_1c5
+    :goto_1d1
+    :try_start_1d1
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MOD:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -666,11 +682,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_1d0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1c5 .. :try_end_1d0} :catch_1e7
+    :try_end_1dc
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1d1 .. :try_end_1dc} :catch_1f3
 
     .line 303
-    :goto_1d0
+    :goto_1dc
     invoke-static {}, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->values()[Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
     move-result-object v0
@@ -681,7 +697,7 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$UnaryExpression$Ope:[I
 
-    :try_start_1d9
+    :try_start_1e5
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$UnaryExpression$Ope:[I
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->MIN:Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
@@ -693,206 +709,211 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_1e4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1d9 .. :try_end_1e4} :catch_1e5
+    :try_end_1f0
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1e5 .. :try_end_1f0} :catch_1f1
 
-    :goto_1e4
+    :goto_1f0
     return-void
 
-    :catch_1e5
-    move-exception v0
-
-    goto :goto_1e4
-
-    .line 367
-    :catch_1e7
-    move-exception v0
-
-    goto :goto_1d0
-
-    :catch_1e9
-    move-exception v0
-
-    goto :goto_1c5
-
-    :catch_1eb
-    move-exception v0
-
-    goto :goto_1ba
-
-    :catch_1ed
-    move-exception v0
-
-    goto :goto_1af
-
-    :catch_1ef
-    move-exception v0
-
-    goto :goto_1a4
-
-    .line 523
     :catch_1f1
     move-exception v0
 
-    goto :goto_190
+    goto :goto_1f0
 
+    .line 367
     :catch_1f3
     move-exception v0
 
-    goto :goto_184
+    goto :goto_1dc
 
     :catch_1f5
     move-exception v0
 
-    goto :goto_178
+    goto :goto_1d1
 
     :catch_1f7
     move-exception v0
 
-    goto/16 :goto_16c
+    goto :goto_1c6
 
-    :catch_1fa
+    :catch_1f9
     move-exception v0
 
-    goto/16 :goto_160
+    goto :goto_1bb
 
+    :catch_1fb
+    move-exception v0
+
+    goto :goto_1b0
+
+    .line 525
     :catch_1fd
     move-exception v0
 
-    goto/16 :goto_154
+    goto :goto_19c
 
-    :catch_200
+    :catch_1ff
     move-exception v0
 
-    goto/16 :goto_148
+    goto :goto_190
+
+    :catch_201
+    move-exception v0
+
+    goto :goto_184
 
     :catch_203
     move-exception v0
 
-    goto/16 :goto_13c
+    goto/16 :goto_178
 
     :catch_206
     move-exception v0
 
-    goto/16 :goto_130
+    goto/16 :goto_16c
 
     :catch_209
     move-exception v0
 
-    goto/16 :goto_124
+    goto/16 :goto_160
 
     :catch_20c
     move-exception v0
 
-    goto/16 :goto_118
+    goto/16 :goto_154
 
     :catch_20f
     move-exception v0
 
-    goto/16 :goto_10c
+    goto/16 :goto_148
 
     :catch_212
     move-exception v0
 
-    goto/16 :goto_100
+    goto/16 :goto_13c
 
     :catch_215
     move-exception v0
 
-    goto/16 :goto_f4
+    goto/16 :goto_130
 
     :catch_218
     move-exception v0
 
-    goto/16 :goto_e8
+    goto/16 :goto_124
 
     :catch_21b
     move-exception v0
 
-    goto/16 :goto_dc
+    goto/16 :goto_118
 
     :catch_21e
     move-exception v0
 
-    goto/16 :goto_d0
+    goto/16 :goto_10c
 
     :catch_221
     move-exception v0
 
-    goto/16 :goto_c4
+    goto/16 :goto_100
 
     :catch_224
     move-exception v0
 
-    goto/16 :goto_b8
+    goto/16 :goto_f4
 
     :catch_227
     move-exception v0
 
-    goto/16 :goto_ac
+    goto/16 :goto_e8
 
     :catch_22a
     move-exception v0
 
-    goto/16 :goto_a1
+    goto/16 :goto_dc
 
     :catch_22d
     move-exception v0
 
-    goto/16 :goto_96
+    goto/16 :goto_d0
 
     :catch_230
     move-exception v0
 
-    goto/16 :goto_8b
+    goto/16 :goto_c4
 
     :catch_233
     move-exception v0
 
-    goto/16 :goto_80
+    goto/16 :goto_b8
 
     :catch_236
     move-exception v0
 
-    goto/16 :goto_75
+    goto/16 :goto_ac
 
     :catch_239
     move-exception v0
 
-    goto/16 :goto_6a
+    goto/16 :goto_a1
 
-    .line 696
     :catch_23c
     move-exception v0
 
-    goto/16 :goto_56
+    goto/16 :goto_96
 
     :catch_23f
     move-exception v0
 
-    goto/16 :goto_4b
+    goto/16 :goto_8b
 
     :catch_242
     move-exception v0
 
-    goto/16 :goto_40
+    goto/16 :goto_80
 
     :catch_245
     move-exception v0
 
-    goto/16 :goto_35
+    goto/16 :goto_75
 
     :catch_248
     move-exception v0
 
+    goto/16 :goto_6a
+
+    .line 714
+    :catch_24b
+    move-exception v0
+
+    goto/16 :goto_56
+
+    :catch_24e
+    move-exception v0
+
+    goto/16 :goto_4b
+
+    :catch_251
+    move-exception v0
+
+    goto/16 :goto_40
+
+    :catch_254
+    move-exception v0
+
+    goto/16 :goto_35
+
+    :catch_257
+    move-exception v0
+
     goto/16 :goto_2a
 
-    :catch_24b
+    :catch_25a
     move-exception v0
 
     goto/16 :goto_1f
 
-    :catch_24e
+    :catch_25d
     move-exception v0
 
     goto/16 :goto_14

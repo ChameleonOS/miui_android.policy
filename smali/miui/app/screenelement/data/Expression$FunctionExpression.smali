@@ -50,14 +50,14 @@
 
     const/4 v4, 0x1
 
-    .line 472
+    .line 473
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
-    .line 474
+    .line 475
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "sin"
@@ -70,7 +70,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 475
+    .line 476
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "cos"
@@ -83,7 +83,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 476
+    .line 477
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "tan"
@@ -96,7 +96,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 477
+    .line 478
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "asin"
@@ -109,7 +109,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 478
+    .line 479
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "acos"
@@ -122,7 +122,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 479
+    .line 480
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "atan"
@@ -135,7 +135,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 480
+    .line 481
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "sinh"
@@ -148,7 +148,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 481
+    .line 482
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "cosh"
@@ -161,7 +161,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 482
+    .line 483
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "sqrt"
@@ -174,7 +174,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 483
+    .line 484
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "abs"
@@ -187,7 +187,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 484
+    .line 485
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "len"
@@ -200,7 +200,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 485
+    .line 486
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "round"
@@ -213,7 +213,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 486
+    .line 487
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "int"
@@ -226,7 +226,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 488
+    .line 489
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "isnull"
@@ -239,7 +239,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 489
+    .line 490
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "not"
@@ -252,7 +252,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 491
+    .line 492
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "min"
@@ -265,7 +265,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 492
+    .line 493
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "max"
@@ -278,7 +278,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 493
+    .line 494
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "digit"
@@ -291,7 +291,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 495
+    .line 496
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "eq"
@@ -304,7 +304,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 496
+    .line 497
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "ne"
@@ -317,7 +317,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 497
+    .line 498
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "ge"
@@ -330,7 +330,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 498
+    .line 499
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "gt"
@@ -343,7 +343,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 499
+    .line 500
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "le"
@@ -356,7 +356,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 500
+    .line 501
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "lt"
@@ -369,7 +369,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 501
+    .line 502
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "ifelse"
@@ -384,7 +384,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 503
+    .line 504
     sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     const-string v1, "eqs"
@@ -397,7 +397,20 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 504
+    .line 505
+    sget-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
+
+    const-string v1, "substr"
+
+    new-instance v2, Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;
+
+    sget-object v3, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->SUBSTR:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+
+    invoke-direct {v2, v3, v5}, Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;-><init>(Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;I)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 506
     return-void
 .end method
 
@@ -412,16 +425,16 @@
     .end annotation
 
     .prologue
-    .line 507
+    .line 509
     invoke-direct {p0}, Lmiui/app/screenelement/data/Expression;-><init>()V
 
-    .line 508
+    .line 510
     iput-object p1, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    .line 509
+    .line 511
     invoke-direct {p0, p2}, Lmiui/app/screenelement/data/Expression$FunctionExpression;->parseFunction(Ljava/lang/String;)V
 
-    .line 510
+    .line 512
     return-void
 .end method
 
@@ -433,15 +446,15 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 613
+    .line 631
     if-gtz p2, :cond_4
 
-    .line 618
+    .line 636
     :cond_3
     :goto_3
     return v1
 
-    .line 615
+    .line 633
     :cond_4
     const/4 v0, 0x0
 
@@ -453,15 +466,15 @@
 
     if-ge v0, v2, :cond_10
 
-    .line 616
+    .line 634
     div-int/lit8 p1, p1, 0xa
 
-    .line 615
+    .line 633
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_5
 
-    .line 618
+    .line 636
     :cond_10
     if-lez p1, :cond_3
 
@@ -475,25 +488,25 @@
     .parameter "number"
 
     .prologue
-    .line 623
+    .line 641
     const/4 v0, 0x1
 
-    .line 624
+    .line 642
     .local v0, len:I
     :goto_1
     const/16 v1, 0xa
 
     if-lt p1, v1, :cond_a
 
-    .line 625
+    .line 643
     div-int/lit8 p1, p1, 0xa
 
-    .line 626
+    .line 644
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 628
+    .line 646
     :cond_a
     return v0
 .end method
@@ -512,7 +525,7 @@
 
     const/4 v3, 0x0
 
-    .line 513
+    .line 515
     sget-object v1, Lmiui/app/screenelement/data/Expression$FunctionExpression;->sFunMap:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -521,7 +534,7 @@
 
     check-cast v0, Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;
 
-    .line 514
+    .line 516
     .local v0, fd:Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;
     if-eqz v0, :cond_45
 
@@ -548,12 +561,12 @@
 
     invoke-static {v1, v4}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 516
+    .line 518
     iget-object v1, v0, Lmiui/app/screenelement/data/Expression$FunctionExpression$FunctionDesc;->fun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
     iput-object v1, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mFun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
-    .line 517
+    .line 519
     iget-object v1, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     array-length v1, v1
@@ -583,19 +596,19 @@
 
     invoke-static {v2, v1}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 518
+    .line 520
     return-void
 
     :cond_45
     move v1, v3
 
-    .line 514
+    .line 516
     goto :goto_d
 
     :cond_47
     move v2, v3
 
-    .line 517
+    .line 519
     goto :goto_2e
 .end method
 
@@ -614,7 +627,7 @@
 
     const-wide/16 v6, 0x0
 
-    .line 522
+    .line 524
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v11
@@ -623,7 +636,7 @@
 
     move-result-wide v2
 
-    .line 523
+    .line 525
     .local v2, value0:D
     sget-object v8, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun:[I
 
@@ -635,9 +648,9 @@
 
     aget v8, v8, v9
 
-    packed-switch v8, :pswitch_data_188
+    packed-switch v8, :pswitch_data_19a
 
-    .line 588
+    .line 592
     const-string v4, "Expression"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -668,12 +681,12 @@
 
     move-wide v4, v6
 
-    .line 589
+    .line 593
     :cond_3a
     :goto_3a
     return-wide v4
 
-    .line 525
+    .line 527
     :pswitch_3b
     invoke-static {v2, v3}, Ljava/lang/Math;->sin(D)D
 
@@ -681,7 +694,7 @@
 
     goto :goto_3a
 
-    .line 527
+    .line 529
     :pswitch_40
     invoke-static {v2, v3}, Ljava/lang/Math;->cos(D)D
 
@@ -689,7 +702,7 @@
 
     goto :goto_3a
 
-    .line 529
+    .line 531
     :pswitch_45
     invoke-static {v2, v3}, Ljava/lang/Math;->tan(D)D
 
@@ -697,7 +710,7 @@
 
     goto :goto_3a
 
-    .line 531
+    .line 533
     :pswitch_4a
     invoke-static {v2, v3}, Ljava/lang/Math;->asin(D)D
 
@@ -705,7 +718,7 @@
 
     goto :goto_3a
 
-    .line 533
+    .line 535
     :pswitch_4f
     invoke-static {v2, v3}, Ljava/lang/Math;->acos(D)D
 
@@ -713,7 +726,7 @@
 
     goto :goto_3a
 
-    .line 535
+    .line 537
     :pswitch_54
     invoke-static {v2, v3}, Ljava/lang/Math;->atan(D)D
 
@@ -721,7 +734,7 @@
 
     goto :goto_3a
 
-    .line 537
+    .line 539
     :pswitch_59
     invoke-static {v2, v3}, Ljava/lang/Math;->sinh(D)D
 
@@ -729,7 +742,7 @@
 
     goto :goto_3a
 
-    .line 539
+    .line 541
     :pswitch_5e
     invoke-static {v2, v3}, Ljava/lang/Math;->cosh(D)D
 
@@ -737,7 +750,7 @@
 
     goto :goto_3a
 
-    .line 541
+    .line 543
     :pswitch_63
     invoke-static {v2, v3}, Ljava/lang/Math;->sqrt(D)D
 
@@ -745,7 +758,7 @@
 
     goto :goto_3a
 
-    .line 543
+    .line 545
     :pswitch_68
     invoke-static {v2, v3}, Ljava/lang/Math;->abs(D)D
 
@@ -753,11 +766,17 @@
 
     goto :goto_3a
 
-    .line 545
+    .line 547
     :pswitch_6d
-    double-to-int v4, v2
+    iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    invoke-direct {p0, v4}, Lmiui/app/screenelement/data/Expression$FunctionExpression;->len(I)I
+    aget-object v4, v4, v11
+
+    invoke-virtual {v4, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->length()I
 
     move-result v4
 
@@ -765,8 +784,8 @@
 
     goto :goto_3a
 
-    .line 547
-    :pswitch_74
+    .line 549
+    :pswitch_7b
     invoke-static {v2, v3}, Ljava/lang/Math;->round(D)J
 
     move-result-wide v4
@@ -775,16 +794,16 @@
 
     goto :goto_3a
 
-    .line 549
-    :pswitch_7a
+    .line 551
+    :pswitch_81
     double-to-int v4, v2
 
     int-to-double v4, v4
 
     goto :goto_3a
 
-    .line 551
-    :pswitch_7d
+    .line 553
+    :pswitch_84
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v11
@@ -799,24 +818,24 @@
 
     goto :goto_3a
 
-    .line 553
-    :pswitch_89
+    .line 555
+    :pswitch_90
     cmpl-double v8, v2, v6
 
-    if-lez v8, :cond_8f
+    if-lez v8, :cond_96
 
-    :goto_8d
+    :goto_94
     move-wide v4, v6
 
     goto :goto_3a
 
-    :cond_8f
+    :cond_96
     move-wide v6, v4
 
-    goto :goto_8d
+    goto :goto_94
 
-    .line 555
-    :pswitch_91
+    .line 557
+    :pswitch_98
     iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v4, v4, v10
@@ -831,8 +850,8 @@
 
     goto :goto_3a
 
-    .line 557
-    :pswitch_9e
+    .line 559
+    :pswitch_a5
     iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v4, v4, v10
@@ -847,8 +866,8 @@
 
     goto :goto_3a
 
-    .line 559
-    :pswitch_ab
+    .line 561
+    :pswitch_b2
     double-to-int v4, v2
 
     iget-object v5, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
@@ -867,10 +886,10 @@
 
     int-to-double v4, v4
 
-    goto :goto_3a
+    goto/16 :goto_3a
 
-    .line 561
-    :pswitch_bb
+    .line 563
+    :pswitch_c3
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v10
@@ -887,8 +906,8 @@
 
     goto/16 :goto_3a
 
-    .line 563
-    :pswitch_ca
+    .line 565
+    :pswitch_d2
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v10
@@ -905,8 +924,8 @@
 
     goto/16 :goto_3a
 
-    .line 565
-    :pswitch_d9
+    .line 567
+    :pswitch_e1
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v10
@@ -923,8 +942,8 @@
 
     goto/16 :goto_3a
 
-    .line 567
-    :pswitch_e8
+    .line 569
+    :pswitch_f0
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v10
@@ -941,8 +960,8 @@
 
     goto/16 :goto_3a
 
-    .line 569
-    :pswitch_f7
+    .line 571
+    :pswitch_ff
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v10
@@ -959,8 +978,8 @@
 
     goto/16 :goto_3a
 
-    .line 571
-    :pswitch_106
+    .line 573
+    :pswitch_10e
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v10
@@ -977,19 +996,19 @@
 
     goto/16 :goto_3a
 
-    .line 573
-    :pswitch_115
+    .line 575
+    :pswitch_11d
     iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     array-length v1, v4
 
-    .line 574
+    .line 576
     .local v1, len:I
     rem-int/lit8 v4, v1, 0x2
 
-    if-eq v4, v10, :cond_13d
+    if-eq v4, v10, :cond_145
 
-    .line 575
+    .line 577
     const-string v4, "Expression"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1020,22 +1039,22 @@
 
     move-wide v4, v6
 
-    .line 576
+    .line 578
     goto/16 :goto_3a
 
-    .line 578
-    :cond_13d
+    .line 580
+    :cond_145
     const/4 v0, 0x0
 
     .local v0, i:I
-    :goto_13e
+    :goto_146
     add-int/lit8 v4, v1, -0x1
 
     div-int/lit8 v4, v4, 0x2
 
-    if-ge v0, v4, :cond_163
+    if-ge v0, v4, :cond_16b
 
-    .line 579
+    .line 581
     iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     mul-int/lit8 v5, v0, 0x2
@@ -1048,9 +1067,9 @@
 
     cmpl-double v4, v4, v6
 
-    if-lez v4, :cond_160
+    if-lez v4, :cond_168
 
-    .line 580
+    .line 582
     iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     mul-int/lit8 v5, v0, 0x2
@@ -1065,14 +1084,14 @@
 
     goto/16 :goto_3a
 
-    .line 578
-    :cond_160
+    .line 580
+    :cond_168
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_13e
+    goto :goto_146
 
-    .line 582
-    :cond_163
+    .line 584
+    :cond_16b
     iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     add-int/lit8 v5, v1, -0x1
@@ -1085,10 +1104,10 @@
 
     goto/16 :goto_3a
 
-    .line 585
+    .line 587
     .end local v0           #i:I
     .end local v1           #len:I
-    :pswitch_16f
+    :pswitch_177
     iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v8, v8, v11
@@ -1115,8 +1134,20 @@
 
     goto/16 :goto_3a
 
-    .line 523
-    :pswitch_data_188
+    .line 589
+    :pswitch_190
+    invoke-virtual {p0, p1}, Lmiui/app/screenelement/data/Expression$FunctionExpression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4, v6, v7}, Lmiui/app/screenelement/util/Utils;->stringToDouble(Ljava/lang/String;D)D
+
+    move-result-wide v4
+
+    goto/16 :goto_3a
+
+    .line 525
+    :pswitch_data_19a
     .packed-switch 0x1
         :pswitch_3b
         :pswitch_40
@@ -1129,169 +1160,251 @@
         :pswitch_63
         :pswitch_68
         :pswitch_6d
-        :pswitch_74
-        :pswitch_7a
-        :pswitch_7d
-        :pswitch_89
-        :pswitch_91
-        :pswitch_9e
-        :pswitch_ab
-        :pswitch_bb
-        :pswitch_ca
-        :pswitch_d9
-        :pswitch_e8
-        :pswitch_f7
-        :pswitch_106
-        :pswitch_115
-        :pswitch_16f
+        :pswitch_7b
+        :pswitch_81
+        :pswitch_84
+        :pswitch_90
+        :pswitch_98
+        :pswitch_a5
+        :pswitch_b2
+        :pswitch_c3
+        :pswitch_d2
+        :pswitch_e1
+        :pswitch_f0
+        :pswitch_ff
+        :pswitch_10e
+        :pswitch_11d
+        :pswitch_177
+        :pswitch_190
     .end packed-switch
 .end method
 
 .method public evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
-    .registers 8
+    .registers 12
     .parameter "var"
 
     .prologue
-    .line 594
-    sget-object v2, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun:[I
+    const/4 v6, 0x0
 
-    iget-object v3, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mFun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
-
-    invoke-virtual {v3}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->ordinal()I
-
-    move-result v3
-
-    aget v2, v2, v3
-
-    packed-switch v2, :pswitch_data_70
-
-    .line 608
-    invoke-virtual {p0, p1}, Lmiui/app/screenelement/data/Expression$FunctionExpression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Lmiui/app/screenelement/util/Utils;->doubleToString(D)Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_15
-    return-object v2
-
-    .line 596
-    :pswitch_16
-    iget-object v2, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
-
-    array-length v1, v2
-
-    .line 597
-    .local v1, len:I
-    rem-int/lit8 v2, v1, 0x2
-
-    const/4 v3, 0x1
-
-    if-eq v2, v3, :cond_3e
+    const/4 v9, 0x1
 
     .line 598
-    const-string v2, "Expression"
+    sget-object v7, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun:[I
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    iget-object v8, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mFun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v8}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->ordinal()I
 
-    const-string v4, "function parameter number should be 2*n+1: "
+    move-result v8
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aget v7, v7, v8
 
-    move-result-object v3
+    packed-switch v7, :pswitch_data_a0
 
-    iget-object v4, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mFun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+    .line 626
+    :pswitch_f
+    invoke-virtual {p0, p1}, Lmiui/app/screenelement/data/Expression$FunctionExpression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
 
-    invoke-virtual {v4}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->toString()Ljava/lang/String;
+    move-result-wide v6
 
-    move-result-object v4
+    invoke-static {v6, v7}, Lmiui/app/screenelement/util/Utils;->doubleToString(D)Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    move-result-object v3
+    :goto_17
+    return-object v6
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    .line 600
+    :pswitch_18
+    iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 599
-    const/4 v2, 0x0
-
-    goto :goto_15
+    array-length v3, v7
 
     .line 601
-    :cond_3e
-    const/4 v0, 0x0
+    .local v3, len:I
+    rem-int/lit8 v7, v3, 0x2
 
-    .local v0, i:I
-    :goto_3f
-    add-int/lit8 v2, v1, -0x1
-
-    div-int/lit8 v2, v2, 0x2
-
-    if-ge v0, v2, :cond_65
+    if-eq v7, v9, :cond_3e
 
     .line 602
-    iget-object v2, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+    const-string v7, "Expression"
 
-    mul-int/lit8 v3, v0, 0x2
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    aget-object v2, v2, v3
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2, p1}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+    const-string v9, "function parameter number should be 2*n+1: "
 
-    move-result-wide v2
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-wide/16 v4, 0x0
+    move-result-object v8
 
-    cmpl-double v2, v2, v4
+    iget-object v9, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mFun:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
-    if-lez v2, :cond_62
+    invoke-virtual {v9}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->toString()Ljava/lang/String;
 
-    .line 603
-    iget-object v2, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+    move-result-object v9
 
-    mul-int/lit8 v3, v0, 0x2
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v3, v3, 0x1
+    move-result-object v8
 
-    aget-object v2, v2, v3
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v2
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_15
+    goto :goto_17
 
-    .line 601
+    .line 605
+    :cond_3e
+    const/4 v2, 0x0
+
+    .local v2, i:I
+    :goto_3f
+    add-int/lit8 v6, v3, -0x1
+
+    div-int/lit8 v6, v6, 0x2
+
+    if-ge v2, v6, :cond_65
+
+    .line 606
+    iget-object v6, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+
+    mul-int/lit8 v7, v2, 0x2
+
+    aget-object v6, v6, v7
+
+    invoke-virtual {v6, p1}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v6
+
+    const-wide/16 v8, 0x0
+
+    cmpl-double v6, v6, v8
+
+    if-lez v6, :cond_62
+
+    .line 607
+    iget-object v6, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+
+    mul-int/lit8 v7, v2, 0x2
+
+    add-int/lit8 v7, v7, 0x1
+
+    aget-object v6, v6, v7
+
+    invoke-virtual {v6, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
+
+    move-result-object v6
+
+    goto :goto_17
+
+    .line 605
     :cond_62
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_3f
 
-    .line 605
+    .line 609
     :cond_65
-    iget-object v2, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+    iget-object v6, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    add-int/lit8 v3, v1, -0x1
+    add-int/lit8 v7, v3, -0x1
 
-    aget-object v2, v2, v3
+    aget-object v6, v6, v7
 
-    invoke-virtual {v2, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
+    invoke-virtual {v6, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v6
 
-    goto :goto_15
+    goto :goto_17
 
-    .line 594
-    :pswitch_data_70
+    .line 612
+    .end local v2           #i:I
+    .end local v3           #len:I
+    :pswitch_70
+    iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+
+    const/4 v8, 0x0
+
+    aget-object v7, v7, v8
+
+    invoke-virtual {v7, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 613
+    .local v5, str:Ljava/lang/String;
+    iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+
+    array-length v3, v7
+
+    .line 614
+    .restart local v3       #len:I
+    iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+
+    aget-object v7, v7, v9
+
+    invoke-virtual {v7, p1}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v7
+
+    double-to-int v4, v7
+
+    .line 616
+    .local v4, start:I
+    const/4 v7, 0x3
+
+    if-lt v3, v7, :cond_97
+
+    .line 617
+    :try_start_88
+    iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
+
+    const/4 v8, 0x2
+
+    aget-object v7, v7, v8
+
+    invoke-virtual {v7, p1}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v7
+
+    double-to-int v1, v7
+
+    .line 618
+    .local v1, end:I
+    invoke-virtual {v5, v4, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v6
+
+    goto :goto_17
+
+    .line 620
+    .end local v1           #end:I
+    :cond_97
+    invoke-virtual {v5, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    :try_end_9a
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_88 .. :try_end_9a} :catch_9d
+
+    move-result-object v6
+
+    goto/16 :goto_17
+
+    .line 621
+    :catch_9d
+    move-exception v0
+
+    .line 622
+    .local v0, e:Ljava/lang/IndexOutOfBoundsException;
+    goto/16 :goto_17
+
+    .line 598
+    :pswitch_data_a0
     .packed-switch 0x19
-        :pswitch_16
+        :pswitch_18
+        :pswitch_f
+        :pswitch_70
     .end packed-switch
 .end method

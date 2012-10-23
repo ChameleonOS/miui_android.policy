@@ -78,6 +78,8 @@
 
 .field public static final enum SQRT:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
+.field public static final enum SUBSTR:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+
 .field public static final enum TAN:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
 
@@ -383,8 +385,19 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->EQS:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
+    .line 459
+    new-instance v0, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+
+    const-string v1, "SUBSTR"
+
+    const/16 v2, 0x1b
+
+    invoke-direct {v0, v1, v2}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->SUBSTR:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+
     .line 426
-    const/16 v0, 0x1b
+    const/16 v0, 0x1c
 
     new-array v0, v0, [Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
@@ -537,6 +550,12 @@
     const/16 v1, 0x1a
 
     sget-object v2, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->EQS:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0x1b
+
+    sget-object v2, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->SUBSTR:Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
     aput-object v2, v0, v1
 

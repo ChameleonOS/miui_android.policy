@@ -862,7 +862,7 @@ _L22:
                 super();
             }
             });
-        if(super.mSystemReady && !mDisableProximitor && isDeviceProvisioned() && miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "enable_screen_on_proximity_sensor", true))
+        if(super.mSystemReady && !mDisableProximitor && isDeviceProvisioned() && miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "enable_screen_on_proximity_sensor", false))
             mProximitySensor.aquire();
     }
 
