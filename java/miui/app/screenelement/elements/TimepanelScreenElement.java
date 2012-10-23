@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.util.Log;
 import java.util.Calendar;
 import miui.app.screenelement.*;
 import miui.app.screenelement.animation.AnimatedElement;
@@ -27,6 +28,40 @@ public class TimepanelScreenElement extends ImageScreenElement {
         mCalendar = Calendar.getInstance();
         mHandler = new Handler();
         mFormat = element.getAttribute("format");
+    }
+
+    private void createBitmap() {
+        int i;
+        int j;
+        int k;
+        i = 0;
+        j = 0;
+        k = 0;
+_L5:
+        if(k >= "0123456789:".length()) goto _L2; else goto _L1
+_L1:
+        Bitmap bitmap = getDigitBmp("0123456789:".charAt(k));
+        if(bitmap != null) goto _L4; else goto _L3
+_L3:
+        mLoadResourceFailed = true;
+        Log.e("TimepanelScreenElement", (new StringBuilder()).append("Failed to load digit bitmap: ").append("0123456789:".charAt(k)).toString());
+_L6:
+        return;
+_L4:
+        if(i < bitmap.getWidth())
+            i = bitmap.getWidth();
+        if(mBmpHeight < bitmap.getHeight())
+            mBmpHeight = bitmap.getHeight();
+        if(j == 0)
+            j = bitmap.getDensity();
+        k++;
+          goto _L5
+_L2:
+        super.mBitmap = Bitmap.createBitmap(i * 5, mBmpHeight, android.graphics.Bitmap.Config.ARGB_8888);
+        super.mBitmap.setDensity(j);
+        setActualHeight(mBmpHeight);
+        super.mBitmapChanged = true;
+          goto _L6
     }
 
     private Bitmap getDigitBmp(char c) {
@@ -55,40 +90,34 @@ public class TimepanelScreenElement extends ImageScreenElement {
     }
 
     private void updateTime() {
-        long l = SystemClock.elapsedRealtime();
-        if(l - mLastUpdateTimeMillis >= 1000L) goto _L2; else goto _L1
+        if(!mLoadResourceFailed) goto _L2; else goto _L1
 _L1:
         return;
 _L2:
-        if(super.mBitmap == null) {
-            Bitmap bitmap1 = getDigitBmp('0');
-            Bitmap bitmap2 = getDigitBmp(':');
-            if(bitmap1 == null || bitmap2 == null)
-                continue; /* Loop/switch isn't completed */
-            mBmpHeight = bitmap1.getHeight();
-            super.mBitmap = Bitmap.createBitmap(4 * bitmap1.getWidth() + bitmap2.getWidth(), bitmap1.getHeight(), android.graphics.Bitmap.Config.ARGB_8888);
-            super.mBitmap.setDensity(bitmap1.getDensity());
-            setActualHeight(mBmpHeight);
-        }
-        mCalendar.setTimeInMillis(System.currentTimeMillis());
-        CharSequence charsequence = DateFormat.format(mFormat, mCalendar);
-        if(!charsequence.equals(mPreTime)) {
-            mPreTime = charsequence;
-            Canvas canvas = new Canvas(super.mBitmap);
-            canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
-            int i = 0;
-            for(int j = 0; j < charsequence.length(); j++) {
-                Bitmap bitmap = getDigitBmp(charsequence.charAt(j));
-                if(bitmap != null) {
-                    canvas.drawBitmap(bitmap, i, 0.0F, null);
-                    i += bitmap.getWidth();
+        long l = SystemClock.elapsedRealtime();
+        if(l - mLastUpdateTimeMillis >= 1000L) {
+            if(super.mBitmap == null)
+                createBitmap();
+            mCalendar.setTimeInMillis(System.currentTimeMillis());
+            CharSequence charsequence = DateFormat.format(mFormat, mCalendar);
+            if(!charsequence.equals(mPreTime)) {
+                mPreTime = charsequence;
+                Canvas canvas = new Canvas(super.mBitmap);
+                canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+                int i = 0;
+                for(int j = 0; j < charsequence.length(); j++) {
+                    Bitmap bitmap = getDigitBmp(charsequence.charAt(j));
+                    if(bitmap != null) {
+                        canvas.drawBitmap(bitmap, i, 0.0F, null);
+                        i += bitmap.getWidth();
+                    }
                 }
-            }
 
-            mBmpWidth = i;
-            setActualWidth(mBmpWidth);
-            requestUpdate();
-            mLastUpdateTimeMillis = l;
+                mBmpWidth = i;
+                setActualWidth(descale(mBmpWidth));
+                requestUpdate();
+                mLastUpdateTimeMillis = l;
+            }
         }
         if(true) goto _L1; else goto _L3
 _L3:
@@ -96,6 +125,10 @@ _L3:
 
     public void finish() {
         mHandler.removeCallbacks(mTimeUpdater);
+    }
+
+    protected int getBitmapWidth() {
+        return mBmpWidth;
     }
 
     public void init() {
@@ -123,6 +156,7 @@ _L3:
     private String mFormat;
     private Handler mHandler;
     private long mLastUpdateTimeMillis;
+    private boolean mLoadResourceFailed;
     private CharSequence mPreTime;
     private final Runnable mTimeUpdater = new Runnable() {
 

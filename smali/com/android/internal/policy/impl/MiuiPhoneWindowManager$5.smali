@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 630
+    .line 646
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$5;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 632
+    .line 648
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$5;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v1, 0x1
@@ -48,7 +48,7 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mShowMagnifier:Z
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$502(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
 
-    .line 633
+    .line 649
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$5;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mIsTouchDown:Z
@@ -58,7 +58,7 @@
 
     if-eqz v0, :cond_2c
 
-    .line 634
+    .line 650
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$5;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getMagnifier()Lcom/android/internal/policy/impl/MagnifierPopupWindow;
@@ -67,7 +67,7 @@
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->updateCache()V
 
-    .line 635
+    .line 651
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$5;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getMagnifier()Lcom/android/internal/policy/impl/MagnifierPopupWindow;
@@ -90,7 +90,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->showMagnifier(II)V
 
-    .line 637
+    .line 653
     :cond_2c
     return-void
 .end method

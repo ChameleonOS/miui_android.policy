@@ -268,22 +268,26 @@ _L7:
         RendererController renderercontroller = (RendererController)iterator.next();
         if(renderercontroller.isSelfPaused()) goto _L10; else goto _L9
 _L9:
+        boolean flag2;
         float f1;
+        flag2 = false;
         f1 = renderercontroller.getFramerate();
         if(f1 > f)
             f = f1;
         if(renderercontroller.getCurFramerate() == f1) goto _L12; else goto _L11
 _L11:
         float f2;
+        if(renderercontroller.getCurFramerate() > 1.0F && f1 < 1.0F)
+            flag2 = true;
         renderercontroller.setCurFramerate(f1);
         Log.d("RenderThread", (new StringBuilder()).append("framerate changed: ").append(f1).append(" at time: ").append(l).toString());
         if(f1 == 0.0F)
-            break MISSING_BLOCK_LABEL_381;
+            break MISSING_BLOCK_LABEL_409;
         f2 = 1000F / f1;
 _L13:
         renderercontroller.setFrameTime((int)f2);
 _L12:
-        if(!renderercontroller.pendingRender() && (l - renderercontroller.getLastUpdateTime() > (long)renderercontroller.getFrameTime() || renderercontroller.shouldUpdate())) {
+        if(!renderercontroller.pendingRender() && (l - renderercontroller.getLastUpdateTime() > (long)renderercontroller.getFrameTime() || renderercontroller.shouldUpdate() || flag2)) {
             renderercontroller.doRender();
             renderercontroller.setLastUpdateTime(l);
             flag1 = true;

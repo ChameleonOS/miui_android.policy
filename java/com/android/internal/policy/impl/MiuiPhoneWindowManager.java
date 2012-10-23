@@ -23,7 +23,7 @@ import miui.app.ExtraStatusBarManager;
 import miui.util.HapticFeedbackUtil;
 
 // Referenced classes of package com.android.internal.policy.impl:
-//            PhoneWindowManager, KeyguardViewMediator, MagnifierPopupWindow
+//            PhoneWindowManager, KeyguardViewMediator, MagnifierPopupWindow, MiuiScreenOnProximityLock
 
 public class MiuiPhoneWindowManager extends PhoneWindowManager {
     class MiuiSettingsObserver extends ContentObserver {
@@ -364,6 +364,20 @@ _L7:
                 super();
             }
         };
+        mReleaseProximitySensorReceiver = new BroadcastReceiver() {
+
+            public void onReceive(Context context, Intent intent) {
+                mProximitySensor.release();
+                mDisableProximitor = intent.getBooleanExtra("miui.intent.extra.DISABLE_PROXIMITY_SENSOR", false);
+            }
+
+            final MiuiPhoneWindowManager this$0;
+
+             {
+                this$0 = MiuiPhoneWindowManager.this;
+                super();
+            }
+        };
         mHasCameraFlash = false;
         mTorchEnabled = false;
         mBackLongPress = new BackLongPressRunnable();
@@ -514,6 +528,7 @@ _L5:
     }
 
     public void init(Context context, IWindowManager iwindowmanager, android.view.WindowManagerPolicy.WindowManagerFuncs windowmanagerfuncs, LocalPowerManager localpowermanager) {
+        mProximitySensor = new MiuiScreenOnProximityLock(context);
         super.init(context, iwindowmanager, windowmanagerfuncs, localpowermanager);
         android.provider.Settings.Secure.putInt(context.getContentResolver(), "device_provisioned", 1);
         (new MiuiSettingsObserver(super.mHandler)).observe();
@@ -546,6 +561,9 @@ _L5:
         IntentFilter intentfilter2 = new IntentFilter();
         intentfilter2.addAction("android.intent.action.SHOW_MAGNIFIER");
         context.registerReceiver(mShowMagnifierReceiver, intentfilter2);
+        IntentFilter intentfilter3 = new IntentFilter();
+        intentfilter3.addAction("miui.intent.action.RELEASE_PROXIMITY_SENSOR");
+        context.registerReceiver(mReleaseProximitySensorReceiver, intentfilter3);
     }
 
     public long interceptKeyBeforeDispatching(android.view.WindowManagerPolicy.WindowState windowstate, KeyEvent keyevent, int i) {
@@ -598,7 +616,7 @@ _L9:
 _L5:
         if(j != 82)
             continue; /* Loop/switch isn't completed */
-        if(!flag || mVoiceAssistantTriggerred || (0x80 & keyevent.getFlags()) == 0 || super.mKeyguardMediator.isSecure())
+        if(!flag || mVoiceAssistantTriggerred || (0x80 & keyevent.getFlags()) == 0 || super.mKeyguardMediator.isSecure() && super.mKeyguardMediator.isShowing())
             continue; /* Loop/switch isn't completed */
         if(android.provider.Settings.System.getInt(super.mContext.getContentResolver(), "enable_assist_menu_key_long_press", 1) != 0) {
             mVoiceAssistantTriggerred = true;
@@ -684,15 +702,17 @@ _L13:
             flag2 = true;
         else
             flag2 = false;
+        if(26 == j)
+            mDisableProximitor = true;
         if(!mScreenButtonsDisabled) goto _L2; else goto _L1
 _L1:
         j;
-        JVM INSTR lookupswitch 5: default 88
-    //                   3: 175
-    //                   4: 181
-    //                   26: 187
-    //                   82: 181
-    //                   84: 181;
+        JVM INSTR lookupswitch 5: default 100
+    //                   3: 187
+    //                   4: 193
+    //                   26: 199
+    //                   82: 193
+    //                   84: 193;
            goto _L2 _L3 _L4 _L5 _L4 _L4
 _L2:
         if(j == 82) {
@@ -737,11 +757,11 @@ _L7:
         flag5 = true;
         flag6 = false;
         j;
-        JVM INSTR lookupswitch 4: default 328
-    //                   24: 370
-    //                   25: 370
-    //                   27: 361
-    //                   272: 352;
+        JVM INSTR lookupswitch 4: default 340
+    //                   24: 382
+    //                   25: 382
+    //                   27: 373
+    //                   272: 364;
            goto _L12 _L13 _L13 _L14 _L15
 _L12:
         flag5 = false;
@@ -791,7 +811,7 @@ _L22:
 _L21:
         boolean flag4;
         if(!flag1)
-            break MISSING_BLOCK_LABEL_614;
+            break MISSING_BLOCK_LABEL_626;
         IStatusBarService istatusbarservice;
         IWindowManager iwindowmanager;
         if(j == 26)
@@ -858,6 +878,8 @@ _L23:
                 super();
             }
             });
+        if(!mDisableProximitor)
+            mProximitySensor.aquire();
     }
 
     public void showBootMessage(final CharSequence msg, boolean flag) {
@@ -891,10 +913,10 @@ _L23:
                             return true;
                         }
 
-                        final _cls6 this$1;
+                        final _cls7 this$1;
 
                      {
-                        this$1 = _cls6.this;
+                        this$1 = _cls7.this;
                         super(context, i);
                     }
                     };
@@ -937,6 +959,7 @@ _L23:
     boolean mBackLongPressed;
     private Binder mBinder;
     boolean mCameraKeyWakeScreen;
+    private boolean mDisableProximitor;
     private int mDownX;
     private int mDownY;
     private HapticFeedbackUtil mHapticFeedbackUtil;
@@ -951,6 +974,8 @@ _L23:
     private Dialog mMiuiBootMsgDialog;
     private TextView mMsgText;
     Runnable mPowerLongPressOriginal;
+    private MiuiScreenOnProximityLock mProximitySensor;
+    BroadcastReceiver mReleaseProximitySensorReceiver;
     boolean mScreenButtonsDisabled;
     private int mScreenOffReason;
     BroadcastReceiver mScreenshotReceiver;
@@ -978,6 +1003,26 @@ _L23:
     }
 
 
+
+
+
+/*
+    static TextView access$1002(MiuiPhoneWindowManager miuiphonewindowmanager, TextView textview) {
+        miuiphonewindowmanager.mMsgText = textview;
+        return textview;
+    }
+
+*/
+
+
+
+/*
+    static AnimationDrawable access$1102(MiuiPhoneWindowManager miuiphonewindowmanager, AnimationDrawable animationdrawable) {
+        miuiphonewindowmanager.mAnimationDrawable = animationdrawable;
+        return animationdrawable;
+    }
+
+*/
 
 
 
@@ -1022,29 +1067,19 @@ _L23:
 
 
 /*
-    static Dialog access$702(MiuiPhoneWindowManager miuiphonewindowmanager, Dialog dialog) {
+    static boolean access$702(MiuiPhoneWindowManager miuiphonewindowmanager, boolean flag) {
+        miuiphonewindowmanager.mDisableProximitor = flag;
+        return flag;
+    }
+
+*/
+
+
+
+/*
+    static Dialog access$902(MiuiPhoneWindowManager miuiphonewindowmanager, Dialog dialog) {
         miuiphonewindowmanager.mMiuiBootMsgDialog = dialog;
         return dialog;
-    }
-
-*/
-
-
-
-/*
-    static TextView access$802(MiuiPhoneWindowManager miuiphonewindowmanager, TextView textview) {
-        miuiphonewindowmanager.mMsgText = textview;
-        return textview;
-    }
-
-*/
-
-
-
-/*
-    static AnimationDrawable access$902(MiuiPhoneWindowManager miuiphonewindowmanager, AnimationDrawable animationdrawable) {
-        miuiphonewindowmanager.mAnimationDrawable = animationdrawable;
-        return animationdrawable;
     }
 
 */

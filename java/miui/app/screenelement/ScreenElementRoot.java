@@ -39,8 +39,6 @@ public class ScreenElementRoot extends ScreenElement
         mFramerateControllers = new ArrayList();
         super.mRoot = this;
         mVariableUpdaterManager = new VariableUpdaterManager(screencontext);
-        mScreenWidth = new IndexedNumberVariable("screen_width", getContext().mVariables);
-        mScreenHeight = new IndexedNumberVariable("screen_height", getContext().mVariables);
         mTouchX = new IndexedNumberVariable("touch_x", getContext().mVariables);
         mTouchY = new IndexedNumberVariable("touch_y", getContext().mVariables);
         mTouchBeginX = new IndexedNumberVariable("touch_begin_x", getContext().mVariables);
@@ -234,7 +232,7 @@ _L2:
             flag1 = true;
         else
             flag1 = false;
-        break MISSING_BLOCK_LABEL_561;
+        break MISSING_BLOCK_LABEL_613;
 _L16:
         if(mTargetDensity != 0) goto _L5; else goto _L4
 _L4:
@@ -243,8 +241,10 @@ _L4:
 _L13:
         Log.i("ScreenElementRoot", (new StringBuilder()).append("init target density: ").append(mTargetDensity).toString());
         super.mContext.setTargetDensity(mTargetDensity);
-        mScreenWidth.set((float)i1 / mScale);
-        mScreenHeight.set((float)j1 / mScale);
+        Utils.putVariableNumber("raw_screen_width", super.mContext.mVariables, Double.valueOf(i1));
+        Utils.putVariableNumber("raw_screen_height", super.mContext.mVariables, Double.valueOf(j1));
+        Utils.putVariableNumber("screen_width", super.mContext.mVariables, Double.valueOf((float)i1 / mScale));
+        Utils.putVariableNumber("screen_height", super.mContext.mVariables, Double.valueOf((float)j1 / mScale));
         k1 = mDefaultScreenWidth;
         if(i1 == k1) goto _L7; else goto _L6
 _L6:
@@ -466,8 +466,12 @@ _L3:
     private static final boolean CALCULATE_FRAME_RATE = true;
     private static final int DEFAULT_SCREEN_WIDTH = 480;
     private static final String LOG_TAG = "ScreenElementRoot";
+    public static final String RAW_SCREEN_HEIGHT = "raw_screen_height";
+    public static final String RAW_SCREEN_WIDTH = "raw_screen_width";
     private static final int RES_DENSITY = 240;
     private static final String ROOT_NAME = "__root";
+    public static final String SCREEN_HEIGHT = "screen_height";
+    public static final String SCREEN_WIDTH = "screen_width";
     private float DEFAULT_FRAME_RATE;
     private long mCheckPoint;
     private int mDefaultResourceDensity;
@@ -481,8 +485,6 @@ _L3:
     private int mFrames;
     protected float mNormalFrameRate;
     private float mScale;
-    private IndexedNumberVariable mScreenHeight;
-    private IndexedNumberVariable mScreenWidth;
     private SoundManager mSoundManager;
     private int mTargetDensity;
     private IndexedNumberVariable mTouchBeginTime;

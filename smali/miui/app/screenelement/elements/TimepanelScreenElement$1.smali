@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 46
+    .line 47
     iput-object p1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .registers 4
 
     .prologue
-    .line 48
+    .line 49
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
     #calls: Lmiui/app/screenelement/elements/TimepanelScreenElement;->updateTime()V
     invoke-static {v0}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->access$000(Lmiui/app/screenelement/elements/TimepanelScreenElement;)V
 
-    .line 49
+    .line 50
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 50
+    .line 51
     return-void
 .end method

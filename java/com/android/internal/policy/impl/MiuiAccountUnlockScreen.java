@@ -14,6 +14,7 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.*;
@@ -58,6 +59,7 @@ public class MiuiAccountUnlockScreen extends RelativeLayout
         textview.setText(i);
         mInstructions = (TextView)findViewById(0x60b0078);
         mLogin = (Spinner)findViewById(0x60b0079);
+        mIsLockedBySimChange = isLockedBySimChange();
         findAccounts();
         baseadapter = new BaseAdapter() {
 
@@ -196,10 +198,10 @@ _L1:
                 Account aaccount[];
                 int k;
                 int l;
+                Account account;
                 Account aaccount1[];
                 int i1;
                 int j1;
-                Account account;
                 Account account1;
                 try {
                     Context context = mContext.createPackageContext(authenticatordescription.packageName, 0);
@@ -212,19 +214,25 @@ _L1:
                 catch(android.content.pm.PackageManager.NameNotFoundException namenotfoundexception) { }
                 catch(android.content.res.Resources.NotFoundException notfoundexception) { }
             } else {
-                aaccount = AccountManager.get(mContext).getAccountsByType("com.google");
-                mGoogleAccountSize = aaccount.length;
-                k = aaccount.length;
-                for(l = 0; l < k; l++) {
-                    account1 = aaccount[l];
-                    mAccounts.add(account1);
+                if(mIsLockedBySimChange) {
+                    mInstructions.setText(0x60c01e5);
+                    mTopHeader.setVisibility(8);
+                } else {
+                    aaccount = AccountManager.get(mContext).getAccountsByType("com.google");
+                    mGoogleAccountSize = aaccount.length;
+                    k = aaccount.length;
+                    l = 0;
+                    while(l < k)  {
+                        account = aaccount[l];
+                        mAccounts.add(account);
+                        l++;
+                    }
                 }
-
                 aaccount1 = AccountManager.get(mContext).getAccountsByType("com.xiaomi");
                 i1 = aaccount1.length;
                 for(j1 = 0; j1 < i1; j1++) {
-                    account = aaccount1[j1];
-                    mAccounts.add(account);
+                    account1 = aaccount1[j1];
+                    mAccounts.add(account1);
                 }
 
                 return;
@@ -242,6 +250,13 @@ _L1:
             mCheckingDialog.getWindow().setType(2009);
         }
         return mCheckingDialog;
+    }
+
+    private boolean isLockedBySimChange() {
+        boolean flag = true;
+        if(android.provider.Settings.Secure.getInt(mContext.getContentResolver(), miui.provider.ExtraSettings.Secure.PERMANENTLY_LOCK_SIM_CHANGE, 0) != flag)
+            flag = false;
+        return flag;
     }
 
     private void postOnCheckPasswordResult(final boolean success) {
@@ -306,6 +321,7 @@ _L1:
     }
 
     private static final int AWAKE_POKE_MILLIS = 30000;
+    private static final String CLOSE_FIND_DEVICE_ACTION = "com.xiaomi.action.DISABLE_FIND_DEVICE";
     private static final String LOCK_PATTERN_CLASS = "com.android.settings.ChooseLockGeneric";
     private static final String LOCK_PATTERN_PACKAGE = "com.android.settings";
     private ArrayList mAccounts;
@@ -315,6 +331,7 @@ _L1:
     private int mGoogleAccountSize;
     private Drawable mGoogleIcon;
     private TextView mInstructions;
+    private boolean mIsLockedBySimChange;
     private KeyguardStatusViewManager mKeyguardStatusViewManager;
     private LockPatternUtils mLockPatternUtils;
     private Spinner mLogin;
@@ -323,6 +340,8 @@ _L1:
     private TextView mTopHeader;
     private KeyguardUpdateMonitor mUpdateMonitor;
     private Drawable mXiaomiIcon;
+
+
 
 
 

@@ -30,13 +30,13 @@
     .parameter "looper"
 
     .prologue
-    .line 513
+    .line 529
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
-    .line 514
+    .line 530
     invoke-direct {p0, p2, p3}, Landroid/view/InputEventReceiver;-><init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
 
-    .line 515
+    .line 531
     return-void
 .end method
 
@@ -47,31 +47,31 @@
     .parameter "inputEvent"
 
     .prologue
-    .line 519
+    .line 535
     instance-of v5, p1, Landroid/view/MotionEvent;
 
     if-nez v5, :cond_9
 
-    .line 520
+    .line 536
     const/4 v5, 0x0
 
     invoke-virtual {p0, p1, v5}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
-    .line 560
+    .line 576
     :goto_8
     return-void
 
     :cond_9
     move-object v3, p1
 
-    .line 524
+    .line 540
     check-cast v3, Landroid/view/MotionEvent;
 
-    .line 525
+    .line 541
     .local v3, motionEvent:Landroid/view/MotionEvent;
     const/4 v2, 0x0
 
-    .line 527
+    .line 543
     .local v2, handled:Z
     :try_start_d
     invoke-virtual {v3}, Landroid/view/MotionEvent;->getSource()I
@@ -99,17 +99,17 @@
 
     if-eqz v5, :cond_27
 
-    .line 558
+    .line 574
     :cond_23
     invoke-virtual {p0, p1, v2}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     goto :goto_8
 
-    .line 530
+    .line 546
     :cond_27
     const/4 v2, 0x1
 
-    .line 531
+    .line 547
     :try_start_28
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -119,7 +119,7 @@
     :try_end_2d
     .catchall {:try_start_28 .. :try_end_2d} :catchall_49
 
-    .line 532
+    .line 548
     :try_start_2d
     invoke-virtual {v3}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -127,19 +127,19 @@
 
     packed-switch v5, :pswitch_data_a0
 
-    .line 556
+    .line 572
     :cond_34
     :goto_34
     monitor-exit v6
     :try_end_35
     .catchall {:try_start_2d .. :try_end_35} :catchall_46
 
-    .line 558
+    .line 574
     invoke-virtual {p0, p1, v2}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     goto :goto_8
 
-    .line 534
+    .line 550
     :pswitch_39
     :try_start_39
     invoke-virtual {v3}, Landroid/view/MotionEvent;->getRawX()F
@@ -148,7 +148,7 @@
 
     iput v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->mDownX:F
 
-    .line 535
+    .line 551
     invoke-virtual {v3}, Landroid/view/MotionEvent;->getRawY()F
 
     move-result v5
@@ -157,7 +157,7 @@
 
     goto :goto_34
 
-    .line 556
+    .line 572
     :catchall_46
     move-exception v5
 
@@ -170,7 +170,7 @@
     :try_end_49
     .catchall {:try_start_48 .. :try_end_49} :catchall_49
 
-    .line 558
+    .line 574
     :catchall_49
     move-exception v5
 
@@ -178,7 +178,7 @@
 
     throw v5
 
-    .line 542
+    .line 558
     :pswitch_4e
     :try_start_4e
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -203,7 +203,7 @@
 
     move-result v4
 
-    .line 546
+    .line 562
     .local v4, statusBarExpandHeight:F
     iget v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->mDownY:F
 
@@ -211,7 +211,7 @@
 
     if-ltz v5, :cond_34
 
-    .line 548
+    .line 564
     iget v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->mDownX:F
 
     invoke-virtual {v3}, Landroid/view/MotionEvent;->getRawX()F
@@ -224,7 +224,7 @@
 
     move-result v0
 
-    .line 549
+    .line 565
     .local v0, distanceX:F
     iget v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->mDownY:F
 
@@ -238,7 +238,7 @@
 
     move-result v1
 
-    .line 550
+    .line 566
     .local v1, distanceY:F
     const/high16 v5, 0x4000
 
@@ -260,7 +260,7 @@
 
     if-gtz v5, :cond_34
 
-    .line 552
+    .line 568
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v7, 0x1
@@ -268,7 +268,7 @@
     #calls: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->setStatusBarInFullscreen(Z)V
     invoke-static {v5, v7}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$000(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)V
 
-    .line 553
+    .line 569
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$StatusBarInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     iget v5, v5, Lcom/android/internal/policy/impl/PhoneWindowManager;->mStatusBarHeight:I
@@ -281,7 +281,7 @@
 
     goto :goto_34
 
-    .line 532
+    .line 548
     :pswitch_data_a0
     .packed-switch 0x0
         :pswitch_39

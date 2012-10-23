@@ -208,10 +208,11 @@ _L5:
         }
     }
 
-    private void updateBmpSizeVar(Bitmap bitmap) {
-        if(super.mHasName && bitmap != null) {
-            mBmpSizeWidthVar.set(descale(bitmap.getWidth()));
-            mBmpSizeHeightVar.set(descale(bitmap.getHeight()));
+    private void updateBmpSizeVar() {
+        if(super.mHasName && mBitmapChanged) {
+            mBmpSizeWidthVar.set(descale(getBitmapWidth()));
+            mBmpSizeHeightVar.set(descale(getBitmapHeight()));
+            mBitmapChanged = false;
         }
     }
 
@@ -250,7 +251,7 @@ _L1:
             if(!TextUtils.equals(mCachedBitmapName, s)) {
                 mCachedBitmapName = s;
                 mCachedBitmap = super.mContext.mResourceManager.getBitmap(s);
-                updateBmpSizeVar(mCachedBitmap);
+                mBitmapChanged = true;
             }
             bitmap = mCachedBitmap;
         }
@@ -268,24 +269,41 @@ _L3:
 _L4:
     }
 
+    protected int getBitmapHeight() {
+        int i;
+        if(mCurrentBitmap != null)
+            i = mCurrentBitmap.getHeight();
+        else
+            i = 0;
+        return i;
+    }
+
+    protected int getBitmapWidth() {
+        int i;
+        if(mCurrentBitmap != null)
+            i = mCurrentBitmap.getWidth();
+        else
+            i = 0;
+        return i;
+    }
+
     public void init() {
         super.init();
         if(mMasks != null) {
             for(Iterator iterator = mMasks.iterator(); iterator.hasNext(); ((AnimatedElement)iterator.next()).init());
         }
+        mBitmapChanged = true;
         _cls1..SwitchMap.miui.app.screenelement.elements.ImageScreenElement.SrcType[mSrcType.ordinal()];
-        JVM INSTR tableswitch 1 2: default 80
-    //                   1 81
-    //                   2 128;
+        JVM INSTR tableswitch 1 2: default 84
+    //                   1 85
+    //                   2 121;
            goto _L1 _L2 _L3
 _L1:
         return;
 _L2:
         ScreenElement screenelement = super.mRoot.findElement(super.mAni.getSrc());
-        if(screenelement instanceof VirtualScreen) {
+        if(screenelement instanceof VirtualScreen)
             mVirtualScreen = (VirtualScreen)screenelement;
-            updateBmpSizeVar(mVirtualScreen.getBitmap());
-        }
         continue; /* Loop/switch isn't completed */
 _L3:
         String s = super.mAni.getSrc();
@@ -294,10 +312,8 @@ _L3:
             if(as.length == 2)
                 try {
                     android.graphics.drawable.Drawable drawable = super.mContext.mContext.getPackageManager().getActivityIcon(new ComponentName(as[0], as[1]));
-                    if(drawable instanceof BitmapDrawable) {
+                    if(drawable instanceof BitmapDrawable)
                         mBitmap = ((BitmapDrawable)drawable).getBitmap();
-                        updateBmpSizeVar(mBitmap);
-                    }
                 }
                 catch(android.content.pm.PackageManager.NameNotFoundException namenotfoundexception) {
                     Log.e("ImageScreenElement", (new StringBuilder()).append("fail to get icon for src of ApplicationIcon type: ").append(s).toString());
@@ -332,7 +348,7 @@ _L2:
         float f1;
         float f6;
         float f7;
-        bitmap = getBitmap();
+        bitmap = mCurrentBitmap;
         if(bitmap == null)
             continue; /* Loop/switch isn't completed */
         flag = canvas.isHardwareAccelerated();
@@ -344,8 +360,8 @@ _L2:
         f1 = getHeight();
         if(f == 0.0F || f1 == 0.0F)
             continue; /* Loop/switch isn't completed */
-        float f2 = bitmap.getWidth();
-        float f3 = bitmap.getHeight();
+        float f2 = getBitmapWidth();
+        float f3 = getBitmapHeight();
         float f4;
         float f5;
         float f8;
@@ -472,7 +488,6 @@ _L5:
 
     public void setBitmap(Bitmap bitmap) {
         mBitmap = bitmap;
-        updateBmpSizeVar(mBitmap);
     }
 
     protected boolean shouldScaleBitmap() {
@@ -481,13 +496,19 @@ _L5:
 
     public void tick(long l) {
         super.tick(l);
-        break MISSING_BLOCK_LABEL_5;
-        if(isVisible() && mMasks != null) {
+        if(isVisible()) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        mCurrentBitmap = getBitmap();
+        updateBmpSizeVar();
+        if(mMasks != null) {
             Iterator iterator = mMasks.iterator();
             while(iterator.hasNext()) 
                 ((AnimatedElement)iterator.next()).tick(l);
         }
-        return;
+        if(true) goto _L1; else goto _L3
+_L3:
     }
 
     private static final String LOG_TAG = "ImageScreenElement";
@@ -500,6 +521,7 @@ _L5:
     private Expression mAngleZ;
     private boolean mAntiAlias;
     protected Bitmap mBitmap;
+    protected boolean mBitmapChanged;
     private IndexedNumberVariable mBmpSizeHeightVar;
     private IndexedNumberVariable mBmpSizeWidthVar;
     private Canvas mBufferCanvas;
@@ -507,6 +529,7 @@ _L5:
     private String mCachedBitmapName;
     private Camera mCamera;
     private Expression mCenterZ;
+    protected Bitmap mCurrentBitmap;
     private Rect mDesRect;
     private String mKey;
     private Bitmap mMaskBuffer;

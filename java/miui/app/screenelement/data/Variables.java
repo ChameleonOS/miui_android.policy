@@ -155,8 +155,6 @@ _L2:
     public static final String NEXT_ALARM_TIME = "next_alarm_time";
     public static final String PLMN = "plmn";
     public static final String RING_MODE = "ring_mode";
-    public static final String SCREEN_HEIGHT = "screen_height";
-    public static final String SCREEN_WIDTH = "screen_width";
     public static final String SECOND = "second";
     public static final String SMS_UNREAD_COUNT = "sms_unread_count";
     public static final String SPN = "spn";
