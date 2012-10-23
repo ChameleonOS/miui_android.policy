@@ -34,15 +34,15 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 29
+    .line 28
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 32
+    .line 31
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/animation/PositionAnimation;->getItem(I)Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     move-result-object v0
 
-    .line 33
+    .line 32
     .local v0, ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
@@ -50,7 +50,7 @@
 
     iput-wide v1, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mDelayX:D
 
-    .line 34
+    .line 33
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -59,7 +59,7 @@
 
     iput-wide v1, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mDelayY:D
 
-    .line 35
+    .line 34
     return-void
 .end method
 
@@ -74,12 +74,12 @@
     .end annotation
 
     .prologue
-    .line 24
+    .line 23
     const-string v0, "Position"
 
     invoke-direct {p0, p1, v0, p2}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 25
+    .line 24
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
     move-result-object v0
@@ -114,7 +114,7 @@
 
     invoke-static {v0, v1}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 26
+    .line 25
     return-void
 .end method
 
@@ -124,7 +124,7 @@
     .registers 3
 
     .prologue
-    .line 38
+    .line 37
     iget-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentX:D
 
     return-wide v0
@@ -134,7 +134,7 @@
     .registers 3
 
     .prologue
-    .line 42
+    .line 41
     iget-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentY:D
 
     return-wide v0
@@ -144,7 +144,7 @@
     .registers 5
 
     .prologue
-    .line 47
+    .line 46
     new-instance v0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     const/4 v1, 0x2
@@ -183,27 +183,27 @@
 
     const-wide/16 v2, 0x0
 
-    .line 61
+    .line 60
     if-nez p1, :cond_9
 
     if-nez p2, :cond_9
 
-    .line 69
+    .line 68
     :goto_8
     return-void
 
-    .line 65
+    .line 64
     :cond_9
     if-nez p1, :cond_23
 
     move-wide v0, v2
 
-    .line 66
+    .line 65
     .local v0, x1:D
     :goto_c
     if-nez p1, :cond_28
 
-    .line 67
+    .line 66
     .local v2, y1:D
     :goto_e
     invoke-virtual {p2, v4}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -220,7 +220,7 @@
 
     iput-wide v4, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentX:D
 
-    .line 68
+    .line 67
     invoke-virtual {p2, v8}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
     move-result-wide v4
@@ -237,7 +237,7 @@
 
     goto :goto_8
 
-    .line 65
+    .line 64
     .end local v0           #x1:D
     .end local v2           #y1:D
     :cond_23
@@ -247,7 +247,7 @@
 
     goto :goto_c
 
-    .line 66
+    .line 65
     .restart local v0       #x1:D
     :cond_28
     invoke-virtual {p1, v8}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -257,23 +257,24 @@
     goto :goto_e
 .end method
 
-.method public reset()V
-    .registers 3
+.method public reset(J)V
+    .registers 5
+    .parameter "time"
 
     .prologue
-    .line 53
-    invoke-super {p0}, Lmiui/app/screenelement/animation/BaseAnimation;->reset()V
+    .line 52
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
-    .line 54
+    .line 53
     iget-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mDelayX:D
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentX:D
 
-    .line 55
+    .line 54
     iget-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mDelayY:D
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentY:D
 
-    .line 56
+    .line 55
     return-void
 .end method

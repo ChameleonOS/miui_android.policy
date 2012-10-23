@@ -11,12 +11,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
-import javax.xml.parsers.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import miui.content.res.ThemeResources;
 import miui.content.res.ThemeResourcesSystem;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
 
 public class LockScreenResourceLoader
     implements miui.app.screenelement.ResourceManager.ResourceLoader {
@@ -29,54 +29,54 @@ public class LockScreenResourceLoader
     }
 
     public miui.app.screenelement.ResourceManager.BitmapInfo getBitmapInfo(String s, android.graphics.BitmapFactory.Options options) {
-        InputStream inputstream;
-        inputstream = ThemeResources.getSystem().getAwesomeLockscreenFileStream(s, null);
-        if(inputstream == null)
-            break MISSING_BLOCK_LABEL_64;
+        miui.content.res.ThemeZipFile.ThemeFileInfo themefileinfo;
+        themefileinfo = ThemeResources.getSystem().getAwesomeLockscreenFileStream(s);
+        if(themefileinfo == null)
+            break MISSING_BLOCK_LABEL_87;
         miui.app.screenelement.ResourceManager.BitmapInfo bitmapinfo;
+        if(themefileinfo.mDensity != 0)
+            options.inDensity = themefileinfo.mDensity;
         Rect rect = new Rect();
-        bitmapinfo = new miui.app.screenelement.ResourceManager.BitmapInfo(BitmapFactory.decodeStream(inputstream, rect, options), rect);
+        bitmapinfo = new miui.app.screenelement.ResourceManager.BitmapInfo(BitmapFactory.decodeStream(themefileinfo.mInput, rect, options), rect);
         Exception exception;
         OutOfMemoryError outofmemoryerror;
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
-        catch(IOException ioexception) { }
+        catch(IOException ioexception2) { }
         return bitmapinfo;
         outofmemoryerror;
         Log.e("ResourceManager", outofmemoryerror.toString());
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
-        catch(IOException ioexception2) { }
+        catch(IOException ioexception1) { }
         bitmapinfo = null;
         if(false)
             ;
         else
-            break MISSING_BLOCK_LABEL_44;
+            break MISSING_BLOCK_LABEL_64;
         exception;
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
-        catch(IOException ioexception1) { }
+        catch(IOException ioexception) { }
         throw exception;
     }
 
     public MemoryFile getFile(String s) {
-        int ai[];
-        InputStream inputstream;
+        miui.content.res.ThemeZipFile.ThemeFileInfo themefileinfo;
         byte abyte0[];
-        ai = new int[1];
-        inputstream = ThemeResources.getSystem().getAwesomeLockscreenFileStream(s, ai);
-        if(inputstream == null)
-            break MISSING_BLOCK_LABEL_100;
+        themefileinfo = ThemeResources.getSystem().getAwesomeLockscreenFileStream(s);
+        if(themefileinfo == null)
+            break MISSING_BLOCK_LABEL_102;
         abyte0 = new byte[0x10000];
         MemoryFile memoryfile;
         int k;
-        memoryfile = new MemoryFile(null, ai[0]);
+        memoryfile = new MemoryFile(null, (int)themefileinfo.mSize);
         int i = 0;
         do {
-            int j = inputstream.read(abyte0, 0, 0x10000);
+            int j = themefileinfo.mInput.read(abyte0, 0, 0x10000);
             if(j <= 0)
                 break;
             memoryfile.writeBytes(abyte0, 0, i, j);
@@ -89,20 +89,23 @@ label0:
                 if(k <= 0)
                     break label0;
                 Exception exception;
+                IOException ioexception;
                 IOException ioexception1;
                 IOException ioexception2;
                 OutOfMemoryError outofmemoryerror;
                 IOException ioexception3;
+                IOException ioexception4;
                 try {
-                    inputstream.close();
+                    themefileinfo.mInput.close();
                 }
                 catch(IOException ioexception5) { }
             }
             return memoryfile;
         }
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
+        // Misplaced declaration of an exception variable
         catch(IOException ioexception4) { }
         memoryfile = null;
         if(true)
@@ -110,26 +113,27 @@ label0:
         outofmemoryerror;
         Log.e("ResourceManager", outofmemoryerror.toString());
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
         // Misplaced declaration of an exception variable
         catch(IOException ioexception3) { }
-        break MISSING_BLOCK_LABEL_100;
+        break MISSING_BLOCK_LABEL_102;
         ioexception1;
         Log.e("ResourceManager", ioexception1.toString());
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
         // Misplaced declaration of an exception variable
         catch(IOException ioexception2) { }
         if(false)
             ;
         else
-            break MISSING_BLOCK_LABEL_100;
+            break MISSING_BLOCK_LABEL_102;
         exception;
         try {
-            inputstream.close();
+            themefileinfo.mInput.close();
         }
+        // Misplaced declaration of an exception variable
         catch(IOException ioexception) { }
         throw exception;
     }
@@ -140,10 +144,10 @@ label0:
 
     public Element getManifestRoot(String s) {
         DocumentBuilderFactory documentbuilderfactory;
-        InputStream inputstream;
+        miui.content.res.ThemeZipFile.ThemeFileInfo themefileinfo;
         Log.i("LockScreenResourceLoader", (new StringBuilder()).append("getManifestRoot:").append(s).toString());
         documentbuilderfactory = DocumentBuilderFactory.newInstance();
-        inputstream = null;
+        themefileinfo = null;
         Element element;
         boolean flag;
         DocumentBuilder documentbuilder = documentbuilderfactory.newDocumentBuilder();
@@ -153,8 +157,8 @@ label0:
             if(!containsFile(s1))
                 s1 = "manifest.xml";
         }
-        inputstream = ThemeResources.getSystem().getAwesomeLockscreenFileStream(s1, null);
-        element = documentbuilder.parse(inputstream).getDocumentElement();
+        themefileinfo = ThemeResources.getSystem().getAwesomeLockscreenFileStream(s1);
+        element = documentbuilder.parse(themefileinfo.mInput).getDocumentElement();
         Log.i("LockScreenResourceLoader", (new StringBuilder()).append("load root:").append(element.getNodeName()).append(" from: ").append(s1).toString());
         flag = element.getNodeName().equals("Lockscreen");
         {
@@ -164,72 +168,43 @@ label0:
                     if(!flag)
                         break label0;
                     Exception exception;
+                    IOException ioexception;
                     Exception exception1;
                     IOException ioexception1;
                     IOException ioexception2;
-                    IOException ioexception3;
-                    SAXException saxexception;
-                    IOException ioexception4;
-                    ParserConfigurationException parserconfigurationexception;
-                    IOException ioexception5;
-                    if(inputstream != null)
+                    if(themefileinfo != null)
                         try {
-                            inputstream.close();
+                            themefileinfo.mInput.close();
                         }
-                        catch(IOException ioexception7) { }
+                        catch(IOException ioexception3) { }
                 }
                 return element;
             }
-            if(inputstream != null)
+            if(themefileinfo != null)
                 try {
-                    inputstream.close();
+                    themefileinfo.mInput.close();
                 }
-                catch(IOException ioexception6) { }
+                // Misplaced declaration of an exception variable
+                catch(IOException ioexception2) { }
         }
         element = null;
         if(true)
-            break MISSING_BLOCK_LABEL_183;
-        parserconfigurationexception;
-        parserconfigurationexception.printStackTrace();
-        if(inputstream != null)
-            try {
-                inputstream.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch(IOException ioexception5) { }
-        break MISSING_BLOCK_LABEL_196;
-        saxexception;
-        saxexception.printStackTrace();
-        if(inputstream != null)
-            try {
-                inputstream.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch(IOException ioexception4) { }
-        break MISSING_BLOCK_LABEL_196;
-        ioexception2;
-        ioexception2.printStackTrace();
-        if(inputstream != null)
-            try {
-                inputstream.close();
-            }
-            // Misplaced declaration of an exception variable
-            catch(IOException ioexception3) { }
-        break MISSING_BLOCK_LABEL_196;
+            break MISSING_BLOCK_LABEL_188;
         exception1;
         exception1.printStackTrace();
-        if(inputstream != null)
+        if(themefileinfo != null)
             try {
-                inputstream.close();
+                themefileinfo.mInput.close();
             }
             // Misplaced declaration of an exception variable
             catch(IOException ioexception1) { }
-        break MISSING_BLOCK_LABEL_196;
+        break MISSING_BLOCK_LABEL_204;
         exception;
-        if(inputstream != null)
+        if(themefileinfo != null)
             try {
-                inputstream.close();
+                themefileinfo.mInput.close();
             }
+            // Misplaced declaration of an exception variable
             catch(IOException ioexception) { }
         throw exception;
     }

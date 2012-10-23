@@ -5,6 +5,7 @@
 package miui.app.screenelement.elements;
 
 import android.graphics.Canvas;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import miui.app.screenelement.ScreenContext;
@@ -304,7 +305,11 @@ _L3:
         mContext.requestUpdate();
     }
 
-    public void reset() {
+    public final void reset() {
+        reset(SystemClock.elapsedRealtime());
+    }
+
+    public void reset(long l) {
     }
 
     public void resume() {

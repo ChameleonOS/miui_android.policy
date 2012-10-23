@@ -4,14 +4,15 @@
 
 package com.android.internal.policy.impl;
 
-import android.app.ActivityManager;
+import android.app.ExtraActivityManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.os.IBinder;
 import android.os.SystemProperties;
 import android.util.Log;
-import android.view.*;
+import android.view.ContextThemeWrapper;
+import android.view.ViewManager;
 import android.widget.FrameLayout;
 
 // Referenced classes of package com.android.internal.policy.impl:
@@ -245,12 +246,12 @@ _L2:
             int i = 0x4100900;
             if(!mNeedsInput)
                 i |= 0x20000;
-            if(ActivityManager.isHighEndGfx(((WindowManager)mContext.getSystemService("window")).getDefaultDisplay()))
+            if(ExtraActivityManager.useHardwareAccelerationOnKeyguard(mContext))
                 i |= 0x1000000;
             android.view.WindowManager.LayoutParams layoutparams1 = new android.view.WindowManager.LayoutParams(-1, -1, 2004, i, -3);
             layoutparams1.softInputMode = 16;
             layoutparams1.windowAnimations = 0x10301de;
-            if(ActivityManager.isHighEndGfx(((WindowManager)mContext.getSystemService("window")).getDefaultDisplay())) {
+            if(ExtraActivityManager.useHardwareAccelerationOnKeyguard(mContext)) {
                 layoutparams1.flags = 0x1000000 | layoutparams1.flags;
                 layoutparams1.privateFlags = 2 | layoutparams1.privateFlags;
             }
@@ -261,7 +262,7 @@ _L2:
             mViewManager.addView(mKeyguardHost, layoutparams1);
         }
         if(!flag)
-            break MISSING_BLOCK_LABEL_436;
+            break MISSING_BLOCK_LABEL_410;
         mWindowLayoutParams.screenOrientation = 4;
 _L1:
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);

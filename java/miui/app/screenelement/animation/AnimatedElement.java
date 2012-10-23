@@ -247,8 +247,8 @@ public class AnimatedElement {
         loadAlphaAnimations(element);
     }
 
-    public void reset() {
-        for(Iterator iterator = mAnimations.iterator(); iterator.hasNext(); ((BaseAnimation)iterator.next()).reset());
+    public void reset(long l) {
+        for(Iterator iterator = mAnimations.iterator(); iterator.hasNext(); ((BaseAnimation)iterator.next()).reset(l));
     }
 
     public void tick(long l) {

@@ -81,9 +81,9 @@ public abstract class AnimatedScreenElement extends ScreenElement {
         return flag;
     }
 
-    public void reset() {
-        super.reset();
-        mAni.reset();
+    public void reset(long l) {
+        super.reset(l);
+        mAni.reset(l);
     }
 
     public void tick(long l) {

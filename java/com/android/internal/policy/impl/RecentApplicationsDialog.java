@@ -203,15 +203,15 @@ label0:
         layoutparams.height = -1;
         window.setAttributes(layoutparams);
         window.setFlags(0, 2);
-        mIcons[0] = (TextView)findViewById(0x102030b);
+        mIcons[0] = (TextView)findViewById(0x1020310);
         mIcons[1] = (TextView)findViewById(0x1020019);
         mIcons[2] = (TextView)findViewById(0x102001a);
         mIcons[3] = (TextView)findViewById(0x102001b);
-        mIcons[4] = (TextView)findViewById(0x102030c);
-        mIcons[5] = (TextView)findViewById(0x102030d);
-        mIcons[6] = (TextView)findViewById(0x102030e);
-        mIcons[7] = (TextView)findViewById(0x102030f);
-        mNoAppsText = findViewById(0x102030a);
+        mIcons[4] = (TextView)findViewById(0x1020311);
+        mIcons[5] = (TextView)findViewById(0x1020312);
+        mIcons[6] = (TextView)findViewById(0x1020313);
+        mIcons[7] = (TextView)findViewById(0x1020314);
+        mNoAppsText = findViewById(0x102030f);
         TextView atextview[] = mIcons;
         int i = atextview.length;
         for(int j = 0; j < i; j++)

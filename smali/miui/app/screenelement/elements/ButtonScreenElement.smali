@@ -927,12 +927,13 @@
     goto :goto_6
 .end method
 
-.method public reset()V
-    .registers 2
+.method public reset(J)V
+    .registers 4
+    .parameter "time"
 
     .prologue
     .line 217
-    invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->reset()V
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->reset(J)V
 
     .line 218
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
@@ -942,7 +943,7 @@
     .line 219
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
     .line 220
     :cond_c
@@ -953,7 +954,7 @@
     .line 221
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
     .line 222
     :cond_15

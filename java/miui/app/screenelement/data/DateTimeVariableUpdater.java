@@ -90,6 +90,7 @@ public class DateTimeVariableUpdater extends VariableUpdater {
         updateTime();
     }
 
+    public static final String USE_TAG = "DateTime";
     private IndexedNumberVariable mAmPm;
     protected Calendar mCalendar;
     private IndexedNumberVariable mDate;

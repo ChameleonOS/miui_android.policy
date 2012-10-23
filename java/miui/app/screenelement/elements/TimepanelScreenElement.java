@@ -26,8 +26,8 @@ public class TimepanelScreenElement extends ImageScreenElement {
         super(element, screencontext, screenelementroot);
         mFormat = "kk:mm";
         mCalendar = Calendar.getInstance();
-        mHandler = new Handler();
         mFormat = element.getAttribute("format");
+        mHandler = screencontext.mHandler;
     }
 
     private void createBitmap() {

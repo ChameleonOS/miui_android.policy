@@ -72,8 +72,8 @@ public class SizeAnimation extends BaseAnimation {
         }
     }
 
-    public void reset() {
-        super.reset();
+    public void reset(long l) {
+        super.reset(l);
         mCurrentW = mDelayW;
         mCurrentH = mDelayH;
     }

@@ -122,9 +122,9 @@ _L3:
         }
     }
 
-    public void reset() {
-        super.reset();
-        for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).reset());
+    public void reset(long l) {
+        super.reset(l);
+        for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).reset(l));
     }
 
     public void resume() {

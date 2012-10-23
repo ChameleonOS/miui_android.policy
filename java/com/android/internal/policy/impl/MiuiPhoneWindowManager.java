@@ -23,7 +23,7 @@ import miui.app.ExtraStatusBarManager;
 import miui.util.HapticFeedbackUtil;
 
 // Referenced classes of package com.android.internal.policy.impl:
-//            PhoneWindowManager, KeyguardViewMediator, MagnifierPopupWindow, MiuiScreenOnProximityLock
+//            PhoneWindowManager, KeyguardViewMediator, MiuiScreenOnProximityLock, MagnifierPopupWindow
 
 public class MiuiPhoneWindowManager extends PhoneWindowManager {
     class MiuiSettingsObserver extends ContentObserver {
@@ -319,7 +319,6 @@ _L7:
 
     public MiuiPhoneWindowManager() {
         mPowerLongPressOriginal = super.mPowerLongPress;
-        mDisableProximitor = true;
         mBinder = new Binder();
         mStatusBarExitFullscreenReceiver = new BroadcastReceiver() {
 
@@ -365,20 +364,6 @@ _L7:
                 super();
             }
         };
-        mReleaseProximitySensorReceiver = new BroadcastReceiver() {
-
-            public void onReceive(Context context, Intent intent) {
-                mProximitySensor.release();
-                mDisableProximitor = intent.getBooleanExtra("miui.intent.extra.DISABLE_PROXIMITY_SENSOR", false);
-            }
-
-            final MiuiPhoneWindowManager this$0;
-
-             {
-                this$0 = MiuiPhoneWindowManager.this;
-                super();
-            }
-        };
         mHasCameraFlash = false;
         mTorchEnabled = false;
         mBackLongPress = new BackLongPressRunnable();
@@ -404,6 +389,15 @@ _L7:
             flag = true;
         else
             flag = false;
+        return flag;
+    }
+
+    private boolean releaseScreenOnProximitySensor() {
+        boolean flag = false;
+        if(super.mSystemReady) {
+            mDisableProximitor = false;
+            flag = mProximitySensor.release();
+        }
         return flag;
     }
 
@@ -561,10 +555,6 @@ _L5:
         IntentFilter intentfilter2 = new IntentFilter();
         intentfilter2.addAction("android.intent.action.SHOW_MAGNIFIER");
         context.registerReceiver(mShowMagnifierReceiver, intentfilter2);
-        IntentFilter intentfilter3 = new IntentFilter();
-        intentfilter3.addAction("miui.intent.action.RELEASE_PROXIMITY_SENSOR");
-        context.registerReceiver(mReleaseProximitySensorReceiver, intentfilter3);
-        mProximitySensor = new MiuiScreenOnProximityLock(context);
     }
 
     public long interceptKeyBeforeDispatching(android.view.WindowManagerPolicy.WindowState windowstate, KeyEvent keyevent, int i) {
@@ -578,20 +568,26 @@ _L5:
             flag = true;
         else
             flag = false;
-        if(!mScreenButtonsDisabled) goto _L2; else goto _L1
+        if(!mShortcutTriggered && (!super.mSystemReady || !mProximitySensor.isHeld())) goto _L2; else goto _L1
 _L1:
-        j;
-        JVM INSTR lookupswitch 4: default 72
-    //                   3: 122
-    //                   4: 122
-    //                   82: 122
-    //                   84: 122;
-           goto _L2 _L3 _L3 _L3 _L3
+        l = -1L;
+_L10:
+        return l;
 _L2:
-        if(j != 3) goto _L5; else goto _L4
+        if(!mScreenButtonsDisabled) goto _L4; else goto _L3
+_L3:
+        j;
+        JVM INSTR lookupswitch 4: default 112
+    //                   3: 156
+    //                   4: 156
+    //                   82: 156
+    //                   84: 156;
+           goto _L4 _L5 _L5 _L5 _L5
 _L4:
-        if(!flag || !isEnableKeyguardTorch()) goto _L7; else goto _L6
+        if(j != 3) goto _L7; else goto _L6
 _L6:
+        if(!flag || !isEnableKeyguardTorch()) goto _L9; else goto _L8
+_L8:
         if(k == 0) {
             mTorchEnabled = false;
             mHomeDownWhileScreenOn = super.mScreenOnFully;
@@ -600,27 +596,24 @@ _L6:
             if(k % 10 == 6)
                 super.mKeyguardMediator.pokeWakelock();
         } else
-        if(mHomeDownWhileScreenOn && (0x80 & keyevent.getFlags()) != 0)
+        if(mHomeDownWhileScreenOn && keyevent.isLongPress())
             setTorch(true);
         l = -1L;
-_L8:
-        return l;
-_L3:
+          goto _L10
+_L5:
         l = -1L;
-        break MISSING_BLOCK_LABEL_113;
-_L7:
+          goto _L10
+_L9:
         if(mTorchEnabled)
             setTorch(false);
-_L9:
+_L11:
         l = super.interceptKeyBeforeDispatching(windowstate, keyevent, i);
-          goto _L8
-_L5:
+          goto _L10
+_L7:
         if(j != 82)
             continue; /* Loop/switch isn't completed */
-        if(!flag || mVoiceAssistantTriggerred || (0x80 & keyevent.getFlags()) == 0 || super.mKeyguardMediator.isSecure() && super.mKeyguardMediator.isShowing())
-            continue; /* Loop/switch isn't completed */
-        if(android.provider.Settings.System.getInt(super.mContext.getContentResolver(), "enable_assist_menu_key_long_press", 1) != 0) {
-            mVoiceAssistantTriggerred = true;
+        if(!mShortcutTriggered && flag && keyevent.isLongPress() && (!super.mKeyguardMediator.isSecure() || !super.mKeyguardMediator.isShowing()) && android.provider.Settings.System.getInt(super.mContext.getContentResolver(), "enable_assist_menu_key_long_press", 1) != 0) {
+            mShortcutTriggered = true;
             try {
                 Intent intent1 = new Intent("android.intent.action.MAIN");
                 intent1.setAction("android.intent.action.ASSIST");
@@ -629,20 +622,16 @@ _L5:
             }
             catch(ActivityNotFoundException activitynotfoundexception) { }
         }
-          goto _L9
-        if(!mVoiceAssistantTriggerred) goto _L9; else goto _L10
-_L10:
-        l = -1L;
-          goto _L8
-        if(j != 4) goto _L9; else goto _L11
-_L11:
-        if(!flag) goto _L13; else goto _L12
+          goto _L11
+        if(j != 4) goto _L11; else goto _L12
 _L12:
-        if(!super.mKeyguardMediator.isShowingAndNotHidden()) goto _L15; else goto _L14
-_L14:
+        if(!flag) goto _L14; else goto _L13
+_L13:
+        if(!super.mKeyguardMediator.isShowingAndNotHidden()) goto _L16; else goto _L15
+_L15:
         int j1 = android.provider.Settings.System.getInt(super.mContext.getContentResolver(), "enable_snapshot_screenlock", 0);
-        if((0x80 & keyevent.getFlags()) == 0 || j1 == 0 || super.mKeyguardMediator.isSecure()) goto _L17; else goto _L16
-_L16:
+        if(!keyevent.isLongPress() || j1 == 0 || super.mKeyguardMediator.isSecure()) goto _L18; else goto _L17
+_L17:
         PackageManager packagemanager = super.mContext.getPackageManager();
         Intent intent = new Intent();
         intent.addFlags(0x10000000);
@@ -655,8 +644,8 @@ _L16:
             super.mContext.startActivity(intent);
         }
         l = -1L;
-          goto _L8
-_L15:
+          goto _L10
+_L16:
         if(k == 0) {
             mBackLongPressed = false;
             android.view.WindowManager.LayoutParams layoutparams;
@@ -678,23 +667,22 @@ _L15:
                     super.mHandler.postDelayed(mBackLongPress, i1);
             }
         }
-_L17:
-        if(!mBackLongPressed) goto _L9; else goto _L18
 _L18:
+        if(!mBackLongPressed) goto _L11; else goto _L19
+_L19:
         l = -1L;
-          goto _L8
-_L13:
+          goto _L10
+_L14:
         super.mHandler.removeCallbacks(mBackLongPress);
-          goto _L17
+          goto _L18
     }
 
     public int interceptKeyBeforeQueueing(KeyEvent keyevent, int i, boolean flag) {
         int j;
         boolean flag1;
-        boolean flag3;
+        boolean flag2;
         int k;
         j = keyevent.getKeyCode();
-        boolean flag2;
         if(keyevent.getAction() == 0)
             flag1 = true;
         else
@@ -703,72 +691,83 @@ _L13:
             flag2 = true;
         else
             flag2 = false;
-        if(26 == j)
-            mDisableProximitor = true;
         if(!mScreenButtonsDisabled) goto _L2; else goto _L1
 _L1:
         j;
-        JVM INSTR lookupswitch 5: default 100
-    //                   3: 187
-    //                   4: 193
-    //                   26: 199
-    //                   82: 193
-    //                   84: 193;
+        JVM INSTR lookupswitch 5: default 88
+    //                   3: 198
+    //                   4: 204
+    //                   26: 210
+    //                   82: 204
+    //                   84: 204;
            goto _L2 _L3 _L4 _L5 _L4 _L4
 _L2:
-        if(j == 82) {
+        if(j == 82)
             mMenuPressed = flag1;
-            if(flag1)
-                mVoiceAssistantTriggerred = false;
-        } else
+        else
+        if(j == 4)
+            mBackPressed = flag1;
+        else
         if(j == 24)
             mVolumeUpPressed = flag1;
         else
         if(j == 25)
             mVolumeDownPressed = flag1;
-        if(flag)
-            flag3 = super.mKeyguardMediator.isShowingAndNotHidden();
-        else
-            flag3 = super.mKeyguardMediator.isShowing();
-        if(!flag && !flag2) goto _L7; else goto _L6
+        if(!mMenuPressed && !mBackPressed && !mVolumeUpPressed && !mVolumeDownPressed)
+            mShortcutTriggered = false;
+        if(!super.mSystemReady) goto _L7; else goto _L6
 _L6:
-        if(!mCameraKeyWakeScreen || !flag3 || j != 27 || flag1) goto _L9; else goto _L8
+        if(!mShortcutTriggered && mBackPressed && mVolumeUpPressed)
+            mShortcutTriggered = releaseScreenOnProximitySensor();
+        if(!mProximitySensor.isHeld()) goto _L7; else goto _L8
 _L8:
-        k = 4;
-_L10:
+        k = 0;
+_L9:
         return k;
 _L3:
         super.mHomePressed = flag1;
 _L4:
         k = 0;
-          goto _L10
+          goto _L9
 _L5:
-        if(!super.mHomePressed) goto _L2; else goto _L11
-_L11:
+        if(!super.mHomePressed) goto _L2; else goto _L10
+_L10:
         if(!flag1) {
             super.mHomePressed = false;
             interceptPowerKeyUp(false);
             super.mContext.sendBroadcast(new Intent("com.miui.app.ExtraStatusBarManager.TRIGGER_TOGGLE_SCREEN_BUTTONS"));
         }
         k = 0;
-          goto _L10
+          goto _L9
 _L7:
+        boolean flag3;
+        if(flag)
+            flag3 = super.mKeyguardMediator.isShowingAndNotHidden();
+        else
+            flag3 = super.mKeyguardMediator.isShowing();
+        if(!flag && !flag2) goto _L12; else goto _L11
+_L11:
+        if(!mCameraKeyWakeScreen || !flag3 || j != 27 || flag1)
+            break MISSING_BLOCK_LABEL_511;
+        k = 4;
+          goto _L9
+_L12:
         boolean flag5;
         boolean flag6;
         flag5 = true;
         flag6 = false;
         j;
-        JVM INSTR lookupswitch 4: default 340
-    //                   24: 382
-    //                   25: 382
-    //                   27: 373
-    //                   272: 364;
-           goto _L12 _L13 _L13 _L14 _L15
-_L12:
+        JVM INSTR lookupswitch 4: default 416
+    //                   24: 458
+    //                   25: 458
+    //                   27: 449
+    //                   272: 440;
+           goto _L13 _L14 _L14 _L15 _L16
+_L13:
         flag5 = false;
 _L19:
-        if(!flag5) goto _L9; else goto _L16
-_L16:
+        if(!flag5)
+            break MISSING_BLOCK_LABEL_511;
         if(!flag6) goto _L18; else goto _L17
 _L17:
         if(flag1)
@@ -780,65 +779,55 @@ _L17:
         } else {
             k = 2;
         }
-          goto _L10
-_L15:
+          goto _L9
+_L16:
         flag6 = mTrackballWakeScreen;
           goto _L19
-_L14:
+_L15:
         flag6 = mCameraKeyWakeScreen;
           goto _L19
-_L13:
+_L14:
         flag6 = mVolumeKeyWakeScreen;
         if(mScreenOffReason == 4)
             flag6 = false;
           goto _L19
 _L18:
         i &= -4;
-_L9:
-        if(mMenuPressed && mVolumeUpPressed)
+        boolean flag4;
+        if(!mShortcutTriggered && mMenuPressed && mVolumeUpPressed) {
+            mShortcutTriggered = true;
             setMaxBacklightBrightness();
-        if(mMenuPressed && mVolumeDownPressed && !mScreenshotTrigger) {
-            mVoiceAssistantTriggerred = true;
-            mScreenshotTrigger = true;
+        }
+        if(!mShortcutTriggered && mMenuPressed && mVolumeDownPressed) {
+            mShortcutTriggered = true;
             super.mHandler.removeCallbacks(super.mScreenshotChordLongPress);
             super.mHandler.postDelayed(super.mScreenshotChordLongPress, 0L);
         }
-        if(!mScreenshotTrigger) goto _L21; else goto _L20
-_L20:
-        if(mMenuPressed && mVolumeDownPressed) goto _L23; else goto _L22
-_L22:
-        mScreenshotTrigger = false;
-        super.mVolumeDownKeyConsumedByScreenshotChord = true;
-_L21:
-        boolean flag4;
         if(!flag1)
-            break MISSING_BLOCK_LABEL_626;
+            break MISSING_BLOCK_LABEL_678;
         IStatusBarService istatusbarservice;
         IWindowManager iwindowmanager;
         if(j == 26)
             flag4 = true;
         else
             flag4 = false;
-        if(flag4) goto _L25; else goto _L24
-_L24:
+        if(flag4) goto _L21; else goto _L20
+_L20:
         iwindowmanager = getWindownManagerService();
         RemoteException remoteexception;
         if(iwindowmanager != null && iwindowmanager.isKeyguardLocked() && (j == 25 || j == 24 || j == 164))
             flag4 = true;
-_L25:
+_L21:
         if(flag4) {
             istatusbarservice = getStatusBarManagerService();
             if(istatusbarservice != null)
                 istatusbarservice.onPanelRevealed();
         }
-_L26:
+_L22:
         k = super.interceptKeyBeforeQueueing(keyevent, i, flag);
-          goto _L10
-_L23:
-        k = 0;
-          goto _L10
+          goto _L9
         remoteexception;
-          goto _L26
+          goto _L22
     }
 
     public boolean performHapticFeedbackLw(android.view.WindowManagerPolicy.WindowState windowstate, int i, boolean flag) {
@@ -861,6 +850,7 @@ _L23:
         mVolumeDownPressed = false;
         mMenuPressed = false;
         mScreenOffReason = i;
+        releaseScreenOnProximitySensor();
         super.screenTurnedOff(i);
     }
 
@@ -879,7 +869,7 @@ _L23:
                 super();
             }
             });
-        if(!mDisableProximitor && mProximitySensor != null)
+        if(super.mSystemReady && !mDisableProximitor && miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "enable_screen_on_proximity_sensor", true))
             mProximitySensor.aquire();
     }
 
@@ -914,10 +904,10 @@ _L23:
                             return true;
                         }
 
-                        final _cls7 this$1;
+                        final _cls6 this$1;
 
                      {
-                        this$1 = _cls7.this;
+                        this$1 = _cls6.this;
                         super(context, i);
                     }
                     };
@@ -951,6 +941,11 @@ _L23:
         });
     }
 
+    public void systemReady() {
+        super.systemReady();
+        mProximitySensor = new MiuiScreenOnProximityLock(super.mContext);
+    }
+
     private static final int BTN_MOUSE = 272;
     static final int TYPE_LAYER_MULTIPLIER = 10000;
     static final int TYPE_LAYER_OFFSET = 1000;
@@ -958,6 +953,7 @@ _L23:
     private AnimationDrawable mAnimationDrawable;
     private BackLongPressRunnable mBackLongPress;
     boolean mBackLongPressed;
+    private boolean mBackPressed;
     private Binder mBinder;
     boolean mCameraKeyWakeScreen;
     private boolean mDisableProximitor;
@@ -976,11 +972,10 @@ _L23:
     private TextView mMsgText;
     Runnable mPowerLongPressOriginal;
     private MiuiScreenOnProximityLock mProximitySensor;
-    BroadcastReceiver mReleaseProximitySensorReceiver;
     boolean mScreenButtonsDisabled;
     private int mScreenOffReason;
     BroadcastReceiver mScreenshotReceiver;
-    private boolean mScreenshotTrigger;
+    private boolean mShortcutTriggered;
     private boolean mShowMagnifier;
     BroadcastReceiver mShowMagnifierReceiver;
     BroadcastReceiver mStatusBarExitFullscreenReceiver;
@@ -988,7 +983,6 @@ _L23:
     private InputEventReceiver mStatusBarInputEventReceiver;
     private boolean mTorchEnabled;
     boolean mTrackballWakeScreen;
-    private boolean mVoiceAssistantTriggerred;
     private boolean mVolumeDownPressed;
     boolean mVolumeKeyWakeScreen;
     private boolean mVolumeUpPressed;
@@ -1004,26 +998,6 @@ _L23:
     }
 
 
-
-
-
-/*
-    static TextView access$1002(MiuiPhoneWindowManager miuiphonewindowmanager, TextView textview) {
-        miuiphonewindowmanager.mMsgText = textview;
-        return textview;
-    }
-
-*/
-
-
-
-/*
-    static AnimationDrawable access$1102(MiuiPhoneWindowManager miuiphonewindowmanager, AnimationDrawable animationdrawable) {
-        miuiphonewindowmanager.mAnimationDrawable = animationdrawable;
-        return animationdrawable;
-    }
-
-*/
 
 
 
@@ -1068,9 +1042,9 @@ _L23:
 
 
 /*
-    static boolean access$702(MiuiPhoneWindowManager miuiphonewindowmanager, boolean flag) {
-        miuiphonewindowmanager.mDisableProximitor = flag;
-        return flag;
+    static Dialog access$702(MiuiPhoneWindowManager miuiphonewindowmanager, Dialog dialog) {
+        miuiphonewindowmanager.mMiuiBootMsgDialog = dialog;
+        return dialog;
     }
 
 */
@@ -1078,9 +1052,19 @@ _L23:
 
 
 /*
-    static Dialog access$902(MiuiPhoneWindowManager miuiphonewindowmanager, Dialog dialog) {
-        miuiphonewindowmanager.mMiuiBootMsgDialog = dialog;
-        return dialog;
+    static TextView access$802(MiuiPhoneWindowManager miuiphonewindowmanager, TextView textview) {
+        miuiphonewindowmanager.mMsgText = textview;
+        return textview;
+    }
+
+*/
+
+
+
+/*
+    static AnimationDrawable access$902(MiuiPhoneWindowManager miuiphonewindowmanager, AnimationDrawable animationdrawable) {
+        miuiphonewindowmanager.mAnimationDrawable = animationdrawable;
+        return animationdrawable;
     }
 
 */

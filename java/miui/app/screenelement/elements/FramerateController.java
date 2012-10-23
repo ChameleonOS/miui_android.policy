@@ -55,11 +55,11 @@ public class FramerateController extends ScreenElement {
     public void render(Canvas canvas) {
     }
 
-    public void reset() {
+    public void reset(long l) {
         Object obj = mLock;
         obj;
         JVM INSTR monitorenter ;
-        mStartTime = super.mContext.getRenderController().getLastUpdateTime();
+        mStartTime = l;
         mStopped = false;
         return;
     }
@@ -78,7 +78,10 @@ _L3:
         Exception exception;
         exception;
         throw exception;
-        long l1 = l - mStartTime;
+        long l1;
+        l1 = l - mStartTime;
+        if(l1 < 0L)
+            l1 = 0L;
         if(!mLoop) goto _L5; else goto _L4
 _L4:
         long l2 = l1 % mTimeRange;
@@ -88,7 +91,7 @@ _L7:
         if(i >= 0) {
             ControlPoint controlpoint = (ControlPoint)mControlPoints.get(i);
             if(l2 < controlpoint.mTime)
-                break MISSING_BLOCK_LABEL_149;
+                break MISSING_BLOCK_LABEL_159;
             requestFramerate(controlpoint.mFramerate);
             if(!mLoop && i == -1 + mControlPoints.size())
                 mStopped = true;

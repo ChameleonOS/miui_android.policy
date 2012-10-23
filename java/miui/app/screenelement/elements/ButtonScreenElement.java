@@ -243,12 +243,12 @@ _L2:
 _L3:
     }
 
-    public void reset() {
-        super.reset();
+    public void reset(long l) {
+        super.reset(l);
         if(mNormalElements != null)
-            mNormalElements.reset();
+            mNormalElements.reset(l);
         if(mPressedElements != null)
-            mPressedElements.reset();
+            mPressedElements.reset(l);
     }
 
     public void resume() {

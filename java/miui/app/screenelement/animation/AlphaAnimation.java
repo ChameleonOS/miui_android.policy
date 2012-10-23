@@ -61,8 +61,8 @@ _L3:
         }
     }
 
-    public void reset() {
-        super.reset();
+    public void reset(long l) {
+        super.reset(l);
         mCurrentAlpha = mDelayValue;
     }
 

@@ -248,12 +248,13 @@
     goto :goto_d
 .end method
 
-.method public reset()V
-    .registers 2
+.method public reset(J)V
+    .registers 4
+    .parameter "time"
 
     .prologue
     .line 54
-    invoke-super {p0}, Lmiui/app/screenelement/animation/BaseAnimation;->reset()V
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
     .line 55
     iget v0, p0, Lmiui/app/screenelement/animation/AlphaAnimation;->mDelayValue:I

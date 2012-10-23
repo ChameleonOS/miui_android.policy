@@ -205,8 +205,9 @@
     return-void
 .end method
 
-.method public reset()V
+.method public reset(J)V
     .registers 5
+    .parameter "time"
 
     .prologue
     .line 56
@@ -216,17 +217,7 @@
 
     .line 57
     :try_start_3
-    iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    invoke-virtual {v0}, Lmiui/app/screenelement/ScreenContext;->getRenderController()Lmiui/app/screenelement/RendererController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->getLastUpdateTime()J
-
-    move-result-wide v2
-
-    iput-wide v2, p0, Lmiui/app/screenelement/elements/FramerateController;->mStartTime:J
+    iput-wide p1, p0, Lmiui/app/screenelement/elements/FramerateController;->mStartTime:J
 
     .line 58
     const/4 v0, 0x0
@@ -240,12 +231,12 @@
     return-void
 
     .line 59
-    :catchall_14
+    :catchall_a
     move-exception v0
 
     monitor-exit v1
-    :try_end_16
-    .catchall {:try_start_3 .. :try_end_16} :catchall_14
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw v0
 .end method
@@ -262,7 +253,7 @@
 
     if-nez v6, :cond_7
 
-    .line 94
+    .line 96
     :goto_6
     return-void
 
@@ -283,7 +274,7 @@
 
     goto :goto_6
 
-    .line 93
+    .line 95
     :catchall_10
     move-exception v6
 
@@ -302,17 +293,28 @@
 
     .line 82
     .local v1, elapsedTime:J
+    const-wide/16 v8, 0x0
+
+    cmp-long v6, v1, v8
+
+    if-gez v6, :cond_1f
+
+    .line 83
+    const-wide/16 v1, 0x0
+
+    .line 84
+    :cond_1f
     iget-boolean v6, p0, Lmiui/app/screenelement/elements/FramerateController;->mLoop:Z
 
-    if-eqz v6, :cond_50
+    if-eqz v6, :cond_58
 
     iget-wide v8, p0, Lmiui/app/screenelement/elements/FramerateController;->mTimeRange:J
 
     rem-long v4, v1, v8
 
-    .line 83
+    .line 85
     .local v4, time:J
-    :goto_1f
+    :goto_27
     iget-object v6, p0, Lmiui/app/screenelement/elements/FramerateController;->mControlPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
@@ -322,10 +324,10 @@
     add-int/lit8 v3, v6, -0x1
 
     .local v3, i:I
-    :goto_27
-    if-ltz v3, :cond_4e
+    :goto_2f
+    if-ltz v3, :cond_56
 
-    .line 84
+    .line 86
     iget-object v6, p0, Lmiui/app/screenelement/elements/FramerateController;->mControlPoints:Ljava/util/ArrayList;
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -334,25 +336,25 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/FramerateController$ControlPoint;
 
-    .line 85
+    .line 87
     .local v0, cp:Lmiui/app/screenelement/elements/FramerateController$ControlPoint;
     iget-wide v8, v0, Lmiui/app/screenelement/elements/FramerateController$ControlPoint;->mTime:J
 
     cmp-long v6, v4, v8
 
-    if-ltz v6, :cond_52
+    if-ltz v6, :cond_5a
 
-    .line 86
+    .line 88
     iget v6, v0, Lmiui/app/screenelement/elements/FramerateController$ControlPoint;->mFramerate:I
 
     int-to-float v6, v6
 
     invoke-virtual {p0, v6}, Lmiui/app/screenelement/elements/FramerateController;->requestFramerate(F)V
 
-    .line 87
+    .line 89
     iget-boolean v6, p0, Lmiui/app/screenelement/elements/FramerateController;->mLoop:Z
 
-    if-nez v6, :cond_4e
+    if-nez v6, :cond_56
 
     iget-object v6, p0, Lmiui/app/screenelement/elements/FramerateController;->mControlPoints:Ljava/util/ArrayList;
 
@@ -362,36 +364,36 @@
 
     add-int/lit8 v6, v6, -0x1
 
-    if-ne v3, v6, :cond_4e
+    if-ne v3, v6, :cond_56
 
-    .line 88
+    .line 90
     const/4 v6, 0x1
 
     iput-boolean v6, p0, Lmiui/app/screenelement/elements/FramerateController;->mStopped:Z
 
-    .line 93
+    .line 95
     .end local v0           #cp:Lmiui/app/screenelement/elements/FramerateController$ControlPoint;
-    :cond_4e
+    :cond_56
     monitor-exit v7
-    :try_end_4f
-    .catchall {:try_start_13 .. :try_end_4f} :catchall_10
+    :try_end_57
+    .catchall {:try_start_13 .. :try_end_57} :catchall_10
 
     goto :goto_6
 
     .end local v3           #i:I
     .end local v4           #time:J
-    :cond_50
+    :cond_58
     move-wide v4, v1
 
-    .line 82
-    goto :goto_1f
+    .line 84
+    goto :goto_27
 
-    .line 83
+    .line 85
     .restart local v0       #cp:Lmiui/app/screenelement/elements/FramerateController$ControlPoint;
     .restart local v3       #i:I
     .restart local v4       #time:J
-    :cond_52
+    :cond_5a
     add-int/lit8 v3, v3, -0x1
 
-    goto :goto_27
+    goto :goto_2f
 .end method

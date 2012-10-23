@@ -565,12 +565,13 @@
     goto :goto_6
 .end method
 
-.method public reset()V
-    .registers 4
+.method public reset(J)V
+    .registers 6
+    .parameter "time"
 
     .prologue
     .line 59
-    invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->reset()V
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->reset(J)V
 
     .line 60
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
@@ -595,7 +596,7 @@
 
     .line 61
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/ScreenElement;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->reset(J)V
 
     goto :goto_9
 

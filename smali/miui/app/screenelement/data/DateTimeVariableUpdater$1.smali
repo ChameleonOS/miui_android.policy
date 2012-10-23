@@ -27,7 +27,7 @@
     .parameter
 
     .prologue
-    .line 43
+    .line 45
     iput-object p1, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater$1;->this$0:Lmiui/app/screenelement/data/DateTimeVariableUpdater;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,13 +41,13 @@
     .registers 4
 
     .prologue
-    .line 45
+    .line 47
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater$1;->this$0:Lmiui/app/screenelement/data/DateTimeVariableUpdater;
 
     #calls: Lmiui/app/screenelement/data/DateTimeVariableUpdater;->updateTime()V
     invoke-static {v0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->access$000(Lmiui/app/screenelement/data/DateTimeVariableUpdater;)V
 
-    .line 46
+    .line 48
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater$1;->this$0:Lmiui/app/screenelement/data/DateTimeVariableUpdater;
 
     #getter for: Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
@@ -59,6 +59,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 47
+    .line 49
     return-void
 .end method

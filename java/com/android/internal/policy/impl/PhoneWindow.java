@@ -962,7 +962,7 @@ _L2:
                 }
                         };
                     } else {
-                        ViewStub viewstub = (ViewStub)findViewById(0x1020314);
+                        ViewStub viewstub = (ViewStub)findViewById(0x1020319);
                         if(viewstub != null)
                             mActionModeView = (ActionBarContextView)viewstub.inflate();
                     }
@@ -1280,7 +1280,7 @@ _L3:
         } else {
             if(mContentParent == null && flag)
                 installDecor();
-            mCircularProgressBar = (ProgressBar)findViewById(0x1020317);
+            mCircularProgressBar = (ProgressBar)findViewById(0x102031c);
             if(mCircularProgressBar != null)
                 mCircularProgressBar.setVisibility(4);
             progressbar = mCircularProgressBar;
@@ -1323,7 +1323,7 @@ _L5:
         } else {
             if(mContentParent == null && flag)
                 installDecor();
-            mHorizontalProgressBar = (ProgressBar)findViewById(0x1020318);
+            mHorizontalProgressBar = (ProgressBar)findViewById(0x102031d);
             if(mHorizontalProgressBar != null)
                 mHorizontalProgressBar.setVisibility(4);
             progressbar = mHorizontalProgressBar;
@@ -1472,7 +1472,7 @@ _L2:
         return;
 _L4:
         boolean flag1;
-        mActionBar = (ActionBarView)findViewById(0x102031a);
+        mActionBar = (ActionBarView)findViewById(0x102031f);
         if(mActionBar == null)
             continue; /* Loop/switch isn't completed */
         mActionBar.setWindowCallback(getCallback());
@@ -1491,13 +1491,13 @@ _L4:
             flag1 = getContext().getResources().getBoolean(0x1110002);
         else
             flag1 = getWindowStyle().getBoolean(22, false);
-        actionbarcontainer = (ActionBarContainer)findViewById(0x102031c);
+        actionbarcontainer = (ActionBarContainer)findViewById(0x1020321);
         if(actionbarcontainer == null)
             break; /* Loop/switch isn't completed */
         mActionBar.setSplitView(actionbarcontainer);
         mActionBar.setSplitActionBar(flag1);
         mActionBar.setSplitWhenNarrow(flag);
-        actionbarcontextview = (ActionBarContextView)findViewById(0x102031b);
+        actionbarcontextview = (ActionBarContextView)findViewById(0x1020320);
         actionbarcontextview.setSplitView(actionbarcontainer);
         actionbarcontextview.setSplitActionBar(flag1);
         actionbarcontextview.setSplitWhenNarrow(flag);

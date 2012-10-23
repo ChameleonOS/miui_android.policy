@@ -1701,17 +1701,18 @@
     goto :goto_6
 .end method
 
-.method public reset()V
-    .registers 4
+.method public reset(J)V
+    .registers 6
+    .parameter "time"
 
     .prologue
     .line 894
-    invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->reset()V
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->reset(J)V
 
     .line 895
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
 
-    invoke-virtual {v2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->reset()V
+    invoke-virtual {v2, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->reset(J)V
 
     .line 896
     iget-object v2, p0, Lmiui/app/screenelement/elements/AdvancedSlider;->mEndPoints:Ljava/util/ArrayList;
@@ -1736,7 +1737,7 @@
 
     .line 897
     .local v0, ep:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->reset(J)V
 
     goto :goto_e
 

@@ -73,9 +73,9 @@ _L5:
     public void render(Canvas canvas) {
     }
 
-    public void reset() {
+    public void reset(long l) {
         if(mAnimation != null)
-            mAnimation.reset();
+            mAnimation.reset(l);
         update();
     }
 

@@ -305,9 +305,6 @@
 
     .prologue
     .line 111
-    invoke-virtual {p0}, Lmiui/app/screenelement/animation/BaseAnimation;->reset()V
-
-    .line 112
     return-void
 .end method
 
@@ -317,29 +314,20 @@
 .method protected abstract onTick(Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;F)V
 .end method
 
-.method public reset()V
-    .registers 3
+.method public reset(J)V
+    .registers 4
+    .parameter "time"
 
     .prologue
+    .line 114
+    iput-wide p1, p0, Lmiui/app/screenelement/animation/BaseAnimation;->mStartTime:J
+
     .line 115
-    iget-object v0, p0, Lmiui/app/screenelement/animation/BaseAnimation;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    invoke-virtual {v0}, Lmiui/app/screenelement/ScreenContext;->getRenderController()Lmiui/app/screenelement/RendererController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->getLastUpdateTime()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lmiui/app/screenelement/animation/BaseAnimation;->mStartTime:J
-
-    .line 116
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lmiui/app/screenelement/animation/BaseAnimation;->mLastFrame:Z
 
-    .line 117
+    .line 116
     return-void
 .end method
 
@@ -348,7 +336,7 @@
     .parameter "currentTime"
 
     .prologue
-    .line 120
+    .line 119
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mStartTime:J
@@ -357,8 +345,19 @@
 
     sub-long v6, p1, v17
 
-    .line 121
+    .line 120
     .local v6, elapsedTime:J
+    const-wide/16 v17, 0x0
+
+    cmp-long v17, v6, v17
+
+    if-gez v17, :cond_10
+
+    .line 121
+    const-wide/16 v6, 0x0
+
+    .line 122
+    :cond_10
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mDelay:J
@@ -367,9 +366,9 @@
 
     cmp-long v17, v6, v17
 
-    if-gez v17, :cond_24
+    if-gez v17, :cond_2c
 
-    .line 122
+    .line 123
     const/16 v17, 0x0
 
     const/16 v18, 0x0
@@ -386,13 +385,13 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lmiui/app/screenelement/animation/BaseAnimation;->onTick(Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;F)V
 
-    .line 153
-    :cond_23
-    :goto_23
+    .line 154
+    :cond_2b
+    :goto_2b
     return-void
 
-    .line 126
-    :cond_24
+    .line 127
+    :cond_2c
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mDelay:J
@@ -401,7 +400,7 @@
 
     sub-long v6, v6, v17
 
-    .line 127
+    .line 128
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mTimeRange:J
@@ -412,7 +411,7 @@
 
     cmp-long v17, v17, v19
 
-    if-ltz v17, :cond_4d
+    if-ltz v17, :cond_55
 
     move-object/from16 v0, p0
 
@@ -422,7 +421,7 @@
 
     cmp-long v17, v6, v17
 
-    if-lez v17, :cond_4d
+    if-lez v17, :cond_55
 
     move-object/from16 v0, p0
 
@@ -430,10 +429,10 @@
 
     move/from16 v17, v0
 
-    if-nez v17, :cond_23
+    if-nez v17, :cond_2b
 
-    .line 132
-    :cond_4d
+    .line 133
+    :cond_55
     move-object/from16 v0, p0
 
     iget-wide v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mTimeRange:J
@@ -442,19 +441,19 @@
 
     rem-long v15, v6, v17
 
-    .line 133
+    .line 134
     .local v15, time:J
     const/4 v9, 0x0
 
     .local v9, item1:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     const/4 v10, 0x0
 
-    .line 134
+    .line 135
     .local v10, item2:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     const/4 v8, 0x0
 
     .local v8, i:I
-    :goto_58
+    :goto_60
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mItems:Ljava/util/ArrayList;
@@ -467,9 +466,9 @@
 
     move/from16 v0, v17
 
-    if-ge v8, v0, :cond_23
+    if-ge v8, v0, :cond_2b
 
-    .line 135
+    .line 136
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mItems:Ljava/util/ArrayList;
@@ -484,7 +483,7 @@
 
     check-cast v11, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
-    .line 136
+    .line 137
     .local v11, pos:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     iget-wide v0, v11, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mTime:J
 
@@ -492,24 +491,24 @@
 
     cmp-long v17, v15, v17
 
-    if-gtz v17, :cond_d8
+    if-gtz v17, :cond_e0
 
-    .line 137
+    .line 138
     move-object v10, v11
 
-    .line 139
+    .line 140
     const-wide/16 v4, 0x0
 
-    .line 140
-    .local v4, base:J
-    if-nez v8, :cond_ac
-
     .line 141
+    .local v4, base:J
+    if-nez v8, :cond_b4
+
+    .line 142
     iget-wide v13, v11, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mTime:J
 
-    .line 148
+    .line 149
     .local v13, range:J
-    :goto_83
+    :goto_8b
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mItems:Ljava/util/ArrayList;
@@ -524,38 +523,38 @@
 
     move/from16 v0, v17
 
-    if-ne v8, v0, :cond_c8
+    if-ne v8, v0, :cond_d0
 
     const/16 v17, 0x1
 
-    :goto_95
+    :goto_9d
     move/from16 v0, v17
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lmiui/app/screenelement/animation/BaseAnimation;->mLastFrame:Z
 
-    .line 149
+    .line 150
     const-wide/16 v17, 0x0
 
     cmp-long v17, v13, v17
 
-    if-nez v17, :cond_cb
+    if-nez v17, :cond_d3
 
     const/high16 v17, 0x3f80
 
-    :goto_a3
+    :goto_ab
     move-object/from16 v0, p0
 
     move/from16 v1, v17
 
     invoke-virtual {v0, v9, v10, v1}, Lmiui/app/screenelement/animation/BaseAnimation;->onTick(Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;F)V
 
-    goto/16 :goto_23
+    goto/16 :goto_2b
 
-    .line 143
+    .line 144
     .end local v13           #range:J
-    :cond_ac
+    :cond_b4
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lmiui/app/screenelement/animation/BaseAnimation;->mItems:Ljava/util/ArrayList;
@@ -570,11 +569,11 @@
 
     check-cast v12, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
-    .line 144
+    .line 145
     .local v12, pos1:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     move-object v9, v12
 
-    .line 145
+    .line 146
     iget-wide v0, v11, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mTime:J
 
     move-wide/from16 v17, v0
@@ -585,21 +584,21 @@
 
     sub-long v13, v17, v19
 
-    .line 146
+    .line 147
     .restart local v13       #range:J
     iget-wide v4, v12, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mTime:J
 
-    goto :goto_83
-
-    .line 148
-    .end local v12           #pos1:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
-    :cond_c8
-    const/16 v17, 0x0
-
-    goto :goto_95
+    goto :goto_8b
 
     .line 149
-    :cond_cb
+    .end local v12           #pos1:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
+    :cond_d0
+    const/16 v17, 0x0
+
+    goto :goto_9d
+
+    .line 150
+    :cond_d3
     sub-long v17, v15, v4
 
     move-wide/from16 v0, v17
@@ -614,13 +613,13 @@
 
     div-float v17, v17, v18
 
-    goto :goto_a3
+    goto :goto_ab
 
-    .line 134
+    .line 135
     .end local v4           #base:J
     .end local v13           #range:J
-    :cond_d8
+    :cond_e0
     add-int/lit8 v8, v8, 0x1
 
-    goto/16 :goto_58
+    goto/16 :goto_60
 .end method

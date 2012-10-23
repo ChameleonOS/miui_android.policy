@@ -1154,8 +1154,9 @@
     return-void
 .end method
 
-.method public reset()V
-    .registers 4
+.method public reset(J)V
+    .registers 6
+    .parameter "time"
 
     .prologue
     .line 178
@@ -1181,7 +1182,7 @@
 
     .line 179
     .local v0, ani:Lmiui/app/screenelement/animation/BaseAnimation;
-    invoke-virtual {v0}, Lmiui/app/screenelement/animation/BaseAnimation;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
     goto :goto_6
 

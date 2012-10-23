@@ -98,16 +98,16 @@ _L3:
         private TouchInput() {
             this$0 = SimPukUnlockScreen.this;
             super();
-            mZero = (TextView)findViewById(0x1020357);
-            mOne = (TextView)findViewById(0x102034e);
-            mTwo = (TextView)findViewById(0x102034f);
-            mThree = (TextView)findViewById(0x1020350);
-            mFour = (TextView)findViewById(0x1020351);
-            mFive = (TextView)findViewById(0x1020352);
-            mSix = (TextView)findViewById(0x1020353);
-            mSeven = (TextView)findViewById(0x1020354);
-            mEight = (TextView)findViewById(0x1020355);
-            mNine = (TextView)findViewById(0x1020356);
+            mZero = (TextView)findViewById(0x102035c);
+            mOne = (TextView)findViewById(0x1020353);
+            mTwo = (TextView)findViewById(0x1020354);
+            mThree = (TextView)findViewById(0x1020355);
+            mFour = (TextView)findViewById(0x1020356);
+            mFive = (TextView)findViewById(0x1020357);
+            mSix = (TextView)findViewById(0x1020358);
+            mSeven = (TextView)findViewById(0x1020359);
+            mEight = (TextView)findViewById(0x102035a);
+            mNine = (TextView)findViewById(0x102035b);
             mCancelButton = (TextView)findViewById(0x1020269);
             mZero.setText("0");
             mOne.setText("1");

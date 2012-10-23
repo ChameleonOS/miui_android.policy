@@ -35,5 +35,6 @@ public class BatteryVariableUpdater extends NotifierVariableUpdater {
         }
     }
 
+    public static final String USE_TAG = "Battery";
     private IndexedNumberVariable mBatteryLevel;
 }

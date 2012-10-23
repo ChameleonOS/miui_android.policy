@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.*;
 import java.util.*;
+import miui.app.screenelement.data.BatteryVariableUpdater;
 import miui.app.screenelement.data.DateTimeVariableUpdater;
 import miui.app.screenelement.data.VariableBinder;
 import miui.app.screenelement.data.VariableBinderManager;
@@ -45,7 +46,68 @@ public class ScreenElementRoot extends ScreenElement
         mTouchBeginY = new IndexedNumberVariable("touch_begin_y", getContext().mVariables);
         mTouchBeginTime = new IndexedNumberVariable("touch_begin_time", getContext().mVariables);
         mNeedDisallowInterceptTouchEventVar = new IndexedNumberVariable("intercept_sys_touch", getContext().mVariables);
-        onAddVariableUpdater(mVariableUpdaterManager);
+    }
+
+    private void processUseVariableUpdater(Element element) {
+        String s = element.getAttribute("useVariableUpdater");
+        if(TextUtils.isEmpty(s)) {
+            onAddVariableUpdater(mVariableUpdaterManager);
+        } else {
+            String as[] = s.split(",");
+            int i = as.length;
+            int j = 0;
+            while(j < i)  {
+                String s1 = as[j];
+                if(s1.equals("DateTime"))
+                    mVariableUpdaterManager.add(new DateTimeVariableUpdater(mVariableUpdaterManager));
+                else
+                if(s1.equals("Battery"))
+                    mVariableUpdaterManager.add(new BatteryVariableUpdater(mVariableUpdaterManager));
+                j++;
+            }
+        }
+    }
+
+    private void resolveResource(Element element, int i) {
+        if(i == mDefaultScreenWidth) goto _L2; else goto _L1
+_L1:
+        String s = element.getAttribute("extraResourcesScreenWidth");
+        if(TextUtils.isEmpty(s)) goto _L2; else goto _L3
+_L3:
+        String as[];
+        int j;
+        int k;
+        int l;
+        int i1;
+        as = s.split(",");
+        j = 0x7fffffff;
+        k = 0;
+        l = as.length;
+        i1 = 0;
+_L9:
+        if(i1 >= l) goto _L5; else goto _L4
+_L4:
+        String s1 = as[i1];
+        int j1;
+        int k1;
+        j1 = Integer.parseInt(s1);
+        k1 = Math.abs(i - j1);
+        if(k1 >= j) goto _L7; else goto _L6
+_L6:
+        j = k1;
+        k = j1;
+        if(k1 != 0) goto _L7; else goto _L5
+_L5:
+        if(Math.abs(i - mDefaultScreenWidth) >= j)
+            super.mContext.setExtraResource(k);
+_L2:
+        return;
+        NumberFormatException numberformatexception;
+        numberformatexception;
+_L7:
+        i1++;
+        if(true) goto _L9; else goto _L8
+_L8:
     }
 
     public void addFramerateController(FramerateController frameratecontroller) {
@@ -218,77 +280,36 @@ _L2:
         Exception exception;
         ScreenElementLoadException screenelementloadexception;
         boolean flag1;
-        int k1;
-        String s1;
-        String as[];
-        int l1;
-        int i2;
-        int j2;
-        int k2;
-        String s2;
-        NumberFormatException numberformatexception;
-        int l2;
-        int i3;
         if(l == 1 || l == 3)
             flag1 = true;
         else
             flag1 = false;
-        break MISSING_BLOCK_LABEL_617;
-_L16:
-        if(mTargetDensity != 0) goto _L5; else goto _L4
-_L4:
-        mScale = (float)i1 / (float)mDefaultScreenWidth;
-        mTargetDensity = Math.round((float)mDefaultResourceDensity * mScale);
-_L13:
+        break MISSING_BLOCK_LABEL_489;
+_L5:
+        if(mTargetDensity == 0) {
+            mScale = (float)i1 / (float)mDefaultScreenWidth;
+            mTargetDensity = Math.round((float)mDefaultResourceDensity * mScale);
+        } else {
+            mScale = (float)mTargetDensity / (float)mDefaultResourceDensity;
+        }
         Log.i("ScreenElementRoot", (new StringBuilder()).append("init target density: ").append(mTargetDensity).toString());
         super.mContext.setTargetDensity(mTargetDensity);
         Utils.putVariableNumber("raw_screen_width", super.mContext.mVariables, Double.valueOf(i1));
         Utils.putVariableNumber("raw_screen_height", super.mContext.mVariables, Double.valueOf(j1));
         Utils.putVariableNumber("screen_width", super.mContext.mVariables, Double.valueOf((float)i1 / mScale));
         Utils.putVariableNumber("screen_height", super.mContext.mVariables, Double.valueOf((float)j1 / mScale));
-        k1 = mDefaultScreenWidth;
-        if(i1 == k1) goto _L7; else goto _L6
-_L6:
-        s1 = element.getAttribute("extraResourcesScreenWidth");
-        if(TextUtils.isEmpty(s1)) goto _L7; else goto _L8
-_L8:
-        as = s1.split(",");
-        l1 = 0x7fffffff;
-        i2 = 0;
-        j2 = as.length;
-        k2 = 0;
-_L14:
-        if(k2 >= j2) goto _L10; else goto _L9
-_L9:
-        s2 = as[k2];
-        l2 = Integer.parseInt(s2);
-        i3 = Math.abs(i1 - l2);
-        if(i3 >= l1) goto _L12; else goto _L11
-_L11:
-        l1 = i3;
-        i2 = l2;
-        if(i3 != 0) goto _L12; else goto _L10
-_L10:
-        if(Math.abs(i1 - mDefaultScreenWidth) >= l1)
-            super.mContext.setExtraResource(i2);
-_L7:
+        resolveResource(element, i1);
+        processUseVariableUpdater(element);
         flag = onLoad(element);
           goto _L3
-_L5:
-        mScale = (float)mTargetDensity / (float)mDefaultResourceDensity;
-          goto _L13
         screenelementloadexception;
         screenelementloadexception.printStackTrace();
-_L15:
+_L4:
         flag = false;
-          goto _L3
-        numberformatexception;
-_L12:
-        k2++;
-          goto _L14
+        break; /* Loop/switch isn't completed */
         exception;
         exception.printStackTrace();
-          goto _L15
+        if(true) goto _L4; else goto _L3
 _L3:
         return flag;
         if(flag1)
@@ -299,7 +320,7 @@ _L3:
             j1 = j;
         else
             j1 = k;
-          goto _L16
+          goto _L5
     }
 
     public boolean needDisallowInterceptTouchEvent() {
@@ -394,10 +415,10 @@ _L3:
         mFrames = 1 + mFrames;
     }
 
-    public void reset() {
-        super.reset();
+    public void reset(long l) {
+        super.reset(l);
         if(mElementGroup != null)
-            mElementGroup.reset();
+            mElementGroup.reset(l);
     }
 
     public void resume() {

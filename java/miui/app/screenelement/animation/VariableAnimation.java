@@ -39,8 +39,8 @@ public class VariableAnimation extends BaseAnimation {
         }
     }
 
-    public void reset() {
-        super.reset();
+    public void reset(long l) {
+        super.reset(l);
         mCurrentValue = mDelayValue;
     }
 

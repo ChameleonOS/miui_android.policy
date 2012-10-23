@@ -23,7 +23,7 @@
     .registers 3
 
     .prologue
-    .line 196
+    .line 214
     invoke-static {}, Lmiui/app/screenelement/elements/ScreenElement$Align;->values()[Lmiui/app/screenelement/elements/ScreenElement$Align;
 
     move-result-object v0

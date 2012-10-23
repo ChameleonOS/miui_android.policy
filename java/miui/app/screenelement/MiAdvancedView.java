@@ -78,31 +78,23 @@ public class MiAdvancedView extends View
     }
 
     protected void onDraw(Canvas canvas) {
-        if(mThread != null && mThread.isStarted()) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        ScreenElementRoot screenelementroot = mRoot;
-        screenelementroot;
-        JVM INSTR monitorenter ;
-        mRoot.update(mRendererController.getLastUpdateTime(), canvas);
-_L3:
-        screenelementroot;
-        JVM INSTR monitorexit ;
-          goto _L1
-        Exception exception;
-        exception;
-        throw exception;
-        Exception exception1;
-        exception1;
-        exception1.printStackTrace();
-        Log.e("MiAdvancedView", exception1.toString());
-          goto _L3
-        OutOfMemoryError outofmemoryerror;
-        outofmemoryerror;
-        outofmemoryerror.printStackTrace();
-        Log.e("MiAdvancedView", outofmemoryerror.toString());
-          goto _L3
+        if(mThread != null && mThread.isStarted()) {
+            if(!mLoggedHardwareRender) {
+                Log.d("MiAdvancedView", (new StringBuilder()).append("canvas hardware render: ").append(canvas.isHardwareAccelerated()).toString());
+                mLoggedHardwareRender = true;
+            }
+            try {
+                mRoot.update(mRendererController.getLastUpdateTime(), canvas);
+            }
+            catch(Exception exception) {
+                exception.printStackTrace();
+                Log.e("MiAdvancedView", exception.toString());
+            }
+            catch(OutOfMemoryError outofmemoryerror) {
+                outofmemoryerror.printStackTrace();
+                Log.e("MiAdvancedView", outofmemoryerror.toString());
+            }
+        }
     }
 
     protected void onLayout(boolean flag, int i, int j, int k, int l) {
@@ -138,36 +130,23 @@ _L1:
             getParent().requestDisallowInterceptTouchEvent(flag1);
             mNeedDisallowInterceptTouchEvent = flag1;
         }
-        ScreenElementRoot screenelementroot = mRoot;
-        screenelementroot;
-        JVM INSTR monitorenter ;
         boolean flag2 = mRoot.onTouch(motionevent);
         boolean flag = flag2;
-        screenelementroot;
-        JVM INSTR monitorexit ;
-          goto _L3
-        Exception exception1;
-        exception1;
-        exception1.printStackTrace();
-        Log.e("MiAdvancedView", exception1.toString());
 _L4:
-        screenelementroot;
-        JVM INSTR monitorexit ;
-        break; /* Loop/switch isn't completed */
+        return flag;
+        Exception exception;
+        exception;
+        exception.printStackTrace();
+        Log.e("MiAdvancedView", exception.toString());
+_L2:
+        flag = false;
+        if(true) goto _L4; else goto _L3
+_L3:
         OutOfMemoryError outofmemoryerror;
         outofmemoryerror;
         outofmemoryerror.printStackTrace();
         Log.e("MiAdvancedView", outofmemoryerror.toString());
-        if(true) goto _L4; else goto _L2
-        Exception exception;
-        exception;
-        throw exception;
-_L3:
-        return flag;
-_L2:
-        flag = false;
-        if(true) goto _L3; else goto _L5
-_L5:
+          goto _L2
     }
 
     public void pause() {
@@ -199,6 +178,7 @@ _L3:
     private static final String LOG_TAG = "MiAdvancedView";
     private static final String VARIABLE_VIEW_HEIGHT = "view_height";
     private static final String VARIABLE_VIEW_WIDTH = "view_width";
+    private boolean mLoggedHardwareRender;
     private boolean mNeedDisallowInterceptTouchEvent;
     private boolean mPaused;
     private RendererController mRendererController;

@@ -89,21 +89,25 @@ _L4:
         MemoryFile memoryfile;
         integer = (Integer)mSoundPoolMap.get(s);
         if(integer != null)
-            break MISSING_BLOCK_LABEL_158;
+            break MISSING_BLOCK_LABEL_191;
         memoryfile = mResourceManager.getFile(s);
-        integer = Integer.valueOf(mSoundPool.load(memoryfile.getFileDescriptor(), 0L, memoryfile.length(), 1));
-        mSoundPoolMap.put(s, integer);
-        memoryfile.close();
-_L5:
-        mPendingSoundMap.put(integer, Boolean.valueOf(flag));
+        if(memoryfile != null)
+            break MISSING_BLOCK_LABEL_99;
+        Log.e("Lockscreen_SoundManager", (new StringBuilder()).append("the sound does not exist: ").append(s).toString());
           goto _L2
         Exception exception;
         exception;
         throw exception;
-        IOException ioexception;
-        ioexception;
-        Log.e("Lockscreen_SoundManager", (new StringBuilder()).append("fail to load sound. ").append(ioexception.toString()).toString());
-          goto _L5
+        try {
+            integer = Integer.valueOf(mSoundPool.load(memoryfile.getFileDescriptor(), 0L, memoryfile.length(), 1));
+            mSoundPoolMap.put(s, integer);
+            memoryfile.close();
+        }
+        catch(IOException ioexception) {
+            Log.e("Lockscreen_SoundManager", (new StringBuilder()).append("fail to load sound. ").append(ioexception.toString()).toString());
+        }
+        mPendingSoundMap.put(integer, Boolean.valueOf(flag));
+          goto _L2
         playSoundImp(integer.intValue(), flag);
           goto _L2
     }

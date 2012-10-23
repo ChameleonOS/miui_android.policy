@@ -7,7 +7,8 @@ package miui.app.screenelement.animation;
 import android.text.TextUtils;
 import android.util.Log;
 import java.util.ArrayList;
-import miui.app.screenelement.*;
+import miui.app.screenelement.ScreenContext;
+import miui.app.screenelement.ScreenElementLoadException;
 import miui.app.screenelement.data.Expression;
 import miui.app.screenelement.util.Utils;
 import org.w3c.dom.Element;
@@ -112,20 +113,22 @@ _L3:
     }
 
     public void init() {
-        reset();
     }
 
     protected abstract AnimationItem onCreateItem();
 
     protected abstract void onTick(AnimationItem animationitem, AnimationItem animationitem1, float f);
 
-    public void reset() {
-        mStartTime = mContext.getRenderController().getLastUpdateTime();
+    public void reset(long l) {
+        mStartTime = l;
         mLastFrame = false;
     }
 
     public final void tick(long l) {
-        long l1 = l - mStartTime;
+        long l1;
+        l1 = l - mStartTime;
+        if(l1 < 0L)
+            l1 = 0L;
         if(l1 >= mDelay) goto _L2; else goto _L1
 _L1:
         onTick(null, null, 0.0F);

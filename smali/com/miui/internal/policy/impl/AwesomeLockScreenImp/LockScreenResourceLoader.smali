@@ -15,7 +15,7 @@
     .registers 1
 
     .prologue
-    .line 22
+    .line 24
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -26,7 +26,7 @@
     .parameter "manifestName"
 
     .prologue
-    .line 92
+    .line 91
     invoke-static {}, Lmiui/content/res/ThemeResources;->getSystem()Lmiui/content/res/ThemeResourcesSystem;
 
     move-result-object v0
@@ -41,125 +41,140 @@
 
 # virtual methods
 .method public getBitmapInfo(Ljava/lang/String;Landroid/graphics/BitmapFactory$Options;)Lmiui/app/screenelement/ResourceManager$BitmapInfo;
-    .registers 10
+    .registers 9
     .parameter "src"
     .parameter "opts"
 
     .prologue
-    const/4 v5, 0x0
-
-    .line 27
+    .line 29
     invoke-static {}, Lmiui/content/res/ThemeResources;->getSystem()Lmiui/content/res/ThemeResourcesSystem;
 
     move-result-object v4
 
-    invoke-virtual {v4, p1, v5}, Lmiui/content/res/ThemeResourcesSystem;->getAwesomeLockscreenFileStream(Ljava/lang/String;[I)Ljava/io/InputStream;
+    invoke-virtual {v4, p1}, Lmiui/content/res/ThemeResourcesSystem;->getAwesomeLockscreenFileStream(Ljava/lang/String;)Lmiui/content/res/ThemeZipFile$ThemeFileInfo;
 
     move-result-object v2
 
-    .line 28
-    .local v2, is:Ljava/io/InputStream;
-    if-eqz v2, :cond_2a
-
     .line 30
-    :try_start_b
+    .local v2, info:Lmiui/content/res/ThemeZipFile$ThemeFileInfo;
+    if-eqz v2, :cond_37
+
+    .line 32
+    :try_start_a
+    iget v4, v2, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mDensity:I
+
+    if-eqz v4, :cond_12
+
+    .line 33
+    iget v4, v2, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mDensity:I
+
+    iput v4, p2, Landroid/graphics/BitmapFactory$Options;->inDensity:I
+
+    .line 35
+    :cond_12
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    .line 31
+    .line 36
     .local v3, padding:Landroid/graphics/Rect;
-    invoke-static {v2, v3, p2}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
+    iget-object v4, v2, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-static {v4, v3, p2}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 32
+    .line 37
     .local v0, bmp:Landroid/graphics/Bitmap;
     new-instance v4, Lmiui/app/screenelement/ResourceManager$BitmapInfo;
 
     invoke-direct {v4, v0, v3}, Lmiui/app/screenelement/ResourceManager$BitmapInfo;-><init>(Landroid/graphics/Bitmap;Landroid/graphics/Rect;)V
-    :try_end_19
-    .catchall {:try_start_b .. :try_end_19} :catchall_2c
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_b .. :try_end_19} :catch_1d
+    :try_end_22
+    .catchall {:try_start_a .. :try_end_22} :catchall_39
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_a .. :try_end_22} :catch_28
 
-    .line 37
-    :try_start_19
-    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_1c
-    .catch Ljava/io/IOException; {:try_start_19 .. :try_end_1c} :catch_31
+    .line 42
+    :try_start_22
+    iget-object v5, v2, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .line 43
+    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
+    :try_end_27
+    .catch Ljava/io/IOException; {:try_start_22 .. :try_end_27} :catch_44
+
+    .line 48
     .end local v0           #bmp:Landroid/graphics/Bitmap;
     .end local v3           #padding:Landroid/graphics/Rect;
-    :goto_1c
+    :goto_27
     return-object v4
 
-    .line 33
-    :catch_1d
+    .line 38
+    :catch_28
     move-exception v1
 
-    .line 34
+    .line 39
     .local v1, e:Ljava/lang/OutOfMemoryError;
-    :try_start_1e
+    :try_start_29
     const-string v4, "ResourceManager"
 
     invoke-virtual {v1}, Ljava/lang/OutOfMemoryError;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_27
-    .catchall {:try_start_1e .. :try_end_27} :catchall_2c
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_32
+    .catchall {:try_start_29 .. :try_end_32} :catchall_39
 
-    .line 37
-    :try_start_27
-    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_2a
-    .catch Ljava/io/IOException; {:try_start_27 .. :try_end_2a} :catch_33
+    .line 42
+    :try_start_32
+    iget-object v4, v2, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
+    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
+    :try_end_37
+    .catch Ljava/io/IOException; {:try_start_32 .. :try_end_37} :catch_42
+
+    .line 48
     .end local v1           #e:Ljava/lang/OutOfMemoryError;
-    :cond_2a
-    :goto_2a
-    move-object v4, v5
+    :cond_37
+    :goto_37
+    const/4 v4, 0x0
 
-    .line 43
-    goto :goto_1c
+    goto :goto_27
 
-    .line 36
-    :catchall_2c
+    .line 41
+    :catchall_39
     move-exception v4
 
-    .line 37
-    :try_start_2d
-    invoke-virtual {v2}, Ljava/io/InputStream;->close()V
-    :try_end_30
-    .catch Ljava/io/IOException; {:try_start_2d .. :try_end_30} :catch_35
+    .line 42
+    :try_start_3a
+    iget-object v5, v2, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .line 39
-    :goto_30
+    invoke-virtual {v5}, Ljava/io/InputStream;->close()V
+    :try_end_3f
+    .catch Ljava/io/IOException; {:try_start_3a .. :try_end_3f} :catch_40
+
+    .line 44
+    :goto_3f
     throw v4
 
-    .line 38
-    .restart local v0       #bmp:Landroid/graphics/Bitmap;
-    .restart local v3       #padding:Landroid/graphics/Rect;
-    :catch_31
+    .line 43
+    :catch_40
     move-exception v5
 
-    goto :goto_1c
+    goto :goto_3f
 
-    .end local v0           #bmp:Landroid/graphics/Bitmap;
-    .end local v3           #padding:Landroid/graphics/Rect;
     .restart local v1       #e:Ljava/lang/OutOfMemoryError;
-    :catch_33
+    :catch_42
     move-exception v4
 
-    goto :goto_2a
+    goto :goto_37
 
     .end local v1           #e:Ljava/lang/OutOfMemoryError;
-    :catch_35
+    .restart local v0       #bmp:Landroid/graphics/Bitmap;
+    .restart local v3       #padding:Landroid/graphics/Rect;
+    :catch_44
     move-exception v5
 
-    goto :goto_30
+    goto :goto_27
 .end method
 
 .method public getFile(Ljava/lang/String;)Landroid/os/MemoryFile;
@@ -167,239 +182,242 @@
     .parameter "src"
 
     .prologue
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const/high16 v10, 0x1
+    const/high16 v9, 0x1
 
-    .line 97
-    const/4 v9, 0x1
-
-    new-array v6, v9, [I
-
-    .line 98
-    .local v6, size:[I
+    .line 96
     invoke-static {}, Lmiui/content/res/ThemeResources;->getSystem()Lmiui/content/res/ThemeResourcesSystem;
 
-    move-result-object v9
+    move-result-object v8
 
-    invoke-virtual {v9, p1, v6}, Lmiui/content/res/ThemeResourcesSystem;->getAwesomeLockscreenFileStream(Ljava/lang/String;[I)Ljava/io/InputStream;
+    invoke-virtual {v8, p1}, Lmiui/content/res/ThemeResourcesSystem;->getAwesomeLockscreenFileStream(Ljava/lang/String;)Lmiui/content/res/ThemeZipFile$ThemeFileInfo;
 
     move-result-object v3
 
-    .line 99
-    .local v3, is:Ljava/io/InputStream;
-    if-eqz v3, :cond_3b
+    .line 97
+    .local v3, info:Lmiui/content/res/ThemeZipFile$ThemeFileInfo;
+    if-eqz v3, :cond_3e
 
-    .line 100
+    .line 98
     const/high16 v0, 0x1
 
-    .line 101
+    .line 99
     .local v0, COUNT:I
-    new-array v1, v10, [B
+    new-array v1, v9, [B
 
-    .line 103
+    .line 101
     .local v1, buff:[B
-    :try_start_14
+    :try_start_11
     new-instance v4, Landroid/os/MemoryFile;
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    const/4 v10, 0x0
+    iget-wide v9, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mSize:J
 
-    aget v10, v6, v10
+    long-to-int v9, v9
 
-    invoke-direct {v4, v9, v10}, Landroid/os/MemoryFile;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v8, v9}, Landroid/os/MemoryFile;-><init>(Ljava/lang/String;I)V
 
-    .line 104
+    .line 102
     .local v4, mf:Landroid/os/MemoryFile;
     const/4 v5, -0x1
 
-    .line 105
+    .line 103
     .local v5, read:I
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    .line 106
-    .local v7, start:I
-    :goto_1f
+    .line 104
+    .local v6, start:I
+    :goto_1c
+    iget-object v8, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
     const/4 v9, 0x0
 
     const/high16 v10, 0x1
 
-    invoke-virtual {v3, v1, v9, v10}, Ljava/io/InputStream;->read([BII)I
+    invoke-virtual {v8, v1, v9, v10}, Ljava/io/InputStream;->read([BII)I
 
     move-result v5
 
-    if-lez v5, :cond_2e
+    if-lez v5, :cond_2d
 
-    .line 107
-    const/4 v9, 0x0
+    .line 105
+    const/4 v8, 0x0
 
-    invoke-virtual {v4, v1, v9, v7, v5}, Landroid/os/MemoryFile;->writeBytes([BIII)V
+    invoke-virtual {v4, v1, v8, v6, v5}, Landroid/os/MemoryFile;->writeBytes([BIII)V
+
+    .line 106
+    add-int/2addr v6, v5
+
+    goto :goto_1c
 
     .line 108
-    add-int/2addr v7, v5
-
-    goto :goto_1f
-
-    .line 110
-    :cond_2e
+    :cond_2d
     invoke-virtual {v4}, Landroid/os/MemoryFile;->length()I
-    :try_end_31
-    .catchall {:try_start_14 .. :try_end_31} :catchall_5d
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_14 .. :try_end_31} :catch_3d
-    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_31} :catch_4d
+    :try_end_30
+    .catchall {:try_start_11 .. :try_end_30} :catchall_64
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_11 .. :try_end_30} :catch_40
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_30} :catch_52
 
-    move-result v9
+    move-result v8
 
-    if-lez v9, :cond_38
+    if-lez v8, :cond_39
 
-    .line 118
-    :try_start_34
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_37
-    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_37} :catch_62
+    .line 116
+    :try_start_33
+    iget-object v7, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .line 124
+    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    :try_end_38
+    .catch Ljava/io/IOException; {:try_start_33 .. :try_end_38} :catch_6f
+
+    .line 122
     .end local v0           #COUNT:I
     .end local v1           #buff:[B
     .end local v4           #mf:Landroid/os/MemoryFile;
     .end local v5           #read:I
-    .end local v7           #start:I
-    :goto_37
+    .end local v6           #start:I
+    :goto_38
     return-object v4
 
-    .line 118
+    .line 116
     .restart local v0       #COUNT:I
     .restart local v1       #buff:[B
     .restart local v4       #mf:Landroid/os/MemoryFile;
     .restart local v5       #read:I
-    .restart local v7       #start:I
-    :cond_38
-    :try_start_38
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_3b
-    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_3b} :catch_64
+    .restart local v6       #start:I
+    :cond_39
+    :try_start_39
+    iget-object v8, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    :try_end_3e
+    .catch Ljava/io/IOException; {:try_start_39 .. :try_end_3e} :catch_6d
 
     .end local v0           #COUNT:I
     .end local v1           #buff:[B
     .end local v4           #mf:Landroid/os/MemoryFile;
     .end local v5           #read:I
-    .end local v7           #start:I
-    :cond_3b
-    :goto_3b
-    move-object v4, v8
+    .end local v6           #start:I
+    :cond_3e
+    :goto_3e
+    move-object v4, v7
 
-    .line 124
-    goto :goto_37
+    .line 122
+    goto :goto_38
 
-    .line 112
+    .line 110
     .restart local v0       #COUNT:I
     .restart local v1       #buff:[B
-    :catch_3d
+    :catch_40
     move-exception v2
 
-    .line 113
+    .line 111
     .local v2, e:Ljava/lang/OutOfMemoryError;
-    :try_start_3e
-    const-string v9, "ResourceManager"
+    :try_start_41
+    const-string v8, "ResourceManager"
 
     invoke-virtual {v2}, Ljava/lang/OutOfMemoryError;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_47
-    .catchall {:try_start_3e .. :try_end_47} :catchall_5d
-
-    .line 118
-    :try_start_47
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_4a
-    .catch Ljava/io/IOException; {:try_start_47 .. :try_end_4a} :catch_4b
+    .catchall {:try_start_41 .. :try_end_4a} :catchall_64
 
-    goto :goto_3b
+    .line 116
+    :try_start_4a
+    iget-object v8, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .line 119
-    :catch_4b
-    move-exception v9
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    :try_end_4f
+    .catch Ljava/io/IOException; {:try_start_4a .. :try_end_4f} :catch_50
 
-    goto :goto_3b
+    goto :goto_3e
 
-    .line 114
+    .line 117
+    :catch_50
+    move-exception v8
+
+    goto :goto_3e
+
+    .line 112
     .end local v2           #e:Ljava/lang/OutOfMemoryError;
-    :catch_4d
+    :catch_52
     move-exception v2
 
-    .line 115
+    .line 113
     .local v2, e:Ljava/io/IOException;
-    :try_start_4e
-    const-string v9, "ResourceManager"
+    :try_start_53
+    const-string v8, "ResourceManager"
 
     invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_57
-    .catchall {:try_start_4e .. :try_end_57} :catchall_5d
+    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_5c
+    .catchall {:try_start_53 .. :try_end_5c} :catchall_64
 
-    .line 118
-    :try_start_57
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_5a
-    .catch Ljava/io/IOException; {:try_start_57 .. :try_end_5a} :catch_5b
+    .line 116
+    :try_start_5c
+    iget-object v8, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    goto :goto_3b
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    :try_end_61
+    .catch Ljava/io/IOException; {:try_start_5c .. :try_end_61} :catch_62
 
-    .line 119
-    :catch_5b
-    move-exception v9
-
-    goto :goto_3b
+    goto :goto_3e
 
     .line 117
-    .end local v2           #e:Ljava/io/IOException;
-    :catchall_5d
-    move-exception v8
-
-    .line 118
-    :try_start_5e
-    invoke-virtual {v3}, Ljava/io/InputStream;->close()V
-    :try_end_61
-    .catch Ljava/io/IOException; {:try_start_5e .. :try_end_61} :catch_66
-
-    .line 120
-    :goto_61
-    throw v8
-
-    .line 119
-    .restart local v4       #mf:Landroid/os/MemoryFile;
-    .restart local v5       #read:I
-    .restart local v7       #start:I
     :catch_62
     move-exception v8
 
-    goto :goto_37
+    goto :goto_3e
 
-    :catch_64
-    move-exception v9
+    .line 115
+    .end local v2           #e:Ljava/io/IOException;
+    :catchall_64
+    move-exception v7
 
-    goto :goto_3b
+    .line 116
+    :try_start_65
+    iget-object v8, v3, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .end local v4           #mf:Landroid/os/MemoryFile;
-    .end local v5           #read:I
-    .end local v7           #start:I
-    :catch_66
-    move-exception v9
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    :try_end_6a
+    .catch Ljava/io/IOException; {:try_start_65 .. :try_end_6a} :catch_6b
 
-    goto :goto_61
+    .line 118
+    :goto_6a
+    throw v7
+
+    .line 117
+    :catch_6b
+    move-exception v8
+
+    goto :goto_6a
+
+    .restart local v4       #mf:Landroid/os/MemoryFile;
+    .restart local v5       #read:I
+    .restart local v6       #start:I
+    :catch_6d
+    move-exception v8
+
+    goto :goto_3e
+
+    :catch_6f
+    move-exception v7
+
+    goto :goto_38
 .end method
 
 .method public getManifestRoot()Lorg/w3c/dom/Element;
     .registers 2
 
     .prologue
-    .line 88
+    .line 87
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenResourceLoader;->getManifestRoot(Ljava/lang/String;)Lorg/w3c/dom/Element;
@@ -410,69 +428,18 @@
 .end method
 
 .method public getManifestRoot(Ljava/lang/String;)Lorg/w3c/dom/Element;
-    .registers 13
+    .registers 12
     .parameter "language"
 
     .prologue
-    const/4 v7, 0x0
-
-    .line 48
-    const-string v8, "LockScreenResourceLoader"
-
-    new-instance v9, Ljava/lang/StringBuilder;
-
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v10, "getManifestRoot:"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 49
-    invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
-
-    move-result-object v1
-
-    .line 50
-    .local v1, dbf:Ljavax/xml/parsers/DocumentBuilderFactory;
-    const/4 v4, 0x0
-
-    .line 52
-    .local v4, is:Ljava/io/InputStream;
-    :try_start_1e
-    invoke-virtual {v1}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
-
-    move-result-object v0
-
     .line 53
-    .local v0, db:Ljavax/xml/parsers/DocumentBuilder;
-    const-string v5, "manifest.xml"
+    const-string v7, "LockScreenResourceLoader"
 
-    .line 54
-    .local v5, manifestName:Ljava/lang/String;
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_4b
-
-    .line 55
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "manifest_"
+    const-string v9, "getManifestRoot:"
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -482,304 +449,267 @@
 
     move-result-object v8
 
-    const-string v9, ".xml"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 54
+    invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
+
+    move-result-object v1
+
+    .line 55
+    .local v1, dbf:Ljavax/xml/parsers/DocumentBuilderFactory;
+    const/4 v4, 0x0
+
+    .line 57
+    .local v4, info:Lmiui/content/res/ThemeZipFile$ThemeFileInfo;
+    :try_start_1d
+    invoke-virtual {v1}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
+
+    move-result-object v0
+
+    .line 58
+    .local v0, db:Ljavax/xml/parsers/DocumentBuilder;
+    const-string v5, "manifest.xml"
+
+    .line 59
+    .local v5, manifestName:Ljava/lang/String;
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_4a
+
+    .line 60
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "manifest_"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, ".xml"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 56
+    .line 61
     invoke-direct {p0, v5}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenResourceLoader;->containsFile(Ljava/lang/String;)Z
 
-    move-result v8
+    move-result v7
 
-    if-nez v8, :cond_4b
+    if-nez v7, :cond_4a
 
-    .line 57
+    .line 62
     const-string v5, "manifest.xml"
 
-    .line 60
-    :cond_4b
+    .line 65
+    :cond_4a
     invoke-static {}, Lmiui/content/res/ThemeResources;->getSystem()Lmiui/content/res/ThemeResourcesSystem;
 
-    move-result-object v8
+    move-result-object v7
 
-    const/4 v9, 0x0
-
-    invoke-virtual {v8, v5, v9}, Lmiui/content/res/ThemeResourcesSystem;->getAwesomeLockscreenFileStream(Ljava/lang/String;[I)Ljava/io/InputStream;
+    invoke-virtual {v7, v5}, Lmiui/content/res/ThemeResourcesSystem;->getAwesomeLockscreenFileStream(Ljava/lang/String;)Lmiui/content/res/ThemeZipFile$ThemeFileInfo;
 
     move-result-object v4
 
-    .line 61
-    invoke-virtual {v0, v4}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
+    .line 66
+    iget-object v7, v4, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v0, v7}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
 
     move-result-object v2
 
-    .line 62
+    .line 67
     .local v2, doc:Lorg/w3c/dom/Document;
     invoke-interface {v2}, Lorg/w3c/dom/Document;->getDocumentElement()Lorg/w3c/dom/Element;
 
     move-result-object v6
 
-    .line 63
+    .line 68
     .local v6, root:Lorg/w3c/dom/Element;
-    const-string v8, "LockScreenResourceLoader"
+    const-string v7, "LockScreenResourceLoader"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "load root:"
+    const-string v9, "load root:"
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-interface {v6}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    const-string v10, " from: "
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-static {v8, v9}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 64
-    invoke-interface {v6}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v8
 
-    const-string v9, "Lockscreen"
+    invoke-interface {v6}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
-    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, " from: "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 69
+    invoke-interface {v6}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string v8, "Lockscreen"
+
+    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_8b
-    .catchall {:try_start_1e .. :try_end_8b} :catchall_cb
-    .catch Ljavax/xml/parsers/ParserConfigurationException; {:try_start_1e .. :try_end_8b} :catch_9b
-    .catch Lorg/xml/sax/SAXException; {:try_start_1e .. :try_end_8b} :catch_a7
-    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_8b} :catch_b3
-    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_8b} :catch_bf
+    .catchall {:try_start_1d .. :try_end_8b} :catchall_ad
+    .catch Ljava/lang/Exception; {:try_start_1d .. :try_end_8b} :catch_9f
 
-    move-result v8
+    move-result v7
 
-    if-eqz v8, :cond_94
+    if-eqz v7, :cond_96
 
-    .line 77
-    if-eqz v4, :cond_93
+    .line 75
+    if-eqz v4, :cond_95
 
-    .line 78
+    .line 76
     :try_start_90
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_93
-    .catch Ljava/io/IOException; {:try_start_90 .. :try_end_93} :catch_d2
+    iget-object v7, v4, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .line 83
+    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    :try_end_95
+    .catch Ljava/io/IOException; {:try_start_90 .. :try_end_95} :catch_ba
+
+    .line 82
     .end local v0           #db:Ljavax/xml/parsers/DocumentBuilder;
     .end local v2           #doc:Lorg/w3c/dom/Document;
     .end local v5           #manifestName:Ljava/lang/String;
     .end local v6           #root:Lorg/w3c/dom/Element;
-    :cond_93
-    :goto_93
+    :cond_95
+    :goto_95
     return-object v6
 
-    .line 77
+    .line 75
     .restart local v0       #db:Ljavax/xml/parsers/DocumentBuilder;
     .restart local v2       #doc:Lorg/w3c/dom/Document;
     .restart local v5       #manifestName:Ljava/lang/String;
     .restart local v6       #root:Lorg/w3c/dom/Element;
-    :cond_94
-    if-eqz v4, :cond_99
+    :cond_96
+    if-eqz v4, :cond_9d
 
-    .line 78
-    :try_start_96
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_99
-    .catch Ljava/io/IOException; {:try_start_96 .. :try_end_99} :catch_d4
+    .line 76
+    :try_start_98
+    iget-object v7, v4, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
+    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    :try_end_9d
+    .catch Ljava/io/IOException; {:try_start_98 .. :try_end_9d} :catch_b8
+
+    .line 82
     .end local v0           #db:Ljavax/xml/parsers/DocumentBuilder;
     .end local v2           #doc:Lorg/w3c/dom/Document;
     .end local v5           #manifestName:Ljava/lang/String;
     .end local v6           #root:Lorg/w3c/dom/Element;
-    :cond_99
-    :goto_99
-    move-object v6, v7
+    :cond_9d
+    :goto_9d
+    const/4 v6, 0x0
 
-    .line 83
-    goto :goto_93
-
-    .line 67
-    :catch_9b
-    move-exception v3
-
-    .line 68
-    .local v3, e:Ljavax/xml/parsers/ParserConfigurationException;
-    :try_start_9c
-    invoke-virtual {v3}, Ljavax/xml/parsers/ParserConfigurationException;->printStackTrace()V
-    :try_end_9f
-    .catchall {:try_start_9c .. :try_end_9f} :catchall_cb
-
-    .line 77
-    if-eqz v4, :cond_99
-
-    .line 78
-    :try_start_a1
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_a4
-    .catch Ljava/io/IOException; {:try_start_a1 .. :try_end_a4} :catch_a5
-
-    goto :goto_99
-
-    .line 79
-    :catch_a5
-    move-exception v8
-
-    goto :goto_99
-
-    .line 69
-    .end local v3           #e:Ljavax/xml/parsers/ParserConfigurationException;
-    :catch_a7
-    move-exception v3
-
-    .line 70
-    .local v3, e:Lorg/xml/sax/SAXException;
-    :try_start_a8
-    invoke-virtual {v3}, Lorg/xml/sax/SAXException;->printStackTrace()V
-    :try_end_ab
-    .catchall {:try_start_a8 .. :try_end_ab} :catchall_cb
-
-    .line 77
-    if-eqz v4, :cond_99
-
-    .line 78
-    :try_start_ad
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_b0
-    .catch Ljava/io/IOException; {:try_start_ad .. :try_end_b0} :catch_b1
-
-    goto :goto_99
-
-    .line 79
-    :catch_b1
-    move-exception v8
-
-    goto :goto_99
+    goto :goto_95
 
     .line 71
-    .end local v3           #e:Lorg/xml/sax/SAXException;
-    :catch_b3
+    :catch_9f
     move-exception v3
 
     .line 72
-    .local v3, e:Ljava/io/IOException;
-    :try_start_b4
-    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_b7
-    .catchall {:try_start_b4 .. :try_end_b7} :catchall_cb
-
-    .line 77
-    if-eqz v4, :cond_99
-
-    .line 78
-    :try_start_b9
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_bc
-    .catch Ljava/io/IOException; {:try_start_b9 .. :try_end_bc} :catch_bd
-
-    goto :goto_99
-
-    .line 79
-    :catch_bd
-    move-exception v8
-
-    goto :goto_99
-
-    .line 73
-    .end local v3           #e:Ljava/io/IOException;
-    :catch_bf
-    move-exception v3
-
-    .line 74
     .local v3, e:Ljava/lang/Exception;
-    :try_start_c0
+    :try_start_a0
     invoke-virtual {v3}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_c3
-    .catchall {:try_start_c0 .. :try_end_c3} :catchall_cb
+    :try_end_a3
+    .catchall {:try_start_a0 .. :try_end_a3} :catchall_ad
 
-    .line 77
-    if-eqz v4, :cond_99
-
-    .line 78
-    :try_start_c5
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_c8
-    .catch Ljava/io/IOException; {:try_start_c5 .. :try_end_c8} :catch_c9
-
-    goto :goto_99
-
-    .line 79
-    :catch_c9
-    move-exception v8
-
-    goto :goto_99
+    .line 75
+    if-eqz v4, :cond_9d
 
     .line 76
-    .end local v3           #e:Ljava/lang/Exception;
-    :catchall_cb
-    move-exception v7
+    :try_start_a5
+    iget-object v7, v4, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
 
-    .line 77
-    if-eqz v4, :cond_d1
+    invoke-virtual {v7}, Ljava/io/InputStream;->close()V
+    :try_end_aa
+    .catch Ljava/io/IOException; {:try_start_a5 .. :try_end_aa} :catch_ab
+
+    goto :goto_9d
 
     .line 78
-    :try_start_ce
-    invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_d1
-    .catch Ljava/io/IOException; {:try_start_ce .. :try_end_d1} :catch_d6
+    :catch_ab
+    move-exception v7
 
-    .line 80
-    :cond_d1
-    :goto_d1
-    throw v7
+    goto :goto_9d
+
+    .line 74
+    .end local v3           #e:Ljava/lang/Exception;
+    :catchall_ad
+    move-exception v7
+
+    .line 75
+    if-eqz v4, :cond_b5
+
+    .line 76
+    :try_start_b0
+    iget-object v8, v4, Lmiui/content/res/ThemeZipFile$ThemeFileInfo;->mInput:Ljava/io/InputStream;
+
+    invoke-virtual {v8}, Ljava/io/InputStream;->close()V
+    :try_end_b5
+    .catch Ljava/io/IOException; {:try_start_b0 .. :try_end_b5} :catch_b6
 
     .line 79
+    :cond_b5
+    :goto_b5
+    throw v7
+
+    .line 78
+    :catch_b6
+    move-exception v8
+
+    goto :goto_b5
+
     .restart local v0       #db:Ljavax/xml/parsers/DocumentBuilder;
     .restart local v2       #doc:Lorg/w3c/dom/Document;
     .restart local v5       #manifestName:Ljava/lang/String;
     .restart local v6       #root:Lorg/w3c/dom/Element;
-    :catch_d2
+    :catch_b8
     move-exception v7
 
-    goto :goto_93
+    goto :goto_9d
 
-    :catch_d4
-    move-exception v8
+    :catch_ba
+    move-exception v7
 
-    goto :goto_99
-
-    .end local v0           #db:Ljavax/xml/parsers/DocumentBuilder;
-    .end local v2           #doc:Lorg/w3c/dom/Document;
-    .end local v5           #manifestName:Ljava/lang/String;
-    .end local v6           #root:Lorg/w3c/dom/Element;
-    :catch_d6
-    move-exception v8
-
-    goto :goto_d1
+    goto :goto_95
 .end method

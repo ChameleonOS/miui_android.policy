@@ -328,17 +328,18 @@
     goto :goto_d
 .end method
 
-.method public reset()V
-    .registers 2
+.method public reset(J)V
+    .registers 4
+    .parameter "time"
 
     .prologue
     .line 37
-    invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->reset()V
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->reset(J)V
 
     .line 38
     iget-object v0, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/animation/AnimatedElement;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/animation/AnimatedElement;->reset(J)V
 
     .line 39
     return-void

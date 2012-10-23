@@ -166,6 +166,7 @@ class AwesomeLockScreen extends FrameLayout
 
     public void onPause() {
         mLockscreenView.onPause();
+        mRoot.onCommand("pause");
         isPaused = true;
         mResourceMgr.checkCache();
         sTotalWakenTime = (System.currentTimeMillis() / 1000L - mWakeStartTime) + sTotalWakenTime;
@@ -190,6 +191,7 @@ class AwesomeLockScreen extends FrameLayout
 
     public void onResume() {
         mLockscreenView.onResume();
+        mRoot.onCommand("resume");
         isPaused = false;
         mWakeStartTime = System.currentTimeMillis() / 1000L;
     }
@@ -250,6 +252,8 @@ _L1:
         Log.i("AwesomeLockScreen", String.format("lockscreen awake time: [%d sec] in time range: [%d sec]", aobj));
     }
 
+    private static final String COMMAND_PAUSE = "pause";
+    private static final String COMMAND_RESUME = "resume";
     private static final boolean DBG = false;
     private static final String OWNER_INFO_VAR = "owner_info";
     private static final String TAG = "AwesomeLockScreen";

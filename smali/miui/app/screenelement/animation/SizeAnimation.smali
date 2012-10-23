@@ -326,12 +326,13 @@
     goto :goto_e
 .end method
 
-.method public reset()V
-    .registers 3
+.method public reset(J)V
+    .registers 5
+    .parameter "time"
 
     .prologue
     .line 68
-    invoke-super {p0}, Lmiui/app/screenelement/animation/BaseAnimation;->reset()V
+    invoke-super {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
     .line 69
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mDelayW:D

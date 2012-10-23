@@ -275,8 +275,9 @@
     return-void
 .end method
 
-.method public reset()V
-    .registers 2
+.method public reset(J)V
+    .registers 4
+    .parameter "time"
 
     .prologue
     .line 85
@@ -287,7 +288,7 @@
     .line 86
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableElement;->mAnimation:Lmiui/app/screenelement/animation/VariableAnimation;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/animation/VariableAnimation;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/animation/VariableAnimation;->reset(J)V
 
     .line 87
     :cond_9

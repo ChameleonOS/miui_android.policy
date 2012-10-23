@@ -26,13 +26,13 @@
     .parameter "looper"
 
     .prologue
-    .line 592
+    .line 603
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
-    .line 593
+    .line 604
     invoke-direct {p0, p2, p3}, Landroid/view/InputEventReceiver;-><init>(Landroid/view/InputChannel;Landroid/os/Looper;)V
 
-    .line 594
+    .line 605
     return-void
 .end method
 
@@ -45,29 +45,29 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 598
+    .line 609
     instance-of v2, p1, Landroid/view/MotionEvent;
 
     if-nez v2, :cond_9
 
-    .line 599
+    .line 610
     invoke-virtual {p0, p1, v3}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
-    .line 630
+    .line 641
     :goto_8
     return-void
 
     :cond_9
     move-object v1, p1
 
-    .line 602
+    .line 613
     check-cast v1, Landroid/view/MotionEvent;
 
-    .line 603
+    .line 614
     .local v1, motionEvent:Landroid/view/MotionEvent;
     const/4 v0, 0x0
 
-    .line 604
+    .line 615
     .local v0, handled:Z
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -80,7 +80,7 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mDownX:I
     invoke-static {v2, v3}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$202(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;I)I
 
-    .line 605
+    .line 616
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getRawY()F
@@ -92,7 +92,7 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mDownY:I
     invoke-static {v2, v3}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$302(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;I)I
 
-    .line 607
+    .line 618
     :try_start_21
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getSource()I
     :try_end_24
@@ -104,16 +104,16 @@
 
     if-nez v2, :cond_2d
 
-    .line 628
+    .line 639
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     goto :goto_8
 
-    .line 609
+    .line 620
     :cond_2d
     const/4 v0, 0x1
 
-    .line 610
+    .line 621
     :try_start_2e
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -123,7 +123,7 @@
     :try_end_33
     .catchall {:try_start_2e .. :try_end_33} :catchall_66
 
-    .line 611
+    .line 622
     :try_start_33
     invoke-virtual {v1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -131,19 +131,19 @@
 
     packed-switch v2, :pswitch_data_82
 
-    .line 626
+    .line 637
     :cond_3a
     :goto_3a
     monitor-exit v3
     :try_end_3b
     .catchall {:try_start_33 .. :try_end_3b} :catchall_63
 
-    .line 628
+    .line 639
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->finishInputEvent(Landroid/view/InputEvent;Z)V
 
     goto :goto_8
 
-    .line 614
+    .line 625
     :pswitch_3f
     :try_start_3f
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -153,7 +153,7 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mIsTouchDown:Z
     invoke-static {v2, v4}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$402(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
 
-    .line 615
+    .line 626
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mShowMagnifier:Z
@@ -163,7 +163,7 @@
 
     if-eqz v2, :cond_3a
 
-    .line 616
+    .line 627
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getMagnifier()Lcom/android/internal/policy/impl/MagnifierPopupWindow;
@@ -188,7 +188,7 @@
 
     goto :goto_3a
 
-    .line 626
+    .line 637
     :catchall_63
     move-exception v2
 
@@ -201,7 +201,7 @@
     :try_end_66
     .catchall {:try_start_65 .. :try_end_66} :catchall_66
 
-    .line 628
+    .line 639
     :catchall_66
     move-exception v2
 
@@ -209,7 +209,7 @@
 
     throw v2
 
-    .line 621
+    .line 632
     :pswitch_6b
     :try_start_6b
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -220,7 +220,7 @@
 
     invoke-virtual {v2}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->hide()V
 
-    .line 622
+    .line 633
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v4, 0x0
@@ -228,7 +228,7 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mIsTouchDown:Z
     invoke-static {v2, v4}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$402(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Z)Z
 
-    .line 623
+    .line 634
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MagnifierInputEventReceiver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v4, 0x0
@@ -240,7 +240,7 @@
 
     goto :goto_3a
 
-    .line 611
+    .line 622
     nop
 
     :pswitch_data_82

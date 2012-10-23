@@ -556,7 +556,7 @@
 
     .line 3146
     :cond_10
-    const v0, 0x1020317
+    const v0, 0x102031c
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -710,7 +710,7 @@
 
     .line 3160
     :cond_10
-    const v0, 0x1020318
+    const v0, 0x102031d
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -1298,7 +1298,7 @@
 
     .line 2912
     :cond_6b
-    const v6, 0x102031a
+    const v6, 0x102031f
 
     invoke-virtual {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -1400,7 +1400,7 @@
 
     .line 2936
     :goto_c0
-    const v6, 0x102031c
+    const v6, 0x1020321
 
     invoke-virtual {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow;->findViewById(I)Landroid/view/View;
 
@@ -1428,7 +1428,7 @@
     invoke-virtual {v6, v4}, Lcom/android/internal/widget/ActionBarView;->setSplitWhenNarrow(Z)V
 
     .line 2943
-    const v6, 0x102031b
+    const v6, 0x1020320
 
     invoke-virtual {p0, v6}, Lcom/android/internal/policy/impl/PhoneWindow;->findViewById(I)Landroid/view/View;
 

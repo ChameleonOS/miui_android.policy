@@ -76,6 +76,20 @@ _L4:
 _L5:
     }
 
+    private void updateTextWidth() {
+        if(!TextUtils.isEmpty(mText)) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        if(mSizeExpression != null)
+            mPaint.setTextSize(scale(mSizeExpression.evaluate(super.mContext.mVariables)));
+        mTextWidth = mPaint.measureText(mText);
+        if(super.mHasName)
+            mTextWidthVar.set(descale(mTextWidth));
+        if(true) goto _L1; else goto _L3
+_L3:
+    }
+
     protected String getFormat() {
         return mFormatter.getFormat(super.mContext.mVariables);
     }
@@ -84,25 +98,35 @@ _L5:
         return mFormatter.getText(super.mContext.mVariables);
     }
 
+    public void init() {
+        super.init();
+        mText = getText();
+        updateTextWidth();
+    }
+
     public void load(Element element) throws ScreenElementLoadException {
         if(element == null) {
             Log.e("TextScreenElement", "node is null");
             throw new ScreenElementLoadException("node is null");
-        } else {
-            mFormatter = TextFormatter.fromElement(element);
-            mColor = Color.parseColor(element.getAttribute("color"));
-            mSizeExpression = Expression.build(element.getAttribute("size"));
-            mMarqueeSpeed = Utils.getAttrAsInt(element, "marqueeSpeed", 0);
-            boolean flag = Boolean.parseBoolean(element.getAttribute("bold"));
-            mSpacingMult = Utils.getAttrAsFloat(element, "spacingMult", 1.0F);
-            mSpacingAdd = Utils.getAttrAsFloat(element, "spacingAdd", 0.0F);
-            mMultiLine = Boolean.parseBoolean(element.getAttribute("multiLine"));
-            mPaint.setColor(mColor);
-            mPaint.setTextSize(18F);
-            mPaint.setAntiAlias(true);
-            mPaint.setFakeBoldText(flag);
-            return;
         }
+        mFormatter = TextFormatter.fromElement(element);
+        boolean flag;
+        try {
+            mColor = Color.parseColor(element.getAttribute("color"));
+        }
+        catch(IllegalArgumentException illegalargumentexception) {
+            mColor = -1;
+        }
+        mSizeExpression = Expression.build(element.getAttribute("size"));
+        mMarqueeSpeed = Utils.getAttrAsInt(element, "marqueeSpeed", 0);
+        flag = Boolean.parseBoolean(element.getAttribute("bold"));
+        mSpacingMult = Utils.getAttrAsFloat(element, "spacingMult", 1.0F);
+        mSpacingAdd = Utils.getAttrAsFloat(element, "spacingAdd", 0.0F);
+        mMultiLine = Boolean.parseBoolean(element.getAttribute("multiLine"));
+        mPaint.setColor(mColor);
+        mPaint.setTextSize(18F);
+        mPaint.setAntiAlias(true);
+        mPaint.setFakeBoldText(flag);
     }
 
     protected void onVisibilityChange(boolean flag) {
@@ -122,11 +146,9 @@ _L5:
 
     public void render(Canvas canvas) {
         if(isVisible() && !TextUtils.isEmpty(mText)) {
-            if(mSizeExpression != null)
-                mPaint.setTextSize(scale(mSizeExpression.evaluate(super.mContext.mVariables)));
             mPaint.setAlpha(getAlpha());
             float f = getWidth();
-            if(f < 0.0F || f > (float)mTextWidth)
+            if(f < 0.0F || f > mTextWidth)
                 f = mTextWidth;
             float f1 = getHeight();
             float f2 = mPaint.getTextSize();
@@ -176,23 +198,21 @@ _L1:
         return;
 _L2:
         float f;
-        f = getWidth();
         mText = getText();
         if(TextUtils.isEmpty(mText)) {
             mTextLayout = null;
             continue; /* Loop/switch isn't completed */
         }
-        mTextWidth = (int)mPaint.measureText(mText);
-        if(super.mHasName)
-            mTextWidthVar.set(mTextWidth);
-        if(f <= 0.0F || (float)mTextWidth <= f) goto _L4; else goto _L3
+        updateTextWidth();
+        f = getWidth();
+        if(f <= 0.0F || mTextWidth <= f) goto _L4; else goto _L3
 _L3:
         if(mMultiLine) {
             if(mTextLayout == null || !mPreText.equals(mText)) {
                 mPreText = mText;
                 mTextLayout = new StaticLayout(mText, mPaint, (int)f, getAlignment(), mSpacingMult, mSpacingAdd, true);
                 if(super.mHasName)
-                    mTextHeightVar.set(mTextLayout.getLineTop(mTextLayout.getLineCount()));
+                    mTextHeightVar.set(descale(mTextLayout.getLineTop(mTextLayout.getLineCount())));
             }
             continue; /* Loop/switch isn't completed */
         }
@@ -206,7 +226,7 @@ _L7:
         continue; /* Loop/switch isn't completed */
 _L6:
         mMarqueePos = mMarqueePos - (float)((long)mMarqueeSpeed * (l - mPreviousTime)) / 1000F;
-        if(mMarqueePos < f - (float)mTextWidth - 50F)
+        if(mMarqueePos < f - mTextWidth - 50F)
             mMarqueePos = 50F;
         if(true) goto _L7; else goto _L4
 _L4:
@@ -237,6 +257,6 @@ _L8:
     private String mText;
     private IndexedNumberVariable mTextHeightVar;
     private StaticLayout mTextLayout;
-    private int mTextWidth;
+    private float mTextWidth;
     private IndexedNumberVariable mTextWidthVar;
 }

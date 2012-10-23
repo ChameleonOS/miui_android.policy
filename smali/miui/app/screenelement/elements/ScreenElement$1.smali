@@ -25,7 +25,7 @@
     .registers 3
 
     .prologue
-    .line 234
+    .line 239
     invoke-static {}, Lmiui/app/screenelement/elements/ScreenElement$Align;->values()[Lmiui/app/screenelement/elements/ScreenElement$Align;
 
     move-result-object v0
@@ -67,7 +67,7 @@
     :try_end_1f
     .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_43
 
-    .line 219
+    .line 224
     :goto_1f
     invoke-static {}, Lmiui/app/screenelement/elements/ScreenElement$AlignV;->values()[Lmiui/app/screenelement/elements/ScreenElement$AlignV;
 
@@ -123,7 +123,7 @@
 
     goto :goto_33
 
-    .line 234
+    .line 239
     :catch_43
     move-exception v0
 

@@ -521,13 +521,13 @@ _L4:
             canvas.restoreToCount(i);
         }
 
-        public void reset() {
+        public void reset(long l) {
             if(mNormalStateElements != null)
-                mNormalStateElements.reset();
+                mNormalStateElements.reset(l);
             if(mPressedStateElements != null)
-                mPressedStateElements.reset();
+                mPressedStateElements.reset(l);
             if(mReachedStateElements != null)
-                mReachedStateElements.reset();
+                mReachedStateElements.reset(l);
         }
 
         public void resume() {
@@ -1205,10 +1205,10 @@ _L3:
         }
     }
 
-    public void reset() {
-        super.reset();
-        mStartPoint.reset();
-        for(Iterator iterator = mEndPoints.iterator(); iterator.hasNext(); ((EndPoint)iterator.next()).reset());
+    public void reset(long l) {
+        super.reset(l);
+        mStartPoint.reset(l);
+        for(Iterator iterator = mEndPoints.iterator(); iterator.hasNext(); ((EndPoint)iterator.next()).reset(l));
     }
 
     public void resume() {

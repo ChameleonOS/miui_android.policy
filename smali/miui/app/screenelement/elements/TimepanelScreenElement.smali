@@ -61,13 +61,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mCalendar:Ljava/util/Calendar;
 
-    .line 45
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    iput-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
-
     .line 47
     new-instance v0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;
 
@@ -85,6 +78,11 @@
     iput-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mFormat:Ljava/lang/String;
 
     .line 60
+    iget-object v0, p2, Lmiui/app/screenelement/ScreenContext;->mHandler:Landroid/os/Handler;
+
+    iput-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
+
+    .line 61
     return-void
 .end method
 
@@ -116,18 +114,18 @@
     .prologue
     const/4 v8, 0x1
 
-    .line 130
+    .line 131
     const-string v2, "0123456789:"
 
-    .line 131
+    .line 132
     .local v2, digits:Ljava/lang/String;
     const/4 v4, 0x0
 
-    .line 132
+    .line 133
     .local v4, maxWidth:I
     const/4 v0, 0x0
 
-    .line 133
+    .line 134
     .local v0, density:I
     const/4 v3, 0x0
 
@@ -139,7 +137,7 @@
 
     if-ge v3, v5, :cond_56
 
-    .line 134
+    .line 135
     invoke-virtual {v2, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v5
@@ -148,14 +146,14 @@
 
     move-result-object v1
 
-    .line 135
+    .line 136
     .local v1, digitBmp:Landroid/graphics/Bitmap;
     if-nez v1, :cond_35
 
-    .line 136
+    .line 137
     iput-boolean v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mLoadResourceFailed:Z
 
-    .line 137
+    .line 138
     const-string v5, "TimepanelScreenElement"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -182,12 +180,12 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 151
+    .line 152
     .end local v1           #digitBmp:Landroid/graphics/Bitmap;
     :goto_34
     return-void
 
-    .line 140
+    .line 141
     .restart local v1       #digitBmp:Landroid/graphics/Bitmap;
     :cond_35
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
@@ -196,12 +194,12 @@
 
     if-ge v4, v5, :cond_3f
 
-    .line 141
+    .line 142
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
 
-    .line 142
+    .line 143
     :cond_3f
     iget v5, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mBmpHeight:I
 
@@ -211,29 +209,29 @@
 
     if-ge v5, v6, :cond_4d
 
-    .line 143
+    .line 144
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v5
 
     iput v5, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mBmpHeight:I
 
-    .line 144
+    .line 145
     :cond_4d
     if-nez v0, :cond_53
 
-    .line 145
+    .line 146
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getDensity()I
 
     move-result v0
 
-    .line 133
+    .line 134
     :cond_53
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_6
 
-    .line 147
+    .line 148
     .end local v1           #digitBmp:Landroid/graphics/Bitmap;
     :cond_56
     mul-int/lit8 v5, v4, 0x5
@@ -248,19 +246,19 @@
 
     iput-object v5, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 148
+    .line 149
     iget-object v5, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v5, v0}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    .line 149
+    .line 150
     iget v5, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mBmpHeight:I
 
     int-to-double v5, v5
 
     invoke-virtual {p0, v5, v6}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->setActualHeight(D)V
 
-    .line 150
+    .line 151
     iput-boolean v8, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmapChanged:Z
 
     goto :goto_34
@@ -271,7 +269,7 @@
     .parameter "c"
 
     .prologue
-    .line 154
+    .line 155
     iget-object v2, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
@@ -286,7 +284,7 @@
 
     const-string v0, "time.png"
 
-    .line 155
+    .line 156
     .local v0, src:Ljava/lang/String;
     :goto_e
     const/16 v2, 0x3a
@@ -295,7 +293,7 @@
 
     const-string v1, "dot"
 
-    .line 156
+    .line 157
     .local v1, suffix:Ljava/lang/String;
     :goto_14
     iget-object v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -312,7 +310,7 @@
 
     return-object v2
 
-    .line 154
+    .line 155
     .end local v0           #src:Ljava/lang/String;
     .end local v1           #suffix:Ljava/lang/String;
     :cond_21
@@ -324,7 +322,7 @@
 
     goto :goto_e
 
-    .line 155
+    .line 156
     .restart local v0       #src:Ljava/lang/String;
     :cond_28
     invoke-static {p1}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
@@ -338,7 +336,7 @@
     .registers 2
 
     .prologue
-    .line 160
+    .line 161
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mFormat:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -347,7 +345,7 @@
 
     if-eqz v0, :cond_16
 
-    .line 161
+    .line 162
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -363,11 +361,11 @@
     :goto_14
     iput-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mFormat:Ljava/lang/String;
 
-    .line 163
+    .line 164
     :cond_16
     return-void
 
-    .line 161
+    .line 162
     :cond_17
     const-string v0, "hh:mm"
 
@@ -378,23 +376,23 @@
     .registers 13
 
     .prologue
-    .line 88
+    .line 89
     iget-boolean v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mLoadResourceFailed:Z
 
     if-eqz v8, :cond_5
 
-    .line 127
+    .line 128
     :cond_4
     :goto_4
     return-void
 
-    .line 91
+    .line 92
     :cond_5
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v2
 
-    .line 92
+    .line 93
     .local v2, elapsedRealTimeMillis:J
     iget-wide v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mLastUpdateTimeMillis:J
 
@@ -406,21 +404,21 @@
 
     if-ltz v8, :cond_4
 
-    .line 96
+    .line 97
     iget-object v8, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
     if-nez v8, :cond_1a
 
-    .line 97
+    .line 98
     invoke-direct {p0}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->createBitmap()V
 
-    .line 100
+    .line 101
     :cond_1a
     iget-object v8, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v8, :cond_4
 
-    .line 103
+    .line 104
     iget-object v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mCalendar:Ljava/util/Calendar;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -429,7 +427,7 @@
 
     invoke-virtual {v8, v9, v10}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 104
+    .line 105
     iget-object v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mFormat:Ljava/lang/String;
 
     iget-object v9, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mCalendar:Ljava/util/Calendar;
@@ -438,7 +436,7 @@
 
     move-result-object v5
 
-    .line 105
+    .line 106
     .local v5, newTime:Ljava/lang/CharSequence;
     iget-object v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mPreTime:Ljava/lang/CharSequence;
 
@@ -448,17 +446,17 @@
 
     if-nez v8, :cond_4
 
-    .line 108
+    .line 109
     iput-object v5, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mPreTime:Ljava/lang/CharSequence;
 
-    .line 109
+    .line 110
     new-instance v6, Landroid/graphics/Canvas;
 
     iget-object v8, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-direct {v6, v8}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    .line 110
+    .line 111
     .local v6, tmpCanvas:Landroid/graphics/Canvas;
     const/4 v8, 0x0
 
@@ -466,10 +464,10 @@
 
     invoke-virtual {v6, v8, v9}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 111
+    .line 112
     const/4 v7, 0x0
 
-    .line 112
+    .line 113
     .local v7, x:I
     const/4 v4, 0x0
 
@@ -481,22 +479,22 @@
 
     if-ge v4, v8, :cond_66
 
-    .line 113
+    .line 114
     invoke-interface {v5, v4}, Ljava/lang/CharSequence;->charAt(I)C
 
     move-result v1
 
-    .line 114
+    .line 115
     .local v1, digit:C
     invoke-direct {p0, v1}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->getDigitBmp(C)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 115
+    .line 116
     .local v0, bmp:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_63
 
-    .line 116
+    .line 117
     int-to-float v8, v7
 
     const/4 v9, 0x0
@@ -505,26 +503,26 @@
 
     invoke-virtual {v6, v0, v8, v9, v10}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    .line 117
+    .line 118
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v8
 
     add-int/2addr v7, v8
 
-    .line 112
+    .line 113
     :cond_63
     add-int/lit8 v4, v4, 0x1
 
     goto :goto_48
 
-    .line 121
+    .line 122
     .end local v0           #bmp:Landroid/graphics/Bitmap;
     .end local v1           #digit:C
     :cond_66
     iput v7, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mBmpWidth:I
 
-    .line 122
+    .line 123
     iget v8, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mBmpWidth:I
 
     int-to-float v8, v8
@@ -537,10 +535,10 @@
 
     invoke-virtual {p0, v8, v9}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->setActualWidth(D)V
 
-    .line 125
+    .line 126
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->requestUpdate()V
 
-    .line 126
+    .line 127
     iput-wide v2, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mLastUpdateTimeMillis:J
 
     goto :goto_4
@@ -552,14 +550,14 @@
     .registers 3
 
     .prologue
-    .line 71
+    .line 72
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 72
+    .line 73
     return-void
 .end method
 
@@ -567,7 +565,7 @@
     .registers 2
 
     .prologue
-    .line 84
+    .line 85
     iget v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mBmpWidth:I
 
     return v0
@@ -577,20 +575,20 @@
     .registers 3
 
     .prologue
-    .line 64
+    .line 65
     invoke-super {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->init()V
 
-    .line 65
+    .line 66
     invoke-direct {p0}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->setDateFormat()V
 
-    .line 66
+    .line 67
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 67
+    .line 68
     return-void
 .end method
 
@@ -598,14 +596,14 @@
     .registers 3
 
     .prologue
-    .line 75
+    .line 76
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 76
+    .line 77
     return-void
 .end method
 
@@ -613,20 +611,20 @@
     .registers 3
 
     .prologue
-    .line 79
+    .line 80
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mCalendar:Ljava/util/Calendar;
 
-    .line 80
+    .line 81
     iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 81
+    .line 82
     return-void
 .end method

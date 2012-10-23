@@ -731,8 +731,9 @@
     return-void
 .end method
 
-.method public reset()V
-    .registers 2
+.method public reset(J)V
+    .registers 4
+    .parameter "time"
 
     .prologue
     .line 433
@@ -743,7 +744,7 @@
     .line 434
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;->mNormalStateElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
     .line 435
     :cond_9
@@ -754,7 +755,7 @@
     .line 436
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;->mPressedStateElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
     .line 437
     :cond_12
@@ -765,7 +766,7 @@
     .line 438
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;->mReachedStateElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
+    invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
     .line 439
     :cond_1b
