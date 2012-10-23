@@ -9,11 +9,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.android.internal.widget.LockPatternUtils;
 import com.miui.internal.policy.impl.KeyguardScreenCallback;
@@ -29,7 +29,6 @@ public class MiuiLockPatternKeyguardView extends LockPatternKeyguardView {
         implements KeyguardScreenCallback {
 
         public void goToUnlockScreen() {
-            getUpdateMonitor().getSimState();
             if(!stuckOnLockScreenBecauseSimMissing())
                 if(!isSecure())
                     keyguardDone(true);
@@ -91,6 +90,10 @@ public class MiuiLockPatternKeyguardView extends LockPatternKeyguardView {
         };
     }
 
+    private void updateShowLockBeforeUnlock() {
+        super.mShowLockBeforeUnlock = miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "show_lock_before_unlock", true);
+    }
+
     private void updateTorchCover(boolean flag) {
         if(mTorchCover == null) {
             mTorchCover = new ImageView(super.mContext);
@@ -120,7 +123,7 @@ public class MiuiLockPatternKeyguardView extends LockPatternKeyguardView {
             obj = new AwesomeLockScreen(super.mContext, getConfiguration(), getLockPatternUtils(), getUpdateMonitor(), mKeyguardScreenCallback);
         } else {
             obj = new MiuiLockScreen(super.mContext, getConfiguration(), getLockPatternUtils(), getUpdateMonitor(), mKeyguardScreenCallback);
-            ((FrameLayout) (obj)).setBackgroundDrawable(ThemeResources.getLockWallpaperCache(super.mContext));
+            ((View) (obj)).setBackground(ThemeResources.getLockWallpaperCache(super.mContext));
         }
         return ((View) (obj));
     }
@@ -128,7 +131,7 @@ public class MiuiLockPatternKeyguardView extends LockPatternKeyguardView {
     View createUnlockScreenFor(LockPatternKeyguardView.UnlockMode unlockmode) {
         View view = super.createUnlockScreenFor(unlockmode);
         view.setPadding(0, super.mContext.getResources().getDimensionPixelSize(0x60a0000), 0, 0);
-        view.setBackgroundDrawable(ThemeResources.getLockWallpaperCache(super.mContext));
+        view.setBackground(ThemeResources.getLockWallpaperCache(super.mContext));
         return view;
     }
 
@@ -166,7 +169,7 @@ _L7:
     }
 
     LockPatternKeyguardView.Mode getInitialMode() {
-        super.mShowLockBeforeUnlock = miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "show_lock_before_unlock", super.mShowLockBeforeUnlock);
+        updateShowLockBeforeUnlock();
         return super.getInitialMode();
     }
 
@@ -179,11 +182,21 @@ _L7:
         return flag;
     }
 
+    void maybeStartBiometricUnlock() {
+        if(super.mMode != LockPatternKeyguardView.Mode.LockScreen)
+            super.maybeStartBiometricUnlock();
+    }
+
     protected void onAttachedToWindow() {
         IntentFilter intentfilter = new IntentFilter("miui.intent.action.TOGGLE_TORCH");
         intentfilter.setPriority(1000);
         super.mContext.registerReceiver(mTorchStateReceiver, intentfilter);
         super.onAttachedToWindow();
+    }
+
+    protected void onConfigurationChanged(Configuration configuration) {
+        super.onConfigurationChanged(configuration);
+        updateShowLockBeforeUnlock();
     }
 
     protected void onDetachedFromWindow() {
@@ -205,6 +218,12 @@ _L7:
         super.mScreenOn = true;
         updateTorchCover(false);
         super.show();
+    }
+
+    protected void updateScreen(LockPatternKeyguardView.Mode mode, boolean flag) {
+        super.updateScreen(mode, flag);
+        if(super.mScreenOn)
+            maybeStartBiometricUnlock();
     }
 
     private boolean mBackDown;

@@ -55,25 +55,20 @@
     iput-object p2, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     .line 37
-    iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
-
-    invoke-virtual {v0, p0}, Lmiui/app/screenelement/ScreenElementRoot;->setView(Landroid/view/View;)V
-
-    .line 38
     new-instance v0, Lmiui/app/screenelement/RendererController;
 
     invoke-direct {v0, p0}, Lmiui/app/screenelement/RendererController;-><init>(Lmiui/app/screenelement/RendererController$Listener;)V
 
     iput-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
-    .line 39
+    .line 38
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/ScreenElementRoot;->setRenderController(Lmiui/app/screenelement/RendererController;)V
 
-    .line 40
+    .line 39
     return-void
 .end method
 
@@ -84,33 +79,33 @@
     .parameter "t"
 
     .prologue
-    .line 44
+    .line 43
     invoke-direct {p0, p1, p2}, Lmiui/app/screenelement/MiAdvancedView;-><init>(Landroid/content/Context;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 45
+    .line 44
     if-eqz p3, :cond_16
 
-    .line 46
+    .line 45
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->init()V
 
-    .line 47
+    .line 46
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mUseExternalRenderThread:Z
 
-    .line 48
+    .line 47
     iput-object p3, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
-    .line 49
+    .line 48
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/RenderThread;->addRendererController(Lmiui/app/screenelement/RendererController;)V
 
-    .line 51
+    .line 50
     :cond_16
     return-void
 .end method
@@ -121,32 +116,32 @@
     .registers 3
 
     .prologue
-    .line 54
+    .line 53
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lmiui/app/screenelement/MiAdvancedView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 55
+    .line 54
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     if-eqz v0, :cond_11
 
-    .line 56
+    .line 55
     iget-boolean v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mUseExternalRenderThread:Z
 
     if-nez v0, :cond_12
 
-    .line 57
+    .line 56
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RenderThread;->setStop()V
 
-    .line 63
+    .line 62
     :cond_11
     :goto_11
     return-void
 
-    .line 59
+    .line 58
     :cond_12
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
@@ -154,7 +149,7 @@
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/RenderThread;->removeRendererController(Lmiui/app/screenelement/RendererController;)V
 
-    .line 60
+    .line 59
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->finish()V
@@ -166,10 +161,10 @@
     .registers 1
 
     .prologue
-    .line 170
+    .line 169
     invoke-virtual {p0}, Lmiui/app/screenelement/MiAdvancedView;->postInvalidate()V
 
-    .line 171
+    .line 170
     return-void
 .end method
 
@@ -177,12 +172,12 @@
     .registers 2
 
     .prologue
-    .line 180
+    .line 179
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenElementRoot;->finish()V
 
-    .line 181
+    .line 180
     return-void
 .end method
 
@@ -190,7 +185,7 @@
     .registers 2
 
     .prologue
-    .line 66
+    .line 65
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     return-object v0
@@ -200,12 +195,12 @@
     .registers 2
 
     .prologue
-    .line 175
+    .line 174
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenElementRoot;->init()V
 
-    .line 176
+    .line 175
     return-void
 .end method
 
@@ -213,10 +208,10 @@
     .registers 3
 
     .prologue
-    .line 125
+    .line 124
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
 
-    .line 127
+    .line 126
     iget-boolean v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mUseExternalRenderThread:Z
 
     if-nez v0, :cond_20
@@ -225,7 +220,7 @@
 
     if-nez v0, :cond_20
 
-    .line 128
+    .line 127
     new-instance v0, Lmiui/app/screenelement/RenderThread;
 
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
@@ -234,19 +229,19 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
-    .line 129
+    .line 128
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     iget-boolean v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mPaused:Z
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/RenderThread;->setPaused(Z)V
 
-    .line 130
+    .line 129
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RenderThread;->start()V
 
-    .line 132
+    .line 131
     :cond_20
     return-void
 .end method
@@ -255,10 +250,10 @@
     .registers 1
 
     .prologue
-    .line 136
+    .line 135
     invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
 
-    .line 137
+    .line 136
     return-void
 .end method
 
@@ -267,7 +262,7 @@
     .parameter "canvas"
 
     .prologue
-    .line 104
+    .line 103
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     if-eqz v1, :cond_c
@@ -280,18 +275,18 @@
 
     if-nez v1, :cond_d
 
-    .line 121
+    .line 120
     :cond_c
     :goto_c
     return-void
 
-    .line 107
+    .line 106
     :cond_d
     iget-boolean v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mLoggedHardwareRender:Z
 
     if-nez v1, :cond_30
 
-    .line 108
+    .line 107
     const-string v1, "MiAdvancedView"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -318,12 +313,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 109
+    .line 108
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mLoggedHardwareRender:Z
 
-    .line 113
+    .line 112
     :cond_30
     :try_start_30
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -341,15 +336,15 @@
 
     goto :goto_c
 
-    .line 114
+    .line 113
     :catch_3c
     move-exception v0
 
-    .line 115
+    .line 114
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 116
+    .line 115
     const-string v1, "MiAdvancedView"
 
     invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -360,16 +355,16 @@
 
     goto :goto_c
 
-    .line 117
+    .line 116
     .end local v0           #e:Ljava/lang/Exception;
     :catch_4a
     move-exception v0
 
-    .line 118
+    .line 117
     .local v0, e:Ljava/lang/OutOfMemoryError;
     invoke-virtual {v0}, Ljava/lang/OutOfMemoryError;->printStackTrace()V
 
-    .line 119
+    .line 118
     const-string v1, "MiAdvancedView"
 
     invoke-virtual {v0}, Ljava/lang/OutOfMemoryError;->toString()Ljava/lang/String;
@@ -390,7 +385,7 @@
     .parameter "bottom"
 
     .prologue
-    .line 151
+    .line 150
     const-string v0, "view_width"
 
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -429,7 +424,7 @@
 
     invoke-static {v0, v1, v2}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 153
+    .line 152
     const-string v0, "view_height"
 
     iget-object v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -468,7 +463,7 @@
 
     invoke-static {v0, v1, v2}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 155
+    .line 154
     return-void
 .end method
 
@@ -478,30 +473,30 @@
     .prologue
     const/4 v1, 0x1
 
-    .line 140
+    .line 139
     iput-boolean v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mPaused:Z
 
-    .line 141
+    .line 140
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     if-eqz v0, :cond_10
 
-    .line 142
+    .line 141
     iget-boolean v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mUseExternalRenderThread:Z
 
     if-nez v0, :cond_11
 
-    .line 143
+    .line 142
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/RenderThread;->setPaused(Z)V
 
-    .line 148
+    .line 147
     :cond_10
     :goto_10
     return-void
 
-    .line 145
+    .line 144
     :cond_11
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
@@ -516,30 +511,30 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 158
+    .line 157
     iput-boolean v1, p0, Lmiui/app/screenelement/MiAdvancedView;->mPaused:Z
 
-    .line 159
+    .line 158
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     if-eqz v0, :cond_10
 
-    .line 160
+    .line 159
     iget-boolean v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mUseExternalRenderThread:Z
 
     if-nez v0, :cond_11
 
-    .line 161
+    .line 160
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mThread:Lmiui/app/screenelement/RenderThread;
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/RenderThread;->setPaused(Z)V
 
-    .line 166
+    .line 165
     :cond_10
     :goto_10
     return-void
 
-    .line 163
+    .line 162
     :cond_11
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRendererController:Lmiui/app/screenelement/RendererController;
 
@@ -553,12 +548,12 @@
     .parameter "event"
 
     .prologue
-    .line 81
+    .line 80
     iget-object v2, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     if-eqz v2, :cond_36
 
-    .line 82
+    .line 81
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v2
@@ -567,12 +562,12 @@
 
     if-le v2, v3, :cond_f
 
-    .line 83
+    .line 82
     const/4 v2, 0x4
 
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->setAction(I)V
 
-    .line 85
+    .line 84
     :cond_f
     iget-object v2, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
@@ -580,23 +575,23 @@
 
     move-result v0
 
-    .line 86
+    .line 85
     .local v0, b:Z
     iget-boolean v2, p0, Lmiui/app/screenelement/MiAdvancedView;->mNeedDisallowInterceptTouchEvent:Z
 
     if-eq v2, v0, :cond_22
 
-    .line 87
+    .line 86
     invoke-virtual {p0}, Lmiui/app/screenelement/MiAdvancedView;->getParent()Landroid/view/ViewParent;
 
     move-result-object v2
 
     invoke-interface {v2, v0}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    .line 88
+    .line 87
     iput-boolean v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mNeedDisallowInterceptTouchEvent:Z
 
-    .line 91
+    .line 90
     :cond_22
     :try_start_22
     iget-object v2, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -608,21 +603,21 @@
 
     move-result v2
 
-    .line 100
+    .line 99
     .end local v0           #b:Z
     :goto_28
     return v2
 
-    .line 92
+    .line 91
     .restart local v0       #b:Z
     :catch_29
     move-exception v1
 
-    .line 93
+    .line 92
     .local v1, e:Ljava/lang/Exception;
     invoke-virtual {v1}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 94
+    .line 93
     const-string v2, "MiAdvancedView"
 
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -631,7 +626,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 100
+    .line 99
     .end local v0           #b:Z
     .end local v1           #e:Ljava/lang/Exception;
     :cond_36
@@ -640,16 +635,16 @@
 
     goto :goto_28
 
-    .line 95
+    .line 94
     .restart local v0       #b:Z
     :catch_38
     move-exception v1
 
-    .line 96
+    .line 95
     .local v1, e:Ljava/lang/OutOfMemoryError;
     invoke-virtual {v1}, Ljava/lang/OutOfMemoryError;->printStackTrace()V
 
-    .line 97
+    .line 96
     const-string v2, "MiAdvancedView"
 
     invoke-virtual {v1}, Ljava/lang/OutOfMemoryError;->toString()Ljava/lang/String;
@@ -665,12 +660,12 @@
     .registers 2
 
     .prologue
-    .line 185
+    .line 184
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenElementRoot;->pause()V
 
-    .line 186
+    .line 185
     return-void
 .end method
 
@@ -678,12 +673,12 @@
     .registers 2
 
     .prologue
-    .line 190
+    .line 189
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenElementRoot;->resume()V
 
-    .line 191
+    .line 190
     return-void
 .end method
 
@@ -692,21 +687,21 @@
     .parameter "visibility"
 
     .prologue
-    .line 71
+    .line 70
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 72
+    .line 71
     if-nez p1, :cond_9
 
-    .line 73
+    .line 72
     invoke-virtual {p0}, Lmiui/app/screenelement/MiAdvancedView;->onResume()V
 
-    .line 77
+    .line 76
     :cond_8
     :goto_8
     return-void
 
-    .line 74
+    .line 73
     :cond_9
     const/4 v0, 0x4
 
@@ -716,7 +711,7 @@
 
     if-ne p1, v0, :cond_8
 
-    .line 75
+    .line 74
     :cond_10
     invoke-virtual {p0}, Lmiui/app/screenelement/MiAdvancedView;->onPause()V
 
@@ -728,11 +723,11 @@
     .parameter "time"
 
     .prologue
-    .line 195
+    .line 194
     iget-object v0, p0, Lmiui/app/screenelement/MiAdvancedView;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/ScreenElementRoot;->updateFramerate(J)V
 
-    .line 196
+    .line 195
     return-void
 .end method

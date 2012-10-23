@@ -31,17 +31,17 @@
     .parameter "controller"
 
     .prologue
-    .line 31
+    .line 32
     invoke-direct/range {p0 .. p5}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/KeyguardViewCallback;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardWindowController;)V
 
-    .line 146
+    .line 165
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;-><init>(Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchStateReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 32
+    .line 33
     return-void
 .end method
 
@@ -50,7 +50,7 @@
     .parameter "x0"
 
     .prologue
-    .line 24
+    .line 25
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -62,9 +62,34 @@
     .parameter "x1"
 
     .prologue
-    .line 24
+    .line 25
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->updateTorchCover(Z)V
 
+    return-void
+.end method
+
+.method private updateShowLockBeforeUnlock()V
+    .registers 4
+
+    .prologue
+    .line 36
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "show_lock_before_unlock"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lmiui/provider/ExtraSettings$System;->getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mShowLockBeforeUnlock:Z
+
+    .line 40
     return-void
 .end method
 
@@ -75,12 +100,12 @@
     .prologue
     const/4 v2, -0x1
 
-    .line 162
+    .line 181
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
     if-nez v0, :cond_2d
 
-    .line 163
+    .line 182
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
@@ -89,28 +114,28 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
-    .line 164
+    .line 183
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setClickable(Z)V
 
-    .line 165
+    .line 184
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
     const v1, 0x60200be
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 166
+    .line 185
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
     sget-object v1, Landroid/widget/ImageView$ScaleType;->CENTER_CROP:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    .line 167
+    .line 186
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
@@ -119,20 +144,20 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 172
+    .line 191
     :cond_2d
     if-eqz p1, :cond_35
 
-    .line 173
+    .line 192
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->addView(Landroid/view/View;)V
 
-    .line 178
+    .line 197
     :goto_34
     return-void
 
-    .line 176
+    .line 195
     :cond_35
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchCover:Landroid/widget/ImageView;
 
@@ -147,7 +172,7 @@
     .registers 2
 
     .prologue
-    .line 24
+    .line 25
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->createKeyguardScreenCallback()Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
     move-result-object v0
@@ -159,7 +184,7 @@
     .registers 3
 
     .prologue
-    .line 45
+    .line 56
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;
 
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->createKeyguardScreenCallback()Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -170,7 +195,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mKeyguardScreenCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
-    .line 46
+    .line 57
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mKeyguardScreenCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
     return-object v0
@@ -180,7 +205,7 @@
     .registers 8
 
     .prologue
-    .line 103
+    .line 121
     invoke-static {}, Lmiui/content/res/ThemeResources;->getSystem()Lmiui/content/res/ThemeResourcesSystem;
 
     move-result-object v1
@@ -189,15 +214,15 @@
 
     move-result v6
 
-    .line 104
+    .line 122
     .local v6, isAwesomeLockScreen:Z
     const/4 v0, 0x0
 
-    .line 105
+    .line 123
     .local v0, lockView:Landroid/view/View;
     if-eqz v6, :cond_21
 
-    .line 106
+    .line 124
     new-instance v0, Lcom/android/internal/policy/impl/AwesomeLockScreen;
 
     .end local v0           #lockView:Landroid/view/View;
@@ -219,12 +244,12 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/policy/impl/AwesomeLockScreen;-><init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/miui/internal/policy/impl/KeyguardScreenCallback;)V
 
-    .line 121
+    .line 140
     .restart local v0       #lockView:Landroid/view/View;
     :goto_20
     return-object v0
 
-    .line 113
+    .line 131
     :cond_21
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockScreen;
 
@@ -247,7 +272,7 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/internal/policy/impl/MiuiLockScreen;-><init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;Lcom/miui/internal/policy/impl/KeyguardScreenCallback;)V
 
-    .line 119
+    .line 137
     .restart local v0       #lockView:Landroid/view/View;
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
@@ -255,7 +280,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_20
 .end method
@@ -267,12 +292,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 126
+    .line 145
     invoke-super {p0, p1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->createUnlockScreenFor(Lcom/android/internal/policy/impl/LockPatternKeyguardView$UnlockMode;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 127
+    .line 146
     .local v0, view:Landroid/view/View;
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
@@ -288,16 +313,16 @@
 
     invoke-virtual {v0, v3, v1, v3, v3}, Landroid/view/View;->setPadding(IIII)V
 
-    .line 128
+    .line 147
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lmiui/content/res/ThemeResources;->getLockWallpaperCache(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    .line 129
+    .line 148
     return-object v0
 .end method
 
@@ -312,12 +337,12 @@
 
     const/4 v3, 0x0
 
-    .line 184
+    .line 203
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v0
 
-    .line 185
+    .line 204
     .local v0, keyCode:I
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -325,15 +350,15 @@
 
     if-nez v2, :cond_1d
 
-    .line 186
+    .line 205
     const/4 v2, 0x4
 
     if-ne v0, v2, :cond_18
 
-    .line 187
+    .line 206
     iput-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mBackDown:Z
 
-    .line 203
+    .line 222
     :cond_13
     :goto_13
     invoke-super {p0, p1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -343,16 +368,16 @@
     :goto_17
     return v1
 
-    .line 189
+    .line 208
     :cond_18
     if-eq v0, v4, :cond_13
 
-    .line 190
+    .line 209
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mBackDown:Z
 
     goto :goto_13
 
-    .line 192
+    .line 211
     :cond_1d
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
@@ -360,23 +385,23 @@
 
     if-ne v2, v1, :cond_13
 
-    .line 193
+    .line 212
     if-ne v0, v4, :cond_38
 
-    .line 194
+    .line 213
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mBackDown:Z
 
     if-eqz v2, :cond_38
 
-    .line 195
+    .line 214
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mBackDown:Z
 
-    .line 196
+    .line 215
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mKeyguardScreenCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
 
     invoke-interface {v2}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->goToUnlockScreen()V
 
-    .line 197
+    .line 216
     const-string v2, "MiuiLockPatternKeyguardView"
 
     const-string v3, "Unlock Screen by pressing back + volume_up"
@@ -385,7 +410,7 @@
 
     goto :goto_17
 
-    .line 201
+    .line 220
     :cond_38
     iput-boolean v3, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mBackDown:Z
 
@@ -393,27 +418,13 @@
 .end method
 
 .method getInitialMode()Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
-    .registers 4
+    .registers 2
 
     .prologue
-    .line 36
-    iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
+    .line 44
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->updateShowLockBeforeUnlock()V
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "show_lock_before_unlock"
-
-    iget-boolean v2, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mShowLockBeforeUnlock:Z
-
-    invoke-static {v0, v1, v2}, Lmiui/provider/ExtraSettings$System;->getBoolean(Landroid/content/ContentResolver;Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mShowLockBeforeUnlock:Z
-
-    .line 40
+    .line 45
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getInitialMode()Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     move-result-object v0
@@ -425,14 +436,14 @@
     .registers 2
 
     .prologue
-    .line 216
+    .line 235
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mLockScreen:Landroid/view/View;
 
     instance-of v0, v0, Lcom/android/internal/policy/impl/AwesomeLockScreen;
 
     if-eqz v0, :cond_f
 
-    .line 217
+    .line 236
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mLockScreen:Landroid/view/View;
 
     check-cast v0, Lcom/android/internal/policy/impl/AwesomeLockScreen;
@@ -441,7 +452,7 @@
 
     move-result v0
 
-    .line 220
+    .line 239
     :goto_e
     return v0
 
@@ -451,34 +462,71 @@
     goto :goto_e
 .end method
 
+.method maybeStartBiometricUnlock()V
+    .registers 3
+
+    .prologue
+    .line 244
+    iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
+
+    sget-object v1, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->LockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
+
+    if-ne v0, v1, :cond_7
+
+    .line 246
+    :goto_6
+    return-void
+
+    .line 245
+    :cond_7
+    invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->maybeStartBiometricUnlock()V
+
+    goto :goto_6
+.end method
+
 .method protected onAttachedToWindow()V
     .registers 4
 
     .prologue
-    .line 134
+    .line 153
     new-instance v0, Landroid/content/IntentFilter;
 
     const-string v1, "miui.intent.action.TOGGLE_TORCH"
 
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 135
+    .line 154
     .local v0, filter:Landroid/content/IntentFilter;
     const/16 v1, 0x3e8
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->setPriority(I)V
 
-    .line 136
+    .line 155
     iget-object v1, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchStateReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 137
+    .line 156
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->onAttachedToWindow()V
 
-    .line 138
+    .line 157
+    return-void
+.end method
+
+.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .registers 2
+    .parameter "newConfig"
+
+    .prologue
+    .line 50
+    invoke-super {p0, p1}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    .line 51
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->updateShowLockBeforeUnlock()V
+
+    .line 52
     return-void
 .end method
 
@@ -486,17 +534,17 @@
     .registers 3
 
     .prologue
-    .line 142
+    .line 161
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->mTorchStateReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 143
+    .line 162
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->onDetachedFromWindow()V
 
-    .line 144
+    .line 163
     return-void
 .end method
 
@@ -504,17 +552,17 @@
     .registers 2
 
     .prologue
-    .line 97
+    .line 107
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->onScreenTurnedOff()V
 
-    .line 98
+    .line 108
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->getInitialMode()Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
-    .line 99
+    .line 109
     return-void
 .end method
 
@@ -522,7 +570,7 @@
     .registers 3
 
     .prologue
-    .line 208
+    .line 227
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mMode:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     sget-object v1, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->LockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
@@ -539,11 +587,11 @@
 
     if-eqz v0, :cond_11
 
-    .line 212
+    .line 231
     :goto_10
     return-void
 
-    .line 211
+    .line 230
     :cond_11
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->recreateLockScreen()V
 
@@ -554,19 +602,41 @@
     .registers 2
 
     .prologue
-    .line 90
+    .line 100
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mScreenOn:Z
 
-    .line 91
+    .line 101
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->updateTorchCover(Z)V
 
-    .line 92
+    .line 102
     invoke-super {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->show()V
 
-    .line 93
+    .line 103
+    return-void
+.end method
+
+.method protected updateScreen(Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
+    .registers 4
+    .parameter "mode"
+    .parameter "force"
+
+    .prologue
+    .line 113
+    invoke-super {p0, p1, p2}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->updateScreen(Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;Z)V
+
+    .line 114
+    iget-boolean v0, p0, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->mScreenOn:Z
+
+    if-eqz v0, :cond_a
+
+    .line 115
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->maybeStartBiometricUnlock()V
+
+    .line 117
+    :cond_a
     return-void
 .end method

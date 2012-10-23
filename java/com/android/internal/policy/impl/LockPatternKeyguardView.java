@@ -25,9 +25,9 @@ import java.io.IOException;
 
 // Referenced classes of package com.android.internal.policy.impl:
 //            KeyguardViewBase, KeyguardUpdateMonitor, BiometricSensorUnlock, FaceUnlock, 
-//            KeyguardScreen, KeyguardWindowController, LockScreen, PatternUnlockScreen, 
-//            SimPukUnlockScreen, SimUnlockScreen, MiuiAccountUnlockScreen, PasswordUnlockScreen, 
-//            KeyguardViewCallback, KeyguardScreenCallback
+//            KeyguardScreen, LockScreen, PatternUnlockScreen, SimPukUnlockScreen, 
+//            SimUnlockScreen, MiuiAccountUnlockScreen, PasswordUnlockScreen, KeyguardViewCallback, 
+//            KeyguardWindowController, KeyguardScreenCallback
 
 public class LockPatternKeyguardView extends KeyguardViewBase {
     private static class FastBitmapDrawable extends Drawable {
@@ -501,20 +501,6 @@ _L8:
         (new AccountAnalyzer(AccountManager.get(context))).start();
     }
 
-    private void maybeStartBiometricUnlock() {
-        if(mBiometricUnlock != null) {
-            boolean flag;
-            if(mUpdateMonitor.getFailedAttempts() >= 5)
-                flag = true;
-            else
-                flag = false;
-            if(!mSuppressBiometricUnlock && mUpdateMonitor.getPhoneState() == 0 && !mUpdateMonitor.getMaxBiometricUnlockAttemptsReached() && !flag)
-                mBiometricUnlock.start();
-            else
-                mBiometricUnlock.hide();
-        }
-    }
-
     private void recreateUnlockScreen(UnlockMode unlockmode) {
         if(mUnlockScreen != null) {
             ((KeyguardScreen)mUnlockScreen).onPause();
@@ -581,40 +567,6 @@ _L8:
         Object aobj[] = new Object[1];
         aobj[0] = Integer.valueOf(i);
         showDialog(null, context.getString(0x104031b, aobj));
-    }
-
-    private void updateScreen(Mode mode, boolean flag) {
-        mMode = mode;
-        if((mode == Mode.LockScreen || mShowLockBeforeUnlock) && (flag || mLockScreen == null))
-            recreateLockScreen();
-        UnlockMode unlockmode = getUnlockMode();
-        if(mode == Mode.UnlockScreen && unlockmode != UnlockMode.Unknown && (flag || mUnlockScreen == null || unlockmode != mUnlockScreenMode))
-            recreateUnlockScreen(unlockmode);
-        View view;
-        View view1;
-        if(mode == Mode.LockScreen)
-            view = mUnlockScreen;
-        else
-            view = mLockScreen;
-        if(mode == Mode.LockScreen)
-            view1 = mLockScreen;
-        else
-            view1 = mUnlockScreen;
-        mWindowController.setNeedsInput(((KeyguardScreen)view1).needsInput());
-        if(mScreenOn) {
-            if(view != null && view.getVisibility() == 0)
-                ((KeyguardScreen)view).onPause();
-            if(view1.getVisibility() != 0)
-                ((KeyguardScreen)view1).onResume();
-        }
-        if(view != null)
-            view.setVisibility(8);
-        view1.setVisibility(0);
-        requestLayout();
-        if(!view1.requestFocus())
-            throw new IllegalStateException((new StringBuilder()).append("keyguard screen must be able to take focus when shown ").append(view1.getClass().getCanonicalName()).toString());
-        else
-            return;
     }
 
     private boolean useBiometricUnlock() {
@@ -883,6 +835,20 @@ _L5:
         return mUpdateMonitor;
     }
 
+    void maybeStartBiometricUnlock() {
+        if(mBiometricUnlock != null) {
+            boolean flag;
+            if(mUpdateMonitor.getFailedAttempts() >= 5)
+                flag = true;
+            else
+                flag = false;
+            if(!mSuppressBiometricUnlock && mUpdateMonitor.getPhoneState() == 0 && !mUpdateMonitor.getMaxBiometricUnlockAttemptsReached() && !flag)
+                mBiometricUnlock.start();
+            else
+                mBiometricUnlock.hide();
+        }
+    }
+
     protected void onConfigurationChanged(Configuration configuration) {
         mShowLockBeforeUnlock = getResources().getBoolean(0x111001f);
         mConfiguration = configuration;
@@ -992,6 +958,40 @@ _L3:
         return flag;
     }
 
+    protected void updateScreen(Mode mode, boolean flag) {
+        mMode = mode;
+        if((mode == Mode.LockScreen || mShowLockBeforeUnlock) && (flag || mLockScreen == null))
+            recreateLockScreen();
+        UnlockMode unlockmode = getUnlockMode();
+        if(mode == Mode.UnlockScreen && unlockmode != UnlockMode.Unknown && (flag || mUnlockScreen == null || unlockmode != mUnlockScreenMode))
+            recreateUnlockScreen(unlockmode);
+        View view;
+        View view1;
+        if(mode == Mode.LockScreen)
+            view = mUnlockScreen;
+        else
+            view = mLockScreen;
+        if(mode == Mode.LockScreen)
+            view1 = mLockScreen;
+        else
+            view1 = mUnlockScreen;
+        mWindowController.setNeedsInput(((KeyguardScreen)view1).needsInput());
+        if(mScreenOn) {
+            if(view != null && view.getVisibility() == 0)
+                ((KeyguardScreen)view).onPause();
+            if(view1.getVisibility() != 0)
+                ((KeyguardScreen)view1).onResume();
+        }
+        if(view != null)
+            view.setVisibility(8);
+        view1.setVisibility(0);
+        requestLayout();
+        if(!view1.requestFocus())
+            throw new IllegalStateException((new StringBuilder()).append("keyguard screen must be able to take focus when shown ").append(view1.getClass().getCanonicalName()).toString());
+        else
+            return;
+    }
+
     public void verifyUnlock() {
         if(!isSecure())
             getCallback().keyguardDone(true);
@@ -1052,18 +1052,9 @@ _L3:
 
 
 
-/*
-    static boolean access$1002(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
-        lockpatternkeyguardview.mSuppressBiometricUnlock = flag;
-        return flag;
-    }
-
-*/
-
-
 
 /*
-    static Parcelable access$1202(LockPatternKeyguardView lockpatternkeyguardview, Parcelable parcelable) {
+    static Parcelable access$1102(LockPatternKeyguardView lockpatternkeyguardview, Parcelable parcelable) {
         lockpatternkeyguardview.mSavedState = parcelable;
         return parcelable;
     }
@@ -1078,7 +1069,7 @@ _L3:
 
 
 /*
-    static boolean access$1902(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
+    static boolean access$1802(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
         lockpatternkeyguardview.mPluggedIn = flag;
         return flag;
     }
@@ -1087,9 +1078,8 @@ _L3:
 
 
 
-
 /*
-    static boolean access$402(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
+    static boolean access$302(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
         lockpatternkeyguardview.mForgotPattern = flag;
         return flag;
     }
@@ -1099,7 +1089,7 @@ _L3:
 
 
 /*
-    static boolean access$502(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
+    static boolean access$402(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
         lockpatternkeyguardview.mIsVerifyUnlockOnly = flag;
         return flag;
     }
@@ -1110,7 +1100,7 @@ _L3:
 
 
 /*
-    static boolean access$702(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
+    static boolean access$602(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
         lockpatternkeyguardview.mEnableFallback = flag;
         return flag;
     }
@@ -1118,4 +1108,13 @@ _L3:
 */
 
 
+
+
+/*
+    static boolean access$902(LockPatternKeyguardView lockpatternkeyguardview, boolean flag) {
+        lockpatternkeyguardview.mSuppressBiometricUnlock = flag;
+        return flag;
+    }
+
+*/
 }

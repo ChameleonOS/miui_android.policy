@@ -24,8 +24,6 @@
 
 .field public mVariables:Lmiui/app/screenelement/data/Variables;
 
-.field public mView:Landroid/view/View;
-
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceLoader;)V
@@ -34,7 +32,7 @@
     .parameter "loader"
 
     .prologue
-    .line 37
+    .line 35
     new-instance v0, Lmiui/app/screenelement/ResourceManager;
 
     invoke-direct {v0, p2}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceLoader;)V
@@ -45,7 +43,7 @@
 
     invoke-direct {p0, p1, v0, v1}, Lmiui/app/screenelement/ScreenContext;-><init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceManager;Lmiui/app/screenelement/elements/ScreenElementFactory;)V
 
-    .line 38
+    .line 36
     return-void
 .end method
 
@@ -56,14 +54,14 @@
     .parameter "factory"
 
     .prologue
-    .line 41
+    .line 39
     new-instance v0, Lmiui/app/screenelement/ResourceManager;
 
     invoke-direct {v0, p2}, Lmiui/app/screenelement/ResourceManager;-><init>(Lmiui/app/screenelement/ResourceLoader;)V
 
     invoke-direct {p0, p1, v0, p3}, Lmiui/app/screenelement/ScreenContext;-><init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceManager;Lmiui/app/screenelement/elements/ScreenElementFactory;)V
 
-    .line 42
+    .line 40
     return-void
 .end method
 
@@ -73,14 +71,14 @@
     .parameter "resourceMgr"
 
     .prologue
-    .line 33
+    .line 31
     new-instance v0, Lmiui/app/screenelement/elements/ScreenElementFactory;
 
     invoke-direct {v0}, Lmiui/app/screenelement/elements/ScreenElementFactory;-><init>()V
 
     invoke-direct {p0, p1, p2, v0}, Lmiui/app/screenelement/ScreenContext;-><init>(Landroid/content/Context;Lmiui/app/screenelement/ResourceManager;Lmiui/app/screenelement/elements/ScreenElementFactory;)V
 
-    .line 34
+    .line 32
     return-void
 .end method
 
@@ -91,7 +89,7 @@
     .parameter "factory"
 
     .prologue
-    .line 44
+    .line 42
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     .line 20
@@ -108,16 +106,16 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mHandler:Landroid/os/Handler;
 
-    .line 45
+    .line 43
     iput-object p1, p0, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
 
-    .line 46
+    .line 44
     iput-object p2, p0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
-    .line 47
+    .line 45
     iput-object p3, p0, Lmiui/app/screenelement/ScreenContext;->mFactory:Lmiui/app/screenelement/elements/ScreenElementFactory;
 
-    .line 48
+    .line 46
     return-void
 .end method
 
@@ -128,15 +126,15 @@
     .parameter "name"
 
     .prologue
-    .line 103
+    .line 101
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     if-nez v0, :cond_6
 
-    .line 104
+    .line 102
     const/4 v0, 0x0
 
-    .line 105
+    .line 103
     :goto_5
     return-object v0
 
@@ -154,17 +152,17 @@
     .registers 2
 
     .prologue
-    .line 90
+    .line 88
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     if-eqz v0, :cond_9
 
-    .line 91
+    .line 89
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->doneRender()V
 
-    .line 92
+    .line 90
     :cond_9
     return-void
 .end method
@@ -173,25 +171,25 @@
     .registers 2
 
     .prologue
-    .line 60
+    .line 58
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mApplicationContext:Landroid/content/Context;
 
     if-eqz v0, :cond_7
 
-    .line 61
+    .line 59
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mApplicationContext:Landroid/content/Context;
 
-    .line 69
+    .line 67
     :goto_6
     return-object v0
 
-    .line 62
+    .line 60
     :cond_7
     iget-boolean v0, p0, Lmiui/app/screenelement/ScreenContext;->mGotApplicationContext:Z
 
     if-nez v0, :cond_1d
 
-    .line 63
+    .line 61
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -200,22 +198,22 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mApplicationContext:Landroid/content/Context;
 
-    .line 64
+    .line 62
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/ScreenContext;->mGotApplicationContext:Z
 
-    .line 65
+    .line 63
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mApplicationContext:Landroid/content/Context;
 
     if-eqz v0, :cond_1d
 
-    .line 66
+    .line 64
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mApplicationContext:Landroid/content/Context;
 
     goto :goto_6
 
-    .line 69
+    .line 67
     :cond_1d
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
 
@@ -226,7 +224,7 @@
     .registers 2
 
     .prologue
-    .line 99
+    .line 97
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     return-object v0
@@ -236,17 +234,17 @@
     .registers 2
 
     .prologue
-    .line 79
+    .line 77
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     if-eqz v0, :cond_9
 
-    .line 80
+    .line 78
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->requestUpdate()V
 
-    .line 81
+    .line 79
     :cond_9
     return-void
 .end method
@@ -256,12 +254,12 @@
     .parameter "sw"
 
     .prologue
-    .line 75
+    .line 73
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/ResourceManager;->setExtraResource(I)V
 
-    .line 76
+    .line 74
     return-void
 .end method
 
@@ -270,10 +268,10 @@
     .parameter "controller"
 
     .prologue
-    .line 95
+    .line 93
     iput-object p1, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
-    .line 96
+    .line 94
     return-void
 .end method
 
@@ -282,12 +280,12 @@
     .parameter "density"
 
     .prologue
-    .line 51
+    .line 49
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/ResourceManager;->setResourceDensity(I)V
 
-    .line 52
+    .line 50
     return-void
 .end method
 
@@ -296,12 +294,12 @@
     .parameter "density"
 
     .prologue
-    .line 55
+    .line 53
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/ResourceManager;->setTargetDensity(I)V
 
-    .line 56
+    .line 54
     return-void
 .end method
 
@@ -309,19 +307,19 @@
     .registers 2
 
     .prologue
-    .line 84
+    .line 82
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     if-eqz v0, :cond_b
 
-    .line 85
+    .line 83
     iget-object v0, p0, Lmiui/app/screenelement/ScreenContext;->mController:Lmiui/app/screenelement/RendererController;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/RendererController;->shouldUpdate()Z
 
     move-result v0
 
-    .line 86
+    .line 84
     :goto_a
     return v0
 

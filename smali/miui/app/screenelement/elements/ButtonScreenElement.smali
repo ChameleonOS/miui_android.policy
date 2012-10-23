@@ -96,7 +96,7 @@
     .registers 2
 
     .prologue
-    .line 284
+    .line 291
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressed:Z
 
     if-eqz v0, :cond_f
@@ -109,10 +109,10 @@
 
     if-eqz v0, :cond_f
 
-    .line 285
+    .line 292
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    .line 287
+    .line 294
     :goto_e
     return-object v0
 
@@ -122,12 +122,25 @@
     goto :goto_e
 .end method
 
+.method private onCancel()V
+    .registers 2
+
+    .prologue
+    .line 181
+    sget-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Cancel:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
+    invoke-direct {p0, v0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->performAction(Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;)V
+
+    .line 182
+    return-void
+.end method
+
 .method private performAction(Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;)V
     .registers 5
     .parameter "action"
 
     .prologue
-    .line 178
+    .line 185
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTriggers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -149,7 +162,7 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 179
+    .line 186
     .local v1, tri:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->getAction()Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
@@ -157,19 +170,19 @@
 
     if-ne v2, p1, :cond_6
 
-    .line 180
+    .line 187
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->perform()V
 
     goto :goto_6
 
-    .line 182
+    .line 189
     .end local v1           #tri:Lmiui/app/screenelement/CommandTrigger;
     :cond_1c
     iget-object v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     invoke-virtual {v2, p0, p1}, Lmiui/app/screenelement/ScreenElementRoot;->onButtonInteractive(Lmiui/app/screenelement/elements/ButtonScreenElement;Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;)V
 
-    .line 183
+    .line 190
     return-void
 .end method
 
@@ -179,28 +192,28 @@
     .registers 4
 
     .prologue
-    .line 266
+    .line 273
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v2, :cond_9
 
-    .line 267
+    .line 274
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/ElementGroup;->finish()V
 
-    .line 268
+    .line 275
     :cond_9
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v2, :cond_12
 
-    .line 269
+    .line 276
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/ElementGroup;->finish()V
 
-    .line 270
+    .line 277
     :cond_12
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTriggers:Ljava/util/ArrayList;
 
@@ -222,13 +235,13 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 271
+    .line 278
     .local v1, tri:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->finish()V
 
     goto :goto_18
 
-    .line 273
+    .line 280
     .end local v1           #tri:Lmiui/app/screenelement/CommandTrigger;
     :cond_28
     return-void
@@ -238,31 +251,31 @@
     .registers 8
 
     .prologue
-    .line 196
+    .line 203
     invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->init()V
 
-    .line 197
+    .line 204
     iget-object v4, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v4, :cond_c
 
-    .line 198
+    .line 205
     iget-object v4, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v4}, Lmiui/app/screenelement/elements/ElementGroup;->init()V
 
-    .line 199
+    .line 206
     :cond_c
     iget-object v4, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v4, :cond_15
 
-    .line 200
+    .line 207
     iget-object v4, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v4}, Lmiui/app/screenelement/elements/ElementGroup;->init()V
 
-    .line 201
+    .line 208
     :cond_15
     iget-object v4, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTriggers:Ljava/util/ArrayList;
 
@@ -284,13 +297,13 @@
 
     check-cast v3, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 202
+    .line 209
     .local v3, tri:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v3}, Lmiui/app/screenelement/CommandTrigger;->init()V
 
     goto :goto_1b
 
-    .line 205
+    .line 212
     .end local v3           #tri:Lmiui/app/screenelement/CommandTrigger;
     :cond_2b
     iget-object v4, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mListener:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonActionListener;
@@ -305,7 +318,7 @@
 
     if-nez v4, :cond_43
 
-    .line 206
+    .line 213
     iget-object v4, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     iget-object v5, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mListenerName:Ljava/lang/String;
@@ -314,7 +327,7 @@
 
     move-result-object v2
 
-    .line 208
+    .line 215
     .local v2, se:Lmiui/app/screenelement/elements/ScreenElement;
     :try_start_3f
     check-cast v2, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonActionListener;
@@ -324,16 +337,16 @@
     :try_end_43
     .catch Ljava/lang/ClassCastException; {:try_start_3f .. :try_end_43} :catch_44
 
-    .line 213
+    .line 220
     :cond_43
     :goto_43
     return-void
 
-    .line 209
+    .line 216
     :catch_44
     move-exception v0
 
-    .line 210
+    .line 217
     .local v0, e:Ljava/lang/ClassCastException;
     const-string v4, "ButtonScreenElement"
 
@@ -546,7 +559,7 @@
 
     move v6, v10
 
-    .line 174
+    .line 177
     :cond_9
     :goto_9
     return v6
@@ -573,7 +586,7 @@
 
     move-result v11
 
-    packed-switch v11, :pswitch_data_d0
+    packed-switch v11, :pswitch_data_d6
 
     goto :goto_9
 
@@ -748,7 +761,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_b9
+    if-eqz v11, :cond_c0
 
     .line 152
     iget-object v11, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mListener:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonActionListener;
@@ -775,58 +788,66 @@
 
     iput-wide v11, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPreviousTapUpTime:J
 
-    .line 157
+    .line 160
+    :goto_b0
     iget-object v11, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v11, :cond_b9
 
-    .line 158
+    .line 161
     iget-object v11, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v11}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
 
-    .line 160
+    .line 162
     :cond_b9
     iput-boolean v10, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressed:Z
 
-    .line 161
+    .line 163
     iput-boolean v10, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTouching:Z
 
-    .line 162
+    .line 164
     const/4 v6, 0x1
 
     goto/16 :goto_9
 
-    .line 167
-    :pswitch_c0
+    .line 158
+    :cond_c0
+    invoke-direct {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->onCancel()V
+
+    goto :goto_b0
+
+    .line 169
+    :pswitch_c4
     iget-object v11, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
-    if-eqz v11, :cond_c9
+    if-eqz v11, :cond_cd
 
-    .line 168
+    .line 170
     iget-object v11, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v11}, Lmiui/app/screenelement/elements/ElementGroup;->reset()V
 
-    .line 169
-    :cond_c9
+    .line 171
+    :cond_cd
+    invoke-direct {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->onCancel()V
+
+    .line 172
     iput-boolean v10, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTouching:Z
 
-    .line 170
+    .line 173
     iput-boolean v10, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressed:Z
 
     goto/16 :goto_9
 
     .line 114
-    nop
-
-    :pswitch_data_d0
+    :pswitch_data_d6
     .packed-switch 0x0
         :pswitch_1b
         :pswitch_90
         :pswitch_86
-        :pswitch_c0
-        :pswitch_c0
+        :pswitch_c4
+        :pswitch_c4
     .end packed-switch
 .end method
 
@@ -834,28 +855,28 @@
     .registers 4
 
     .prologue
-    .line 225
+    .line 232
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v2, :cond_9
 
-    .line 226
+    .line 233
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/ElementGroup;->pause()V
 
-    .line 227
+    .line 234
     :cond_9
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v2, :cond_12
 
-    .line 228
+    .line 235
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/ElementGroup;->pause()V
 
-    .line 229
+    .line 236
     :cond_12
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTriggers:Ljava/util/ArrayList;
 
@@ -877,20 +898,20 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 230
+    .line 237
     .local v1, tri:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->pause()V
 
     goto :goto_18
 
-    .line 232
+    .line 239
     .end local v1           #tri:Lmiui/app/screenelement/CommandTrigger;
     :cond_28
     const/4 v2, 0x0
 
     iput-boolean v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressed:Z
 
-    .line 233
+    .line 240
     return-void
 .end method
 
@@ -899,29 +920,29 @@
     .parameter "c"
 
     .prologue
-    .line 247
+    .line 254
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->isVisible()Z
 
     move-result v1
 
     if-nez v1, :cond_7
 
-    .line 252
+    .line 259
     :cond_6
     :goto_6
     return-void
 
-    .line 249
+    .line 256
     :cond_7
     invoke-direct {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->getCur()Lmiui/app/screenelement/elements/ElementGroup;
 
     move-result-object v0
 
-    .line 250
+    .line 257
     .local v0, cur:Lmiui/app/screenelement/elements/ElementGroup;
     if-eqz v0, :cond_6
 
-    .line 251
+    .line 258
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ElementGroup;->render(Landroid/graphics/Canvas;)V
 
     goto :goto_6
@@ -932,31 +953,31 @@
     .parameter "time"
 
     .prologue
-    .line 217
+    .line 224
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->reset(J)V
 
-    .line 218
+    .line 225
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_c
 
-    .line 219
+    .line 226
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
-    .line 220
+    .line 227
     :cond_c
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_15
 
-    .line 221
+    .line 228
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
-    .line 222
+    .line 229
     :cond_15
     return-void
 .end method
@@ -965,28 +986,28 @@
     .registers 4
 
     .prologue
-    .line 236
+    .line 243
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v2, :cond_9
 
-    .line 237
+    .line 244
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/ElementGroup;->resume()V
 
-    .line 238
+    .line 245
     :cond_9
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v2, :cond_12
 
-    .line 239
+    .line 246
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/elements/ElementGroup;->resume()V
 
-    .line 240
+    .line 247
     :cond_12
     iget-object v2, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mTriggers:Ljava/util/ArrayList;
 
@@ -1008,13 +1029,13 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 241
+    .line 248
     .local v1, tri:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->resume()V
 
     goto :goto_18
 
-    .line 243
+    .line 250
     .end local v1           #tri:Lmiui/app/screenelement/CommandTrigger;
     :cond_28
     return-void
@@ -1038,28 +1059,28 @@
     .parameter "show"
 
     .prologue
-    .line 277
+    .line 284
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_9
 
-    .line 278
+    .line 285
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mNormalElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 279
+    .line 286
     :cond_9
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_12
 
-    .line 280
+    .line 287
     iget-object v0, p0, Lmiui/app/screenelement/elements/ButtonScreenElement;->mPressedElements:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 281
+    .line 288
     :cond_12
     return-void
 .end method
@@ -1069,32 +1090,32 @@
     .parameter "currentTime"
 
     .prologue
-    .line 256
+    .line 263
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->tick(J)V
 
-    .line 257
+    .line 264
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->isVisible()Z
 
     move-result v1
 
     if-nez v1, :cond_a
 
-    .line 262
+    .line 269
     :cond_9
     :goto_9
     return-void
 
-    .line 259
+    .line 266
     :cond_a
     invoke-direct {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->getCur()Lmiui/app/screenelement/elements/ElementGroup;
 
     move-result-object v0
 
-    .line 260
+    .line 267
     .local v0, cur:Lmiui/app/screenelement/elements/ElementGroup;
     if-eqz v0, :cond_9
 
-    .line 261
+    .line 268
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->tick(J)V
 
     goto :goto_9
@@ -1108,7 +1129,7 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 186
+    .line 193
     iget-object v5, p0, Lmiui/app/screenelement/elements/ScreenElement;->mParent:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v5, :cond_41
@@ -1119,7 +1140,7 @@
 
     move-result v0
 
-    .line 187
+    .line 194
     .local v0, parentX:F
     :goto_b
     iget-object v5, p0, Lmiui/app/screenelement/elements/ScreenElement;->mParent:Lmiui/app/screenelement/elements/ElementGroup;
@@ -1132,20 +1153,20 @@
 
     move-result v1
 
-    .line 188
+    .line 195
     .local v1, parentY:F
     :goto_15
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->getX()F
 
     move-result v2
 
-    .line 189
+    .line 196
     .local v2, x0:F
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->getY()F
 
     move-result v3
 
-    .line 190
+    .line 197
     .local v3, y0:F
     add-float v4, v0, v2
 
@@ -1195,17 +1216,17 @@
     :cond_41
     move v0, v4
 
-    .line 186
+    .line 193
     goto :goto_b
 
     .restart local v0       #parentX:F
     :cond_43
     move v1, v4
 
-    .line 187
+    .line 194
     goto :goto_15
 
-    .line 190
+    .line 197
     .restart local v1       #parentY:F
     .restart local v2       #x0:F
     .restart local v3       #y0:F

@@ -38,27 +38,41 @@
 
 # virtual methods
 .method public run()V
-    .registers 4
+    .registers 5
 
     .prologue
-    .line 49
-    iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
+    .line 50
+    :try_start_0
+    iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
     #calls: Lmiui/app/screenelement/elements/TimepanelScreenElement;->updateTime()V
-    invoke-static {v0}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->access$000(Lmiui/app/screenelement/elements/TimepanelScreenElement;)V
+    invoke-static {v1}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->access$000(Lmiui/app/screenelement/elements/TimepanelScreenElement;)V
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_11
 
-    .line 50
-    iget-object v0, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
+    .line 54
+    :goto_5
+    iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/TimepanelScreenElement;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->access$100(Lmiui/app/screenelement/elements/TimepanelScreenElement;)Landroid/os/Handler;
+    invoke-static {v1}, Lmiui/app/screenelement/elements/TimepanelScreenElement;->access$100(Lmiui/app/screenelement/elements/TimepanelScreenElement;)Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-wide/16 v1, 0x1388
+    const-wide/16 v2, 0x1388
 
-    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v1, p0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 55
+    return-void
 
     .line 51
-    return-void
+    :catch_11
+    move-exception v0
+
+    .line 52
+    .local v0, e:Ljava/lang/Exception;
+    invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_5
 .end method

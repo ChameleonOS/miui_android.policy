@@ -6,7 +6,6 @@ package miui.app.screenelement;
 
 import android.content.Context;
 import android.os.Handler;
-import android.view.View;
 import miui.app.screenelement.data.Variables;
 import miui.app.screenelement.elements.ScreenElementFactory;
 
@@ -112,5 +111,4 @@ _L3:
     public Handler mHandler;
     public final ResourceManager mResourceManager;
     public Variables mVariables;
-    public View mView;
 }

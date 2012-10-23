@@ -83,7 +83,7 @@
 
     .prologue
     .line 42
-    if-eqz p1, :cond_b7
+    if-eqz p1, :cond_c4
 
     .line 43
     const-string v8, "target"
@@ -192,14 +192,14 @@
 
     iput-object v8, p0, Lmiui/app/screenelement/CommandTrigger;->mAction:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
-    .line 80
+    .line 82
     :cond_5f
     :goto_5f
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v1
 
-    .line 81
+    .line 83
     .local v1, children:Lorg/w3c/dom/NodeList;
     const/4 v3, 0x0
 
@@ -209,9 +209,9 @@
 
     move-result v8
 
-    if-ge v3, v8, :cond_b7
+    if-ge v3, v8, :cond_c4
 
-    .line 82
+    .line 84
     invoke-interface {v1, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v8
@@ -224,14 +224,14 @@
 
     if-ne v8, v9, :cond_88
 
-    .line 83
+    .line 85
     invoke-interface {v1, v3}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v4
 
     check-cast v4, Lorg/w3c/dom/Element;
 
-    .line 84
+    .line 86
     .local v4, item:Lorg/w3c/dom/Element;
     iget-object v8, p0, Lmiui/app/screenelement/CommandTrigger;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -239,16 +239,16 @@
 
     move-result-object v2
 
-    .line 85
+    .line 87
     .local v2, command:Lmiui/app/screenelement/ActionCommand;
     if-eqz v2, :cond_88
 
-    .line 86
+    .line 88
     iget-object v8, p0, Lmiui/app/screenelement/CommandTrigger;->mCommands:Ljava/util/ArrayList;
 
     invoke-virtual {v8, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 81
+    .line 83
     .end local v2           #command:Lmiui/app/screenelement/ActionCommand;
     .end local v4           #item:Lorg/w3c/dom/Element;
     :cond_88
@@ -309,20 +309,37 @@
 
     goto :goto_5f
 
-    .line 63
+    .line 62
     :cond_b2
+    const-string v8, "cancel"
+
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_bf
+
+    .line 63
+    sget-object v8, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Cancel:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
+    iput-object v8, p0, Lmiui/app/screenelement/CommandTrigger;->mAction:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
+    goto :goto_5f
+
+    .line 65
+    :cond_bf
     sget-object v8, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Other:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
     iput-object v8, p0, Lmiui/app/screenelement/CommandTrigger;->mAction:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
     goto :goto_5f
 
-    .line 91
+    .line 93
     .end local v0           #action:Ljava/lang/String;
     .end local v5           #property:Ljava/lang/String;
     .end local v6           #target:Ljava/lang/String;
     .end local v7           #value:Ljava/lang/String;
-    :cond_b7
+    :cond_c4
     return-void
 .end method
 
@@ -332,7 +349,7 @@
     .registers 4
 
     .prologue
-    .line 110
+    .line 112
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mCommands:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -353,13 +370,13 @@
 
     check-cast v0, Lmiui/app/screenelement/ActionCommand;
 
-    .line 111
+    .line 113
     .local v0, cmd:Lmiui/app/screenelement/ActionCommand;
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->finish()V
 
     goto :goto_6
 
-    .line 113
+    .line 115
     .end local v0           #cmd:Lmiui/app/screenelement/ActionCommand;
     :cond_16
     return-void
@@ -389,7 +406,7 @@
     .registers 4
 
     .prologue
-    .line 104
+    .line 106
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mCommands:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -410,13 +427,13 @@
 
     check-cast v0, Lmiui/app/screenelement/ActionCommand;
 
-    .line 105
+    .line 107
     .local v0, cmd:Lmiui/app/screenelement/ActionCommand;
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->init()V
 
     goto :goto_6
 
-    .line 107
+    .line 109
     .end local v0           #cmd:Lmiui/app/screenelement/ActionCommand;
     :cond_16
     return-void
@@ -426,7 +443,7 @@
     .registers 4
 
     .prologue
-    .line 116
+    .line 118
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mCommands:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -447,13 +464,13 @@
 
     check-cast v0, Lmiui/app/screenelement/ActionCommand;
 
-    .line 117
+    .line 119
     .local v0, cmd:Lmiui/app/screenelement/ActionCommand;
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->pause()V
 
     goto :goto_6
 
-    .line 119
+    .line 121
     .end local v0           #cmd:Lmiui/app/screenelement/ActionCommand;
     :cond_16
     return-void
@@ -463,17 +480,17 @@
     .registers 4
 
     .prologue
-    .line 94
+    .line 96
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mPropertyCommand:Lmiui/app/screenelement/ActionCommand$PropertyCommand;
 
     if-eqz v2, :cond_9
 
-    .line 95
+    .line 97
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mPropertyCommand:Lmiui/app/screenelement/ActionCommand$PropertyCommand;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->perform()V
 
-    .line 98
+    .line 100
     :cond_9
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mCommands:Ljava/util/ArrayList;
 
@@ -495,13 +512,13 @@
 
     check-cast v0, Lmiui/app/screenelement/ActionCommand;
 
-    .line 99
+    .line 101
     .local v0, cmd:Lmiui/app/screenelement/ActionCommand;
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->perform()V
 
     goto :goto_f
 
-    .line 101
+    .line 103
     .end local v0           #cmd:Lmiui/app/screenelement/ActionCommand;
     :cond_1f
     return-void
@@ -511,7 +528,7 @@
     .registers 4
 
     .prologue
-    .line 122
+    .line 124
     iget-object v2, p0, Lmiui/app/screenelement/CommandTrigger;->mCommands:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -532,13 +549,13 @@
 
     check-cast v0, Lmiui/app/screenelement/ActionCommand;
 
-    .line 123
+    .line 125
     .local v0, cmd:Lmiui/app/screenelement/ActionCommand;
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->resume()V
 
     goto :goto_6
 
-    .line 125
+    .line 127
     .end local v0           #cmd:Lmiui/app/screenelement/ActionCommand;
     :cond_16
     return-void

@@ -45,6 +45,9 @@ public class CommandTrigger {
                 if(s3.equalsIgnoreCase("long"))
                     mAction = miui.app.screenelement.elements.ButtonScreenElement.ButtonAction.Long;
                 else
+                if(s3.equalsIgnoreCase("cancel"))
+                    mAction = miui.app.screenelement.elements.ButtonScreenElement.ButtonAction.Cancel;
+                else
                     mAction = miui.app.screenelement.elements.ButtonScreenElement.ButtonAction.Other;
             nodelist = element.getChildNodes();
             for(int i = 0; i < nodelist.getLength(); i++)

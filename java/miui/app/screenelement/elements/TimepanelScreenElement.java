@@ -163,7 +163,12 @@ _L3:
     private final Runnable mTimeUpdater = new Runnable() {
 
         public void run() {
-            updateTime();
+            try {
+                updateTime();
+            }
+            catch(Exception exception) {
+                exception.printStackTrace();
+            }
             mHandler.postDelayed(this, 5000L);
         }
 

@@ -440,10 +440,6 @@ _L3:
         super.mContext.setTargetDensity(i);
     }
 
-    public void setView(View view) {
-        super.mContext.mView = view;
-    }
-
     protected boolean shouldPlaySound() {
         return true;
     }

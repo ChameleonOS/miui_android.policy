@@ -31,6 +31,7 @@ public class ButtonScreenElement extends AnimatedScreenElement {
         }
 
         private static final ButtonAction $VALUES[];
+        public static final ButtonAction Cancel;
         public static final ButtonAction Double;
         public static final ButtonAction Down;
         public static final ButtonAction Long;
@@ -42,13 +43,15 @@ public class ButtonScreenElement extends AnimatedScreenElement {
             Up = new ButtonAction("Up", 1);
             Double = new ButtonAction("Double", 2);
             Long = new ButtonAction("Long", 3);
-            Other = new ButtonAction("Other", 4);
-            ButtonAction abuttonaction[] = new ButtonAction[5];
+            Cancel = new ButtonAction("Cancel", 4);
+            Other = new ButtonAction("Other", 5);
+            ButtonAction abuttonaction[] = new ButtonAction[6];
             abuttonaction[0] = Down;
             abuttonaction[1] = Up;
             abuttonaction[2] = Double;
             abuttonaction[3] = Long;
-            abuttonaction[4] = Other;
+            abuttonaction[4] = Cancel;
+            abuttonaction[5] = Other;
             $VALUES = abuttonaction;
         }
 
@@ -84,6 +87,10 @@ public class ButtonScreenElement extends AnimatedScreenElement {
         else
             elementgroup = mNormalElements;
         return elementgroup;
+    }
+
+    private void onCancel() {
+        performAction(ButtonAction.Cancel);
     }
 
     private void performAction(ButtonAction buttonaction) {
@@ -201,9 +208,11 @@ _L2:
                         mListener.onButtonUp(super.mName);
                     performAction(ButtonAction.Up);
                     mPreviousTapUpTime = SystemClock.uptimeMillis();
-                    if(mNormalElements != null)
-                        mNormalElements.reset();
+                } else {
+                    onCancel();
                 }
+                if(mNormalElements != null)
+                    mNormalElements.reset();
                 mPressed = false;
                 mTouching = false;
                 flag = true;
@@ -214,6 +223,7 @@ _L2:
         case 4: // '\004'
             if(mNormalElements != null)
                 mNormalElements.reset();
+            onCancel();
             mTouching = false;
             mPressed = false;
             break;

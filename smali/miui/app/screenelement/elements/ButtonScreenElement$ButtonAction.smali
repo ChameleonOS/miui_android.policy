@@ -26,6 +26,8 @@
 # static fields
 .field private static final synthetic $VALUES:[Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
+.field public static final enum Cancel:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
 .field public static final enum Double:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
 .field public static final enum Down:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
@@ -39,25 +41,25 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .registers 7
+    .registers 8
 
     .prologue
-    const/4 v6, 0x4
+    const/4 v7, 0x4
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    const/4 v4, 0x2
+    const/4 v5, 0x2
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     .line 60
     new-instance v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
     const-string v1, "Down"
 
-    invoke-direct {v0, v1, v2}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v3}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Down:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
@@ -65,7 +67,7 @@
 
     const-string v1, "Up"
 
-    invoke-direct {v0, v1, v3}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v4}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Up:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
@@ -73,7 +75,7 @@
 
     const-string v1, "Double"
 
-    invoke-direct {v0, v1, v4}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v5}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Double:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
@@ -81,42 +83,58 @@
 
     const-string v1, "Long"
 
-    invoke-direct {v0, v1, v5}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v6}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Long:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
     new-instance v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
+    const-string v1, "Cancel"
+
+    invoke-direct {v0, v1, v7}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
+
+    sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Cancel:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
+    new-instance v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
     const-string v1, "Other"
 
-    invoke-direct {v0, v1, v6}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
+    const/4 v2, 0x5
+
+    invoke-direct {v0, v1, v2}, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;-><init>(Ljava/lang/String;I)V
 
     sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Other:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
     .line 59
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v0, v0, [Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
     sget-object v1, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Down:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
-    aput-object v1, v0, v2
+    aput-object v1, v0, v3
 
     sget-object v1, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Up:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
-    aput-object v1, v0, v3
+    aput-object v1, v0, v4
 
     sget-object v1, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Double:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
-    aput-object v1, v0, v4
+    aput-object v1, v0, v5
 
     sget-object v1, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Long:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 
-    aput-object v1, v0, v5
-
-    sget-object v1, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Other:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
-
     aput-object v1, v0, v6
+
+    sget-object v1, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Cancel:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
+    aput-object v1, v0, v7
+
+    const/4 v1, 0x5
+
+    sget-object v2, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->Other:Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
+
+    aput-object v2, v0, v1
 
     sput-object v0, Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;->$VALUES:[Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonAction;
 

@@ -11,7 +11,7 @@ import android.view.*;
 import miui.app.screenelement.util.Utils;
 
 // Referenced classes of package miui.app.screenelement:
-//            ScreenElementRoot, RendererController, RenderThread, ScreenContext
+//            RendererController, ScreenElementRoot, RenderThread, ScreenContext
 
 public class MiAdvancedView extends View
     implements RendererController.Listener {
@@ -22,7 +22,6 @@ public class MiAdvancedView extends View
         setFocusable(true);
         setFocusableInTouchMode(true);
         mRoot = screenelementroot;
-        mRoot.setView(this);
         mRendererController = new RendererController(this);
         mRoot.setRenderController(mRendererController);
     }
