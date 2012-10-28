@@ -26,7 +26,7 @@
     .parameter "x1"
 
     .prologue
-    .line 231
+    .line 223
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$4;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;-><init>(II)V
@@ -40,17 +40,17 @@
     .registers 2
 
     .prologue
-    .line 235
+    .line 227
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$4;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$500(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$400(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->shutdown()V
 
-    .line 236
+    .line 228
     return-void
 .end method
 
@@ -58,7 +58,7 @@
     .registers 2
 
     .prologue
-    .line 243
+    .line 235
     const/4 v0, 0x1
 
     return v0
@@ -68,7 +68,7 @@
     .registers 2
 
     .prologue
-    .line 239
+    .line 231
     const/4 v0, 0x1
 
     return v0

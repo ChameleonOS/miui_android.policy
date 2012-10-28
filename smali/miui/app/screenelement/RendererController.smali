@@ -45,32 +45,32 @@
     .parameter "l"
 
     .prologue
-    .line 46
+    .line 48
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 26
+    .line 28
     new-instance v0, Lmiui/app/screenelement/FramerateTokenList;
 
     invoke-direct {v0}, Lmiui/app/screenelement/FramerateTokenList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/RendererController;->mFramerateTokenList:Lmiui/app/screenelement/FramerateTokenList;
 
-    .line 36
+    .line 38
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/RendererController;->mLock:Ljava/lang/Object;
 
-    .line 44
+    .line 46
     const v0, 0x7fffffff
 
     iput v0, p0, Lmiui/app/screenelement/RendererController;->mFrameTime:I
 
-    .line 47
+    .line 49
     iput-object p1, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
-    .line 48
+    .line 50
     return-void
 .end method
 
@@ -81,7 +81,7 @@
     .parameter "name"
 
     .prologue
-    .line 63
+    .line 65
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mFramerateTokenList:Lmiui/app/screenelement/FramerateTokenList;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/FramerateTokenList;->createToken(Ljava/lang/String;)Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
@@ -95,22 +95,17 @@
     .registers 2
 
     .prologue
-    .line 114
+    .line 116
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPendingRender:Z
 
-    .line 115
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mShouldUpdate:Z
-
-    .line 116
+    .line 117
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
     invoke-interface {v0}, Lmiui/app/screenelement/RendererController$Listener;->doRender()V
 
-    .line 117
+    .line 118
     return-void
 .end method
 
@@ -118,12 +113,12 @@
     .registers 2
 
     .prologue
-    .line 156
+    .line 157
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPendingRender:Z
 
-    .line 157
+    .line 158
     return-void
 .end method
 
@@ -131,7 +126,7 @@
     .registers 4
 
     .prologue
-    .line 76
+    .line 78
     :try_start_0
     iget-object v1, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
@@ -139,19 +134,19 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
-    .line 81
+    .line 83
     :goto_5
     return-void
 
-    .line 77
+    .line 79
     :catch_6
     move-exception v0
 
-    .line 78
+    .line 80
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 79
+    .line 81
     const-string v1, "RendererController"
 
     invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -167,7 +162,7 @@
     .registers 2
 
     .prologue
-    .line 55
+    .line 57
     iget v0, p0, Lmiui/app/screenelement/RendererController;->mCurFramerate:F
 
     return v0
@@ -177,7 +172,7 @@
     .registers 2
 
     .prologue
-    .line 168
+    .line 169
     iget v0, p0, Lmiui/app/screenelement/RendererController;->mFrameTime:I
 
     return v0
@@ -187,7 +182,7 @@
     .registers 2
 
     .prologue
-    .line 51
+    .line 53
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mFramerateTokenList:Lmiui/app/screenelement/FramerateTokenList;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/FramerateTokenList;->getFramerate()F
@@ -201,7 +196,7 @@
     .registers 3
 
     .prologue
-    .line 124
+    .line 125
     iget-wide v0, p0, Lmiui/app/screenelement/RendererController;->mLastUpdateSystemTime:J
 
     return-wide v0
@@ -211,7 +206,7 @@
     .registers 4
 
     .prologue
-    .line 85
+    .line 87
     :try_start_0
     iget-object v1, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
@@ -219,19 +214,19 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_6
 
-    .line 90
+    .line 92
     :goto_5
     return-void
 
-    .line 86
+    .line 88
     :catch_6
     move-exception v0
 
-    .line 87
+    .line 89
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
-    .line 88
+    .line 90
     const-string v1, "RendererController"
 
     invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -247,7 +242,7 @@
     .registers 2
 
     .prologue
-    .line 152
+    .line 153
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mSelfPaused:Z
 
     return v0
@@ -257,35 +252,35 @@
     .registers 3
 
     .prologue
-    .line 94
+    .line 96
     iget-object v1, p0, Lmiui/app/screenelement/RendererController;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 95
+    .line 97
     const/4 v0, 0x1
 
     :try_start_4
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPaused:Z
 
-    .line 96
+    .line 98
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mSelfPaused:Z
 
     if-nez v0, :cond_f
 
-    .line 97
+    .line 99
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
     invoke-interface {v0}, Lmiui/app/screenelement/RendererController$Listener;->pause()V
 
-    .line 98
+    .line 100
     :cond_f
     monitor-exit v1
 
-    .line 99
+    .line 101
     return-void
 
-    .line 98
+    .line 100
     :catchall_11
     move-exception v0
 
@@ -300,7 +295,7 @@
     .registers 2
 
     .prologue
-    .line 120
+    .line 121
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPendingRender:Z
 
     return v0
@@ -310,12 +305,12 @@
     .registers 2
 
     .prologue
-    .line 71
+    .line 73
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mShouldUpdate:Z
 
-    .line 72
+    .line 74
     return-void
 .end method
 
@@ -323,35 +318,35 @@
     .registers 3
 
     .prologue
-    .line 102
+    .line 104
     iget-object v1, p0, Lmiui/app/screenelement/RendererController;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 103
+    .line 105
     const/4 v0, 0x0
 
     :try_start_4
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPaused:Z
 
-    .line 104
+    .line 106
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mSelfPaused:Z
 
     if-nez v0, :cond_f
 
-    .line 105
+    .line 107
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
     invoke-interface {v0}, Lmiui/app/screenelement/RendererController$Listener;->resume()V
 
-    .line 106
+    .line 108
     :cond_f
     monitor-exit v1
 
-    .line 107
+    .line 109
     return-void
 
-    .line 106
+    .line 108
     :catchall_11
     move-exception v0
 
@@ -366,35 +361,35 @@
     .registers 3
 
     .prologue
-    .line 132
+    .line 133
     iget-object v1, p0, Lmiui/app/screenelement/RendererController;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 133
+    .line 134
     const/4 v0, 0x1
 
     :try_start_4
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mSelfPaused:Z
 
-    .line 134
+    .line 135
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPaused:Z
 
     if-nez v0, :cond_f
 
-    .line 135
+    .line 136
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
     invoke-interface {v0}, Lmiui/app/screenelement/RendererController$Listener;->pause()V
 
-    .line 136
+    .line 137
     :cond_f
     monitor-exit v1
 
-    .line 137
+    .line 138
     return-void
 
-    .line 136
+    .line 137
     :catchall_11
     move-exception v0
 
@@ -411,48 +406,48 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 140
+    .line 141
     iget-object v1, p0, Lmiui/app/screenelement/RendererController;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 141
+    .line 142
     const/4 v0, 0x0
 
     :try_start_5
     iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mSelfPaused:Z
 
-    .line 142
+    .line 143
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mPaused:Z
 
     if-nez v0, :cond_10
 
-    .line 143
+    .line 144
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
     invoke-interface {v0}, Lmiui/app/screenelement/RendererController$Listener;->resume()V
 
-    .line 144
+    .line 145
     :cond_10
     monitor-exit v1
     :try_end_11
     .catchall {:try_start_5 .. :try_end_11} :catchall_1b
 
-    .line 147
+    .line 148
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mRenderThread:Lmiui/app/screenelement/RenderThread;
 
     if-eqz v0, :cond_1a
 
-    .line 148
+    .line 149
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mRenderThread:Lmiui/app/screenelement/RenderThread;
 
     invoke-virtual {v0, v2}, Lmiui/app/screenelement/RenderThread;->setPaused(Z)V
 
-    .line 149
+    .line 150
     :cond_1a
     return-void
 
-    .line 144
+    .line 145
     :catchall_1b
     move-exception v0
 
@@ -469,10 +464,10 @@
     .parameter "f"
 
     .prologue
-    .line 59
+    .line 61
     iput p1, p0, Lmiui/app/screenelement/RendererController;->mCurFramerate:F
 
-    .line 60
+    .line 62
     return-void
 .end method
 
@@ -481,10 +476,10 @@
     .parameter "frameTime"
 
     .prologue
-    .line 164
+    .line 165
     iput p1, p0, Lmiui/app/screenelement/RendererController;->mFrameTime:I
 
-    .line 165
+    .line 166
     return-void
 .end method
 
@@ -493,10 +488,10 @@
     .parameter "t"
 
     .prologue
-    .line 128
+    .line 129
     iput-wide p1, p0, Lmiui/app/screenelement/RendererController;->mLastUpdateSystemTime:J
 
-    .line 129
+    .line 130
     return-void
 .end method
 
@@ -505,10 +500,10 @@
     .parameter "renderThread"
 
     .prologue
-    .line 160
+    .line 161
     iput-object p1, p0, Lmiui/app/screenelement/RendererController;->mRenderThread:Lmiui/app/screenelement/RenderThread;
 
-    .line 161
+    .line 162
     return-void
 .end method
 
@@ -516,10 +511,29 @@
     .registers 2
 
     .prologue
-    .line 67
+    .line 69
     iget-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mShouldUpdate:Z
 
     return v0
+.end method
+
+.method public tick(J)V
+    .registers 4
+    .parameter "currentTime"
+
+    .prologue
+    .line 173
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lmiui/app/screenelement/RendererController;->mShouldUpdate:Z
+
+    .line 174
+    iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
+
+    invoke-interface {v0, p1, p2}, Lmiui/app/screenelement/RendererController$Listener;->tick(J)V
+
+    .line 175
+    return-void
 .end method
 
 .method public updateFramerate(J)V
@@ -527,11 +541,11 @@
     .parameter "time"
 
     .prologue
-    .line 110
+    .line 112
     iget-object v0, p0, Lmiui/app/screenelement/RendererController;->mListener:Lmiui/app/screenelement/RendererController$Listener;
 
     invoke-interface {v0, p1, p2}, Lmiui/app/screenelement/RendererController$Listener;->updateFramerate(J)V
 
-    .line 111
+    .line 113
     return-void
 .end method

@@ -116,28 +116,28 @@
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mSecurityHelper:Lmiui/security/ChooseLockSettingsHelper;
 
-    .line 657
+    .line 649
     new-instance v2, Lcom/android/internal/policy/impl/MiuiGlobalActions$5;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/MiuiGlobalActions$5;-><init>(Lcom/android/internal/policy/impl/MiuiGlobalActions;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 678
+    .line 670
     new-instance v2, Lcom/android/internal/policy/impl/MiuiGlobalActions$6;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/MiuiGlobalActions$6;-><init>(Lcom/android/internal/policy/impl/MiuiGlobalActions;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mPhoneStateListener:Landroid/telephony/PhoneStateListener;
 
-    .line 688
+    .line 680
     new-instance v2, Lcom/android/internal/policy/impl/MiuiGlobalActions$7;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/MiuiGlobalActions$7;-><init>(Lcom/android/internal/policy/impl/MiuiGlobalActions;)V
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mRingerModeReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 701
+    .line 693
     new-instance v2, Lcom/android/internal/policy/impl/MiuiGlobalActions$8;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/MiuiGlobalActions$8;-><init>(Lcom/android/internal/policy/impl/MiuiGlobalActions;)V
@@ -257,18 +257,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/os/Handler;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction;
+.method static synthetic access$1000(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction;
     .registers 2
     .parameter "x0"
 
@@ -279,7 +268,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1200(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
+.method static synthetic access$1100(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
     .registers 2
     .parameter "x0"
 
@@ -290,7 +279,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/app/AlertDialog;
+.method static synthetic access$1200(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/app/AlertDialog;
     .registers 2
     .parameter "x0"
 
@@ -336,18 +325,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$400(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/media/AudioManager;
-    .registers 2
-    .parameter "x0"
-
-    .prologue
-    .line 60
-    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAudioManager:Landroid/media/AudioManager;
-
-    return-object v0
-.end method
-
-.method static synthetic access$500(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
+.method static synthetic access$400(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
     .registers 2
     .parameter "x0"
 
@@ -358,7 +336,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Ljava/util/ArrayList;
+.method static synthetic access$600(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Ljava/util/ArrayList;
     .registers 2
     .parameter "x0"
 
@@ -369,7 +347,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Z
+.method static synthetic access$700(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Z
     .registers 2
     .parameter "x0"
 
@@ -380,7 +358,7 @@
     return v0
 .end method
 
-.method static synthetic access$900(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Z
+.method static synthetic access$800(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Z
     .registers 2
     .parameter "x0"
 
@@ -391,12 +369,23 @@
     return v0
 .end method
 
+.method static synthetic access$900(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/os/Handler;
+    .registers 2
+    .parameter "x0"
+
+    .prologue
+    .line 60
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
 .method private changeAirplaneModeSystemSetting(Z)V
     .registers 6
     .parameter "on"
 
     .prologue
-    .line 717
+    .line 709
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -412,33 +401,33 @@
     :goto_b
     invoke-static {v2, v3, v1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 721
+    .line 713
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.AIRPLANE_MODE"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 722
+    .line 714
     .local v0, intent:Landroid/content/Intent;
     const/high16 v1, 0x2000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 723
+    .line 715
     const-string v1, "state"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 724
+    .line 716
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 725
+    .line 717
     return-void
 
-    .line 717
+    .line 709
     .end local v0           #intent:Landroid/content/Intent;
     :cond_25
     const/4 v1, 0x0
@@ -509,14 +498,14 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mMuteToggle:Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;
 
-    .line 206
+    .line 198
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mItems:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mMuteToggle:Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 209
+    .line 201
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mItems:Ljava/util/ArrayList;
 
     new-instance v1, Lcom/android/internal/policy/impl/MiuiGlobalActions$3;
@@ -529,7 +518,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 228
+    .line 220
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mItems:Ljava/util/ArrayList;
 
     new-instance v1, Lcom/android/internal/policy/impl/MiuiGlobalActions$4;
@@ -542,7 +531,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 255
+    .line 247
     new-instance v0, Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
 
     const/4 v1, 0x0
@@ -551,7 +540,7 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAdapter:Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
 
-    .line 257
+    .line 249
     new-instance v7, Landroid/app/AlertDialog$Builder;
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
@@ -560,7 +549,7 @@
 
     invoke-direct {v7, v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    .line 259
+    .line 251
     .local v7, ab:Landroid/app/AlertDialog$Builder;
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAdapter:Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
 
@@ -570,12 +559,12 @@
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setInverseBackgroundForced(Z)Landroid/app/AlertDialog$Builder;
 
-    .line 262
+    .line 254
     invoke-virtual {v7}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v8
 
-    .line 263
+    .line 255
     .local v8, dialog:Landroid/app/AlertDialog;
     invoke-virtual {v8}, Landroid/app/AlertDialog;->getListView()Landroid/widget/ListView;
 
@@ -583,7 +572,7 @@
 
     invoke-virtual {v0, v9}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
-    .line 264
+    .line 256
     invoke-virtual {v8}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
@@ -592,10 +581,10 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
 
-    .line 266
+    .line 258
     invoke-virtual {v8, p0}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    .line 268
+    .line 260
     return-object v8
 .end method
 
@@ -603,7 +592,7 @@
     .registers 4
 
     .prologue
-    .line 272
+    .line 264
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v1}, Landroid/media/AudioManager;->getRingerMode()I
@@ -616,7 +605,7 @@
 
     const/4 v0, 0x1
 
-    .line 273
+    .line 265
     .local v0, silentModeOn:Z
     :goto_a
     if-eqz v0, :cond_12
@@ -626,14 +615,14 @@
     :goto_f
     return v1
 
-    .line 272
+    .line 264
     .end local v0           #silentModeOn:Z
     :cond_10
     const/4 v0, 0x0
 
     goto :goto_a
 
-    .line 273
+    .line 265
     .restart local v0       #silentModeOn:Z
     :cond_12
     const v1, 0x6020023
@@ -645,14 +634,14 @@
     .registers 4
 
     .prologue
-    .line 280
+    .line 272
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAirplaneModeOn:Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAirplaneState:Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction;->updateState(Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;)V
 
-    .line 281
+    .line 273
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mMuteToggle:Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->getMuteIconResId()I
@@ -661,17 +650,17 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;->setIcon(I)V
 
-    .line 282
+    .line 274
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAdapter:Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;->notifyDataSetChanged()V
 
-    .line 283
+    .line 275
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mKeyguardShowing:Z
 
     if-eqz v1, :cond_33
 
-    .line 284
+    .line 276
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
@@ -682,7 +671,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/Window;->setType(I)V
 
-    .line 289
+    .line 281
     :goto_24
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -690,7 +679,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    .line 290
+    .line 282
     .local v0, filter:Landroid/content/IntentFilter;
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
 
@@ -698,10 +687,10 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 292
+    .line 284
     return-void
 
-    .line 286
+    .line 278
     .end local v0           #filter:Landroid/content/IntentFilter;
     :cond_33
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mDialog:Landroid/app/AlertDialog;
@@ -725,7 +714,7 @@
     .parameter "which"
 
     .prologue
-    .line 304
+    .line 296
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAdapter:Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
 
     invoke-virtual {v0, p2}, Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;->getItem(I)Lcom/android/internal/policy/impl/MiuiGlobalActions$Action;
@@ -736,10 +725,10 @@
 
     if-nez v0, :cond_d
 
-    .line 305
+    .line 297
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    .line 307
+    .line 299
     :cond_d
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAdapter:Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
 
@@ -749,7 +738,7 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/MiuiGlobalActions$Action;->onPress()V
 
-    .line 308
+    .line 300
     return-void
 .end method
 
@@ -758,14 +747,14 @@
     .parameter "dialog"
 
     .prologue
-    .line 298
+    .line 290
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions;->mRingerModeReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 300
+    .line 292
     return-void
 .end method
 

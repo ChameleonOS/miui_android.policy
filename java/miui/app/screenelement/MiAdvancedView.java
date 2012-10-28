@@ -77,23 +77,30 @@ public class MiAdvancedView extends View
     }
 
     protected void onDraw(Canvas canvas) {
-        if(mThread != null && mThread.isStarted()) {
-            if(!mLoggedHardwareRender) {
-                Log.d("MiAdvancedView", (new StringBuilder()).append("canvas hardware render: ").append(canvas.isHardwareAccelerated()).toString());
-                mLoggedHardwareRender = true;
-            }
-            try {
-                mRoot.update(mRendererController.getLastUpdateTime(), canvas);
-            }
-            catch(Exception exception) {
-                exception.printStackTrace();
-                Log.e("MiAdvancedView", exception.toString());
-            }
-            catch(OutOfMemoryError outofmemoryerror) {
-                outofmemoryerror.printStackTrace();
-                Log.e("MiAdvancedView", outofmemoryerror.toString());
-            }
+        if(mThread != null && mThread.isStarted()) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        if(!mLoggedHardwareRender) {
+            Log.d("MiAdvancedView", (new StringBuilder()).append("canvas hardware render: ").append(canvas.isHardwareAccelerated()).toString());
+            mLoggedHardwareRender = true;
         }
+        ScreenElementRoot screenelementroot = mRoot;
+        screenelementroot;
+        JVM INSTR monitorenter ;
+        mRoot.render(canvas);
+        continue; /* Loop/switch isn't completed */
+        Exception exception;
+        exception;
+        exception.printStackTrace();
+        Log.e("MiAdvancedView", exception.toString());
+        continue; /* Loop/switch isn't completed */
+        OutOfMemoryError outofmemoryerror;
+        outofmemoryerror;
+        outofmemoryerror.printStackTrace();
+        Log.e("MiAdvancedView", outofmemoryerror.toString());
+        if(true) goto _L1; else goto _L3
+_L3:
     }
 
     protected void onLayout(boolean flag, int i, int j, int k, int l) {
@@ -168,6 +175,14 @@ _L2:
             onPause();
         if(true) goto _L4; else goto _L3
 _L3:
+    }
+
+    public void tick(long l) {
+        ScreenElementRoot screenelementroot = mRoot;
+        screenelementroot;
+        JVM INSTR monitorenter ;
+        mRoot.tick(l);
+        return;
     }
 
     public void updateFramerate(long l) {

@@ -156,10 +156,13 @@ _L2:
         RendererController renderercontroller;
         for(Iterator iterator = mRendererControllerList.iterator(); iterator.hasNext(); renderercontroller.requestUpdate()) {
             renderercontroller = (RendererController)iterator.next();
-            renderercontroller.doRender();
+            if(mPaused) {
+                renderercontroller.tick(0L);
+                renderercontroller.doRender();
+            }
         }
 
-        break MISSING_BLOCK_LABEL_64;
+        break MISSING_BLOCK_LABEL_77;
         Exception exception;
         exception;
         throw exception;
@@ -291,12 +294,13 @@ _L11:
         renderercontroller.setCurFramerate(f1);
         Log.d("RenderThread", (new StringBuilder()).append("framerate changed: ").append(f1).append(" at time: ").append(l).toString());
         if(f1 == 0.0F)
-            break MISSING_BLOCK_LABEL_429;
+            break MISSING_BLOCK_LABEL_436;
         f2 = 1000F / f1;
 _L14:
         renderercontroller.setFrameTime((int)f2);
 _L12:
         if(!renderercontroller.pendingRender() && (l - renderercontroller.getLastUpdateTime() > (long)renderercontroller.getFrameTime() || renderercontroller.shouldUpdate() || flag2)) {
+            renderercontroller.tick(l);
             renderercontroller.doRender();
             renderercontroller.setLastUpdateTime(l);
             flag1 = true;

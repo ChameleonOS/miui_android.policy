@@ -10,7 +10,7 @@ import android.view.*;
 import com.android.internal.policy.IPolicy;
 
 // Referenced classes of package com.android.internal.policy.impl:
-//            MiuiClassFactory, PhoneLayoutInflater, PhoneWindow
+//            MiuiPhoneFallbackEventHandler, PhoneLayoutInflater, PhoneWindow, MiuiPhoneWindowManager
 
 public class Policy
     implements IPolicy {
@@ -19,7 +19,7 @@ public class Policy
     }
 
     public FallbackEventHandler makeNewFallbackEventHandler(Context context) {
-        return MiuiClassFactory.createPhoneFallbackEventHandler(context);
+        return new MiuiPhoneFallbackEventHandler(context);
     }
 
     public LayoutInflater makeNewLayoutInflater(Context context) {
@@ -31,7 +31,7 @@ public class Policy
     }
 
     public WindowManagerPolicy makeNewWindowManager() {
-        return MiuiClassFactory.createPhoneWindowManager();
+        return new MiuiPhoneWindowManager();
     }
 
     private static final String TAG = "PhonePolicy";

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 3576
+    .line 3604
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 3578
+    .line 3606
     const-string v1, "android.intent.action.DOCK_EVENT"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -53,7 +53,7 @@
 
     if-eqz v1, :cond_23
 
-    .line 3579
+    .line 3607
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     const-string v2, "android.intent.extra.DOCK_STATE"
@@ -66,7 +66,7 @@
 
     iput v2, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mDockMode:I
 
-    .line 3589
+    .line 3617
     :goto_17
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -74,15 +74,15 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateRotation(Z)V
 
-    .line 3590
+    .line 3618
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->updateOrientationListenerLp()V
 
-    .line 3591
+    .line 3619
     return-void
 
-    .line 3583
+    .line 3611
     :cond_23
     :try_start_23
     const-string v1, "uimode"
@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    .line 3585
+    .line 3613
     .local v0, uiModeService:Landroid/app/IUiModeManager;
     iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$12;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -109,7 +109,7 @@
 
     goto :goto_17
 
-    .line 3586
+    .line 3614
     .end local v0           #uiModeService:Landroid/app/IUiModeManager;
     :catch_36
     move-exception v1

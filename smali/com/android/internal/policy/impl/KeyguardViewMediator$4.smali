@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 1013
+    .line 1026
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -43,72 +43,72 @@
 
     const/4 v0, 0x1
 
-    .line 1016
+    .line 1029
     iget v2, p1, Landroid/os/Message;->what:I
 
     packed-switch v2, :pswitch_data_72
 
-    .line 1059
+    .line 1072
     :goto_7
     return-void
 
-    .line 1018
+    .line 1031
     :pswitch_8
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleTimeout(I)V
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$900(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1100(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
     goto :goto_7
 
-    .line 1021
+    .line 1034
     :pswitch_10
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleShow()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1000(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
-
-    goto :goto_7
-
-    .line 1024
-    :pswitch_16
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
-
-    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleHide()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1100(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
-
-    goto :goto_7
-
-    .line 1027
-    :pswitch_1c
-    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
-
-    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleReset()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1200(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
 
     goto :goto_7
 
-    .line 1030
-    :pswitch_22
+    .line 1037
+    :pswitch_16
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
-    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleVerifyUnlock()V
+    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleHide()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1300(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
 
     goto :goto_7
 
-    .line 1033
-    :pswitch_28
+    .line 1040
+    :pswitch_1c
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
-    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleNotifyScreenOff()V
+    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleReset()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1400(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
 
     goto :goto_7
 
-    .line 1036
+    .line 1043
+    :pswitch_22
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+
+    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleVerifyUnlock()V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1500(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
+
+    goto :goto_7
+
+    .line 1046
+    :pswitch_28
+    iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
+
+    #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleNotifyScreenOff()V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1600(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
+
+    goto :goto_7
+
+    .line 1049
     :pswitch_2e
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -117,22 +117,22 @@
     check-cast v0, Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleNotifyScreenOn(Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;)V
-    invoke-static {v1, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1500(Lcom/android/internal/policy/impl/KeyguardViewMediator;Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;)V
+    invoke-static {v1, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1700(Lcom/android/internal/policy/impl/KeyguardViewMediator;Lcom/android/internal/policy/impl/KeyguardViewManager$ShowListener;)V
 
     goto :goto_7
 
-    .line 1039
+    .line 1052
     :pswitch_38
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleWakeWhenReady(I)V
-    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1600(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
+    invoke-static {v0, v1}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1800(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
     goto :goto_7
 
-    .line 1042
+    .line 1055
     :pswitch_40
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -142,7 +142,7 @@
 
     :goto_46
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleKeyguardDone(Z)V
-    invoke-static {v2, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1700(Lcom/android/internal/policy/impl/KeyguardViewMediator;Z)V
+    invoke-static {v2, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1900(Lcom/android/internal/policy/impl/KeyguardViewMediator;Z)V
 
     goto :goto_7
 
@@ -151,16 +151,16 @@
 
     goto :goto_46
 
-    .line 1045
+    .line 1058
     :pswitch_4c
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleKeyguardDoneDrawing()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1800(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$2000(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
 
     goto :goto_7
 
-    .line 1048
+    .line 1061
     :pswitch_52
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -168,7 +168,7 @@
 
     goto :goto_7
 
-    .line 1051
+    .line 1064
     :pswitch_58
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
@@ -178,7 +178,7 @@
 
     :goto_5e
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->handleSetHidden(Z)V
-    invoke-static {v2, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$1900(Lcom/android/internal/policy/impl/KeyguardViewMediator;Z)V
+    invoke-static {v2, v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$2100(Lcom/android/internal/policy/impl/KeyguardViewMediator;Z)V
 
     goto :goto_7
 
@@ -187,20 +187,20 @@
 
     goto :goto_5e
 
-    .line 1054
+    .line 1067
     :pswitch_64
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     monitor-enter v1
 
-    .line 1055
+    .line 1068
     :try_start_67
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$4;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->doKeyguardLocked()V
-    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$500(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
+    invoke-static {v0}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$700(Lcom/android/internal/policy/impl/KeyguardViewMediator;)V
 
-    .line 1056
+    .line 1069
     monitor-exit v1
 
     goto :goto_7
@@ -214,7 +214,7 @@
 
     throw v0
 
-    .line 1016
+    .line 1029
     nop
 
     :pswitch_data_72

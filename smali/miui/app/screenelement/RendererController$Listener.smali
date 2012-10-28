@@ -30,5 +30,8 @@
 .method public abstract resume()V
 .end method
 
+.method public abstract tick(J)V
+.end method
+
 .method public abstract updateFramerate(J)V
 .end method

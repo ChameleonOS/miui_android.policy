@@ -28,6 +28,39 @@ import miui.view.inputmethod.CustomizedImeForMiui;
 
 public class PasswordUnlockScreen extends LinearLayout
     implements KeyguardScreen, android.widget.TextView.OnEditorActionListener, android.view.View.OnKeyListener {
+    static class Injector {
+
+        static void clearPinLockForFindDevice(PasswordUnlockScreen passwordunlockscreen, String s) {
+            if(passwordunlockscreen.mIsLockByFindDevice) {
+                passwordunlockscreen.getLockPatternUtils().clearLock(false);
+                android.provider.Settings.Secure.putInt(passwordunlockscreen.getContext().getContentResolver(), miui.provider.ExtraSettings.Secure.FIND_DEVICE_PIN_LOCK, 0);
+                passwordunlockscreen.mIsLockByFindDevice = false;
+            } else {
+                KeyStore.getInstance().password(s);
+            }
+        }
+
+        static void hideKeyBoardViewIfNeed(PasswordUnlockScreen passwordunlockscreen) {
+            if(CustomizedImeForMiui.defaultImeIsCustomizedForMiui(passwordunlockscreen.getContext().getContentResolver()))
+                passwordunlockscreen.getKeyboardView().setVisibility(8);
+        }
+
+        static void initLockByFindDevice(PasswordUnlockScreen passwordunlockscreen) {
+            boolean flag = true;
+            if(android.provider.Settings.Secure.getInt(passwordunlockscreen.getContext().getContentResolver(), miui.provider.ExtraSettings.Secure.FIND_DEVICE_PIN_LOCK, 0) != flag)
+                flag = false;
+            passwordunlockscreen.mIsLockByFindDevice = flag;
+        }
+
+        static void initialize(PasswordUnlockScreen passwordunlockscreen) {
+            initLockByFindDevice(passwordunlockscreen);
+            hideKeyBoardViewIfNeed(passwordunlockscreen);
+        }
+
+        Injector() {
+        }
+    }
+
 
     public PasswordUnlockScreen(Context context, Configuration configuration, LockPatternUtils lockpatternutils, KeyguardUpdateMonitor keyguardupdatemonitor, KeyguardScreenCallback keyguardscreencallback) {
         super(context);
@@ -160,18 +193,7 @@ public class PasswordUnlockScreen extends LinearLayout
                 mPasswordEntry.setLayoutParams(layoutparams);
             }
         }
-        initLockByFindDevice();
-        hideKeyBoardViewIfNeed();
-    }
-
-    private void clearPinLockForFindDevice(String s) {
-        if(mIsLockByFindDevice) {
-            mLockPatternUtils.clearLock(false);
-            android.provider.Settings.Secure.putInt(mContext.getContentResolver(), miui.provider.ExtraSettings.Secure.FIND_DEVICE_PIN_LOCK, 0);
-            mIsLockByFindDevice = false;
-        } else {
-            KeyStore.getInstance().password(s);
-        }
+        Injector.initialize(this);
     }
 
     private void handleAttemptLockout(long l) {
@@ -244,18 +266,6 @@ _L2:
           goto _L1
     }
 
-    private void hideKeyBoardViewIfNeed() {
-        if(CustomizedImeForMiui.defaultImeIsCustomizedForMiui(getContext().getContentResolver()))
-            mKeyboardView.setVisibility(8);
-    }
-
-    private void initLockByFindDevice() {
-        boolean flag = true;
-        if(android.provider.Settings.Secure.getInt(mContext.getContentResolver(), miui.provider.ExtraSettings.Secure.FIND_DEVICE_PIN_LOCK, 0) != flag)
-            flag = false;
-        mIsLockByFindDevice = flag;
-    }
-
     private void verifyPasswordAndUnlock() {
         String s = mPasswordEntry.getText().toString();
         if(!mLockPatternUtils.checkPassword(s)) goto _L2; else goto _L1
@@ -263,7 +273,7 @@ _L1:
         mCallback.keyguardDone(true);
         mCallback.reportSuccessfulUnlockAttempt();
         mStatusViewManager.setInstructionText(null);
-        clearPinLockForFindDevice(s);
+        Injector.clearPinLockForFindDevice(this, s);
 _L4:
         mPasswordEntry.setText("");
         return;
@@ -282,6 +292,14 @@ _L3:
 
     public void cleanUp() {
         mUpdateMonitor.removeCallback(this);
+    }
+
+    PasswordEntryKeyboardView getKeyboardView() {
+        return mKeyboardView;
+    }
+
+    LockPatternUtils getLockPatternUtils() {
+        return mLockPatternUtils;
     }
 
     public boolean isAlphaOrDefaultImeIsCustomizedForMiui() {
@@ -370,7 +388,7 @@ _L3:
     private final int mCreationHardKeyboardHidden;
     private final int mCreationOrientation;
     private final boolean mIsAlpha;
-    private boolean mIsLockByFindDevice;
+    boolean mIsLockByFindDevice;
     private final PasswordEntryKeyboardHelper mKeyboardHelper;
     private final PasswordEntryKeyboardView mKeyboardView = (PasswordEntryKeyboardView)findViewById(0x1020214);
     private final LockPatternUtils mLockPatternUtils;

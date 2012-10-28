@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 688
+    .line 680
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$7;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +40,7 @@
     .parameter "intent"
 
     .prologue
-    .line 691
+    .line 683
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -53,11 +53,11 @@
 
     if-eqz v0, :cond_16
 
-    .line 692
+    .line 684
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$7;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mHandler:Landroid/os/Handler;
-    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$1000(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$900(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -65,7 +65,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    .line 694
+    .line 686
     :cond_16
     return-void
 .end method

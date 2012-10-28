@@ -281,7 +281,7 @@
     return-object v0
 .end method
 
-.method protected handleCameraKeyEvent()V
+.method handleCameraKeyEvent()V
     .registers 1
     .annotation build Landroid/annotation/MiuiHook;
         value = .enum Landroid/annotation/MiuiHook$MiuiHookType;->NEW_METHOD:Landroid/annotation/MiuiHook$MiuiHookType;

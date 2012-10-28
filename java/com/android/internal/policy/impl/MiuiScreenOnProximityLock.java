@@ -69,7 +69,7 @@ _L3:
         public void onSensorChanged(SensorEvent sensorevent) {
             boolean flag = false;
             float f = sensorevent.values[0];
-            if((double)f >= 0.0D && f < 2.0F && f < mSensor.getMaximumRange())
+            if((double)f >= 0.0D && f < 4F && f < mSensor.getMaximumRange())
                 flag = true;
             mIsTooClose = flag;
             handleChanges();
@@ -280,7 +280,7 @@ _L3:
     private static final int EVENT_TOO_CLOSE = 1;
     private static final int FIRST_CHANGE_TIMEOUT = 1000;
     private static final String LOG_TAG = "MiuiScreenOnProximityLock";
-    private static final float PROXIMITY_THRESHOLD = 2F;
+    private static final float PROXIMITY_THRESHOLD = 4F;
     private static final int RELEASE_DELAY = 300;
     private static int sValidChangeDelay;
     private Context mContext;

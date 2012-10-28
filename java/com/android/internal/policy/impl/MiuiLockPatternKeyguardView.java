@@ -29,7 +29,7 @@ public class MiuiLockPatternKeyguardView extends LockPatternKeyguardView {
         implements KeyguardScreenCallback {
 
         public void goToUnlockScreen() {
-            if(!stuckOnLockScreenBecauseSimMissing())
+            if(!callStuckOnLockScreenBecauseSimMissing())
                 if(!isSecure())
                     keyguardDone(true);
                 else
@@ -91,7 +91,7 @@ public class MiuiLockPatternKeyguardView extends LockPatternKeyguardView {
     }
 
     private void updateShowLockBeforeUnlock() {
-        super.mShowLockBeforeUnlock = miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "show_lock_before_unlock", true);
+        setShowLockBeforeUnlock(miui.provider.ExtraSettings.System.getBoolean(super.mContext.getContentResolver(), "show_lock_before_unlock", true));
     }
 
     private void updateTorchCover(boolean flag) {
@@ -168,23 +168,13 @@ _L5:
 _L7:
     }
 
-    LockPatternKeyguardView.Mode getInitialMode() {
-        updateShowLockBeforeUnlock();
-        return super.getInitialMode();
-    }
-
     public boolean isDisplayDesktop() {
         boolean flag;
-        if(super.mLockScreen instanceof AwesomeLockScreen)
-            flag = ((AwesomeLockScreen)super.mLockScreen).isDisplayDesktop();
+        if(getLockScreen() instanceof AwesomeLockScreen)
+            flag = ((AwesomeLockScreen)getLockScreen()).isDisplayDesktop();
         else
             flag = false;
         return flag;
-    }
-
-    void maybeStartBiometricUnlock() {
-        if(super.mMode != LockPatternKeyguardView.Mode.LockScreen)
-            super.maybeStartBiometricUnlock();
     }
 
     protected void onAttachedToWindow() {
@@ -206,24 +196,13 @@ _L7:
 
     public void onScreenTurnedOff() {
         super.onScreenTurnedOff();
-        super.mMode = getInitialMode();
-    }
-
-    protected void recreateLockScreen() {
-        if(super.mMode != LockPatternKeyguardView.Mode.LockScreen || super.mLockScreen == null || !(super.mLockScreen instanceof AwesomeLockScreen))
-            super.recreateLockScreen();
+        setMode(callGetInitialMode());
     }
 
     public void show() {
-        super.mScreenOn = true;
+        setScreenOn(true);
         updateTorchCover(false);
         super.show();
-    }
-
-    protected void updateScreen(LockPatternKeyguardView.Mode mode, boolean flag) {
-        super.updateScreen(mode, flag);
-        if(super.mScreenOn)
-            maybeStartBiometricUnlock();
     }
 
     private boolean mBackDown;

@@ -24,7 +24,7 @@
     .parameter
 
     .prologue
-    .line 804
+    .line 818
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$2;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,12 +42,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 807
+    .line 821
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 808
+    .line 822
     .local v0, action:Ljava/lang/String;
     const-string v1, "android.intent.action.USER_SWITCHED"
 
@@ -57,7 +57,7 @@
 
     if-eqz v1, :cond_19
 
-    .line 809
+    .line 823
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$2;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     const-string v2, "android.intent.extra.user_id"
@@ -67,14 +67,14 @@
     move-result v2
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->onUserSwitched(I)V
-    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$100(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
+    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$300(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
-    .line 813
+    .line 827
     :cond_18
     :goto_18
     return-void
 
-    .line 810
+    .line 824
     :cond_19
     const-string v1, "android.intent.action.USER_REMOVED"
 
@@ -84,7 +84,7 @@
 
     if-eqz v1, :cond_18
 
-    .line 811
+    .line 825
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewMediator$2;->this$0:Lcom/android/internal/policy/impl/KeyguardViewMediator;
 
     const-string v2, "android.intent.extra.user_id"
@@ -94,7 +94,7 @@
     move-result v2
 
     #calls: Lcom/android/internal/policy/impl/KeyguardViewMediator;->onUserRemoved(I)V
-    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$200(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
+    invoke-static {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewMediator;->access$400(Lcom/android/internal/policy/impl/KeyguardViewMediator;I)V
 
     goto :goto_18
 .end method

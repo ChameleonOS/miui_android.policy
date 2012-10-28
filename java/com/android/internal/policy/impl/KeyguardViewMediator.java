@@ -18,7 +18,7 @@ import android.view.WindowManagerImpl;
 import com.android.internal.widget.LockPatternUtils;
 
 // Referenced classes of package com.android.internal.policy.impl:
-//            KeyguardViewCallback, KeyguardUpdateMonitor, MiuiClassFactory, KeyguardViewManager, 
+//            KeyguardViewCallback, KeyguardUpdateMonitor, MiuiLockPatternKeyguardViewProperties, KeyguardViewManager, 
 //            KeyguardViewProperties, PhoneWindowManager
 
 public class KeyguardViewMediator
@@ -206,7 +206,7 @@ _L15:
         mUpdateMonitor.registerInfoCallback(mInfoCallback);
         mUpdateMonitor.registerSimStateCallback(this);
         mLockPatternUtils = new LockPatternUtils(mContext);
-        mKeyguardViewProperties = MiuiClassFactory.createKeyguardViewProperties(mLockPatternUtils, mUpdateMonitor);
+        mKeyguardViewProperties = new MiuiLockPatternKeyguardViewProperties(mLockPatternUtils, mUpdateMonitor);
         mKeyguardViewManager = new KeyguardViewManager(context, WindowManagerImpl.getDefault(), this, mKeyguardViewProperties, mUpdateMonitor);
         mUserPresentIntent = new Intent("android.intent.action.USER_PRESENT");
         mUserPresentIntent.addFlags(0x28000000);
@@ -236,6 +236,44 @@ _L15:
         intentfilter1.addAction("android.intent.action.USER_SWITCHED");
         intentfilter1.addAction("android.intent.action.USER_REMOVED");
         mContext.registerReceiver(mUserChangeReceiver, intentfilter1);
+    }
+
+    private void adjustStatusBarLocked() {
+        if(mStatusBarManager == null)
+            mStatusBarManager = (StatusBarManager)mContext.getSystemService("statusbar");
+        if(mStatusBarManager != null) goto _L2; else goto _L1
+_L1:
+        Log.w("KeyguardViewMediator", "Could not get status bar manager");
+_L7:
+        postAdjustStatusBarLocked();
+        return;
+_L2:
+        if(!mShowLockIcon) goto _L4; else goto _L3
+_L3:
+        if(!mShowing || !isSecure()) goto _L6; else goto _L5
+_L5:
+        if(!mShowingLockIcon) {
+            String s = mContext.getString(0x10404f6);
+            mStatusBarManager.setIcon("secure", 0x108054b, 0, s);
+            mShowingLockIcon = true;
+        }
+_L4:
+        int i = 0;
+        if(mShowing) {
+            i = 0 | 0x1000000;
+            if(isSecure())
+                i |= 0x10000;
+            if(isSecure())
+                i |= 0x80000;
+        }
+        mStatusBarManager.disable(i);
+        if(true) goto _L7; else goto _L6
+_L6:
+        if(mShowingLockIcon) {
+            mStatusBarManager.removeIcon("secure");
+            mShowingLockIcon = false;
+        }
+          goto _L4
     }
 
     private void adjustUserActivityLocked() {
@@ -405,6 +443,41 @@ _L3:
         mHandler.sendMessage(message);
     }
 
+    private boolean isWakeKeyWhenKeyguardShowing(int i, boolean flag) {
+        i;
+        JVM INSTR lookupswitch 15: default 132
+    //                   24: 134
+    //                   25: 134
+    //                   27: 136
+    //                   79: 136
+    //                   85: 136
+    //                   86: 136
+    //                   87: 136
+    //                   88: 136
+    //                   89: 136
+    //                   90: 136
+    //                   91: 136
+    //                   126: 136
+    //                   127: 136
+    //                   130: 136
+    //                   164: 134;
+           goto _L1 _L2 _L2 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L2
+_L2:
+        break; /* Loop/switch isn't completed */
+_L1:
+        flag = true;
+_L5:
+        return flag;
+_L3:
+        flag = false;
+        if(true) goto _L5; else goto _L4
+_L4:
+    }
+
+    private void notifyScreenOffLocked() {
+        mHandler.sendEmptyMessage(6);
+    }
+
     private void notifyScreenOnLocked(KeyguardViewManager.ShowListener showlistener) {
         Message message = mHandler.obtainMessage(7, showlistener);
         mHandler.sendMessage(message);
@@ -487,47 +560,22 @@ _L2:
         mHandler.sendMessage(message);
     }
 
-    void adjustStatusBarLocked() {
-        if(mStatusBarManager == null)
-            mStatusBarManager = (StatusBarManager)mContext.getSystemService("statusbar");
-        if(mStatusBarManager != null) goto _L2; else goto _L1
-_L1:
-        Log.w("KeyguardViewMediator", "Could not get status bar manager");
-_L7:
-        return;
-_L2:
-        if(!mShowLockIcon) goto _L4; else goto _L3
-_L3:
-        if(!mShowing || !isSecure()) goto _L6; else goto _L5
-_L5:
-        if(!mShowingLockIcon) {
-            String s = mContext.getString(0x10404f6);
-            mStatusBarManager.setIcon("secure", 0x108054b, 0, s);
-            mShowingLockIcon = true;
-        }
-_L4:
-        int i = 0;
-        if(mShowing) {
-            i = 0 | 0x1000000;
-            if(isSecure())
-                i |= 0x10000;
-            if(isSecure())
-                i |= 0x80000;
-        }
-        mStatusBarManager.disable(i);
-        if(true) goto _L7; else goto _L6
-_L6:
-        if(mShowingLockIcon) {
-            mStatusBarManager.removeIcon("secure");
-            mShowingLockIcon = false;
-        }
-          goto _L4
+    void callNotifyScreenOffLocked() {
+        notifyScreenOffLocked();
     }
 
     public void doKeyguardTimeout() {
         mHandler.removeMessages(13);
         Message message = mHandler.obtainMessage(13);
         mHandler.sendMessage(message);
+    }
+
+    Context getContext() {
+        return mContext;
+    }
+
+    StatusBarManager getStatusBarManager() {
+        return mStatusBarManager;
     }
 
     public boolean isInputRestricted() {
@@ -554,37 +602,6 @@ _L6:
         else
             flag = false;
         return flag;
-    }
-
-    boolean isWakeKeyWhenKeyguardShowing(int i, boolean flag) {
-        i;
-        JVM INSTR lookupswitch 15: default 132
-    //                   24: 134
-    //                   25: 134
-    //                   27: 136
-    //                   79: 136
-    //                   85: 136
-    //                   86: 136
-    //                   87: 136
-    //                   88: 136
-    //                   89: 136
-    //                   90: 136
-    //                   91: 136
-    //                   126: 136
-    //                   127: 136
-    //                   130: 136
-    //                   164: 134;
-           goto _L1 _L2 _L2 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L3 _L2
-_L2:
-        break; /* Loop/switch isn't completed */
-_L1:
-        flag = true;
-_L5:
-        return flag;
-_L3:
-        flag = false;
-        if(true) goto _L5; else goto _L4
-_L4:
     }
 
     public void keyguardDone(boolean flag) {
@@ -616,10 +633,6 @@ _L4:
 
     public void keyguardDoneDrawing() {
         mHandler.sendEmptyMessage(10);
-    }
-
-    void notifyScreenOffLocked() {
-        mHandler.sendEmptyMessage(6);
     }
 
     public void onScreenTurnedOff(int i) {
@@ -834,6 +847,9 @@ _L16:
         return;
     }
 
+    void postAdjustStatusBarLocked() {
+    }
+
     public void setHidden(boolean flag) {
         mHandler.removeMessages(12);
         Handler handler = mHandler;
@@ -944,7 +960,7 @@ _L1:
     private AudioManager mAudioManager;
     private BroadcastReceiver mBroadCastReceiver;
     private PhoneWindowManager mCallback;
-    Context mContext;
+    private Context mContext;
     private int mDelayedShowingSequence;
     private android.view.WindowManagerPolicy.OnKeyguardExitResult mExitSecureCallback;
     private boolean mExternallyEnabled;
@@ -968,7 +984,7 @@ _L1:
     private boolean mShowLockIcon;
     private boolean mShowing;
     private boolean mShowingLockIcon;
-    StatusBarManager mStatusBarManager;
+    private StatusBarManager mStatusBarManager;
     private boolean mSuppressNextLockSound;
     private boolean mSystemReady;
     private int mUnlockSoundId;
@@ -995,8 +1011,12 @@ _L1:
 
 
 
+
+
+
+
 /*
-    static boolean access$402(KeyguardViewMediator keyguardviewmediator, boolean flag) {
+    static boolean access$602(KeyguardViewMediator keyguardviewmediator, boolean flag) {
         keyguardviewmediator.mSuppressNextLockSound = flag;
         return flag;
     }
@@ -1007,13 +1027,11 @@ _L1:
 
 
 /*
-    static String access$602(KeyguardViewMediator keyguardviewmediator, String s) {
+    static String access$802(KeyguardViewMediator keyguardviewmediator, String s) {
         keyguardviewmediator.mPhoneState = s;
         return s;
     }
 
 */
-
-
 
 }

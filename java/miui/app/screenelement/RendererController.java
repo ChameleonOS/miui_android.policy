@@ -22,6 +22,8 @@ public class RendererController {
 
         public abstract void resume();
 
+        public abstract void tick(long l);
+
         public abstract void updateFramerate(long l);
     }
 
@@ -39,7 +41,6 @@ public class RendererController {
 
     public void doRender() {
         mPendingRender = true;
-        mShouldUpdate = false;
         mListener.doRender();
     }
 
@@ -160,6 +161,11 @@ _L1:
 
     public boolean shouldUpdate() {
         return mShouldUpdate;
+    }
+
+    public void tick(long l) {
+        mShouldUpdate = false;
+        mListener.tick(l);
     }
 
     public void updateFramerate(long l) {

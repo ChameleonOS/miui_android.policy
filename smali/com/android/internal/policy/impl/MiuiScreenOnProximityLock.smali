@@ -26,7 +26,7 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "MiuiScreenOnProximityLock"
 
-.field private static final PROXIMITY_THRESHOLD:F = 2.0f
+.field private static final PROXIMITY_THRESHOLD:F = 4.0f
 
 .field private static final RELEASE_DELAY:I = 0x12c
 

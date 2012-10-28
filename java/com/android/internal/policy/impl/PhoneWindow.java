@@ -499,14 +499,6 @@ _L3:
         }
 
 
-        private void drawRoundedCorners(Canvas canvas) {
-            if(getAttributes().type <= 99 && mFrameOffsets.left == 0 && mFrameOffsets.right == 0 && mFrameOffsets.bottom == 0) {
-                if(mRoundedCorners == null)
-                    mRoundedCorners = new RoundedCorners(mContext);
-                mRoundedCorners.draw(canvas, mDrawingBounds.left, mDrawingBounds.top + mFrameOffsets.top, mDrawingBounds.right, mDrawingBounds.bottom);
-            }
-        }
-
         private void drawableChanged() {
             if(!mChanging) goto _L2; else goto _L1
 _L1:
@@ -556,7 +548,7 @@ _L3:
 
         protected void dispatchDraw(Canvas canvas) {
             super.dispatchDraw(canvas);
-            drawRoundedCorners(canvas);
+            Injector.drawRoundedCorners(PhoneWindow.this, this, canvas, mFrameOffsets, mDrawingBounds);
         }
 
         public boolean dispatchGenericMotionEvent(MotionEvent motionevent) {
@@ -1090,7 +1082,7 @@ _L3:
         private final Rect mFrameOffsets = new Rect();
         private final Rect mFramePadding = new Rect();
         private Drawable mMenuBackground;
-        private RoundedCorners mRoundedCorners;
+        RoundedCorners mRoundedCorners;
         private Runnable mShowActionModePopup;
         private boolean mWatchingForMenu;
         final PhoneWindow this$0;
@@ -1193,6 +1185,37 @@ _L3:
 
 
         WindowManagerHolder() {
+        }
+    }
+
+    static class Injector {
+
+        static void drawRoundedCorners(PhoneWindow phonewindow, DecorView decorview, Canvas canvas, Rect rect, Rect rect1) {
+            if(phonewindow.getAttributes().type <= 99 && rect.left == 0 && rect.right == 0 && rect.bottom == 0) {
+                if(decorview.mRoundedCorners == null)
+                    decorview.mRoundedCorners = new RoundedCorners(phonewindow.getContext());
+                decorview.mRoundedCorners.draw(canvas, rect1.left, rect1.top + rect.top, rect1.right, rect1.bottom);
+            }
+        }
+
+        static void handleIcsAppLayoutParams(PhoneWindow phonewindow, WindowManager windowmanager, android.view.WindowManager.LayoutParams layoutparams) {
+            int i = -2;
+            boolean flag;
+            if(phonewindow.getContext().getApplicationInfo().targetSdkVersion >= 14)
+                flag = true;
+            else
+                flag = false;
+            if(flag) {
+                int j = windowmanager.getDefaultDisplay().getRotation();
+                if(j != 0 && j != 2)
+                    i = -1;
+                layoutparams.height = i;
+                layoutparams.flags = 2 | layoutparams.flags;
+                layoutparams.dimAmount = 0.7F;
+            }
+        }
+
+        Injector() {
         }
     }
 
@@ -1411,23 +1434,6 @@ _L5:
         return imageview;
     }
 
-    private void handleIcsAppLayoutParams(WindowManager windowmanager, android.view.WindowManager.LayoutParams layoutparams) {
-        int i = -2;
-        boolean flag;
-        if(getContext().getApplicationInfo().targetSdkVersion >= 14)
-            flag = true;
-        else
-            flag = false;
-        if(flag) {
-            int j = windowmanager.getDefaultDisplay().getRotation();
-            if(j != 0 && j != 2)
-                i = -1;
-            layoutparams.height = i;
-            layoutparams.flags = 2 | layoutparams.flags;
-            layoutparams.dimAmount = 0.7F;
-        }
-    }
-
     private void hideProgressBars(ProgressBar progressbar, ProgressBar progressbar1) {
         int i = getLocalFeatures();
         Animation animation = AnimationUtils.loadAnimation(getContext(), 0x10a0001);
@@ -1623,7 +1629,7 @@ _L10:
             layoutparams1.gravity = panelfeaturestate.gravity;
         }
         layoutparams1.windowAnimations = panelfeaturestate.windowAnimations;
-        handleIcsAppLayoutParams(windowmanager, layoutparams1);
+        Injector.handleIcsAppLayoutParams(this, windowmanager, layoutparams1);
         windowmanager.addView(panelfeaturestate.decorView, layoutparams1);
           goto _L1
 _L7:

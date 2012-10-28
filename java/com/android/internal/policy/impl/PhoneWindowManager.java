@@ -26,7 +26,7 @@ import com.android.internal.widget.PointerLocationView;
 import java.io.*;
 
 // Referenced classes of package com.android.internal.policy.impl:
-//            KeyguardViewMediator, MiuiClassFactory, ShortcutManager, MiuiGlobalActions, 
+//            KeyguardViewMediator, MiuiKeyguardViewMediator, ShortcutManager, MiuiGlobalActions, 
 //            RecentApplicationsDialog
 
 public class PhoneWindowManager
@@ -196,6 +196,31 @@ _L6:
         public PointerLocationInputEventReceiver(InputChannel inputchannel, Looper looper, PointerLocationView pointerlocationview) {
             super(inputchannel, looper);
             mView = pointerlocationview;
+        }
+    }
+
+    static class Injector {
+
+        static boolean getNeedsMenuLw(android.view.WindowManagerPolicy.WindowState windowstate, android.view.WindowManagerPolicy.WindowState windowstate1) {
+            return true;
+        }
+
+        static void performReleaseHapticFeedback(PhoneWindowManager phonewindowmanager, KeyEvent keyevent, int i) {
+            boolean flag;
+            if(keyevent.getAction() == 0)
+                flag = true;
+            else
+                flag = false;
+            if(!flag && (i & 0x100) != 0 && keyevent.getRepeatCount() == 0)
+                phonewindowmanager.performHapticFeedbackLw(null, 2, false);
+        }
+
+        static void sendPowerUpBroadcast(PhoneWindowManager phonewindowmanager) {
+            if(phonewindowmanager.getContext() != null)
+                phonewindowmanager.getContext().sendBroadcast(new Intent("android.intent.action.KEYCODE_POWER_UP"));
+        }
+
+        Injector() {
         }
     }
 
@@ -516,6 +541,16 @@ _L3:
             mHandler.postDelayed(mPowerLongPress, ViewConfiguration.getGlobalActionKeyTimeout());
     }
 
+    private boolean interceptPowerKeyUp(boolean flag) {
+        boolean flag1 = false;
+        if(!mPowerKeyHandled) {
+            mHandler.removeCallbacks(mPowerLongPress);
+            if(!flag)
+                flag1 = true;
+        }
+        return flag1;
+    }
+
     private void interceptScreenshotChord() {
         if(mScreenshotChordEnabled && mVolumeDownKeyTriggered && mPowerKeyTriggered && !mVolumeUpKeyTriggered) {
             long l = SystemClock.uptimeMillis();
@@ -777,11 +812,12 @@ _L1:
         } else {
             final int visibility = mFocusedWindow.getSystemUiVisibility() & (-1 ^ mResettingSystemUiFlags) & (-1 ^ mForceClearedSystemUiFlags);
             i = visibility ^ mLastSystemUiFlags;
-            if(i == 0 && mLastFocusNeedsMenu && mFocusedApp == mFocusedWindow.getAppToken()) {
+            final boolean needsMenu = Injector.getNeedsMenuLw(mFocusedWindow, mTopFullscreenOpaqueWindowState);
+            if(i == 0 && mLastFocusNeedsMenu == needsMenu && mFocusedApp == mFocusedWindow.getAppToken()) {
                 i = 0;
             } else {
                 mLastSystemUiFlags = visibility;
-                mLastFocusNeedsMenu = true;
+                mLastFocusNeedsMenu = needsMenu;
                 mFocusedApp = mFocusedWindow.getAppToken();
                 mHandler.post(new Runnable() {
 
@@ -789,7 +825,7 @@ _L1:
                         IStatusBarService istatusbarservice = getStatusBarService();
                         if(istatusbarservice != null) {
                             istatusbarservice.setSystemUiVisibility(visibility, -1);
-                            istatusbarservice.topAppWindowChanged(true);
+                            istatusbarservice.topAppWindowChanged(needsMenu);
                         }
 _L1:
                         return;
@@ -800,11 +836,13 @@ _L1:
                     }
 
                     final PhoneWindowManager this$0;
+                    final boolean val$needsMenu;
                     final int val$visibility;
 
              {
                 this$0 = PhoneWindowManager.this;
                 visibility = i;
+                needsMenu = flag;
                 super();
             }
                 });
@@ -1167,6 +1205,10 @@ _L6:
         if(flag2 && !mNavigationBar.isAnimatingLw())
             mSystemRight = mTmpNavigationFrame.left;
           goto _L9
+    }
+
+    void callInterceptPowerKeyUp(boolean flag) {
+        interceptPowerKeyUp(flag);
     }
 
     public boolean canBeForceHidden(android.view.WindowManagerPolicy.WindowState windowstate, android.view.WindowManager.LayoutParams layoutparams) {
@@ -1706,6 +1748,10 @@ _L1:
         }
     }
 
+    Context getContext() {
+        return mContext;
+    }
+
     public int getMaxWallpaperLayer() {
         return 15;
     }
@@ -1727,6 +1773,14 @@ _L3:
         if(mHasNavigationBar && mNavigationBarCanMove && i > j)
             i -= mNavigationBarWidthForRotation[k];
         return i;
+    }
+
+    Runnable getPowerLongPress() {
+        return mPowerLongPress;
+    }
+
+    Runnable getScreenshotChordLongPress() {
+        return mScreenshotChordLongPress;
     }
 
     IStatusBarService getStatusBarService() {
@@ -1856,7 +1910,7 @@ _L3:
         mPowerManager = localpowermanager;
         mHeadless = "1".equals(SystemProperties.get("ro.config.headless", "0"));
         if(!mHeadless)
-            mKeyguardMediator = MiuiClassFactory.createKeyguardViewMediator(context, this, localpowermanager);
+            mKeyguardMediator = new MiuiKeyguardViewMediator(context, this, localpowermanager);
         mHandler = new PolicyHandler();
         mOrientationListener = new MyOrientationListener(mContext);
         IntentFilter intentfilter;
@@ -2312,18 +2366,13 @@ _L1:
 _L27:
         return k;
 _L2:
-        boolean flag5;
-        if((0x100 & i) != 0 && keyevent.getRepeatCount() == 0) {
-            ITelephony itelephony4;
-            int l;
-            if(flag1)
-                l = 1;
-            else
-                l = 2;
-            performHapticFeedbackLw(null, l, false);
-        }
+        Injector.performReleaseHapticFeedback(this, keyevent, i);
+        if(flag1 && (0x100 & i) != 0 && keyevent.getRepeatCount() == 0)
+            performHapticFeedbackLw(null, 1, false);
         if(j == 26)
             i |= 1;
+        boolean flag5;
+        ITelephony itelephony4;
         if((i & 3) != 0)
             flag5 = true;
         else
@@ -2346,27 +2395,27 @@ _L2:
                 }
         }
         j;
-        JVM INSTR lookupswitch 17: default 320
-    //                   5: 323
-    //                   6: 696
-    //                   24: 447
-    //                   25: 447
-    //                   26: 823
-    //                   79: 1105
-    //                   85: 1076
-    //                   86: 1105
-    //                   87: 1105
-    //                   88: 1105
-    //                   89: 1105
-    //                   90: 1105
-    //                   91: 1105
-    //                   126: 1076
-    //                   127: 1076
-    //                   130: 1105
-    //                   164: 447;
+        JVM INSTR lookupswitch 17: default 324
+    //                   5: 327
+    //                   6: 694
+    //                   24: 445
+    //                   25: 445
+    //                   26: 821
+    //                   79: 1083
+    //                   85: 1054
+    //                   86: 1083
+    //                   87: 1083
+    //                   88: 1083
+    //                   89: 1083
+    //                   90: 1083
+    //                   91: 1083
+    //                   126: 1054
+    //                   127: 1054
+    //                   130: 1083
+    //                   164: 445;
            goto _L3 _L4 _L5 _L6 _L6 _L7 _L8 _L9 _L8 _L8 _L8 _L8 _L8 _L8 _L9 _L9 _L8 _L6
 _L8:
-        break MISSING_BLOCK_LABEL_1105;
+        break MISSING_BLOCK_LABEL_1083;
 _L3:
         continue; /* Loop/switch isn't completed */
 _L4:
@@ -2442,7 +2491,7 @@ _L14:
         itelephony2 = getTelephonyService();
         flag11 = false;
         if(itelephony2 == null)
-            break MISSING_BLOCK_LABEL_734;
+            break MISSING_BLOCK_LABEL_732;
         boolean flag13 = itelephony2.endCall();
         flag11 = flag13;
 _L16:
@@ -2509,16 +2558,15 @@ _L18:
         if(interceptPowerKeyUp(flag7))
             k = 4 | k & -3;
         mPendingPowerKeyUpCanceled = false;
-        if(mContext != null)
-            mContext.sendBroadcast(new Intent("android.intent.action.KEYCODE_POWER_UP"));
+        Injector.sendPowerUpBroadcast(this);
         continue; /* Loop/switch isn't completed */
 _L9:
         ITelephony itelephony;
         if(!flag1)
-            break MISSING_BLOCK_LABEL_1105;
+            break MISSING_BLOCK_LABEL_1083;
         itelephony = getTelephonyService();
         if(itelephony == null)
-            break MISSING_BLOCK_LABEL_1105;
+            break MISSING_BLOCK_LABEL_1083;
         boolean flag6 = itelephony.isIdle();
         if(!flag6)
             continue; /* Loop/switch isn't completed */
@@ -2555,16 +2603,6 @@ _L26:
             else
                 j = 0 | 2;
         return j;
-    }
-
-    boolean interceptPowerKeyUp(boolean flag) {
-        boolean flag1 = false;
-        if(!mPowerKeyHandled) {
-            mHandler.removeCallbacks(mPowerLongPress);
-            if(!flag)
-                flag1 = true;
-        }
-        return flag1;
     }
 
     boolean isDeviceProvisioned() {
@@ -3723,6 +3761,10 @@ _L6:
         mLastInputMethodTargetWindow = windowstate1;
     }
 
+    void setPowerLongPress(Runnable runnable) {
+        mPowerLongPress = runnable;
+    }
+
     public void setRotationLw(int i) {
         mOrientationListener.setCurrentRotation(i);
     }
@@ -4437,7 +4479,7 @@ _L3:
     volatile boolean mPowerKeyHandled;
     private long mPowerKeyTime;
     private boolean mPowerKeyTriggered;
-    Runnable mPowerLongPress;
+    private Runnable mPowerLongPress;
     LocalPowerManager mPowerManager;
     BroadcastReceiver mPowerReceiver;
     RecentApplicationsDialog mRecentAppsDialog;
@@ -4458,7 +4500,7 @@ _L3:
     boolean mScreenSaverMayRun;
     int mScreenSaverTimeout;
     private boolean mScreenshotChordEnabled;
-    final Runnable mScreenshotChordLongPress = new Runnable() {
+    private final Runnable mScreenshotChordLongPress = new Runnable() {
 
         public void run() {
             takeScreenshot();
@@ -4528,7 +4570,7 @@ _L3:
     int mUserRotationMode;
     Vibrator mVibrator;
     long mVirtualKeyVibePattern[];
-    boolean mVolumeDownKeyConsumedByScreenshotChord;
+    private boolean mVolumeDownKeyConsumedByScreenshotChord;
     private long mVolumeDownKeyTime;
     private boolean mVolumeDownKeyTriggered;
     private boolean mVolumeUpKeyTriggered;

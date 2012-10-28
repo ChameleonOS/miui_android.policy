@@ -318,7 +318,7 @@ _L7:
 
 
     public MiuiPhoneWindowManager() {
-        mPowerLongPressOriginal = super.mPowerLongPress;
+        mPowerLongPressOriginal = getPowerLongPress();
         mBinder = new Binder();
         mStatusBarExitFullscreenReceiver = new BroadcastReceiver() {
 
@@ -336,8 +336,8 @@ _L7:
         mScreenshotReceiver = new BroadcastReceiver() {
 
             public void onReceive(Context context, Intent intent) {
-                mHandler.removeCallbacks(mScreenshotChordLongPress);
-                mHandler.postDelayed(mScreenshotChordLongPress, intent.getLongExtra("capture_delay", 1000L));
+                mHandler.removeCallbacks(getScreenshotChordLongPress());
+                mHandler.postDelayed(getScreenshotChordLongPress(), intent.getLongExtra("capture_delay", 1000L));
             }
 
             final MiuiPhoneWindowManager this$0;
@@ -525,7 +525,7 @@ _L5:
     public void init(Context context, IWindowManager iwindowmanager, android.view.WindowManagerPolicy.WindowManagerFuncs windowmanagerfuncs, LocalPowerManager localpowermanager) {
         super.init(context, iwindowmanager, windowmanagerfuncs, localpowermanager);
         (new MiuiSettingsObserver(super.mHandler)).observe();
-        super.mPowerLongPress = new Runnable() {
+        setPowerLongPress(new Runnable() {
 
             public void run() {
                 if(!mKeyguardMediator.isShowing() || android.provider.Settings.System.getInt(mContext.getContentResolver(), "keyguard_disable_power_key_long_press", 0) == 0)
@@ -540,7 +540,7 @@ _L5:
                 this$0 = MiuiPhoneWindowManager.this;
                 super();
             }
-        };
+        });
         IntentFilter intentfilter = new IntentFilter();
         intentfilter.addAction("android.intent.action.CAPTURE_SCREENSHOT");
         context.registerReceiver(mScreenshotReceiver, intentfilter);
@@ -738,7 +738,7 @@ _L5:
 _L11:
         if(!flag1) {
             super.mHomePressed = false;
-            interceptPowerKeyUp(false);
+            callInterceptPowerKeyUp(false);
             super.mContext.sendBroadcast(new Intent("com.miui.app.ExtraStatusBarManager.TRIGGER_TOGGLE_SCREEN_BUTTONS"));
         }
         k = 0;
@@ -793,8 +793,8 @@ _L9:
         }
         if(!mShortcutTriggered && mMenuPressed && mVolumeDownPressed) {
             mShortcutTriggered = true;
-            super.mHandler.removeCallbacks(super.mScreenshotChordLongPress);
-            super.mHandler.postDelayed(super.mScreenshotChordLongPress, 0L);
+            super.mHandler.removeCallbacks(getScreenshotChordLongPress());
+            super.mHandler.postDelayed(getScreenshotChordLongPress(), 0L);
         }
         if(!flag1)
             break MISSING_BLOCK_LABEL_662;

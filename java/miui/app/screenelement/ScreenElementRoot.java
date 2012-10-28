@@ -6,7 +6,6 @@ package miui.app.screenelement;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.*;
@@ -235,7 +234,6 @@ _L3:
         if(mElementGroup != null)
             mElementGroup.init();
         requestFramerate(mFrameRate);
-        tick(SystemClock.elapsedRealtime());
     }
 
     public boolean load() {
@@ -406,6 +404,7 @@ _L3:
         if(mElementGroup != null)
             mElementGroup.render(canvas);
         mFrames = 1 + mFrames;
+        doneRender();
     }
 
     public void reset(long l) {
@@ -461,12 +460,6 @@ _L3:
                 flag = false;
             mNeedDisallowInterceptTouchEvent = flag;
         }
-    }
-
-    public void update(long l, Canvas canvas) {
-        tick(l);
-        render(canvas);
-        doneRender();
     }
 
     public void updateFramerate(long l) {

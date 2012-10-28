@@ -37,87 +37,30 @@
 
 # virtual methods
 .method public onPress()V
-    .registers 5
+    .registers 3
 
     .prologue
-    const/4 v3, 0x1
-
     .line 186
-    iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$2;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
+    iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$2;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
-    #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAudioManager:Landroid/media/AudioManager;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$400(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/media/AudioManager;
+    #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
+    invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$100(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1}, Landroid/media/AudioManager;->getRingerMode()I
+    const/4 v1, 0x5
 
-    move-result v1
-
-    const/4 v2, 0x2
-
-    if-eq v1, v2, :cond_19
+    invoke-static {v0, v1}, Lmiui/util/AudioManagerHelper;->toggleSilent(Landroid/content/Context;I)V
 
     .line 187
-    const/4 v0, 0x2
-
-    .line 194
-    .local v0, ringerMode:I
-    :goto_f
-    iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$2;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
-
-    #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$100(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1, v0}, Lmiui/util/AudioManagerHelper;->setRingerMode(Landroid/content/Context;I)V
-
-    .line 195
     return-void
-
-    .line 188
-    .end local v0           #ringerMode:I
-    :cond_19
-    iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$2;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
-
-    #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mContext:Landroid/content/Context;
-    invoke-static {v1}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$100(Lcom/android/internal/policy/impl/MiuiGlobalActions;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string v2, "vibrate_in_silent"
-
-    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    if-ne v1, v3, :cond_2d
-
-    .line 190
-    const/4 v0, 0x1
-
-    .restart local v0       #ringerMode:I
-    goto :goto_f
-
-    .line 192
-    .end local v0           #ringerMode:I
-    :cond_2d
-    const/4 v0, 0x0
-
-    .restart local v0       #ringerMode:I
-    goto :goto_f
 .end method
 
 .method public showBeforeProvisioning()Z
     .registers 2
 
     .prologue
-    .line 202
+    .line 194
     const/4 v0, 0x1
 
     return v0
@@ -127,7 +70,7 @@
     .registers 2
 
     .prologue
-    .line 198
+    .line 190
     const/4 v0, 0x1
 
     return v0

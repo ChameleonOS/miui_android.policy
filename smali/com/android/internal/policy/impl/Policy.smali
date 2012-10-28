@@ -152,9 +152,9 @@
 
     .prologue
     .line 79
-    invoke-static {p1}, Lcom/android/internal/policy/impl/MiuiClassFactory;->createPhoneFallbackEventHandler(Landroid/content/Context;)Lcom/android/internal/policy/impl/PhoneFallbackEventHandler;
+    new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;
 
-    move-result-object v0
+    invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;-><init>(Landroid/content/Context;)V
 
     return-object v0
 .end method
@@ -193,9 +193,9 @@
 
     .prologue
     .line 74
-    invoke-static {}, Lcom/android/internal/policy/impl/MiuiClassFactory;->createPhoneWindowManager()Lcom/android/internal/policy/impl/PhoneWindowManager;
+    new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
-    move-result-object v0
+    invoke-direct {v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;-><init>()V
 
     return-object v0
 .end method

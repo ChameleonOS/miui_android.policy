@@ -17,31 +17,13 @@ public class MiuiKeyguardViewMediator extends KeyguardViewMediator {
 
     public MiuiKeyguardViewMediator(Context context, PhoneWindowManager phonewindowmanager, LocalPowerManager localpowermanager) {
         super(context, phonewindowmanager, localpowermanager);
-    }
-
-    void adjustStatusBarLocked() {
-        super.adjustStatusBarLocked();
-        if(super.mStatusBarManager != null) {
-            int i = 0;
-            if(isShowing()) {
-                int j = 0 | 0x1000000;
-                int k;
-                if(isShowingAndNotHidden())
-                    k = 0x80000000;
-                else
-                    k = 0;
-                i = j | k;
-                if(isSecure() || !ExtraStatusBarManager.isExpandableUnderKeyguard(super.mContext))
-                    i |= 0x90000;
-            }
-            super.mStatusBarManager.disable(i);
-        }
+        mContext = context;
     }
 
     public void onScreenTurnedOff(int i) {
         this;
         JVM INSTR monitorenter ;
-        notifyScreenOffLocked();
+        callNotifyScreenOffLocked();
         FirewallManager.getInstance().removeAccessControlPass("*");
         this;
         JVM INSTR monitorexit ;
@@ -53,4 +35,24 @@ public class MiuiKeyguardViewMediator extends KeyguardViewMediator {
         JVM INSTR monitorexit ;
         throw exception;
     }
+
+    void postAdjustStatusBarLocked() {
+        if(getStatusBarManager() != null) {
+            int i = 0;
+            if(isShowing()) {
+                int j = 0 | 0x1000000;
+                int k;
+                if(isShowingAndNotHidden())
+                    k = 0x80000000;
+                else
+                    k = 0;
+                i = j | k;
+                if(isSecure() || !ExtraStatusBarManager.isExpandableUnderKeyguard(mContext))
+                    i |= 0x90000;
+            }
+            getStatusBarManager().disable(i);
+        }
+    }
+
+    private Context mContext;
 }

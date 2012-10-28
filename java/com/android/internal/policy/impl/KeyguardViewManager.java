@@ -4,20 +4,19 @@
 
 package com.android.internal.policy.impl;
 
-import android.app.ExtraActivityManager;
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.os.IBinder;
 import android.os.SystemProperties;
 import android.util.Log;
-import android.view.ContextThemeWrapper;
-import android.view.ViewManager;
+import android.view.*;
 import android.widget.FrameLayout;
 
 // Referenced classes of package com.android.internal.policy.impl:
 //            KeyguardWindowController, KeyguardViewBase, KeyguardViewProperties, KeyguardViewCallback, 
-//            KeyguardUpdateMonitor
+//            KeyguardUpdateMonitor, MiuiLockPatternKeyguardView
 
 public class KeyguardViewManager
     implements KeyguardWindowController {
@@ -42,6 +41,27 @@ public class KeyguardViewManager
         public abstract void onShown(IBinder ibinder);
     }
 
+    static class Injector {
+
+        static void updateDisplayDesktopFlag(KeyguardViewManager keyguardviewmanager) {
+            KeyguardViewBase keyguardviewbase = keyguardviewmanager.getKeyguardView();
+            android.view.WindowManager.LayoutParams layoutparams = keyguardviewmanager.getWindowLayoutParams();
+            boolean flag = false;
+            if(keyguardviewbase instanceof MiuiLockPatternKeyguardView)
+                flag = ((MiuiLockPatternKeyguardView)keyguardviewbase).isDisplayDesktop();
+            if(flag && !keyguardviewmanager.getKeyguardViewProperties().isSecure()) {
+                layoutparams.flags = 0xffefffff & layoutparams.flags;
+                layoutparams.privateFlags = 0x40000000 | layoutparams.privateFlags;
+            } else {
+                layoutparams.flags = 0x100000 | layoutparams.flags;
+                layoutparams.privateFlags = 0xbfffffff & layoutparams.privateFlags;
+            }
+        }
+
+        Injector() {
+        }
+    }
+
 
     public KeyguardViewManager(Context context, ViewManager viewmanager, KeyguardViewCallback keyguardviewcallback, KeyguardViewProperties keyguardviewproperties, KeyguardUpdateMonitor keyguardupdatemonitor) {
         mNeedsInput = false;
@@ -53,18 +73,16 @@ public class KeyguardViewManager
         mUpdateMonitor = keyguardupdatemonitor;
     }
 
-    private void updateDisplayDesktopFlag() {
-        if(mKeyguardView.isDisplayDesktop() && !mKeyguardViewProperties.isSecure()) {
-            android.view.WindowManager.LayoutParams layoutparams2 = mWindowLayoutParams;
-            layoutparams2.flags = 0xffefffff & layoutparams2.flags;
-            android.view.WindowManager.LayoutParams layoutparams3 = mWindowLayoutParams;
-            layoutparams3.privateFlags = 0x40000000 | layoutparams3.privateFlags;
-        } else {
-            android.view.WindowManager.LayoutParams layoutparams = mWindowLayoutParams;
-            layoutparams.flags = 0x100000 | layoutparams.flags;
-            android.view.WindowManager.LayoutParams layoutparams1 = mWindowLayoutParams;
-            layoutparams1.privateFlags = 0xbfffffff & layoutparams1.privateFlags;
-        }
+    KeyguardViewBase getKeyguardView() {
+        return mKeyguardView;
+    }
+
+    KeyguardViewProperties getKeyguardViewProperties() {
+        return mKeyguardViewProperties;
+    }
+
+    android.view.WindowManager.LayoutParams getWindowLayoutParams() {
+        return mWindowLayoutParams;
     }
 
     /**
@@ -246,12 +264,12 @@ _L2:
             int i = 0x4100900;
             if(!mNeedsInput)
                 i |= 0x20000;
-            if(ExtraActivityManager.useHardwareAccelerationOnKeyguard(mContext))
+            if(ActivityManager.isHighEndGfx(((WindowManager)mContext.getSystemService("window")).getDefaultDisplay()))
                 i |= 0x1000000;
             android.view.WindowManager.LayoutParams layoutparams1 = new android.view.WindowManager.LayoutParams(-1, -1, 2004, i, -3);
             layoutparams1.softInputMode = 16;
             layoutparams1.windowAnimations = 0x10301de;
-            if(ExtraActivityManager.useHardwareAccelerationOnKeyguard(mContext)) {
+            if(ActivityManager.isHighEndGfx(((WindowManager)mContext.getSystemService("window")).getDefaultDisplay())) {
                 layoutparams1.flags = 0x1000000 | layoutparams1.flags;
                 layoutparams1.privateFlags = 2 | layoutparams1.privateFlags;
             }
@@ -262,8 +280,8 @@ _L2:
             mViewManager.addView(mKeyguardHost, layoutparams1);
         }
         if(!flag)
-            break MISSING_BLOCK_LABEL_410;
-        mWindowLayoutParams.screenOrientation = 2;
+            break MISSING_BLOCK_LABEL_436;
+        mWindowLayoutParams.screenOrientation = 4;
 _L1:
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         if(mKeyguardView == null) {
@@ -276,7 +294,7 @@ _L1:
         }
         Log.v(TAG, (new StringBuilder()).append("KGVM: Set visibility on ").append(mKeyguardHost).append(" to ").append(0x600000).toString());
         mKeyguardHost.setSystemUiVisibility(0x600000);
-        updateDisplayDesktopFlag();
+        Injector.updateDisplayDesktopFlag(this);
         mViewManager.updateViewLayout(mKeyguardHost, mWindowLayoutParams);
         mKeyguardHost.setVisibility(0);
         mKeyguardView.requestFocus();

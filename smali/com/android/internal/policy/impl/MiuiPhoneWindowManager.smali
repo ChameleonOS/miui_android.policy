@@ -175,7 +175,9 @@
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;-><init>()V
 
     .line 90
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerLongPress:Ljava/lang/Runnable;
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getPowerLongPress()Ljava/lang/Runnable;
+
+    move-result-object v0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mPowerLongPressOriginal:Ljava/lang/Runnable;
 
@@ -953,7 +955,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$1;-><init>(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;)V
 
-    iput-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPowerLongPress:Ljava/lang/Runnable;
+    invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->setPowerLongPress(Ljava/lang/Runnable;)V
 
     .line 118
     new-instance v0, Landroid/content/IntentFilter;
@@ -1659,7 +1661,7 @@
     if-eqz v9, :cond_18
 
     .line 324
-    sparse-switch v4, :sswitch_data_134
+    sparse-switch v4, :sswitch_data_138
 
     .line 345
     :cond_18
@@ -1801,7 +1803,7 @@
     .line 336
     const/4 v9, 0x0
 
-    invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->interceptPowerKeyUp(Z)Z
+    invoke-virtual {p0, v9}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->callInterceptPowerKeyUp(Z)V
 
     .line 337
     iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -1874,7 +1876,7 @@
 
     .line 379
     .local v0, allowToWake:Z
-    sparse-switch v4, :sswitch_data_14a
+    sparse-switch v4, :sswitch_data_14e
 
     .line 400
     const/4 v3, 0x0
@@ -1981,15 +1983,15 @@
     :cond_de
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mShortcutTriggered:Z
 
-    if-nez v9, :cond_fd
+    if-nez v9, :cond_101
 
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mMenuPressed:Z
 
-    if-eqz v9, :cond_fd
+    if-eqz v9, :cond_101
 
     iget-boolean v9, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mVolumeDownPressed:Z
 
-    if-eqz v9, :cond_fd
+    if-eqz v9, :cond_101
 
     .line 428
     const/4 v9, 0x1
@@ -1999,72 +2001,76 @@
     .line 429
     iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordLongPress:Ljava/lang/Runnable;
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getScreenshotChordLongPress()Ljava/lang/Runnable;
+
+    move-result-object v10
 
     invoke-virtual {v9, v10}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     .line 430
     iget-object v9, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordLongPress:Ljava/lang/Runnable;
+    invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getScreenshotChordLongPress()Ljava/lang/Runnable;
+
+    move-result-object v10
 
     const-wide/16 v11, 0x0
 
     invoke-virtual {v9, v10, v11, v12}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 433
-    :cond_fd
-    if-eqz v1, :cond_12a
+    :cond_101
+    if-eqz v1, :cond_12e
 
     .line 435
     const/16 v9, 0x1a
 
-    if-ne v4, v9, :cond_130
+    if-ne v4, v9, :cond_134
 
     const/4 v7, 0x1
 
     .line 436
     .local v7, stopNotification:Z
-    :goto_104
-    if-nez v7, :cond_11f
+    :goto_108
+    if-nez v7, :cond_123
 
     .line 437
-    :try_start_106
+    :try_start_10a
     invoke-static {}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getWindownManagerService()Landroid/view/IWindowManager;
 
     move-result-object v8
 
     .line 438
     .local v8, wm:Landroid/view/IWindowManager;
-    if-eqz v8, :cond_11f
+    if-eqz v8, :cond_123
 
     invoke-interface {v8}, Landroid/view/IWindowManager;->isKeyguardLocked()Z
 
     move-result v9
 
-    if-eqz v9, :cond_11f
+    if-eqz v9, :cond_123
 
     .line 439
     const/16 v9, 0x19
 
-    if-eq v4, v9, :cond_11e
+    if-eq v4, v9, :cond_122
 
     const/16 v9, 0x18
 
-    if-eq v4, v9, :cond_11e
+    if-eq v4, v9, :cond_122
 
     const/16 v9, 0xa4
 
-    if-ne v4, v9, :cond_11f
+    if-ne v4, v9, :cond_123
 
     .line 442
-    :cond_11e
+    :cond_122
     const/4 v7, 0x1
 
     .line 447
     .end local v8           #wm:Landroid/view/IWindowManager;
-    :cond_11f
-    if-eqz v7, :cond_12a
+    :cond_123
+    if-eqz v7, :cond_12e
 
     .line 448
     invoke-static {}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->getStatusBarManagerService()Lcom/android/internal/statusbar/IStatusBarService;
@@ -2073,18 +2079,18 @@
 
     .line 449
     .local v6, statusBarService:Lcom/android/internal/statusbar/IStatusBarService;
-    if-eqz v6, :cond_12a
+    if-eqz v6, :cond_12e
 
     .line 450
     invoke-interface {v6}, Lcom/android/internal/statusbar/IStatusBarService;->onPanelRevealed()V
-    :try_end_12a
-    .catch Landroid/os/RemoteException; {:try_start_106 .. :try_end_12a} :catch_132
+    :try_end_12e
+    .catch Landroid/os/RemoteException; {:try_start_10a .. :try_end_12e} :catch_136
 
     .line 457
     .end local v6           #statusBarService:Lcom/android/internal/statusbar/IStatusBarService;
     .end local v7           #stopNotification:Z
-    :cond_12a
-    :goto_12a
+    :cond_12e
+    :goto_12e
     invoke-super/range {p0 .. p3}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptKeyBeforeQueueing(Landroid/view/KeyEvent;IZ)I
 
     move-result v9
@@ -2092,20 +2098,20 @@
     goto/16 :goto_60
 
     .line 435
-    :cond_130
+    :cond_134
     const/4 v7, 0x0
 
-    goto :goto_104
+    goto :goto_108
 
     .line 453
     .restart local v7       #stopNotification:Z
-    :catch_132
+    :catch_136
     move-exception v9
 
-    goto :goto_12a
+    goto :goto_12e
 
     .line 324
-    :sswitch_data_134
+    :sswitch_data_138
     .sparse-switch
         0x3 -> :sswitch_65
         0x4 -> :sswitch_67
@@ -2115,7 +2121,7 @@
     .end sparse-switch
 
     .line 379
-    :sswitch_data_14a
+    :sswitch_data_14e
     .sparse-switch
         0x18 -> :sswitch_b3
         0x19 -> :sswitch_b3

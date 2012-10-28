@@ -189,10 +189,6 @@ _L1:
           goto _L1
     }
 
-    public boolean isDisplayDesktop() {
-        return false;
-    }
-
     public abstract void onScreenTurnedOff();
 
     public abstract void onScreenTurnedOn();

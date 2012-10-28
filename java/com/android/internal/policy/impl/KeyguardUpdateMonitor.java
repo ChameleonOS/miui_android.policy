@@ -119,11 +119,24 @@ public class KeyguardUpdateMonitor {
             if("NETWORK".equals(s))
                 state = com.android.internal.telephony.IccCard.State.NETWORK_LOCKED;
             else
-                state = getIccCardState(s);
+                state = Injector.getIccCardState(s);
             return new SimArgs(state);
         }
 
-        private static com.android.internal.telephony.IccCard.State getIccCardState(String s) {
+        public String toString() {
+            return simState.toString();
+        }
+
+        public final com.android.internal.telephony.IccCard.State simState;
+
+        SimArgs(com.android.internal.telephony.IccCard.State state) {
+            simState = state;
+        }
+    }
+
+    static class Injector {
+
+        static com.android.internal.telephony.IccCard.State getIccCardState(String s) {
             com.android.internal.telephony.IccCard.State state;
             if("IMSI".equals(s))
                 state = com.android.internal.telephony.IccCard.State.READY;
@@ -135,14 +148,7 @@ public class KeyguardUpdateMonitor {
             return state;
         }
 
-        public String toString() {
-            return simState.toString();
-        }
-
-        public final com.android.internal.telephony.IccCard.State simState;
-
-        SimArgs(com.android.internal.telephony.IccCard.State state) {
-            simState = state;
+        Injector() {
         }
     }
 

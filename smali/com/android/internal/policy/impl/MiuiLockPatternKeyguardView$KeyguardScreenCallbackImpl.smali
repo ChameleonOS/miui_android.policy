@@ -30,18 +30,18 @@
     .parameter "client"
 
     .prologue
-    .line 62
+    .line 56
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->this$0:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
-    .line 63
+    .line 57
     invoke-direct {p0, p2}, Lcom/android/internal/policy/impl/KeyguardScreenCallbackProxy;-><init>(Lcom/android/internal/policy/impl/KeyguardScreenCallback;)V
 
-    .line 66
+    .line 60
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->mPendingIntent:Landroid/content/Intent;
 
-    .line 64
+    .line 58
     return-void
 .end method
 
@@ -51,20 +51,20 @@
     .registers 2
 
     .prologue
-    .line 70
+    .line 64
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->this$0:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->stuckOnLockScreenBecauseSimMissing()Z
+    invoke-virtual {v0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->callStuckOnLockScreenBecauseSimMissing()Z
 
     move-result v0
 
     if-eqz v0, :cond_9
 
-    .line 79
+    .line 73
     :goto_8
     return-void
 
-    .line 74
+    .line 68
     :cond_9
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->isSecure()Z
 
@@ -72,14 +72,14 @@
 
     if-nez v0, :cond_14
 
-    .line 75
+    .line 69
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->keyguardDone(Z)V
 
     goto :goto_8
 
-    .line 77
+    .line 71
     :cond_14
     invoke-super {p0}, Lcom/android/internal/policy/impl/KeyguardScreenCallbackProxy;->goToUnlockScreen()V
 
@@ -91,17 +91,17 @@
     .parameter "authenticated"
 
     .prologue
-    .line 83
+    .line 77
     invoke-super {p0, p1}, Lcom/android/internal/policy/impl/KeyguardScreenCallbackProxy;->keyguardDone(Z)V
 
-    .line 84
+    .line 78
     if-eqz p1, :cond_14
 
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->mPendingIntent:Landroid/content/Intent;
 
     if-eqz v0, :cond_14
 
-    .line 86
+    .line 80
     :try_start_9
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->this$0:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
@@ -116,12 +116,12 @@
     :try_end_14
     .catch Landroid/content/ActivityNotFoundException; {:try_start_9 .. :try_end_14} :catch_15
 
-    .line 90
+    .line 84
     :cond_14
     :goto_14
     return-void
 
-    .line 87
+    .line 81
     :catch_15
     move-exception v0
 
@@ -133,9 +133,9 @@
     .parameter "intent"
 
     .prologue
-    .line 94
+    .line 88
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$KeyguardScreenCallbackImpl;->mPendingIntent:Landroid/content/Intent;
 
-    .line 95
+    .line 89
     return-void
 .end method

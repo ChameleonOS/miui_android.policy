@@ -79,7 +79,7 @@ _L1:
         return mTelephonyManager;
     }
 
-    protected void handleCameraKeyEvent() {
+    void handleCameraKeyEvent() {
     }
 
     boolean onKeyDown(int i, KeyEvent keyevent) {

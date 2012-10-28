@@ -527,15 +527,7 @@ _L3:
         mMuteToggle = new SinglePressAction(getMuteIconResId(), 0x60c0195) {
 
             public void onPress() {
-                byte byte0;
-                if(mAudioManager.getRingerMode() != 2)
-                    byte0 = 2;
-                else
-                if(android.provider.Settings.System.getInt(mContext.getContentResolver(), "vibrate_in_silent", 1) == 1)
-                    byte0 = 1;
-                else
-                    byte0 = 0;
-                AudioManagerHelper.setRingerMode(mContext, byte0);
+                AudioManagerHelper.toggleSilent(mContext, 5);
             }
 
             public boolean showBeforeProvisioning() {
@@ -695,7 +687,6 @@ _L3:
     }
 
 */
-
 
 
 
