@@ -81,14 +81,6 @@ public class ImageScreenElement extends AnimatedScreenElement {
         mSrcH = Expression.build(element.getAttribute("srcH"));
         if(mSrcX != null && mSrcY != null && mSrcW != null && mSrcH != null)
             mSrcRect = new Rect();
-        mAngleX = Expression.build(element.getAttribute("angleX"));
-        mAngleY = Expression.build(element.getAttribute("angleY"));
-        mAngleZ = Expression.build(element.getAttribute("angleZ"));
-        mCenterZ = Expression.build(element.getAttribute("centerZ"));
-        if(mAngleX != null || mAngleY != null || mAngleZ != null) {
-            mCamera = new Camera();
-            mMatrix = new Matrix();
-        }
         mUseVirtualScreen = Boolean.parseBoolean(element.getAttribute("useVirtualScreen"));
         String s = element.getAttribute("srcType");
         if(s.equals("ResourceImage"))
@@ -123,7 +115,7 @@ public class ImageScreenElement extends AnimatedScreenElement {
 
     }
 
-    private void renderWithMask(Canvas canvas, AnimatedElement animatedelement, int i, int j) {
+    private void renderWithMask(Canvas canvas, AnimatedElement animatedelement, float f, float f1) {
         Bitmap bitmap;
         canvas.save();
         bitmap = super.mContext.mResourceManager.getBitmap(animatedelement.getSrc());
@@ -133,46 +125,46 @@ _L1:
 _L2:
         double d;
         double d1;
-        float f;
-        float f3;
+        float f2;
+        float f5;
         d = scale(animatedelement.getX());
         d1 = scale(animatedelement.getY());
-        f = animatedelement.getRotationAngle();
+        f2 = animatedelement.getRotationAngle();
         if(animatedelement.isAlignAbsolute()) {
-            f3 = getAngle();
-            if(f3 != 0.0F)
+            f5 = getRotation();
+            if(f5 != 0.0F)
                 break; /* Loop/switch isn't completed */
-            d -= i;
-            d1 -= j;
+            d -= f;
+            d1 -= f1;
         }
 _L4:
-        float f1 = (float)(d + (double)scale(animatedelement.getCenterX()));
-        float f2 = (float)(d1 + (double)scale(animatedelement.getCenterY()));
-        canvas.rotate(f, f1, f2);
-        int k = (int)d;
-        int l = (int)d1;
-        int i1 = Math.round(scale(animatedelement.getWidth()));
-        if(i1 < 0)
-            i1 = bitmap.getWidth();
-        int j1 = Math.round(scale(animatedelement.getHeight()));
-        if(j1 < 0)
-            j1 = bitmap.getHeight();
-        mDesRect.set(k, l, k + i1, l + j1);
+        float f3 = (float)(d + (double)scale(animatedelement.getPivotX()));
+        float f4 = (float)(d1 + (double)scale(animatedelement.getPivotY()));
+        canvas.rotate(f2, f3, f4);
+        int i = (int)d;
+        int j = (int)d1;
+        int k = Math.round(scale(animatedelement.getWidth()));
+        if(k < 0)
+            k = bitmap.getWidth();
+        int l = Math.round(scale(animatedelement.getHeight()));
+        if(l < 0)
+            l = bitmap.getHeight();
+        mDesRect.set(i, j, i + k, j + l);
         mMaskPaint.setAlpha(animatedelement.getAlpha());
         canvas.drawBitmap(bitmap, null, mDesRect, mMaskPaint);
         canvas.restore();
         if(true) goto _L1; else goto _L3
 _L3:
-        f -= f3;
-        double d2 = (3.1415926535896999D * (double)f3) / 180D;
-        double d3 = getCenterX();
-        double d4 = getCenterY();
+        f2 -= f5;
+        double d2 = (3.1415926535896999D * (double)f5) / 180D;
+        double d3 = getPivotX();
+        double d4 = getPivotY();
         if(mRotateXYpair == null)
             mRotateXYpair = new pair();
         rotateXY(d3, d4, d2, mRotateXYpair);
-        double d5 = (double)i + ((Double)mRotateXYpair.p1).doubleValue();
-        double d6 = (double)j + ((Double)mRotateXYpair.p2).doubleValue();
-        rotateXY(animatedelement.getCenterX(), animatedelement.getCenterY(), (3.1415926535896999D * (double)animatedelement.getRotationAngle()) / 180D, mRotateXYpair);
+        double d5 = (double)f + ((Double)mRotateXYpair.p1).doubleValue();
+        double d6 = (double)f1 + ((Double)mRotateXYpair.p2).doubleValue();
+        rotateXY(animatedelement.getPivotX(), animatedelement.getPivotY(), (3.1415926535896999D * (double)animatedelement.getRotationAngle()) / 180D, mRotateXYpair);
         double d7 = d + (double)scale(((Double)mRotateXYpair.p1).doubleValue());
         double d8 = d1 + (double)scale(((Double)mRotateXYpair.p2).doubleValue());
         double d9 = d7 - d5;
@@ -209,6 +201,91 @@ _L5:
             mBmpSizeHeightVar.set(descale(getBitmapHeight()));
             mBitmapChanged = false;
         }
+    }
+
+    public void doRender(Canvas canvas) {
+        Bitmap bitmap = mCurrentBitmap;
+        if(bitmap != null) goto _L2; else goto _L1
+_L1:
+        return;
+_L2:
+        boolean flag;
+        float f;
+        float f1;
+        flag = canvas.isHardwareAccelerated();
+        int i = getAlpha();
+        mPaint.setAlpha(i);
+        int j = canvas.getDensity();
+        canvas.setDensity(0);
+        if(mWidth == 0.0F || mHeight == 0.0F)
+            continue; /* Loop/switch isn't completed */
+        f = getLeft(mX, mWidth);
+        f1 = getTop(mY, mHeight);
+        canvas.save();
+        if(mMasks.size() != 0)
+            break; /* Loop/switch isn't completed */
+        if(bitmap.getNinePatchChunk() != null) {
+            NinePatch ninepatch = super.mContext.mResourceManager.getNinePatch(super.mAni.getSrc());
+            if(ninepatch != null) {
+                mDesRect.set((int)f, (int)f1, (int)(f + mWidth), (int)(f1 + mHeight));
+                ninepatch.draw(canvas, mDesRect, mPaint);
+            } else {
+                Log.e("ImageScreenElement", (new StringBuilder()).append("the image contains ninepatch chunk but couldn't get NinePatch object: ").append(super.mAni.getSrc()).toString());
+            }
+        } else
+        if(mAniWidth > 0.0F || mAniHeight > 0.0F || mSrcRect != null) {
+            mDesRect.set((int)f, (int)f1, (int)(f + mWidth), (int)(f1 + mHeight));
+            if(mSrcRect != null) {
+                int i2 = (int)scale(mSrcX.evaluate(super.mContext.mVariables));
+                int j2 = (int)scale(mSrcY.evaluate(super.mContext.mVariables));
+                int k2 = (int)scale(mSrcW.evaluate(super.mContext.mVariables));
+                int l2 = (int)scale(mSrcH.evaluate(super.mContext.mVariables));
+                mSrcRect.set(i2, j2, i2 + k2, j2 + l2);
+            }
+            canvas.drawBitmap(bitmap, mSrcRect, mDesRect, mPaint);
+        } else {
+            canvas.drawBitmap(bitmap, f, f1, mPaint);
+        }
+_L4:
+        canvas.restore();
+        canvas.setDensity(j);
+        if(true) goto _L1; else goto _L3
+_L3:
+        float f2 = getMaxWidth();
+        float f3 = getMaxHeight();
+        float f4 = Math.max(f2, mWidth);
+        float f5 = Math.max(f3, mHeight);
+        int k = (int)Math.ceil(f4);
+        int l = (int)Math.ceil(f5);
+        if(mMaskBuffer == null || k > mMaskBuffer.getWidth() || l > mMaskBuffer.getHeight() || !flag) {
+            mMaskBuffer = super.mContext.mResourceManager.getMaskBufferBitmap(k, l, getKey(), flag);
+            mMaskBuffer.setDensity(bitmap.getDensity());
+            mBufferCanvas = new Canvas(mMaskBuffer);
+        }
+        mBufferCanvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+        float f6 = super.mRoot.getScale();
+        Iterator iterator;
+        AnimatedElement animatedelement;
+        if(mAniWidth > 0.0F || mAniHeight > 0.0F || mSrcRect != null) {
+            mDesRect.set(0, 0, (int)mWidth, (int)mHeight);
+            if(mSrcRect != null) {
+                int i1 = (int)((double)f6 * mSrcX.evaluate(super.mContext.mVariables));
+                int j1 = (int)((double)f6 * mSrcY.evaluate(super.mContext.mVariables));
+                int k1 = (int)((double)f6 * mSrcW.evaluate(super.mContext.mVariables));
+                int l1 = (int)((double)f6 * mSrcH.evaluate(super.mContext.mVariables));
+                mSrcRect.set(i1, j1, i1 + k1, j1 + l1);
+            }
+            mBufferCanvas.drawBitmap(bitmap, mSrcRect, mDesRect, mPaint);
+        } else {
+            mBufferCanvas.drawBitmap(bitmap, 0.0F, 0.0F, null);
+        }
+        for(iterator = mMasks.iterator(); iterator.hasNext(); renderWithMask(mBufferCanvas, animatedelement, f, f1))
+            animatedelement = (AnimatedElement)iterator.next();
+
+        canvas.drawBitmap(mMaskBuffer, f, f1, mPaint);
+          goto _L4
+        if(true) goto _L1; else goto _L5
+_L5:
     }
 
     protected Bitmap getBitmap() {
@@ -282,6 +359,22 @@ _L4:
         return i;
     }
 
+    public float getHeight() {
+        return mHeight;
+    }
+
+    public float getWidth() {
+        return mWidth;
+    }
+
+    public float getX() {
+        return mX;
+    }
+
+    public float getY() {
+        return mY;
+    }
+
     public void init() {
         super.init();
         if(mMasks != null) {
@@ -332,148 +425,6 @@ _L4:
         }
     }
 
-    public void render(Canvas canvas) {
-        if(isVisible()) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        Bitmap bitmap;
-        boolean flag;
-        float f;
-        float f1;
-        int k;
-        int l;
-        bitmap = mCurrentBitmap;
-        if(bitmap == null)
-            continue; /* Loop/switch isn't completed */
-        flag = canvas.isHardwareAccelerated();
-        int i = getAlpha();
-        mPaint.setAlpha(i);
-        int j = canvas.getDensity();
-        canvas.setDensity(0);
-        f = getWidth();
-        f1 = getHeight();
-        if(f == 0.0F || f1 == 0.0F)
-            continue; /* Loop/switch isn't completed */
-        float f2 = getBitmapWidth();
-        float f3 = getBitmapHeight();
-        float f4;
-        float f5;
-        float f6;
-        float f7;
-        if(f < 0.0F)
-            f4 = f2;
-        else
-            f4 = f;
-        if(f1 < 0.0F)
-            f5 = f3;
-        else
-            f5 = f1;
-        k = (int)getLeft(getX(), f4);
-        l = (int)getTop(getY(), f5);
-        canvas.save();
-        f6 = getCenterX();
-        f7 = getCenterY();
-        canvas.rotate(getAngle(), f6 + (float)k, f7 + (float)l);
-        if(mCamera != null) {
-            mCamera.save();
-            if(mAngleX != null)
-                mCamera.rotateX((float)mAngleX.evaluate(super.mContext.mVariables));
-            if(mAngleY != null)
-                mCamera.rotateY((float)mAngleY.evaluate(super.mContext.mVariables));
-            if(mAngleZ != null)
-                mCamera.rotateZ((float)mAngleZ.evaluate(super.mContext.mVariables));
-            if(mCenterZ != null)
-                mCamera.translate(0.0F, 0.0F, (float)mCenterZ.evaluate(super.mContext.mVariables));
-            mCamera.getMatrix(mMatrix);
-            mCamera.restore();
-            mMatrix.preTranslate((float)(-k) - f6, (float)(-l) - f7);
-            mMatrix.postTranslate(f6 + (float)k, f7 + (float)l);
-            canvas.concat(mMatrix);
-        }
-        if(mMasks.size() != 0)
-            break; /* Loop/switch isn't completed */
-        if(bitmap.getNinePatchChunk() != null) {
-            NinePatch ninepatch = super.mContext.mResourceManager.getNinePatch(super.mAni.getSrc());
-            if(ninepatch != null) {
-                mDesRect.set(k, l, (int)(f4 + (float)k), (int)(f5 + (float)l));
-                ninepatch.draw(canvas, mDesRect, mPaint);
-            } else {
-                Log.e("ImageScreenElement", (new StringBuilder()).append("the image contains ninepatch chunk but couldn't get NinePatch object: ").append(super.mAni.getSrc()).toString());
-            }
-        } else
-        if(f > 0.0F || f1 > 0.0F || mSrcRect != null) {
-            mDesRect.set(k, l, (int)(f4 + (float)k), (int)(f5 + (float)l));
-            if(mSrcRect != null) {
-                int k2 = (int)scale(mSrcX.evaluate(super.mContext.mVariables));
-                int l2 = (int)scale(mSrcY.evaluate(super.mContext.mVariables));
-                int i3 = (int)scale(mSrcW.evaluate(super.mContext.mVariables));
-                int j3 = (int)scale(mSrcH.evaluate(super.mContext.mVariables));
-                mSrcRect.set(k2, l2, k2 + i3, l2 + j3);
-            }
-            canvas.drawBitmap(bitmap, mSrcRect, mDesRect, mPaint);
-        } else {
-            canvas.drawBitmap(bitmap, k, l, mPaint);
-        }
-_L4:
-        canvas.restore();
-        canvas.setDensity(j);
-        if(true) goto _L1; else goto _L3
-_L3:
-        float f8;
-        float f9;
-        float f10;
-        float f11;
-        float f12;
-        float f13;
-        int i1;
-        int j1;
-        float f14;
-        Iterator iterator;
-        AnimatedElement animatedelement;
-        if(f < 0.0F)
-            f8 = bitmap.getWidth();
-        else
-            f8 = f;
-        if(f1 < 0.0F)
-            f9 = bitmap.getHeight();
-        else
-            f9 = f1;
-        f10 = getMaxWidth();
-        f11 = getMaxHeight();
-        f12 = Math.max(f10, f8);
-        f13 = Math.max(f11, f9);
-        i1 = (int)Math.ceil(f12);
-        j1 = (int)Math.ceil(f13);
-        if(mMaskBuffer == null || i1 > mMaskBuffer.getWidth() || j1 > mMaskBuffer.getHeight() || !flag) {
-            mMaskBuffer = super.mContext.mResourceManager.getMaskBufferBitmap(i1, j1, getKey(), flag);
-            mMaskBuffer.setDensity(bitmap.getDensity());
-            mBufferCanvas = new Canvas(mMaskBuffer);
-        }
-        mBufferCanvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
-        f14 = super.mRoot.getScale();
-        if(f > 0.0F || f1 > 0.0F || mSrcRect != null) {
-            mDesRect.set(0, 0, (int)f8, (int)f9);
-            if(mSrcRect != null) {
-                int k1 = (int)((double)f14 * mSrcX.evaluate(super.mContext.mVariables));
-                int l1 = (int)((double)f14 * mSrcY.evaluate(super.mContext.mVariables));
-                int i2 = (int)((double)f14 * mSrcW.evaluate(super.mContext.mVariables));
-                int j2 = (int)((double)f14 * mSrcH.evaluate(super.mContext.mVariables));
-                mSrcRect.set(k1, l1, k1 + i2, l1 + j2);
-            }
-            mBufferCanvas.drawBitmap(bitmap, mSrcRect, mDesRect, mPaint);
-        } else {
-            mBufferCanvas.drawBitmap(bitmap, 0.0F, 0.0F, null);
-        }
-        for(iterator = mMasks.iterator(); iterator.hasNext(); renderWithMask(mBufferCanvas, animatedelement, k, l))
-            animatedelement = (AnimatedElement)iterator.next();
-
-        canvas.drawBitmap(mMaskBuffer, k, l, mPaint);
-          goto _L4
-        if(true) goto _L1; else goto _L5
-_L5:
-    }
-
     public void reset(long l) {
         super.reset(l);
         if(mMasks != null) {
@@ -491,19 +442,27 @@ _L5:
 
     public void tick(long l) {
         super.tick(l);
-        if(isVisible()) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        mCurrentBitmap = getBitmap();
-        updateBmpSizeVar();
-        if(mMasks != null) {
-            Iterator iterator = mMasks.iterator();
-            while(iterator.hasNext()) 
-                ((AnimatedElement)iterator.next()).tick(l);
+        if(isVisible()) {
+            mCurrentBitmap = getBitmap();
+            updateBmpSizeVar();
+            if(mMasks != null) {
+                for(Iterator iterator = mMasks.iterator(); iterator.hasNext(); ((AnimatedElement)iterator.next()).tick(l));
+            }
+            mAniWidth = super.getWidth();
+            mBmpWidth = getBitmapWidth();
+            if(mAniWidth >= 0.0F)
+                mWidth = mAniWidth;
+            else
+                mWidth = mBmpWidth;
+            mAniHeight = super.getHeight();
+            mBmpHeight = getBitmapHeight();
+            if(mAniHeight >= 0.0F)
+                mHeight = mAniHeight;
+            else
+                mHeight = mBmpHeight;
+            mX = super.getX();
+            mY = super.getY();
         }
-        if(true) goto _L1; else goto _L3
-_L3:
     }
 
     private static final String LOG_TAG = "ImageScreenElement";
@@ -511,26 +470,25 @@ _L3:
     public static final String TAG_NAME = "Image";
     private static final String VAR_BMP_HEIGHT = "bmp_height";
     private static final String VAR_BMP_WIDTH = "bmp_width";
-    private Expression mAngleX;
-    private Expression mAngleY;
-    private Expression mAngleZ;
+    private float mAniHeight;
+    private float mAniWidth;
     private boolean mAntiAlias;
     protected Bitmap mBitmap;
     protected boolean mBitmapChanged;
+    private float mBmpHeight;
     private IndexedNumberVariable mBmpSizeHeightVar;
     private IndexedNumberVariable mBmpSizeWidthVar;
+    private float mBmpWidth;
     private Canvas mBufferCanvas;
     private Bitmap mCachedBitmap;
     private String mCachedBitmapName;
-    private Camera mCamera;
-    private Expression mCenterZ;
     protected Bitmap mCurrentBitmap;
     private Rect mDesRect;
+    private float mHeight;
     private String mKey;
     private Bitmap mMaskBuffer;
     private Paint mMaskPaint;
     private ArrayList mMasks;
-    private Matrix mMatrix;
     private Paint mPaint;
     private pair mRotateXYpair;
     private Expression mSrcH;
@@ -541,4 +499,7 @@ _L3:
     private Expression mSrcY;
     private boolean mUseVirtualScreen;
     private VirtualScreen mVirtualScreen;
+    private float mWidth;
+    private float mX;
+    private float mY;
 }

@@ -42,6 +42,9 @@ public class FramerateController extends ScreenElement {
         mTimeRange = ((ControlPoint)mControlPoints.get(-1 + mControlPoints.size())).mTime;
     }
 
+    public void doRender(Canvas canvas) {
+    }
+
     protected void onVisibilityChange(boolean flag) {
         super.onVisibilityChange(flag);
         if(!flag) {
@@ -50,9 +53,6 @@ public class FramerateController extends ScreenElement {
         } else {
             requestFramerate(mCurFramerate);
         }
-    }
-
-    public void render(Canvas canvas) {
     }
 
     public void reset(long l) {

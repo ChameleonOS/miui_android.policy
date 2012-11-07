@@ -24,17 +24,17 @@
     .parameter
 
     .prologue
-    .line 476
+    .line 480
     iput-object p1, p0, Lmiui/app/screenelement/data/ContentProviderBinder$ChangeObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
-    .line 477
+    .line 481
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {p0, v0}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 478
+    .line 482
     return-void
 .end method
 
@@ -44,7 +44,7 @@
     .registers 2
 
     .prologue
-    .line 482
+    .line 486
     const/4 v0, 0x1
 
     return v0
@@ -55,11 +55,11 @@
     .parameter "selfChange"
 
     .prologue
-    .line 487
+    .line 491
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$ChangeObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/ContentProviderBinder;->onContentChanged()V
 
-    .line 488
+    .line 492
     return-void
 .end method

@@ -26,22 +26,7 @@ public class ImageNumberScreenElement extends AnimatedScreenElement {
             mActualWidthVar = new IndexedNumberVariable(super.mName, "actual_w", screencontext.mVariables);
     }
 
-    protected Bitmap getBitmap(char c) {
-        String s = Utils.addFileNameSuffix(super.mAni.getSrc(), String.valueOf(c));
-        return super.mContext.mResourceManager.getBitmap(s);
-    }
-
-    public void load(Element element) throws ScreenElementLoadException {
-        if(element == null) {
-            Log.e("ImageNumberScreenElement", "node is null");
-            throw new ScreenElementLoadException("node is null");
-        } else {
-            mNumExpression = Expression.build(element.getAttribute("number"));
-            return;
-        }
-    }
-
-    public void render(Canvas canvas) {
+    public void doRender(Canvas canvas) {
         if(isVisible()) goto _L2; else goto _L1
 _L1:
         return;
@@ -64,6 +49,21 @@ _L2:
             mActualWidthVar.set(descale(f2));
         if(true) goto _L1; else goto _L3
 _L3:
+    }
+
+    protected Bitmap getBitmap(char c) {
+        String s = Utils.addFileNameSuffix(super.mAni.getSrc(), String.valueOf(c));
+        return super.mContext.mResourceManager.getBitmap(s);
+    }
+
+    public void load(Element element) throws ScreenElementLoadException {
+        if(element == null) {
+            Log.e("ImageNumberScreenElement", "node is null");
+            throw new ScreenElementLoadException("node is null");
+        } else {
+            mNumExpression = Expression.build(element.getAttribute("number"));
+            return;
+        }
     }
 
     private static final String LOG_TAG = "ImageNumberScreenElement";

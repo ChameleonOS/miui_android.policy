@@ -5,6 +5,8 @@
 package miui.app.screenelement;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.text.TextUtils;
 import android.util.Log;
@@ -27,7 +29,7 @@ import org.w3c.dom.Element;
 
 // Referenced classes of package miui.app.screenelement:
 //            InteractiveListener, ScreenContext, ScreenElementLoadException, ExternalCommandManager, 
-//            ResourceManager, SoundManager, RendererController
+//            ResourceManager, SoundManager, LanguageHelper, RendererController
 
 public class ScreenElementRoot extends ScreenElement
     implements InteractiveListener {
@@ -68,11 +70,9 @@ public class ScreenElementRoot extends ScreenElement
     }
 
     private void resolveResource(Element element, int i) {
-        if(i == mDefaultScreenWidth) goto _L2; else goto _L1
-_L1:
         String s = element.getAttribute("extraResourcesScreenWidth");
-        if(TextUtils.isEmpty(s)) goto _L2; else goto _L3
-_L3:
+        if(TextUtils.isEmpty(s)) goto _L2; else goto _L1
+_L1:
         String as[];
         int j;
         int k;
@@ -83,30 +83,30 @@ _L3:
         k = 0;
         l = as.length;
         i1 = 0;
-_L9:
-        if(i1 >= l) goto _L5; else goto _L4
-_L4:
+_L8:
+        if(i1 >= l) goto _L4; else goto _L3
+_L3:
         String s1 = as[i1];
         int j1;
         int k1;
         j1 = Integer.parseInt(s1);
         k1 = Math.abs(i - j1);
-        if(k1 >= j) goto _L7; else goto _L6
-_L6:
+        if(k1 >= j) goto _L6; else goto _L5
+_L5:
         j = k1;
         k = j1;
-        if(k1 != 0) goto _L7; else goto _L5
-_L5:
+        if(k1 != 0) goto _L6; else goto _L4
+_L4:
         if(Math.abs(i - mDefaultScreenWidth) >= j)
             super.mContext.setExtraResource(k);
 _L2:
         return;
         NumberFormatException numberformatexception;
         numberformatexception;
-_L7:
+_L6:
         i1++;
-        if(true) goto _L9; else goto _L8
-_L8:
+        if(true) goto _L8; else goto _L7
+_L7:
     }
 
     public void addFramerateController(FramerateController frameratecontroller) {
@@ -119,6 +119,13 @@ _L8:
 
     public FramerateTokenList.FramerateToken createFramerateToken(String s) {
         return super.mContext.createToken(s);
+    }
+
+    public void doRender(Canvas canvas) {
+        if(mElementGroup != null)
+            mElementGroup.doRender(canvas);
+        mFrames = 1 + mFrames;
+        doneRender();
     }
 
     public void doneRender() {
@@ -244,6 +251,7 @@ _L1:
           goto _L3
 _L2:
         int i;
+        LanguageHelper.load(super.mContext.mContext.getResources().getConfiguration().locale, super.mContext.mResourceManager, super.mContext.mVariables);
         mNormalFrameRate = Utils.getAttrAsFloat(element, "frameRate", DEFAULT_FRAME_RATE);
         mFrameRate = mNormalFrameRate;
         i = Utils.getAttrAsInt(element, "screenWidth", 0);
@@ -275,7 +283,7 @@ _L2:
             flag1 = true;
         else
             flag1 = false;
-        break MISSING_BLOCK_LABEL_454;
+        break MISSING_BLOCK_LABEL_488;
 _L5:
         if(mTargetDensity == 0) {
             mScale = (float)i1 / (float)mDefaultScreenWidth;
@@ -398,13 +406,6 @@ _L3:
                 mSoundManager = new SoundManager(super.mContext.mContext, super.mContext.mResourceManager);
             mSoundManager.playSound(s, true);
         }
-    }
-
-    public void render(Canvas canvas) {
-        if(mElementGroup != null)
-            mElementGroup.render(canvas);
-        mFrames = 1 + mFrames;
-        doneRender();
     }
 
     public void reset(long l) {

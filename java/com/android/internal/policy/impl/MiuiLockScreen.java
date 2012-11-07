@@ -1226,7 +1226,7 @@ _L3:
         mBackgroundMask.setScaleType(android.widget.ImageView.ScaleType.FIT_XY);
         addView(mBackgroundMask, new LayoutParams(-1, -1, 80));
         LayoutInflater layoutinflater = LayoutInflater.from(context);
-        layoutinflater.inflate(0x6030004, this, true);
+        layoutinflater.inflate(0x603003b, this, true);
         mCarrier = (TextView)findViewById(0x60b002c);
         mCarrier.setSelected(true);
         mScreenLocked = (TextView)findViewById(0x60b002d);

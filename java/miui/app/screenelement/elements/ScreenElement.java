@@ -134,6 +134,8 @@ public abstract class ScreenElement {
         return f / mRoot.getScale();
     }
 
+    public abstract void doRender(Canvas canvas);
+
     public ScreenElement findElement(String s) {
         if(!mName.equals(s))
             this = null;
@@ -283,7 +285,11 @@ _L3:
     public void pause() {
     }
 
-    public abstract void render(Canvas canvas);
+    public void render(Canvas canvas) {
+        updateVisibility();
+        if(mIsVisible)
+            doRender(canvas);
+    }
 
     protected void requestFramerate(float f) {
         if(f >= 0.0F) goto _L2; else goto _L1
@@ -351,7 +357,6 @@ _L3:
     }
 
     public void tick(long l) {
-        updateVisibility();
     }
 
     protected void updateVisibility() {

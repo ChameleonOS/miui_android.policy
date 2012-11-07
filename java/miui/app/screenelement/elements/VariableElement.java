@@ -85,13 +85,13 @@ _L5:
           goto _L6
     }
 
+    public void doRender(Canvas canvas) {
+    }
+
     public void init() {
         if(mAnimation != null)
             mAnimation.init();
         update();
-    }
-
-    public void render(Canvas canvas) {
     }
 
     public void reset(long l) {

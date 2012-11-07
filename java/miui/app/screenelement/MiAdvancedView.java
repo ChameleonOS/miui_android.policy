@@ -136,23 +136,25 @@ _L1:
             getParent().requestDisallowInterceptTouchEvent(flag1);
             mNeedDisallowInterceptTouchEvent = flag1;
         }
-        boolean flag2 = mRoot.onTouch(motionevent);
-        boolean flag = flag2;
-_L4:
-        return flag;
+        ScreenElementRoot screenelementroot = mRoot;
+        screenelementroot;
+        JVM INSTR monitorenter ;
+        boolean flag = mRoot.onTouch(motionevent);
+          goto _L3
         Exception exception;
         exception;
         exception.printStackTrace();
         Log.e("MiAdvancedView", exception.toString());
 _L2:
         flag = false;
-        if(true) goto _L4; else goto _L3
-_L3:
+        break; /* Loop/switch isn't completed */
         OutOfMemoryError outofmemoryerror;
         outofmemoryerror;
         outofmemoryerror.printStackTrace();
         Log.e("MiAdvancedView", outofmemoryerror.toString());
-          goto _L2
+        if(true) goto _L2; else goto _L3
+_L3:
+        return flag;
     }
 
     public void pause() {

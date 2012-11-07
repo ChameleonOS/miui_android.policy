@@ -88,24 +88,6 @@ public class AnimatedElement {
         return Utils.mixAlpha(i, j);
     }
 
-    public float getCenterX() {
-        double d;
-        if(mCenterXExpression != null)
-            d = mCenterXExpression.evaluate(mContext.mVariables);
-        else
-            d = 0.0D;
-        return (float)d;
-    }
-
-    public float getCenterY() {
-        double d;
-        if(mCenterYExpression != null)
-            d = mCenterYExpression.evaluate(mContext.mVariables);
-        else
-            d = 0.0D;
-        return (float)d;
-    }
-
     public float getHeight() {
         float f;
         if(mSizes != null) {
@@ -151,11 +133,29 @@ public class AnimatedElement {
         return f;
     }
 
+    public float getPivotX() {
+        double d;
+        if(mCenterXExpression != null)
+            d = mCenterXExpression.evaluate(mContext.mVariables);
+        else
+            d = 0.0D;
+        return (float)d;
+    }
+
+    public float getPivotY() {
+        double d;
+        if(mCenterYExpression != null)
+            d = mCenterYExpression.evaluate(mContext.mVariables);
+        else
+            d = 0.0D;
+        return (float)d;
+    }
+
     public float getRotationAngle() {
         double d;
         float f;
-        if(mAngleExpression != null)
-            d = mAngleExpression.evaluate(mContext.mVariables);
+        if(mRotationExpression != null)
+            d = mRotationExpression.evaluate(mContext.mVariables);
         else
             d = 0.0D;
         if(mRotations != null)
@@ -232,9 +232,9 @@ public class AnimatedElement {
         mBaseYExpression = createExp(element, "y", "top");
         mWidthExpression = createExp(element, "w", "width");
         mHeightExpression = createExp(element, "h", "height");
-        mAngleExpression = createExp(element, "angle", null);
-        mCenterXExpression = createExp(element, "centerX", null);
-        mCenterYExpression = createExp(element, "centerY", null);
+        mRotationExpression = createExp(element, "angle", "rotation");
+        mCenterXExpression = createExp(element, "centerX", "pivotX");
+        mCenterYExpression = createExp(element, "centerY", "pivotY");
         mSrcIdExpression = createExp(element, "srcid", null);
         mAlphaExpression = createExp(element, "alpha", null);
         mSrcFormatter = TextFormatter.fromElement(element, "src", "srcFormat", "srcParas", "srcExp", "srcFormatExp");
@@ -260,7 +260,6 @@ public class AnimatedElement {
     private boolean mAlignAbsolute;
     private Expression mAlphaExpression;
     private AlphaAnimation mAlphas;
-    protected Expression mAngleExpression;
     private ArrayList mAnimations;
     protected Expression mBaseXExpression;
     protected Expression mBaseYExpression;
@@ -269,6 +268,7 @@ public class AnimatedElement {
     private ScreenContext mContext;
     protected Expression mHeightExpression;
     private PositionAnimation mPositions;
+    protected Expression mRotationExpression;
     private RotationAnimation mRotations;
     private SizeAnimation mSizes;
     private SourcesAnimation mSources;

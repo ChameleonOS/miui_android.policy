@@ -44,7 +44,7 @@
 
     const/4 v2, 0x0
 
-    .line 104
+    .line 108
     new-instance v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     const-string v1, "ResourceImage"
@@ -53,7 +53,7 @@
 
     sput-object v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->ResourceImage:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    .line 105
+    .line 109
     new-instance v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     const-string v1, "VirtualScreen"
@@ -62,7 +62,7 @@
 
     sput-object v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->VirtualScreen:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    .line 106
+    .line 110
     new-instance v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     const-string v1, "ApplicationIcon"
@@ -71,7 +71,7 @@
 
     sput-object v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->ApplicationIcon:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    .line 103
+    .line 107
     const/4 v0, 0x3
 
     new-array v0, v0, [Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
@@ -104,7 +104,7 @@
     .end annotation
 
     .prologue
-    .line 103
+    .line 107
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -115,7 +115,7 @@
     .parameter "name"
 
     .prologue
-    .line 103
+    .line 107
     const-class v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -131,7 +131,7 @@
     .registers 1
 
     .prologue
-    .line 103
+    .line 107
     sget-object v0, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->$VALUES:[Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     invoke-virtual {v0}, [Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->clone()Ljava/lang/Object;

@@ -48,7 +48,7 @@
 
     const/4 v2, 0x0
 
-    .line 264
+    .line 262
     new-instance v0, Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     const-string v1, "Normal"
@@ -81,7 +81,7 @@
 
     sput-object v0, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Invalid:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
-    .line 263
+    .line 261
     const/4 v0, 0x4
 
     new-array v0, v0, [Lmiui/app/screenelement/elements/AdvancedSlider$State;
@@ -118,7 +118,7 @@
     .end annotation
 
     .prologue
-    .line 263
+    .line 261
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -129,7 +129,7 @@
     .parameter "name"
 
     .prologue
-    .line 263
+    .line 261
     const-class v0, Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -145,7 +145,7 @@
     .registers 1
 
     .prologue
-    .line 263
+    .line 261
     sget-object v0, Lmiui/app/screenelement/elements/AdvancedSlider$State;->$VALUES:[Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     invoke-virtual {v0}, [Lmiui/app/screenelement/elements/AdvancedSlider$State;->clone()Ljava/lang/Object;

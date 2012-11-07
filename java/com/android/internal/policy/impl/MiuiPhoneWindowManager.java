@@ -45,39 +45,60 @@ public class MiuiPhoneWindowManager extends PhoneWindowManager {
             JVM INSTR monitorenter ;
             ContentResolver contentresolver = mContext.getContentResolver();
             MiuiPhoneWindowManager miuiphonewindowmanager = MiuiPhoneWindowManager.this;
+            Exception exception;
             boolean flag2;
-            MiuiPhoneWindowManager miuiphonewindowmanager1;
             boolean flag3;
-            MiuiPhoneWindowManager miuiphonewindowmanager2;
+            NotificationManager notificationmanager;
+            MiuiPhoneWindowManager miuiphonewindowmanager1;
             boolean flag4;
+            MiuiPhoneWindowManager miuiphonewindowmanager2;
+            boolean flag5;
+            MiuiPhoneWindowManager miuiphonewindowmanager3;
             if(android.provider.Settings.Secure.getInt(contentresolver, "screen_buttons_state", 0) != 0)
                 flag2 = flag1;
             else
                 flag2 = false;
             miuiphonewindowmanager.mScreenButtonsDisabled = flag2;
-            miuiphonewindowmanager1 = MiuiPhoneWindowManager.this;
-            if(android.provider.Settings.System.getInt(contentresolver, "trackball_wake_screen", 0) == flag1)
+            if(mScreenButtonNotification == null)
                 flag3 = flag1;
             else
                 flag3 = false;
-            miuiphonewindowmanager1.mTrackballWakeScreen = flag3;
-            miuiphonewindowmanager2 = MiuiPhoneWindowManager.this;
-            if(android.provider.Settings.System.getInt(contentresolver, "volumekey_wake_screen", 0) == flag1)
+            if(mScreenButtonNotification == null) {
+                Intent intent = new Intent("com.miui.app.ExtraStatusBarManager.TRIGGER_TOGGLE_SCREEN_BUTTONS");
+                mScreenButtonNotification = (new android.app.Notification.Builder(mContext)).setOngoing(true).setWhen(System.currentTimeMillis()).setSmallIcon(0x60201f0).setContentTitle(mContext.getString(0x60c022c)).setContentText(mContext.getString(0x60c022d)).setContentIntent(PendingIntent.getBroadcast(mContext, 0, intent, 0)).getNotification();
+            }
+            notificationmanager = (NotificationManager)mContext.getSystemService("notification");
+            if(mScreenButtonsDisabled)
+                notificationmanager.notify(mScreenButtonNotification.icon, mScreenButtonNotification);
+            else
+            if(!flag3)
+                notificationmanager.cancel(mScreenButtonNotification.icon);
+            miuiphonewindowmanager1 = MiuiPhoneWindowManager.this;
+            if(android.provider.Settings.System.getInt(contentresolver, "trackball_wake_screen", 0) == flag1)
                 flag4 = flag1;
             else
                 flag4 = false;
-            miuiphonewindowmanager2.mVolumeKeyWakeScreen = flag4;
-            if(flag1 == android.provider.Settings.System.getInt(contentresolver, "camera_key_preferred_action_type", 0)) {
-                MiuiPhoneWindowManager miuiphonewindowmanager3 = MiuiPhoneWindowManager.this;
-                if(4 != android.provider.Settings.System.getInt(contentresolver, "camera_key_preferred_action_shortcut_id", -1))
-                    flag1 = false;
-                miuiphonewindowmanager3.mCameraKeyWakeScreen = flag1;
-            } else {
-                mCameraKeyWakeScreen = false;
-            }
+            miuiphonewindowmanager1.mTrackballWakeScreen = flag4;
+            miuiphonewindowmanager2 = MiuiPhoneWindowManager.this;
+            if(android.provider.Settings.System.getInt(contentresolver, "volumekey_wake_screen", 0) == flag1)
+                flag5 = flag1;
+            else
+                flag5 = false;
+            miuiphonewindowmanager2.mVolumeKeyWakeScreen = flag5;
+            if(flag1 != android.provider.Settings.System.getInt(contentresolver, "camera_key_preferred_action_type", 0))
+                break MISSING_BLOCK_LABEL_345;
+            miuiphonewindowmanager3 = MiuiPhoneWindowManager.this;
+            if(4 != android.provider.Settings.System.getInt(contentresolver, "camera_key_preferred_action_shortcut_id", -1))
+                flag1 = false;
+            miuiphonewindowmanager3.mCameraKeyWakeScreen = flag1;
             return;
+            exception;
+            throw exception;
+            mCameraKeyWakeScreen = false;
+            break MISSING_BLOCK_LABEL_298;
         }
 
+        private Notification mScreenButtonNotification;
         final MiuiPhoneWindowManager this$0;
 
         MiuiSettingsObserver(Handler handler) {

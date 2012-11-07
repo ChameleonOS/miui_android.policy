@@ -68,87 +68,7 @@
 
 
 # virtual methods
-.method protected getBitmap(C)Landroid/graphics/Bitmap;
-    .registers 5
-    .parameter "c"
-
-    .prologue
-    .line 73
-    iget-object v1, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
-
-    invoke-virtual {v1}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {p1}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lmiui/app/screenelement/util/Utils;->addFileNameSuffix(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 74
-    .local v0, name:Ljava/lang/String;
-    iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    iget-object v1, v1, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
-
-    invoke-virtual {v1, v0}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    return-object v1
-.end method
-
-.method public load(Lorg/w3c/dom/Element;)V
-    .registers 4
-    .parameter "node"
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lmiui/app/screenelement/ScreenElementLoadException;
-        }
-    .end annotation
-
-    .prologue
-    .line 38
-    if-nez p1, :cond_11
-
-    .line 39
-    const-string v0, "ImageNumberScreenElement"
-
-    const-string v1, "node is null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 40
-    new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
-
-    const-string v1, "node is null"
-
-    invoke-direct {v0, v1}, Lmiui/app/screenelement/ScreenElementLoadException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    .line 43
-    :cond_11
-    const-string v0, "number"
-
-    invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lmiui/app/screenelement/data/Expression;->build(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lmiui/app/screenelement/elements/ImageNumberScreenElement;->mNumExpression:Lmiui/app/screenelement/data/Expression;
-
-    .line 44
-    return-void
-.end method
-
-.method public render(Landroid/graphics/Canvas;)V
+.method public doRender(Landroid/graphics/Canvas;)V
     .registers 13
     .parameter "c"
 
@@ -278,4 +198,84 @@
     invoke-virtual {v8, v9, v10}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
     goto :goto_6
+.end method
+
+.method protected getBitmap(C)Landroid/graphics/Bitmap;
+    .registers 5
+    .parameter "c"
+
+    .prologue
+    .line 73
+    iget-object v1, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
+
+    invoke-virtual {v1}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lmiui/app/screenelement/util/Utils;->addFileNameSuffix(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 74
+    .local v0, name:Ljava/lang/String;
+    iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    iget-object v1, v1, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
+
+    invoke-virtual {v1, v0}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public load(Lorg/w3c/dom/Element;)V
+    .registers 4
+    .parameter "node"
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lmiui/app/screenelement/ScreenElementLoadException;
+        }
+    .end annotation
+
+    .prologue
+    .line 38
+    if-nez p1, :cond_11
+
+    .line 39
+    const-string v0, "ImageNumberScreenElement"
+
+    const-string v1, "node is null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 40
+    new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
+
+    const-string v1, "node is null"
+
+    invoke-direct {v0, v1}, Lmiui/app/screenelement/ScreenElementLoadException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 43
+    :cond_11
+    const-string v0, "number"
+
+    invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lmiui/app/screenelement/data/Expression;->build(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lmiui/app/screenelement/elements/ImageNumberScreenElement;->mNumExpression:Lmiui/app/screenelement/data/Expression;
+
+    .line 44
+    return-void
 .end method

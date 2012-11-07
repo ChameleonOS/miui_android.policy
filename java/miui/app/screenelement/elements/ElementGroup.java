@@ -23,6 +23,15 @@ public class ElementGroup extends AnimatedScreenElement {
         load(element, screenelementroot);
     }
 
+    public void doRender(Canvas canvas) {
+        float f = getX();
+        float f1 = getY();
+        int i = canvas.save();
+        canvas.translate(f, f1);
+        for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).render(canvas));
+        canvas.restoreToCount(i);
+    }
+
     public ScreenElement findElement(String s) {
         ScreenElement screenelement = super.findElement(s);
         if(screenelement == null) goto _L2; else goto _L1
@@ -111,17 +120,6 @@ _L3:
         for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).pause());
     }
 
-    public void render(Canvas canvas) {
-        if(isVisible()) {
-            float f = getX();
-            float f1 = getY();
-            int i = canvas.save();
-            canvas.translate(f, f1);
-            for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).render(canvas));
-            canvas.restoreToCount(i);
-        }
-    }
-
     public void reset(long l) {
         super.reset(l);
         for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).reset(l));
@@ -139,7 +137,11 @@ _L3:
 
     public void tick(long l) {
         super.tick(l);
-        for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).tick(l));
+        if(super.mIsVisible) {
+            Iterator iterator = mElements.iterator();
+            while(iterator.hasNext()) 
+                ((ScreenElement)iterator.next()).tick(l);
+        }
     }
 
     private static final String LOG_TAG = "LockScreen_ElementGroup";

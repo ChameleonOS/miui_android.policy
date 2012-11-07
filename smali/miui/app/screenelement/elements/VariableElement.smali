@@ -391,6 +391,15 @@
 
 
 # virtual methods
+.method public doRender(Landroid/graphics/Canvas;)V
+    .registers 2
+    .parameter "c"
+
+    .prologue
+    .line 90
+    return-void
+.end method
+
 .method public init()V
     .registers 2
 
@@ -410,15 +419,6 @@
     invoke-direct {p0}, Lmiui/app/screenelement/elements/VariableElement;->update()V
 
     .line 109
-    return-void
-.end method
-
-.method public render(Landroid/graphics/Canvas;)V
-    .registers 2
-    .parameter "c"
-
-    .prologue
-    .line 90
     return-void
 .end method
 

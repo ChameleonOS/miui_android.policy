@@ -335,6 +335,10 @@ _L2:
                     mCursor.registerDataSetObserver(mDataSetObserver);
                 }
                 updateVariables();
+                if(mUpdateInterval != -1) {
+                    mCursor.close();
+                    mCursor = null;
+                }
                 mContext.requestUpdate();
             }
         }

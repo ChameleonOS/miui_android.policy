@@ -5,7 +5,6 @@
 package miui.app.screenelement.elements;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.text.*;
 import android.util.Log;
 import miui.app.screenelement.*;
@@ -20,7 +19,6 @@ public class TextScreenElement extends AnimatedScreenElement {
 
     public TextScreenElement(Element element, ScreenContext screencontext, ScreenElementRoot screenelementroot) throws ScreenElementLoadException {
         super(element, screencontext, screenelementroot);
-        mColor = -1;
         mPaint = new TextPaint();
         mMarqueePos = 3.402823E+38F;
         load(element);
@@ -90,62 +88,9 @@ _L2:
 _L3:
     }
 
-    protected String getFormat() {
-        return mFormatter.getFormat(super.mContext.mVariables);
-    }
-
-    protected String getText() {
-        return mFormatter.getText(super.mContext.mVariables);
-    }
-
-    public void init() {
-        super.init();
-        mText = getText();
-        updateTextWidth();
-    }
-
-    public void load(Element element) throws ScreenElementLoadException {
-        if(element == null) {
-            Log.e("TextScreenElement", "node is null");
-            throw new ScreenElementLoadException("node is null");
-        }
-        mFormatter = TextFormatter.fromElement(element);
-        boolean flag;
-        try {
-            mColor = Color.parseColor(element.getAttribute("color"));
-        }
-        catch(IllegalArgumentException illegalargumentexception) {
-            mColor = -1;
-        }
-        mSizeExpression = Expression.build(element.getAttribute("size"));
-        mMarqueeSpeed = Utils.getAttrAsInt(element, "marqueeSpeed", 0);
-        flag = Boolean.parseBoolean(element.getAttribute("bold"));
-        mSpacingMult = Utils.getAttrAsFloat(element, "spacingMult", 1.0F);
-        mSpacingAdd = Utils.getAttrAsFloat(element, "spacingAdd", 0.0F);
-        mMultiLine = Boolean.parseBoolean(element.getAttribute("multiLine"));
-        mPaint.setColor(mColor);
-        mPaint.setTextSize(18F);
-        mPaint.setAntiAlias(true);
-        mPaint.setFakeBoldText(flag);
-    }
-
-    protected void onVisibilityChange(boolean flag) {
-        super.onVisibilityChange(flag);
-        float f = getWidth();
-        String s = getText();
-        if(s == null) {
-            requestFramerate(0.0F);
-        } else {
-            int i = (int)mPaint.measureText(s);
-            if(flag && mMarqueeSpeed > 0 && f > 0.0F && (float)i > f)
-                requestFramerate(30F);
-            else
-                requestFramerate(0.0F);
-        }
-    }
-
-    public void render(Canvas canvas) {
-        if(isVisible() && !TextUtils.isEmpty(mText)) {
+    public void doRender(Canvas canvas) {
+        if(!TextUtils.isEmpty(mText)) {
+            mPaint.setColor(getColor());
             mPaint.setAlpha(getAlpha());
             float f = getWidth();
             if(f < 0.0F || f > mTextWidth)
@@ -161,7 +106,6 @@ _L3:
             else
                 f4 = getY();
             canvas.save();
-            canvas.rotate(getAngle(), f3 + getCenterX(), f4 + getCenterY());
             if(f > 0.0F && f1 > 0.0F)
                 canvas.clipRect(f3, f4 - 10F, f3 + f, 20F + (f4 + f1));
             if(mTextLayout != null) {
@@ -184,6 +128,60 @@ _L3:
                 canvas.drawText(s, f5 + f3, f4 + f2, mPaint);
             }
             canvas.restore();
+        }
+    }
+
+    protected int getColor() {
+        return mColorParser.getColor(super.mContext.mVariables);
+    }
+
+    protected String getFormat() {
+        return mFormatter.getFormat(super.mContext.mVariables);
+    }
+
+    protected String getText() {
+        return mFormatter.getText(super.mContext.mVariables);
+    }
+
+    public void init() {
+        super.init();
+        mText = getText();
+        updateTextWidth();
+    }
+
+    public void load(Element element) throws ScreenElementLoadException {
+        if(element == null) {
+            Log.e("TextScreenElement", "node is null");
+            throw new ScreenElementLoadException("node is null");
+        } else {
+            mFormatter = TextFormatter.fromElement(element);
+            mColorParser = ColorParser.fromElement(element);
+            mSizeExpression = Expression.build(element.getAttribute("size"));
+            mMarqueeSpeed = Utils.getAttrAsInt(element, "marqueeSpeed", 0);
+            boolean flag = Boolean.parseBoolean(element.getAttribute("bold"));
+            mSpacingMult = Utils.getAttrAsFloat(element, "spacingMult", 1.0F);
+            mSpacingAdd = Utils.getAttrAsFloat(element, "spacingAdd", 0.0F);
+            mMultiLine = Boolean.parseBoolean(element.getAttribute("multiLine"));
+            mPaint.setColor(getColor());
+            mPaint.setTextSize(18F);
+            mPaint.setAntiAlias(true);
+            mPaint.setFakeBoldText(flag);
+            return;
+        }
+    }
+
+    protected void onVisibilityChange(boolean flag) {
+        super.onVisibilityChange(flag);
+        float f = getWidth();
+        String s = getText();
+        if(s == null) {
+            requestFramerate(0.0F);
+        } else {
+            int i = (int)mPaint.measureText(s);
+            if(flag && mMarqueeSpeed > 0 && f > 0.0F && (float)i > f)
+                requestFramerate(30F);
+            else
+                requestFramerate(0.0F);
         }
     }
 
@@ -243,7 +241,7 @@ _L8:
     public static final String TAG_NAME = "Text";
     public static final String TEXT_HEIGHT = "text_height";
     public static final String TEXT_WIDTH = "text_width";
-    private int mColor;
+    private ColorParser mColorParser;
     private TextFormatter mFormatter;
     private float mMarqueePos;
     private int mMarqueeSpeed;

@@ -158,7 +158,7 @@ _L4:
         mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0xcc000000));
         mDialog.getWindow().requestFeature(1);
         mDialog.setCancelable(false);
-        mDialog.setContentView(View.inflate(mDialog.getContext(), 0x6030000, null), new android.view.ViewGroup.LayoutParams(-1, -1));
+        mDialog.setContentView(View.inflate(mDialog.getContext(), 0x603002a, null), new android.view.ViewGroup.LayoutParams(-1, -1));
     }
 
     /**

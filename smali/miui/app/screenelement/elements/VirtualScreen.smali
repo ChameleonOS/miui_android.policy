@@ -35,6 +35,29 @@
 
 
 # virtual methods
+.method public doRender(Landroid/graphics/Canvas;)V
+    .registers 5
+    .parameter "c"
+
+    .prologue
+    .line 46
+    iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
+
+    const/4 v1, 0x0
+
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
+
+    .line 47
+    iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
+
+    invoke-super {p0, v0}, Lmiui/app/screenelement/elements/ElementGroup;->doRender(Landroid/graphics/Canvas;)V
+
+    .line 48
+    return-void
+.end method
+
 .method public finish()V
     .registers 2
 
@@ -159,28 +182,5 @@
     iput-object v2, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
 
     .line 37
-    return-void
-.end method
-
-.method public render(Landroid/graphics/Canvas;)V
-    .registers 5
-    .parameter "c"
-
-    .prologue
-    .line 46
-    iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
-
-    const/4 v1, 0x0
-
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
-
-    .line 47
-    iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
-
-    invoke-super {p0, v0}, Lmiui/app/screenelement/elements/ElementGroup;->render(Landroid/graphics/Canvas;)V
-
-    .line 48
     return-void
 .end method

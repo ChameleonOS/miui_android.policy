@@ -105,6 +105,12 @@ public class ButtonScreenElement extends AnimatedScreenElement {
         super.mRoot.onButtonInteractive(this, buttonaction);
     }
 
+    public void doRender(Canvas canvas) {
+        ElementGroup elementgroup = getCur();
+        if(elementgroup != null)
+            elementgroup.render(canvas);
+    }
+
     public void finish() {
         if(mNormalElements != null)
             mNormalElements.finish();
@@ -239,18 +245,6 @@ _L3:
             mPressedElements.pause();
         for(Iterator iterator = mTriggers.iterator(); iterator.hasNext(); ((CommandTrigger)iterator.next()).pause());
         mPressed = false;
-    }
-
-    public void render(Canvas canvas) {
-        if(isVisible()) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        ElementGroup elementgroup = getCur();
-        if(elementgroup != null)
-            elementgroup.render(canvas);
-        if(true) goto _L1; else goto _L3
-_L3:
     }
 
     public void reset(long l) {

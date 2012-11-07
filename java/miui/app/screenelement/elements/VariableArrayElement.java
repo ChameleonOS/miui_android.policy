@@ -175,11 +175,11 @@ _L3:
         }
     }
 
-    public void init() {
-        for(Iterator iterator = mVars.iterator(); iterator.hasNext(); ((Var)iterator.next()).init());
+    public void doRender(Canvas canvas) {
     }
 
-    public void render(Canvas canvas) {
+    public void init() {
+        for(Iterator iterator = mVars.iterator(); iterator.hasNext(); ((Var)iterator.next()).init());
     }
 
     public void tick(long l) {

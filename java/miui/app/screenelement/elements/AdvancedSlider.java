@@ -1039,6 +1039,11 @@ _L7:
         }
     }
 
+    public void doRender(Canvas canvas) {
+        for(Iterator iterator = mEndPoints.iterator(); iterator.hasNext(); ((EndPoint)iterator.next()).render(canvas));
+        mStartPoint.render(canvas);
+    }
+
     public ScreenElement findElement(String s) {
         ScreenElement screenelement = super.findElement(s);
         if(screenelement == null) goto _L2; else goto _L1
@@ -1076,15 +1081,6 @@ _L3:
         mBounceAnimationController.init();
         mStartPoint.init();
         for(Iterator iterator = mEndPoints.iterator(); iterator.hasNext(); ((EndPoint)iterator.next()).init());
-    }
-
-    public boolean isVisible() {
-        boolean flag;
-        if(super.isVisible() && !mUnlockingHide)
-            flag = true;
-        else
-            flag = false;
-        return flag;
     }
 
     public void load(Element element) throws ScreenElementLoadException {
@@ -1198,13 +1194,6 @@ _L3:
         for(Iterator iterator = mEndPoints.iterator(); iterator.hasNext(); ((EndPoint)iterator.next()).pause());
     }
 
-    public void render(Canvas canvas) {
-        if(isVisible()) {
-            for(Iterator iterator = mEndPoints.iterator(); iterator.hasNext(); ((EndPoint)iterator.next()).render(canvas));
-            mStartPoint.render(canvas);
-        }
-    }
-
     public void reset(long l) {
         super.reset(l);
         mStartPoint.reset(l);
@@ -1264,7 +1253,6 @@ _L3:
     private IndexedNumberVariable mStateVar;
     private float mTouchOffsetX;
     private float mTouchOffsetY;
-    private boolean mUnlockingHide;
 
     static  {
         boolean flag;

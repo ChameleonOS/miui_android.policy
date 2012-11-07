@@ -26,11 +26,9 @@
 
 
 # instance fields
-.field private mAngleX:Lmiui/app/screenelement/data/Expression;
+.field private mAniHeight:F
 
-.field private mAngleY:Lmiui/app/screenelement/data/Expression;
-
-.field private mAngleZ:Lmiui/app/screenelement/data/Expression;
+.field private mAniWidth:F
 
 .field private mAntiAlias:Z
 
@@ -38,9 +36,13 @@
 
 .field protected mBitmapChanged:Z
 
+.field private mBmpHeight:F
+
 .field private mBmpSizeHeightVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
 .field private mBmpSizeWidthVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
+
+.field private mBmpWidth:F
 
 .field private mBufferCanvas:Landroid/graphics/Canvas;
 
@@ -48,13 +50,11 @@
 
 .field private mCachedBitmapName:Ljava/lang/String;
 
-.field private mCamera:Landroid/graphics/Camera;
-
-.field private mCenterZ:Lmiui/app/screenelement/data/Expression;
-
 .field protected mCurrentBitmap:Landroid/graphics/Bitmap;
 
 .field private mDesRect:Landroid/graphics/Rect;
+
+.field private mHeight:F
 
 .field private mKey:Ljava/lang/String;
 
@@ -72,8 +72,6 @@
         }
     .end annotation
 .end field
-
-.field private mMatrix:Landroid/graphics/Matrix;
 
 .field private mPaint:Landroid/graphics/Paint;
 
@@ -105,6 +103,12 @@
 
 .field private mVirtualScreen:Lmiui/app/screenelement/elements/VirtualScreen;
 
+.field private mWidth:F
+
+.field private mX:F
+
+.field private mY:F
+
 
 # direct methods
 .method public constructor <init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
@@ -119,7 +123,7 @@
     .end annotation
 
     .prologue
-    .line 110
+    .line 114
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/AnimatedScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
     .line 44
@@ -143,27 +147,27 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
 
-    .line 89
+    .line 81
     sget-object v1, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->ResourceImage:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    .line 111
+    .line 115
     invoke-virtual {p0, p1}, Lmiui/app/screenelement/elements/ImageScreenElement;->load(Lorg/w3c/dom/Element;)V
 
-    .line 113
+    .line 117
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAntiAlias:Z
 
-    .line 114
+    .line 118
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
 
     iget-boolean v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAntiAlias:Z
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setFilterBitmap(Z)V
 
-    .line 115
+    .line 119
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskPaint:Landroid/graphics/Paint;
 
     new-instance v2, Landroid/graphics/PorterDuffXfermode;
@@ -174,7 +178,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
-    .line 116
+    .line 120
     const-string v1, "srcX"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -187,7 +191,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcX:Lmiui/app/screenelement/data/Expression;
 
-    .line 117
+    .line 121
     const-string v1, "srcY"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -200,7 +204,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcY:Lmiui/app/screenelement/data/Expression;
 
-    .line 118
+    .line 122
     const-string v1, "srcW"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -213,7 +217,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcW:Lmiui/app/screenelement/data/Expression;
 
-    .line 119
+    .line 123
     const-string v1, "srcH"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -226,7 +230,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcH:Lmiui/app/screenelement/data/Expression;
 
-    .line 120
+    .line 124
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcX:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v1, :cond_7c
@@ -243,96 +247,15 @@
 
     if-eqz v1, :cond_7c
 
-    .line 121
+    .line 125
     new-instance v1, Landroid/graphics/Rect;
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
 
-    .line 123
-    :cond_7c
-    const-string v1, "angleX"
-
-    invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lmiui/app/screenelement/data/Expression;->build(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleX:Lmiui/app/screenelement/data/Expression;
-
-    .line 124
-    const-string v1, "angleY"
-
-    invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lmiui/app/screenelement/data/Expression;->build(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleY:Lmiui/app/screenelement/data/Expression;
-
-    .line 125
-    const-string v1, "angleZ"
-
-    invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lmiui/app/screenelement/data/Expression;->build(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleZ:Lmiui/app/screenelement/data/Expression;
-
-    .line 126
-    const-string v1, "centerZ"
-
-    invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lmiui/app/screenelement/data/Expression;->build(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCenterZ:Lmiui/app/screenelement/data/Expression;
-
-    .line 127
-    iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleX:Lmiui/app/screenelement/data/Expression;
-
-    if-nez v1, :cond_b8
-
-    iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleY:Lmiui/app/screenelement/data/Expression;
-
-    if-nez v1, :cond_b8
-
-    iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleZ:Lmiui/app/screenelement/data/Expression;
-
-    if-eqz v1, :cond_c6
-
     .line 128
-    :cond_b8
-    new-instance v1, Landroid/graphics/Camera;
-
-    invoke-direct {v1}, Landroid/graphics/Camera;-><init>()V
-
-    iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    .line 129
-    new-instance v1, Landroid/graphics/Matrix;
-
-    invoke-direct {v1}, Landroid/graphics/Matrix;-><init>()V
-
-    iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMatrix:Landroid/graphics/Matrix;
-
-    .line 132
-    :cond_c6
+    :cond_7c
     const-string v1, "useVirtualScreen"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -345,14 +268,14 @@
 
     iput-boolean v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mUseVirtualScreen:Z
 
-    .line 133
+    .line 129
     const-string v1, "srcType"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 134
+    .line 130
     .local v0, srcType:Ljava/lang/String;
     const-string v1, "ResourceImage"
 
@@ -360,20 +283,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_103
+    if-eqz v1, :cond_b9
 
-    .line 135
+    .line 131
     sget-object v1, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->ResourceImage:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    .line 145
-    :goto_e4
+    .line 141
+    :goto_9a
     iget-boolean v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
-    if-eqz v1, :cond_102
+    if-eqz v1, :cond_b8
 
-    .line 146
+    .line 142
     new-instance v1, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -386,7 +309,7 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpSizeWidthVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 147
+    .line 143
     new-instance v1, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -399,15 +322,15 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpSizeHeightVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 149
-    :cond_102
+    .line 145
+    :cond_b8
     return-void
 
-    .line 136
-    :cond_103
+    .line 132
+    :cond_b9
     iget-boolean v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mUseVirtualScreen:Z
 
-    if-nez v1, :cond_10f
+    if-nez v1, :cond_c5
 
     const-string v1, "VirtualScreen"
 
@@ -415,52 +338,52 @@
 
     move-result v1
 
-    if-eqz v1, :cond_114
+    if-eqz v1, :cond_ca
 
-    .line 137
-    :cond_10f
+    .line 133
+    :cond_c5
     sget-object v1, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->VirtualScreen:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    goto :goto_e4
+    goto :goto_9a
 
-    .line 138
-    :cond_114
+    .line 134
+    :cond_ca
     const-string v1, "ApplicationIcon"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_121
+    if-eqz v1, :cond_d7
 
-    .line 139
+    .line 135
     sget-object v1, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->ApplicationIcon:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    goto :goto_e4
+    goto :goto_9a
 
-    .line 142
-    :cond_121
+    .line 138
+    :cond_d7
     sget-object v1, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->ResourceImage:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
-    goto :goto_e4
+    goto :goto_9a
 .end method
 
 .method private getKey()Ljava/lang/String;
     .registers 2
 
     .prologue
-    .line 377
+    .line 357
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mKey:Ljava/lang/String;
 
     if-nez v0, :cond_e
 
-    .line 378
+    .line 358
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object v0
@@ -471,7 +394,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mKey:Ljava/lang/String;
 
-    .line 379
+    .line 359
     :cond_e
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mKey:Ljava/lang/String;
 
@@ -488,32 +411,32 @@
     .end annotation
 
     .prologue
-    .line 161
+    .line 157
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     if-nez v2, :cond_b
 
-    .line 162
+    .line 158
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
-    .line 164
+    .line 160
     :cond_b
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
 
-    .line 166
+    .line 162
     const-string v2, "Mask"
 
     invoke-interface {p1, v2}, Lorg/w3c/dom/Element;->getElementsByTagName(Ljava/lang/String;)Lorg/w3c/dom/NodeList;
 
     move-result-object v1
 
-    .line 167
+    .line 163
     .local v1, images:Lorg/w3c/dom/NodeList;
     const/4 v0, 0x0
 
@@ -525,7 +448,7 @@
 
     if-ge v0, v2, :cond_32
 
-    .line 168
+    .line 164
     iget-object v3, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     new-instance v4, Lmiui/app/screenelement/animation/AnimatedElement;
@@ -542,17 +465,17 @@
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 167
+    .line 163
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_17
 
-    .line 170
+    .line 166
     :cond_32
     return-void
 .end method
 
-.method private renderWithMask(Landroid/graphics/Canvas;Lmiui/app/screenelement/animation/AnimatedElement;II)V
+.method private renderWithMask(Landroid/graphics/Canvas;Lmiui/app/screenelement/animation/AnimatedElement;FF)V
     .registers 51
     .parameter "bufferCanvas"
     .parameter "mask"
@@ -560,10 +483,10 @@
     .parameter "y"
 
     .prologue
-    .line 403
+    .line 383
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
 
-    .line 404
+    .line 384
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -578,15 +501,15 @@
 
     move-result-object v38
 
-    .line 405
+    .line 385
     .local v38, rawMask:Landroid/graphics/Bitmap;
     if-nez v38, :cond_14
 
-    .line 457
+    .line 437
     :goto_13
     return-void
 
-    .line 408
+    .line 388
     :cond_14
     invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getX()F
 
@@ -604,7 +527,7 @@
 
     move-wide/from16 v30, v0
 
-    .line 409
+    .line 389
     .local v30, maskX:D
     invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getY()F
 
@@ -622,13 +545,13 @@
 
     move-wide/from16 v32, v0
 
-    .line 410
+    .line 390
     .local v32, maskY:D
     invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getRotationAngle()F
 
     move-result v29
 
-    .line 411
+    .line 391
     .local v29, maskAngle:F
     invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->isAlignAbsolute()Z
 
@@ -636,12 +559,12 @@
 
     if-eqz v2, :cond_4d
 
-    .line 412
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getAngle()F
+    .line 392
+    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getRotation()F
 
     move-result v17
 
-    .line 413
+    .line 393
     .local v17, angle:F
     const/4 v2, 0x0
 
@@ -649,25 +572,25 @@
 
     if-nez v2, :cond_d5
 
-    .line 414
+    .line 394
     move/from16 v0, p3
 
-    int-to-double v9, v0
+    float-to-double v9, v0
 
     sub-double v30, v30, v9
 
-    .line 415
+    .line 395
     move/from16 v0, p4
 
-    int-to-double v9, v0
+    float-to-double v9, v0
 
     sub-double v32, v32, v9
 
-    .line 443
+    .line 423
     .end local v17           #angle:F
     :cond_4d
     :goto_4d
-    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getCenterX()F
+    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getPivotX()F
 
     move-result v2
 
@@ -685,7 +608,7 @@
 
     double-to-float v2, v9
 
-    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getCenterY()F
+    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getPivotY()F
 
     move-result v9
 
@@ -709,14 +632,14 @@
 
     invoke-virtual {v0, v1, v2, v9}, Landroid/graphics/Canvas;->rotate(FFF)V
 
-    .line 445
+    .line 425
     move-wide/from16 v0, v30
 
     double-to-int v0, v0
 
     move/from16 v34, v0
 
-    .line 446
+    .line 426
     .local v34, mx:I
     move-wide/from16 v0, v32
 
@@ -724,7 +647,7 @@
 
     move/from16 v35, v0
 
-    .line 447
+    .line 427
     .local v35, my:I
     invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getWidth()F
 
@@ -742,16 +665,16 @@
 
     move-result v43
 
-    .line 448
+    .line 428
     .local v43, width:I
     if-gez v43, :cond_91
 
-    .line 449
+    .line 429
     invoke-virtual/range {v38 .. v38}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v43
 
-    .line 450
+    .line 430
     :cond_91
     invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getHeight()F
 
@@ -769,16 +692,16 @@
 
     move-result v28
 
-    .line 451
+    .line 431
     .local v28, height:I
     if-gez v28, :cond_a6
 
-    .line 452
+    .line 432
     invoke-virtual/range {v38 .. v38}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v28
 
-    .line 453
+    .line 433
     :cond_a6
     move-object/from16 v0, p0
 
@@ -794,7 +717,7 @@
 
     invoke-virtual {v2, v0, v1, v9, v10}, Landroid/graphics/Rect;->set(IIII)V
 
-    .line 454
+    .line 434
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskPaint:Landroid/graphics/Paint;
@@ -805,7 +728,7 @@
 
     invoke-virtual {v2, v9}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    .line 455
+    .line 435
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -822,12 +745,12 @@
 
     invoke-virtual {v0, v1, v2, v9, v10}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    .line 456
+    .line 436
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
     goto/16 :goto_13
 
-    .line 417
+    .line 397
     .end local v28           #height:I
     .end local v34           #mx:I
     .end local v35           #my:I
@@ -836,10 +759,10 @@
     :cond_d5
     sub-float v29, v29, v17
 
-    .line 418
+    .line 398
     const-wide v36, 0x400921fb54442c46L
 
-    .line 419
+    .line 399
     .local v36, pi:D
     move/from16 v0, v17
 
@@ -853,23 +776,23 @@
 
     div-double v7, v9, v11
 
-    .line 420
+    .line 400
     .local v7, angleA:D
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getCenterX()F
+    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getPivotX()F
 
     move-result v2
 
     float-to-double v3, v2
 
-    .line 421
+    .line 401
     .local v3, cx:D
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getCenterY()F
+    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getPivotY()F
 
     move-result v2
 
     float-to-double v5, v2
 
-    .line 422
+    .line 402
     .local v5, cy:D
     move-object/from16 v0, p0
 
@@ -877,7 +800,7 @@
 
     if-nez v2, :cond_106
 
-    .line 423
+    .line 403
     new-instance v2, Lmiui/app/screenelement/elements/ImageScreenElement$pair;
 
     const/4 v9, 0x0
@@ -888,7 +811,7 @@
 
     iput-object v2, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mRotateXYpair:Lmiui/app/screenelement/elements/ImageScreenElement$pair;
 
-    .line 425
+    .line 405
     :cond_106
     move-object/from16 v0, p0
 
@@ -898,10 +821,10 @@
 
     invoke-direct/range {v2 .. v9}, Lmiui/app/screenelement/elements/ImageScreenElement;->rotateXY(DDDLmiui/app/screenelement/elements/ImageScreenElement$pair;)V
 
-    .line 427
+    .line 407
     move/from16 v0, p3
 
-    int-to-double v9, v0
+    float-to-double v9, v0
 
     move-object/from16 v0, p0
 
@@ -917,11 +840,11 @@
 
     add-double v39, v9, v11
 
-    .line 428
+    .line 408
     .local v39, rx:D
     move/from16 v0, p4
 
-    int-to-double v9, v0
+    float-to-double v9, v0
 
     move-object/from16 v0, p0
 
@@ -937,15 +860,15 @@
 
     add-double v41, v9, v11
 
-    .line 431
+    .line 411
     .local v41, ry:D
-    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getCenterX()F
+    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getPivotX()F
 
     move-result v2
 
     float-to-double v10, v2
 
-    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getCenterY()F
+    invoke-virtual/range {p2 .. p2}, Lmiui/app/screenelement/animation/AnimatedElement;->getPivotY()F
 
     move-result v2
 
@@ -975,7 +898,7 @@
 
     invoke-direct/range {v9 .. v16}, Lmiui/app/screenelement/elements/ImageScreenElement;->rotateXY(DDDLmiui/app/screenelement/elements/ImageScreenElement$pair;)V
 
-    .line 432
+    .line 412
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mRotateXYpair:Lmiui/app/screenelement/elements/ImageScreenElement$pair;
@@ -998,7 +921,7 @@
 
     add-double v30, v30, v9
 
-    .line 433
+    .line 413
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mRotateXYpair:Lmiui/app/screenelement/elements/ImageScreenElement$pair;
@@ -1021,14 +944,14 @@
 
     add-double v32, v32, v9
 
-    .line 434
+    .line 414
     sub-double v24, v30, v39
 
-    .line 435
+    .line 415
     .local v24, dx:D
     sub-double v26, v32, v41
 
-    .line 436
+    .line 416
     .local v26, dy:D
     mul-double v9, v24, v24
 
@@ -1040,7 +963,7 @@
 
     move-result-wide v22
 
-    .line 437
+    .line 417
     .local v22, dm:D
     div-double v9, v24, v22
 
@@ -1048,7 +971,7 @@
 
     move-result-wide v18
 
-    .line 438
+    .line 418
     .local v18, angleB:D
     const-wide/16 v9, 0x0
 
@@ -1058,7 +981,7 @@
 
     add-double v20, v7, v18
 
-    .line 439
+    .line 419
     .local v20, angleC:D
     :goto_19e
     invoke-static/range {v20 .. v21}, Ljava/lang/Math;->sin(D)D
@@ -1067,7 +990,7 @@
 
     mul-double v30, v22, v9
 
-    .line 440
+    .line 420
     invoke-static/range {v20 .. v21}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v9
@@ -1076,7 +999,7 @@
 
     goto/16 :goto_4d
 
-    .line 438
+    .line 418
     .end local v20           #angleC:D
     :cond_1ac
     const-wide v9, 0x400921fb54442c46L
@@ -1106,7 +1029,7 @@
     .end annotation
 
     .prologue
-    .line 388
+    .line 368
     .local p7, pr:Lmiui/app/screenelement/elements/ImageScreenElement$pair;,"Lmiui/app/screenelement/elements/ImageScreenElement$pair<Ljava/lang/Double;Ljava/lang/Double;>;"
     mul-double v9, p1, p1
 
@@ -1118,7 +1041,7 @@
 
     move-result-wide v5
 
-    .line 390
+    .line 370
     .local v5, cm:D
     const-wide/16 v9, 0x0
 
@@ -1126,10 +1049,10 @@
 
     if-lez v9, :cond_40
 
-    .line 391
+    .line 371
     const-wide v7, 0x400921fb54442c46L
 
-    .line 392
+    .line 372
     .local v7, pi:D
     div-double v9, p1, v5
 
@@ -1137,7 +1060,7 @@
 
     move-result-wide v1
 
-    .line 393
+    .line 373
     .local v1, angle1:D
     const-wide v9, 0x400921fb54442c46L
 
@@ -1145,7 +1068,7 @@
 
     sub-double v3, v9, p5
 
-    .line 394
+    .line 374
     .local v3, angle2:D
     invoke-static {v3, v4}, Ljava/lang/Math;->cos(D)D
 
@@ -1163,7 +1086,7 @@
 
     iput-object v9, v0, Lmiui/app/screenelement/elements/ImageScreenElement$pair;->p1:Ljava/lang/Object;
 
-    .line 395
+    .line 375
     invoke-static {v3, v4}, Ljava/lang/Math;->sin(D)D
 
     move-result-wide v9
@@ -1180,14 +1103,14 @@
 
     iput-object v9, v0, Lmiui/app/screenelement/elements/ImageScreenElement$pair;->p2:Ljava/lang/Object;
 
-    .line 400
+    .line 380
     .end local v1           #angle1:D
     .end local v3           #angle2:D
     .end local v7           #pi:D
     :goto_3f
     return-void
 
-    .line 397
+    .line 377
     :cond_40
     const-wide/16 v9, 0x0
 
@@ -1199,7 +1122,7 @@
 
     iput-object v9, v0, Lmiui/app/screenelement/elements/ImageScreenElement$pair;->p1:Ljava/lang/Object;
 
-    .line 398
+    .line 378
     const-wide/16 v9, 0x0
 
     invoke-static {v9, v10}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
@@ -1217,7 +1140,7 @@
     .registers 4
 
     .prologue
-    .line 347
+    .line 327
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_29
@@ -1226,7 +1149,7 @@
 
     if-eqz v0, :cond_29
 
-    .line 350
+    .line 330
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpSizeWidthVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmapWidth()I
@@ -1243,7 +1166,7 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 351
+    .line 331
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpSizeHeightVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmapHeight()I
@@ -1260,23 +1183,1245 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 352
+    .line 332
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmapChanged:Z
 
-    .line 354
+    .line 334
     :cond_29
     return-void
 .end method
 
 
 # virtual methods
+.method public doRender(Landroid/graphics/Canvas;)V
+    .registers 30
+    .parameter "c"
+
+    .prologue
+    .line 239
+    move-object/from16 v0, p0
+
+    iget-object v6, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCurrentBitmap:Landroid/graphics/Bitmap;
+
+    .line 240
+    .local v6, bmp:Landroid/graphics/Bitmap;
+    if-nez v6, :cond_7
+
+    .line 320
+    :cond_6
+    :goto_6
+    return-void
+
+    .line 243
+    :cond_7
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->isHardwareAccelerated()Z
+
+    move-result v10
+
+    .line 244
+    .local v10, isHardwareAccelerated:Z
+    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getAlpha()I
+
+    move-result v5
+
+    .line 245
+    .local v5, alpha:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    invoke-virtual {v0, v5}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    .line 246
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->getDensity()I
+
+    move-result v15
+
+    .line 247
+    .local v15, oldDensity:I
+    const/16 v23, 0x0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setDensity(I)V
+
+    .line 249
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    cmpl-float v23, v23, v24
+
+    if-eqz v23, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    cmpl-float v23, v23, v24
+
+    if-eqz v23, :cond_6
+
+    .line 252
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mX:F
+
+    move/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    move/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->getLeft(FF)F
+
+    move-result v21
+
+    .line 253
+    .local v21, x:F
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mY:F
+
+    move/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    move/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v23
+
+    move/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->getTop(FF)F
+
+    move-result v22
+
+    .line 254
+    .local v22, y:F
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
+
+    .line 256
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->size()I
+
+    move-result v23
+
+    if-nez v23, :cond_235
+
+    .line 257
+    invoke-virtual {v6}, Landroid/graphics/Bitmap;->getNinePatchChunk()[B
+
+    move-result-object v23
+
+    if-eqz v23, :cond_10b
+
+    .line 258
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-virtual/range {v23 .. v24}, Lmiui/app/screenelement/ResourceManager;->getNinePatch(Ljava/lang/String;)Landroid/graphics/NinePatch;
+
+    move-result-object v14
+
+    .line 259
+    .local v14, np:Landroid/graphics/NinePatch;
+    if-eqz v14, :cond_e8
+
+    .line 260
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    move/from16 v0, v21
+
+    float-to-int v0, v0
+
+    move/from16 v24, v0
+
+    move/from16 v0, v22
+
+    float-to-int v0, v0
+
+    move/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    move/from16 v26, v0
+
+    add-float v26, v26, v21
+
+    move/from16 v0, v26
+
+    float-to-int v0, v0
+
+    move/from16 v26, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    move/from16 v27, v0
+
+    add-float v27, v27, v22
+
+    move/from16 v0, v27
+
+    float-to-int v0, v0
+
+    move/from16 v27, v0
+
+    invoke-virtual/range {v23 .. v27}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 261
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    invoke-virtual {v14, v0, v1, v2}, Landroid/graphics/NinePatch;->draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+
+    .line 318
+    .end local v14           #np:Landroid/graphics/NinePatch;
+    :goto_de
+    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
+
+    .line 319
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v15}, Landroid/graphics/Canvas;->setDensity(I)V
+
+    goto/16 :goto_6
+
+    .line 263
+    .restart local v14       #np:Landroid/graphics/NinePatch;
+    :cond_e8
+    const-string v23, "ImageScreenElement"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v25, "the image contains ninepatch chunk but couldn\'t get NinePatch object: "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
+
+    move-object/from16 v25, v0
+
+    invoke-virtual/range {v25 .. v25}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_de
+
+    .line 267
+    .end local v14           #np:Landroid/graphics/NinePatch;
+    :cond_10b
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniWidth:F
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    cmpl-float v23, v23, v24
+
+    if-gtz v23, :cond_12b
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniHeight:F
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    cmpl-float v23, v23, v24
+
+    if-gtz v23, :cond_12b
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    if-eqz v23, :cond_222
+
+    .line 268
+    :cond_12b
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    move/from16 v0, v21
+
+    float-to-int v0, v0
+
+    move/from16 v24, v0
+
+    move/from16 v0, v22
+
+    float-to-int v0, v0
+
+    move/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    move/from16 v26, v0
+
+    add-float v26, v26, v21
+
+    move/from16 v0, v26
+
+    float-to-int v0, v0
+
+    move/from16 v26, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    move/from16 v27, v0
+
+    add-float v27, v27, v22
+
+    move/from16 v0, v27
+
+    float-to-int v0, v0
+
+    move/from16 v27, v0
+
+    invoke-virtual/range {v23 .. v27}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 269
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    if-eqz v23, :cond_203
+
+    .line 270
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcX:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v23 .. v24}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v23
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v23
+
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    float-to-int v0, v0
+
+    move/from16 v18, v0
+
+    .line 271
+    .local v18, sX:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcY:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v23 .. v24}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v23
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v23
+
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    float-to-int v0, v0
+
+    move/from16 v19, v0
+
+    .line 272
+    .local v19, sY:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcW:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v23 .. v24}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v23
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v23
+
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    float-to-int v0, v0
+
+    move/from16 v17, v0
+
+    .line 273
+    .local v17, sW:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcH:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v23 .. v24}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v23
+
+    move-object/from16 v0, p0
+
+    move-wide/from16 v1, v23
+
+    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    float-to-int v0, v0
+
+    move/from16 v16, v0
+
+    .line 274
+    .local v16, sH:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    add-int v24, v18, v17
+
+    add-int v25, v19, v16
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v18
+
+    move/from16 v2, v19
+
+    move/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 276
+    .end local v16           #sH:I
+    .end local v17           #sW:I
+    .end local v18           #sX:I
+    .end local v19           #sY:I
+    :cond_203
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move-object/from16 v2, v24
+
+    move-object/from16 v3, v25
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+
+    goto/16 :goto_de
+
+    .line 278
+    :cond_222
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v21
+
+    move/from16 v2, v22
+
+    move-object/from16 v3, v23
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    goto/16 :goto_de
+
+    .line 282
+    :cond_235
+    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getMaxWidth()F
+
+    move-result v13
+
+    .line 283
+    .local v13, maxWidth:F
+    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getMaxHeight()F
+
+    move-result v12
+
+    .line 284
+    .local v12, maxHeight:F
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    invoke-static {v13, v0}, Ljava/lang/Math;->max(FF)F
+
+    move-result v13
+
+    .line 285
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    move/from16 v23, v0
+
+    move/from16 v0, v23
+
+    invoke-static {v12, v0}, Ljava/lang/Math;->max(FF)F
+
+    move-result v12
+
+    .line 286
+    float-to-double v0, v13
+
+    move-wide/from16 v23, v0
+
+    invoke-static/range {v23 .. v24}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v23
+
+    move-wide/from16 v0, v23
+
+    double-to-int v8, v0
+
+    .line 287
+    .local v8, bufferWidth:I
+    float-to-double v0, v12
+
+    move-wide/from16 v23, v0
+
+    invoke-static/range {v23 .. v24}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v23
+
+    move-wide/from16 v0, v23
+
+    double-to-int v7, v0
+
+    .line 288
+    .local v7, bufferHeight:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    move-object/from16 v23, v0
+
+    if-eqz v23, :cond_28f
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    if-gt v8, v0, :cond_28f
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v23
+
+    move/from16 v0, v23
+
+    if-gt v7, v0, :cond_28f
+
+    if-nez v10, :cond_2cb
+
+    .line 290
+    :cond_28f
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, v23
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
+
+    move-object/from16 v23, v0
+
+    invoke-direct/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getKey()Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v8, v7, v1, v10}, Lmiui/app/screenelement/ResourceManager;->getMaskBufferBitmap(IILjava/lang/String;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v23
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    .line 292
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual {v6}, Landroid/graphics/Bitmap;->getDensity()I
+
+    move-result v24
+
+    invoke-virtual/range {v23 .. v24}, Landroid/graphics/Bitmap;->setDensity(I)V
+
+    .line 293
+    new-instance v23, Landroid/graphics/Canvas;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    move-object/from16 v24, v0
+
+    invoke-direct/range {v23 .. v24}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
+
+    .line 295
+    :cond_2cb
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    sget-object v25, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual/range {v23 .. v25}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
+
+    .line 297
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Lmiui/app/screenelement/ScreenElementRoot;->getScale()F
+
+    move-result v20
+
+    .line 298
+    .local v20, scale:F
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniWidth:F
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    cmpl-float v23, v23, v24
+
+    if-gtz v23, :cond_302
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniHeight:F
+
+    move/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    cmpl-float v23, v23, v24
+
+    if-gtz v23, :cond_302
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    if-eqz v23, :cond_417
+
+    .line 299
+    :cond_302
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    move/from16 v26, v0
+
+    move/from16 v0, v26
+
+    float-to-int v0, v0
+
+    move/from16 v26, v0
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    move/from16 v27, v0
+
+    move/from16 v0, v27
+
+    float-to-int v0, v0
+
+    move/from16 v27, v0
+
+    invoke-virtual/range {v23 .. v27}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 300
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    if-eqz v23, :cond_3cc
+
+    .line 301
+    move/from16 v0, v20
+
+    float-to-double v0, v0
+
+    move-wide/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcX:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v26
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v25
+
+    mul-double v23, v23, v25
+
+    move-wide/from16 v0, v23
+
+    double-to-int v0, v0
+
+    move/from16 v18, v0
+
+    .line 302
+    .restart local v18       #sX:I
+    move/from16 v0, v20
+
+    float-to-double v0, v0
+
+    move-wide/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcY:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v26
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v25
+
+    mul-double v23, v23, v25
+
+    move-wide/from16 v0, v23
+
+    double-to-int v0, v0
+
+    move/from16 v19, v0
+
+    .line 303
+    .restart local v19       #sY:I
+    move/from16 v0, v20
+
+    float-to-double v0, v0
+
+    move-wide/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcW:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v26
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v25
+
+    mul-double v23, v23, v25
+
+    move-wide/from16 v0, v23
+
+    double-to-int v0, v0
+
+    move/from16 v17, v0
+
+    .line 304
+    .restart local v17       #sW:I
+    move/from16 v0, v20
+
+    float-to-double v0, v0
+
+    move-wide/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcH:Lmiui/app/screenelement/data/Expression;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v26
+
+    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
+
+    move-object/from16 v26, v0
+
+    invoke-virtual/range {v25 .. v26}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
+
+    move-result-wide v25
+
+    mul-double v23, v23, v25
+
+    move-wide/from16 v0, v23
+
+    double-to-int v0, v0
+
+    move/from16 v16, v0
+
+    .line 305
+    .restart local v16       #sH:I
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v23, v0
+
+    add-int v24, v18, v17
+
+    add-int v25, v19, v16
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v18
+
+    move/from16 v2, v19
+
+    move/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
+
+    .line 307
+    .end local v16           #sH:I
+    .end local v17           #sW:I
+    .end local v18           #sX:I
+    .end local v19           #sY:I
+    :cond_3cc
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
+
+    move-object/from16 v25, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v26, v0
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v24
+
+    move-object/from16 v2, v25
+
+    move-object/from16 v3, v26
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+
+    .line 312
+    :goto_3ef
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v23 .. v23}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    .local v9, i$:Ljava/util/Iterator;
+    :goto_3f9
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v23
+
+    if-eqz v23, :cond_42f
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Lmiui/app/screenelement/animation/AnimatedElement;
+
+    .line 313
+    .local v11, mask:Lmiui/app/screenelement/animation/AnimatedElement;
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v21
+
+    move/from16 v3, v22
+
+    invoke-direct {v0, v1, v11, v2, v3}, Lmiui/app/screenelement/elements/ImageScreenElement;->renderWithMask(Landroid/graphics/Canvas;Lmiui/app/screenelement/animation/AnimatedElement;FF)V
+
+    goto :goto_3f9
+
+    .line 309
+    .end local v9           #i$:Ljava/util/Iterator;
+    .end local v11           #mask:Lmiui/app/screenelement/animation/AnimatedElement;
+    :cond_417
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
+
+    move-object/from16 v23, v0
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    const/16 v26, 0x0
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v24
+
+    move/from16 v2, v25
+
+    move-object/from16 v3, v26
+
+    invoke-virtual {v0, v6, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    goto :goto_3ef
+
+    .line 316
+    .restart local v9       #i$:Ljava/util/Iterator;
+    :cond_42f
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
+
+    move-object/from16 v23, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, v23
+
+    move/from16 v2, v21
+
+    move/from16 v3, v22
+
+    move-object/from16 v4, v24
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    goto/16 :goto_de
+.end method
+
 .method protected getBitmap()Landroid/graphics/Bitmap;
     .registers 4
 
     .prologue
-    .line 357
+    .line 337
     sget-object v1, Lmiui/app/screenelement/elements/ImageScreenElement$1;->$SwitchMap$miui$app$screenelement$elements$ImageScreenElement$SrcType:[I
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
@@ -1289,19 +2434,19 @@
 
     packed-switch v1, :pswitch_data_44
 
-    .line 363
+    .line 343
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v1, :cond_24
 
-    .line 364
+    .line 344
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 372
+    .line 352
     :goto_13
     return-object v1
 
-    .line 359
+    .line 339
     :pswitch_14
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mVirtualScreen:Lmiui/app/screenelement/elements/VirtualScreen;
 
@@ -1320,13 +2465,13 @@
 
     goto :goto_13
 
-    .line 361
+    .line 341
     :pswitch_21
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
     goto :goto_13
 
-    .line 366
+    .line 346
     :cond_24
     iget-object v1, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
@@ -1334,7 +2479,7 @@
 
     move-result-object v0
 
-    .line 367
+    .line 347
     .local v0, name:Ljava/lang/String;
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCachedBitmapName:Ljava/lang/String;
 
@@ -1344,10 +2489,10 @@
 
     if-nez v1, :cond_41
 
-    .line 368
+    .line 348
     iput-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCachedBitmapName:Ljava/lang/String;
 
-    .line 369
+    .line 349
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v1, v1, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
@@ -1358,18 +2503,18 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCachedBitmap:Landroid/graphics/Bitmap;
 
-    .line 370
+    .line 350
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmapChanged:Z
 
-    .line 372
+    .line 352
     :cond_41
     iget-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCachedBitmap:Landroid/graphics/Bitmap;
 
     goto :goto_13
 
-    .line 357
+    .line 337
     :pswitch_data_44
     .packed-switch 0x1
         :pswitch_14
@@ -1381,7 +2526,7 @@
     .registers 2
 
     .prologue
-    .line 220
+    .line 216
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCurrentBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_b
@@ -1405,7 +2550,7 @@
     .registers 2
 
     .prologue
-    .line 216
+    .line 212
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCurrentBitmap:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_b
@@ -1425,21 +2570,61 @@
     goto :goto_a
 .end method
 
+.method public getHeight()F
+    .registers 2
+
+    .prologue
+    .line 234
+    iget v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    return v0
+.end method
+
+.method public getWidth()F
+    .registers 2
+
+    .prologue
+    .line 229
+    iget v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    return v0
+.end method
+
+.method public getX()F
+    .registers 2
+
+    .prologue
+    .line 220
+    iget v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mX:F
+
+    return v0
+.end method
+
+.method public getY()F
+    .registers 2
+
+    .prologue
+    .line 224
+    iget v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mY:F
+
+    return v0
+.end method
+
 .method public init()V
     .registers 12
 
     .prologue
     const/4 v8, 0x1
 
-    .line 174
+    .line 170
     invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->init()V
 
-    .line 175
+    .line 171
     iget-object v7, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     if-eqz v7, :cond_1e
 
-    .line 176
+    .line 172
     iget-object v7, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1460,19 +2645,19 @@
 
     check-cast v3, Lmiui/app/screenelement/animation/AnimatedElement;
 
-    .line 177
+    .line 173
     .local v3, mask:Lmiui/app/screenelement/animation/AnimatedElement;
     invoke-virtual {v3}, Lmiui/app/screenelement/animation/AnimatedElement;->init()V
 
     goto :goto_e
 
-    .line 181
+    .line 177
     .end local v2           #i$:Ljava/util/Iterator;
     .end local v3           #mask:Lmiui/app/screenelement/animation/AnimatedElement;
     :cond_1e
     iput-boolean v8, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmapChanged:Z
 
-    .line 182
+    .line 178
     sget-object v7, Lmiui/app/screenelement/elements/ImageScreenElement$1;->$SwitchMap$miui$app$screenelement$elements$ImageScreenElement$SrcType:[I
 
     iget-object v8, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcType:Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
@@ -1485,12 +2670,12 @@
 
     packed-switch v7, :pswitch_data_c6
 
-    .line 209
+    .line 205
     :cond_2d
     :goto_2d
     return-void
 
-    .line 184
+    .line 180
     :pswitch_2e
     iget-object v7, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
@@ -1504,13 +2689,13 @@
 
     move-result-object v5
 
-    .line 185
+    .line 181
     .local v5, se:Lmiui/app/screenelement/elements/ScreenElement;
     instance-of v7, v5, Lmiui/app/screenelement/elements/VirtualScreen;
 
     if-eqz v7, :cond_2d
 
-    .line 186
+    .line 182
     check-cast v5, Lmiui/app/screenelement/elements/VirtualScreen;
 
     .end local v5           #se:Lmiui/app/screenelement/elements/ScreenElement;
@@ -1518,7 +2703,7 @@
 
     goto :goto_2d
 
-    .line 190
+    .line 186
     :pswitch_43
     iget-object v7, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
@@ -1526,18 +2711,18 @@
 
     move-result-object v6
 
-    .line 191
+    .line 187
     .local v6, src:Ljava/lang/String;
     if-eqz v6, :cond_ac
 
-    .line 192
+    .line 188
     const-string v7, ","
 
     invoke-virtual {v6, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v4
 
-    .line 193
+    .line 189
     .local v4, name:[Ljava/lang/String;
     array-length v7, v4
 
@@ -1545,7 +2730,7 @@
 
     if-ne v7, v8, :cond_93
 
-    .line 195
+    .line 191
     :try_start_55
     iget-object v7, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -1571,13 +2756,13 @@
 
     move-result-object v0
 
-    .line 197
+    .line 193
     .local v0, d:Landroid/graphics/drawable/Drawable;
     instance-of v7, v0, Landroid/graphics/drawable/BitmapDrawable;
 
     if-eqz v7, :cond_2d
 
-    .line 198
+    .line 194
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
 
     .end local v0           #d:Landroid/graphics/drawable/Drawable;
@@ -1591,11 +2776,11 @@
 
     goto :goto_2d
 
-    .line 200
+    .line 196
     :catch_79
     move-exception v1
 
-    .line 201
+    .line 197
     .local v1, e:Landroid/content/pm/PackageManager$NameNotFoundException;
     const-string v7, "ImageScreenElement"
 
@@ -1621,7 +2806,7 @@
 
     goto :goto_2d
 
-    .line 204
+    .line 200
     .end local v1           #e:Landroid/content/pm/PackageManager$NameNotFoundException;
     :cond_93
     const-string v7, "ImageScreenElement"
@@ -1648,7 +2833,7 @@
 
     goto :goto_2d
 
-    .line 206
+    .line 202
     .end local v4           #name:[Ljava/lang/String;
     :cond_ac
     const-string v7, "ImageScreenElement"
@@ -1675,7 +2860,7 @@
 
     goto/16 :goto_2d
 
-    .line 182
+    .line 178
     :pswitch_data_c6
     .packed-switch 0x1
         :pswitch_2e
@@ -1693,17 +2878,17 @@
     .end annotation
 
     .prologue
-    .line 152
+    .line 148
     if-nez p1, :cond_11
 
-    .line 153
+    .line 149
     const-string v0, "ImageScreenElement"
 
     const-string v1, "node is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 154
+    .line 150
     new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v1, "node is null"
@@ -1712,1706 +2897,12 @@
 
     throw v0
 
-    .line 157
+    .line 153
     :cond_11
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/ImageScreenElement;->loadMask(Lorg/w3c/dom/Element;)V
 
-    .line 158
+    .line 154
     return-void
-.end method
-
-.method public render(Landroid/graphics/Canvas;)V
-    .registers 40
-    .parameter "c"
-
-    .prologue
-    .line 225
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->isVisible()Z
-
-    move-result v33
-
-    if-nez v33, :cond_7
-
-    .line 340
-    :cond_6
-    :goto_6
-    return-void
-
-    .line 228
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCurrentBitmap:Landroid/graphics/Bitmap;
-
-    .line 229
-    .local v8, bmp:Landroid/graphics/Bitmap;
-    if-eqz v8, :cond_6
-
-    .line 232
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->isHardwareAccelerated()Z
-
-    move-result v17
-
-    .line 233
-    .local v17, isHardwareAccelerated:Z
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getAlpha()I
-
-    move-result v5
-
-    .line 234
-    .local v5, alpha:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v0, v5}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    .line 235
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->getDensity()I
-
-    move-result v22
-
-    .line 236
-    .local v22, oldDensity:I
-    const/16 v33, 0x0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v33
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setDensity(I)V
-
-    .line 237
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getWidth()F
-
-    move-result v7
-
-    .line 238
-    .local v7, aniWidth:F
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getHeight()F
-
-    move-result v6
-
-    .line 239
-    .local v6, aniHeight:F
-    const/16 v33, 0x0
-
-    cmpl-float v33, v7, v33
-
-    if-eqz v33, :cond_6
-
-    const/16 v33, 0x0
-
-    cmpl-float v33, v6, v33
-
-    if-eqz v33, :cond_6
-
-    .line 242
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmapWidth()I
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    int-to-float v10, v0
-
-    .line 243
-    .local v10, bmpWidth:F
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmapHeight()I
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    int-to-float v9, v0
-
-    .line 245
-    .local v9, bmpHeight:F
-    const/16 v33, 0x0
-
-    cmpg-float v33, v7, v33
-
-    if-gez v33, :cond_248
-
-    move/from16 v30, v10
-
-    .line 246
-    .local v30, width:F
-    :goto_57
-    const/16 v33, 0x0
-
-    cmpg-float v33, v6, v33
-
-    if-gez v33, :cond_24c
-
-    move v15, v9
-
-    .line 248
-    .local v15, height:F
-    :goto_5e
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getX()F
-
-    move-result v33
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v33
-
-    move/from16 v2, v30
-
-    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->getLeft(FF)F
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    float-to-int v0, v0
-
-    move/from16 v31, v0
-
-    .line 249
-    .local v31, x:I
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getY()F
-
-    move-result v33
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, v33
-
-    invoke-virtual {v0, v1, v15}, Lmiui/app/screenelement/elements/ImageScreenElement;->getTop(FF)F
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    float-to-int v0, v0
-
-    move/from16 v32, v0
-
-    .line 250
-    .local v32, y:I
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->save()I
-
-    .line 251
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getCenterX()F
-
-    move-result v13
-
-    .line 252
-    .local v13, centerX:F
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getCenterY()F
-
-    move-result v14
-
-    .line 253
-    .local v14, centerY:F
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getAngle()F
-
-    move-result v33
-
-    move/from16 v0, v31
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    add-float v34, v34, v13
-
-    move/from16 v0, v32
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    add-float v35, v35, v14
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v33
-
-    move/from16 v2, v34
-
-    move/from16 v3, v35
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/Canvas;->rotate(FFF)V
-
-    .line 254
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_1cc
-
-    .line 255
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Landroid/graphics/Camera;->save()V
-
-    .line 256
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleX:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_e7
-
-    .line 257
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleX:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, v35
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {v34 .. v35}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v34
-
-    move-wide/from16 v0, v34
-
-    double-to-float v0, v0
-
-    move/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Landroid/graphics/Camera;->rotateX(F)V
-
-    .line 259
-    :cond_e7
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleY:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_113
-
-    .line 260
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleY:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, v35
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {v34 .. v35}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v34
-
-    move-wide/from16 v0, v34
-
-    double-to-float v0, v0
-
-    move/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Landroid/graphics/Camera;->rotateY(F)V
-
-    .line 262
-    :cond_113
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleZ:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_13f
-
-    .line 263
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAngleZ:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, v35
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {v34 .. v35}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v34
-
-    move-wide/from16 v0, v34
-
-    double-to-float v0, v0
-
-    move/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Landroid/graphics/Camera;->rotateZ(F)V
-
-    .line 265
-    :cond_13f
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCenterZ:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_16f
-
-    .line 266
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    const/16 v34, 0x0
-
-    const/16 v35, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCenterZ:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v37, v0
-
-    move-object/from16 v0, v37
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v37, v0
-
-    invoke-virtual/range {v36 .. v37}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v36
-
-    move-wide/from16 v0, v36
-
-    double-to-float v0, v0
-
-    move/from16 v36, v0
-
-    invoke-virtual/range {v33 .. v36}, Landroid/graphics/Camera;->translate(FFF)V
-
-    .line 268
-    :cond_16f
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMatrix:Landroid/graphics/Matrix;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Landroid/graphics/Camera;->getMatrix(Landroid/graphics/Matrix;)V
-
-    .line 269
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCamera:Landroid/graphics/Camera;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Landroid/graphics/Camera;->restore()V
-
-    .line 270
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMatrix:Landroid/graphics/Matrix;
-
-    move-object/from16 v33, v0
-
-    move/from16 v0, v31
-
-    neg-int v0, v0
-
-    move/from16 v34, v0
-
-    move/from16 v0, v34
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    sub-float v34, v34, v13
-
-    move/from16 v0, v32
-
-    neg-int v0, v0
-
-    move/from16 v35, v0
-
-    move/from16 v0, v35
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    sub-float v35, v35, v14
-
-    invoke-virtual/range {v33 .. v35}, Landroid/graphics/Matrix;->preTranslate(FF)Z
-
-    .line 271
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMatrix:Landroid/graphics/Matrix;
-
-    move-object/from16 v33, v0
-
-    move/from16 v0, v31
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    add-float v34, v34, v13
-
-    move/from16 v0, v32
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    add-float v35, v35, v14
-
-    invoke-virtual/range {v33 .. v35}, Landroid/graphics/Matrix;->postTranslate(FF)Z
-
-    .line 272
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMatrix:Landroid/graphics/Matrix;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v33
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->concat(Landroid/graphics/Matrix;)V
-
-    .line 274
-    :cond_1cc
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Ljava/util/ArrayList;->size()I
-
-    move-result v33
-
-    if-nez v33, :cond_398
-
-    .line 275
-    invoke-virtual {v8}, Landroid/graphics/Bitmap;->getNinePatchChunk()[B
-
-    move-result-object v33
-
-    if-eqz v33, :cond_272
-
-    .line 276
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, v33
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v34 .. v34}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
-
-    move-result-object v34
-
-    invoke-virtual/range {v33 .. v34}, Lmiui/app/screenelement/ResourceManager;->getNinePatch(Ljava/lang/String;)Landroid/graphics/NinePatch;
-
-    move-result-object v21
-
-    .line 277
-    .local v21, np:Landroid/graphics/NinePatch;
-    if-eqz v21, :cond_24f
-
-    .line 278
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    move/from16 v0, v31
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    add-float v34, v34, v30
-
-    move/from16 v0, v34
-
-    float-to-int v0, v0
-
-    move/from16 v34, v0
-
-    move/from16 v0, v32
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    add-float v35, v35, v15
-
-    move/from16 v0, v35
-
-    float-to-int v0, v0
-
-    move/from16 v35, v0
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v31
-
-    move/from16 v2, v32
-
-    move/from16 v3, v34
-
-    move/from16 v4, v35
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 279
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v21
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, v33
-
-    move-object/from16 v3, v34
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/graphics/NinePatch;->draw(Landroid/graphics/Canvas;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-
-    .line 338
-    .end local v21           #np:Landroid/graphics/NinePatch;
-    :goto_23c
-    invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
-
-    .line 339
-    move-object/from16 v0, p1
-
-    move/from16 v1, v22
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setDensity(I)V
-
-    goto/16 :goto_6
-
-    .end local v13           #centerX:F
-    .end local v14           #centerY:F
-    .end local v15           #height:F
-    .end local v30           #width:F
-    .end local v31           #x:I
-    .end local v32           #y:I
-    :cond_248
-    move/from16 v30, v7
-
-    .line 245
-    goto/16 :goto_57
-
-    .restart local v30       #width:F
-    :cond_24c
-    move v15, v6
-
-    .line 246
-    goto/16 :goto_5e
-
-    .line 281
-    .restart local v13       #centerX:F
-    .restart local v14       #centerY:F
-    .restart local v15       #height:F
-    .restart local v21       #np:Landroid/graphics/NinePatch;
-    .restart local v31       #x:I
-    .restart local v32       #y:I
-    :cond_24f
-    const-string v33, "ImageScreenElement"
-
-    new-instance v34, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v35, "the image contains ninepatch chunk but couldn\'t get NinePatch object: "
-
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v34
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
-
-    move-object/from16 v35, v0
-
-    invoke-virtual/range {v35 .. v35}, Lmiui/app/screenelement/animation/AnimatedElement;->getSrc()Ljava/lang/String;
-
-    move-result-object v35
-
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v34
-
-    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v34
-
-    invoke-static/range {v33 .. v34}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_23c
-
-    .line 285
-    .end local v21           #np:Landroid/graphics/NinePatch;
-    :cond_272
-    const/16 v33, 0x0
-
-    cmpl-float v33, v7, v33
-
-    if-gtz v33, :cond_286
-
-    const/16 v33, 0x0
-
-    cmpl-float v33, v6, v33
-
-    if-gtz v33, :cond_286
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_37b
-
-    .line 286
-    :cond_286
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    move/from16 v0, v31
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    add-float v34, v34, v30
-
-    move/from16 v0, v34
-
-    float-to-int v0, v0
-
-    move/from16 v34, v0
-
-    move/from16 v0, v32
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    add-float v35, v35, v15
-
-    move/from16 v0, v35
-
-    float-to-int v0, v0
-
-    move/from16 v35, v0
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v31
-
-    move/from16 v2, v32
-
-    move/from16 v3, v34
-
-    move/from16 v4, v35
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 287
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_35c
-
-    .line 288
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcX:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v33
-
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, v33
-
-    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    float-to-int v0, v0
-
-    move/from16 v27, v0
-
-    .line 289
-    .local v27, sX:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcY:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v33
-
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, v33
-
-    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    float-to-int v0, v0
-
-    move/from16 v28, v0
-
-    .line 290
-    .local v28, sY:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcW:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v33
-
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, v33
-
-    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    float-to-int v0, v0
-
-    move/from16 v26, v0
-
-    .line 291
-    .local v26, sW:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcH:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, v34
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v34, v0
-
-    invoke-virtual/range {v33 .. v34}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v33
-
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, v33
-
-    invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->scale(D)F
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    float-to-int v0, v0
-
-    move/from16 v25, v0
-
-    .line 292
-    .local v25, sH:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    add-int v34, v27, v26
-
-    add-int v35, v28, v25
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    move/from16 v3, v34
-
-    move/from16 v4, v35
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 294
-    .end local v25           #sH:I
-    .end local v26           #sW:I
-    .end local v27           #sX:I
-    .end local v28           #sY:I
-    :cond_35c
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v33
-
-    move-object/from16 v2, v34
-
-    move-object/from16 v3, v35
-
-    invoke-virtual {v0, v8, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-
-    goto/16 :goto_23c
-
-    .line 296
-    :cond_37b
-    move/from16 v0, v31
-
-    int-to-float v0, v0
-
-    move/from16 v33, v0
-
-    move/from16 v0, v32
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v33
-
-    move/from16 v2, v34
-
-    move-object/from16 v3, v35
-
-    invoke-virtual {v0, v8, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    goto/16 :goto_23c
-
-    .line 300
-    :cond_398
-    const/16 v33, 0x0
-
-    cmpg-float v33, v7, v33
-
-    if-gez v33, :cond_580
-
-    invoke-virtual {v8}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    int-to-float v0, v0
-
-    move/from16 v24, v0
-
-    .line 301
-    .local v24, rawWidth:F
-    :goto_3a7
-    const/16 v33, 0x0
-
-    cmpg-float v33, v6, v33
-
-    if-gez v33, :cond_584
-
-    invoke-virtual {v8}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    int-to-float v0, v0
-
-    move/from16 v23, v0
-
-    .line 302
-    .local v23, rawHeight:F
-    :goto_3b6
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getMaxWidth()F
-
-    move-result v20
-
-    .line 303
-    .local v20, maxWidth:F
-    invoke-virtual/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getMaxHeight()F
-
-    move-result v19
-
-    .line 304
-    .local v19, maxHeight:F
-    move/from16 v0, v20
-
-    move/from16 v1, v24
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(FF)F
-
-    move-result v20
-
-    .line 305
-    move/from16 v0, v19
-
-    move/from16 v1, v23
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->max(FF)F
-
-    move-result v19
-
-    .line 306
-    move/from16 v0, v20
-
-    float-to-double v0, v0
-
-    move-wide/from16 v33, v0
-
-    invoke-static/range {v33 .. v34}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v33
-
-    move-wide/from16 v0, v33
-
-    double-to-int v12, v0
-
-    .line 307
-    .local v12, bufferWidth:I
-    move/from16 v0, v19
-
-    float-to-double v0, v0
-
-    move-wide/from16 v33, v0
-
-    invoke-static/range {v33 .. v34}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v33
-
-    move-wide/from16 v0, v33
-
-    double-to-int v11, v0
-
-    .line 308
-    .local v11, bufferHeight:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_40c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Landroid/graphics/Bitmap;->getWidth()I
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    if-gt v12, v0, :cond_40c
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v33
-
-    move/from16 v0, v33
-
-    if-gt v11, v0, :cond_40c
-
-    if-nez v17, :cond_44a
-
-    .line 310
-    :cond_40c
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, v33
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
-
-    move-object/from16 v33, v0
-
-    invoke-direct/range {p0 .. p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getKey()Ljava/lang/String;
-
-    move-result-object v34
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v34
-
-    move/from16 v2, v17
-
-    invoke-virtual {v0, v12, v11, v1, v2}, Lmiui/app/screenelement/ResourceManager;->getMaskBufferBitmap(IILjava/lang/String;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v33
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    .line 312
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual {v8}, Landroid/graphics/Bitmap;->getDensity()I
-
-    move-result v34
-
-    invoke-virtual/range {v33 .. v34}, Landroid/graphics/Bitmap;->setDensity(I)V
-
-    .line 313
-    new-instance v33, Landroid/graphics/Canvas;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    move-object/from16 v34, v0
-
-    invoke-direct/range {v33 .. v34}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
-
-    .line 315
-    :cond_44a
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v33, v0
-
-    const/16 v34, 0x0
-
-    sget-object v35, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-virtual/range {v33 .. v35}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
-
-    .line 317
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Lmiui/app/screenelement/ScreenElementRoot;->getScale()F
-
-    move-result v29
-
-    .line 318
-    .local v29, scale:F
-    const/16 v33, 0x0
-
-    cmpl-float v33, v7, v33
-
-    if-gtz v33, :cond_475
-
-    const/16 v33, 0x0
-
-    cmpl-float v33, v6, v33
-
-    if-gtz v33, :cond_475
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_588
-
-    .line 319
-    :cond_475
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    const/16 v34, 0x0
-
-    const/16 v35, 0x0
-
-    move/from16 v0, v24
-
-    float-to-int v0, v0
-
-    move/from16 v36, v0
-
-    move/from16 v0, v23
-
-    float-to-int v0, v0
-
-    move/from16 v37, v0
-
-    invoke-virtual/range {v33 .. v37}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 320
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    if-eqz v33, :cond_533
-
-    .line 321
-    move/from16 v0, v29
-
-    float-to-double v0, v0
-
-    move-wide/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcX:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, v36
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v35
-
-    mul-double v33, v33, v35
-
-    move-wide/from16 v0, v33
-
-    double-to-int v0, v0
-
-    move/from16 v27, v0
-
-    .line 322
-    .restart local v27       #sX:I
-    move/from16 v0, v29
-
-    float-to-double v0, v0
-
-    move-wide/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcY:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, v36
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v35
-
-    mul-double v33, v33, v35
-
-    move-wide/from16 v0, v33
-
-    double-to-int v0, v0
-
-    move/from16 v28, v0
-
-    .line 323
-    .restart local v28       #sY:I
-    move/from16 v0, v29
-
-    float-to-double v0, v0
-
-    move-wide/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcW:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, v36
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v35
-
-    mul-double v33, v33, v35
-
-    move-wide/from16 v0, v33
-
-    double-to-int v0, v0
-
-    move/from16 v26, v0
-
-    .line 324
-    .restart local v26       #sW:I
-    move/from16 v0, v29
-
-    float-to-double v0, v0
-
-    move-wide/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcH:Lmiui/app/screenelement/data/Expression;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, v36
-
-    iget-object v0, v0, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
-
-    move-object/from16 v36, v0
-
-    invoke-virtual/range {v35 .. v36}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
-
-    move-result-wide v35
-
-    mul-double v33, v33, v35
-
-    move-wide/from16 v0, v33
-
-    double-to-int v0, v0
-
-    move/from16 v25, v0
-
-    .line 325
-    .restart local v25       #sH:I
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v33, v0
-
-    add-int v34, v27, v26
-
-    add-int v35, v28, v25
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v27
-
-    move/from16 v2, v28
-
-    move/from16 v3, v34
-
-    move/from16 v4, v35
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Rect;->set(IIII)V
-
-    .line 327
-    .end local v25           #sH:I
-    .end local v26           #sW:I
-    .end local v27           #sX:I
-    .end local v28           #sY:I
-    :cond_533
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mSrcRect:Landroid/graphics/Rect;
-
-    move-object/from16 v34, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mDesRect:Landroid/graphics/Rect;
-
-    move-object/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, v33
-
-    move-object/from16 v1, v34
-
-    move-object/from16 v2, v35
-
-    move-object/from16 v3, v36
-
-    invoke-virtual {v0, v8, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
-
-    .line 332
-    :goto_556
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
-
-    move-object/from16 v33, v0
-
-    invoke-virtual/range {v33 .. v33}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v16
-
-    .local v16, i$:Ljava/util/Iterator;
-    :goto_560
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v33
-
-    if-eqz v33, :cond_5a0
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Lmiui/app/screenelement/animation/AnimatedElement;
-
-    .line 333
-    .local v18, mask:Lmiui/app/screenelement/animation/AnimatedElement;
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v33, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v33
-
-    move-object/from16 v2, v18
-
-    move/from16 v3, v31
-
-    move/from16 v4, v32
-
-    invoke-direct {v0, v1, v2, v3, v4}, Lmiui/app/screenelement/elements/ImageScreenElement;->renderWithMask(Landroid/graphics/Canvas;Lmiui/app/screenelement/animation/AnimatedElement;II)V
-
-    goto :goto_560
-
-    .end local v11           #bufferHeight:I
-    .end local v12           #bufferWidth:I
-    .end local v16           #i$:Ljava/util/Iterator;
-    .end local v18           #mask:Lmiui/app/screenelement/animation/AnimatedElement;
-    .end local v19           #maxHeight:F
-    .end local v20           #maxWidth:F
-    .end local v23           #rawHeight:F
-    .end local v24           #rawWidth:F
-    .end local v29           #scale:F
-    :cond_580
-    move/from16 v24, v7
-
-    .line 300
-    goto/16 :goto_3a7
-
-    .restart local v24       #rawWidth:F
-    :cond_584
-    move/from16 v23, v6
-
-    .line 301
-    goto/16 :goto_3b6
-
-    .line 329
-    .restart local v11       #bufferHeight:I
-    .restart local v12       #bufferWidth:I
-    .restart local v19       #maxHeight:F
-    .restart local v20       #maxWidth:F
-    .restart local v23       #rawHeight:F
-    .restart local v29       #scale:F
-    :cond_588
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBufferCanvas:Landroid/graphics/Canvas;
-
-    move-object/from16 v33, v0
-
-    const/16 v34, 0x0
-
-    const/16 v35, 0x0
-
-    const/16 v36, 0x0
-
-    move-object/from16 v0, v33
-
-    move/from16 v1, v34
-
-    move/from16 v2, v35
-
-    move-object/from16 v3, v36
-
-    invoke-virtual {v0, v8, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    goto :goto_556
-
-    .line 336
-    .restart local v16       #i$:Ljava/util/Iterator;
-    :cond_5a0
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMaskBuffer:Landroid/graphics/Bitmap;
-
-    move-object/from16 v33, v0
-
-    move/from16 v0, v31
-
-    int-to-float v0, v0
-
-    move/from16 v34, v0
-
-    move/from16 v0, v32
-
-    int-to-float v0, v0
-
-    move/from16 v35, v0
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v36, v0
-
-    move-object/from16 v0, p1
-
-    move-object/from16 v1, v33
-
-    move/from16 v2, v34
-
-    move/from16 v3, v35
-
-    move-object/from16 v4, v36
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    goto/16 :goto_23c
 .end method
 
 .method public reset(J)V
@@ -3419,15 +2910,15 @@
     .parameter "time"
 
     .prologue
-    .line 475
+    .line 473
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->reset(J)V
 
-    .line 476
+    .line 474
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     if-eqz v2, :cond_1d
 
-    .line 477
+    .line 475
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -3448,13 +2939,13 @@
 
     check-cast v1, Lmiui/app/screenelement/animation/AnimatedElement;
 
-    .line 478
+    .line 476
     .local v1, mask:Lmiui/app/screenelement/animation/AnimatedElement;
     invoke-virtual {v1, p1, p2}, Lmiui/app/screenelement/animation/AnimatedElement;->reset(J)V
 
     goto :goto_d
 
-    .line 481
+    .line 479
     .end local v0           #i$:Ljava/util/Iterator;
     .end local v1           #mask:Lmiui/app/screenelement/animation/AnimatedElement;
     :cond_1d
@@ -3466,10 +2957,10 @@
     .parameter "bmp"
 
     .prologue
-    .line 343
+    .line 323
     iput-object p1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 344
+    .line 324
     return-void
 .end method
 
@@ -3477,48 +2968,50 @@
     .registers 2
 
     .prologue
-    .line 212
+    .line 208
     const/4 v0, 0x1
 
     return v0
 .end method
 
 .method public tick(J)V
-    .registers 6
+    .registers 7
     .parameter "currentTime"
 
     .prologue
-    .line 461
+    const/4 v3, 0x0
+
+    .line 441
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->tick(J)V
 
-    .line 462
+    .line 442
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->isVisible()Z
 
     move-result v2
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_b
 
-    .line 471
-    :cond_9
+    .line 469
+    :goto_a
     return-void
 
-    .line 464
-    :cond_a
+    .line 445
+    :cond_b
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v2
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mCurrentBitmap:Landroid/graphics/Bitmap;
 
-    .line 465
+    .line 446
     invoke-direct {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->updateBmpSizeVar()V
 
-    .line 466
+    .line 447
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_2e
 
-    .line 467
+    .line 448
     iget-object v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mMasks:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -3526,12 +3019,12 @@
     move-result-object v0
 
     .local v0, i$:Ljava/util/Iterator;
-    :goto_1d
+    :goto_1e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_2e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3539,9 +3032,102 @@
 
     check-cast v1, Lmiui/app/screenelement/animation/AnimatedElement;
 
-    .line 468
+    .line 449
     .local v1, mask:Lmiui/app/screenelement/animation/AnimatedElement;
     invoke-virtual {v1, p1, p2}, Lmiui/app/screenelement/animation/AnimatedElement;->tick(J)V
 
-    goto :goto_1d
+    goto :goto_1e
+
+    .line 453
+    .end local v0           #i$:Ljava/util/Iterator;
+    .end local v1           #mask:Lmiui/app/screenelement/animation/AnimatedElement;
+    :cond_2e
+    invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->getWidth()F
+
+    move-result v2
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniWidth:F
+
+    .line 454
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmapWidth()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpWidth:F
+
+    .line 455
+    iget v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniWidth:F
+
+    cmpl-float v2, v2, v3
+
+    if-ltz v2, :cond_69
+
+    .line 456
+    iget v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniWidth:F
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    .line 460
+    :goto_45
+    invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->getHeight()F
+
+    move-result v2
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniHeight:F
+
+    .line 461
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->getBitmapHeight()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpHeight:F
+
+    .line 462
+    iget v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniHeight:F
+
+    cmpl-float v2, v2, v3
+
+    if-ltz v2, :cond_6e
+
+    .line 463
+    iget v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mAniHeight:F
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    .line 467
+    :goto_5c
+    invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->getX()F
+
+    move-result v2
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mX:F
+
+    .line 468
+    invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->getY()F
+
+    move-result v2
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mY:F
+
+    goto :goto_a
+
+    .line 458
+    :cond_69
+    iget v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpWidth:F
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mWidth:F
+
+    goto :goto_45
+
+    .line 465
+    :cond_6e
+    iget v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBmpHeight:F
+
+    iput v2, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mHeight:F
+
+    goto :goto_5c
 .end method

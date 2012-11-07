@@ -19,6 +19,11 @@ public class VirtualScreen extends ElementGroup {
         super(element, screencontext, screenelementroot);
     }
 
+    public void doRender(Canvas canvas) {
+        mScreenCanvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+        super.doRender(mScreenCanvas);
+    }
+
     public void finish() {
         mScreenBitmap.recycle();
     }
@@ -38,11 +43,6 @@ public class VirtualScreen extends ElementGroup {
         mScreenBitmap = Bitmap.createBitmap(Math.round(f), Math.round(f1), android.graphics.Bitmap.Config.ARGB_8888);
         mScreenBitmap.setDensity(super.mRoot.getTargetDensity());
         mScreenCanvas = new Canvas(mScreenBitmap);
-    }
-
-    public void render(Canvas canvas) {
-        mScreenCanvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
-        super.render(mScreenCanvas);
     }
 
     public static final String TAG_NAME = "VirtualScreen";

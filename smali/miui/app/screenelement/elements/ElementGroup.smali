@@ -56,27 +56,89 @@
 
 
 # virtual methods
+.method public doRender(Landroid/graphics/Canvas;)V
+    .registers 8
+    .parameter "c"
+
+    .prologue
+    .line 81
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ElementGroup;->getX()F
+
+    move-result v3
+
+    .line 82
+    .local v3, x:F
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ElementGroup;->getY()F
+
+    move-result v4
+
+    .line 83
+    .local v4, y:F
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
+
+    move-result v2
+
+    .line 84
+    .local v2, rs:I
+    invoke-virtual {p1, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
+
+    .line 85
+    iget-object v5, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
+
+    invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    .local v1, i$:Ljava/util/Iterator;
+    :goto_15
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_25
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
+
+    .line 86
+    .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
+    invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->render(Landroid/graphics/Canvas;)V
+
+    goto :goto_15
+
+    .line 88
+    .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
+    :cond_25
+    invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
+
+    .line 89
+    return-void
+.end method
+
 .method public findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
     .registers 6
     .parameter "name"
 
     .prologue
-    .line 141
+    .line 139
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
 
     move-result-object v1
 
-    .line 142
+    .line 140
     .local v1, ele:Lmiui/app/screenelement/elements/ScreenElement;
     if-eqz v1, :cond_8
 
     move-object v3, v1
 
-    .line 151
+    .line 149
     :goto_7
     return-object v3
 
-    .line 145
+    .line 143
     :cond_8
     iget-object v3, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
@@ -98,21 +160,21 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 146
+    .line 144
     .local v0, e:Lmiui/app/screenelement/elements/ScreenElement;
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
 
     move-result-object v1
 
-    .line 147
+    .line 145
     if-eqz v1, :cond_e
 
     move-object v3, v1
 
-    .line 148
+    .line 146
     goto :goto_7
 
-    .line 151
+    .line 149
     .end local v0           #e:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_22
     const/4 v3, 0x0
@@ -124,10 +186,10 @@
     .registers 6
 
     .prologue
-    .line 119
+    .line 117
     invoke-super {p0}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->finish()V
 
-    .line 120
+    .line 118
     iget-object v3, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -148,7 +210,7 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 123
+    .line 121
     .local v1, ele:Lmiui/app/screenelement/elements/ScreenElement;
     :try_start_15
     invoke-virtual {v1}, Lmiui/app/screenelement/elements/ScreenElement;->finish()V
@@ -157,11 +219,11 @@
 
     goto :goto_9
 
-    .line 124
+    .line 122
     :catch_19
     move-exception v0
 
-    .line 125
+    .line 123
     .local v0, e:Ljava/lang/Exception;
     const-string v3, "LockScreen_ElementGroup"
 
@@ -171,12 +233,12 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 126
+    .line 124
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_9
 
-    .line 129
+    .line 127
     .end local v0           #e:Ljava/lang/Exception;
     .end local v1           #ele:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_27
@@ -196,7 +258,7 @@
     .end annotation
 
     .prologue
-    .line 155
+    .line 153
     iget-object v0, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     return-object v0
@@ -354,27 +416,27 @@
     .parameter "event"
 
     .prologue
-    .line 106
+    .line 104
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/ElementGroup;->isVisible()Z
 
     move-result v3
 
     if-nez v3, :cond_8
 
-    .line 107
+    .line 105
     const/4 v2, 0x0
 
-    .line 114
+    .line 112
     :cond_7
     return v2
 
-    .line 109
+    .line 107
     :cond_8
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->onTouch(Landroid/view/MotionEvent;)Z
 
     move-result v2
 
-    .line 110
+    .line 108
     .local v2, ret:Z
     iget-object v3, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
@@ -397,7 +459,7 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 111
+    .line 109
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->onTouch(Landroid/view/MotionEvent;)Z
 
@@ -405,7 +467,7 @@
 
     if-eqz v3, :cond_12
 
-    .line 112
+    .line 110
     const/4 v2, 0x1
 
     goto :goto_12
@@ -416,10 +478,10 @@
     .parameter "visible"
 
     .prologue
-    .line 160
+    .line 158
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->onVisibilityChange(Z)V
 
-    .line 161
+    .line 159
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -440,13 +502,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 162
+    .line 160
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->onVisibilityChange(Z)V
 
     goto :goto_9
 
-    .line 164
+    .line 162
     .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_19
     return-void
@@ -490,79 +552,6 @@
     .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_19
     return-void
-.end method
-
-.method public render(Landroid/graphics/Canvas;)V
-    .registers 8
-    .parameter "c"
-
-    .prologue
-    .line 81
-    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ElementGroup;->isVisible()Z
-
-    move-result v5
-
-    if-nez v5, :cond_7
-
-    .line 92
-    :goto_6
-    return-void
-
-    .line 84
-    :cond_7
-    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ElementGroup;->getX()F
-
-    move-result v3
-
-    .line 85
-    .local v3, x:F
-    invoke-virtual {p0}, Lmiui/app/screenelement/elements/ElementGroup;->getY()F
-
-    move-result v4
-
-    .line 86
-    .local v4, y:F
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
-
-    move-result v2
-
-    .line 87
-    .local v2, rs:I
-    invoke-virtual {p1, v3, v4}, Landroid/graphics/Canvas;->translate(FF)V
-
-    .line 88
-    iget-object v5, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
-
-    invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    .local v1, i$:Ljava/util/Iterator;
-    :goto_1c
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2c
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
-
-    .line 89
-    .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
-    invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ScreenElement;->render(Landroid/graphics/Canvas;)V
-
-    goto :goto_1c
-
-    .line 91
-    .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
-    :cond_2c
-    invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
-
-    goto :goto_6
 .end method
 
 .method public reset(J)V
@@ -652,10 +641,10 @@
     .parameter "show"
 
     .prologue
-    .line 133
+    .line 131
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->showCategory(Ljava/lang/String;Z)V
 
-    .line 134
+    .line 132
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -676,13 +665,13 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 135
+    .line 133
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->showCategory(Ljava/lang/String;Z)V
 
     goto :goto_9
 
-    .line 137
+    .line 135
     .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_19
     return-void
@@ -693,10 +682,20 @@
     .parameter "currentTime"
 
     .prologue
-    .line 96
+    .line 93
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/AnimatedScreenElement;->tick(J)V
 
-    .line 99
+    .line 94
+    iget-boolean v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mIsVisible:Z
+
+    if-nez v2, :cond_8
+
+    .line 100
+    :cond_7
+    return-void
+
+    .line 97
+    :cond_8
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -704,12 +703,12 @@
     move-result-object v1
 
     .local v1, i$:Ljava/util/Iterator;
-    :goto_9
+    :goto_e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_7
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -717,14 +716,9 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 100
+    .line 98
     .local v0, ele:Lmiui/app/screenelement/elements/ScreenElement;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->tick(J)V
 
-    goto :goto_9
-
-    .line 102
-    .end local v0           #ele:Lmiui/app/screenelement/elements/ScreenElement;
-    :cond_19
-    return-void
+    goto :goto_e
 .end method
