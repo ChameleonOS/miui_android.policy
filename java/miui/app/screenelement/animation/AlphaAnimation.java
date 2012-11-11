@@ -35,8 +35,7 @@ _L3:
     }
 
     public AlphaAnimation(Element element, ScreenContext screencontext) throws ScreenElementLoadException {
-        super(element, "Alpha", screencontext);
-        mCurrentAlpha = 255;
+        this(element, "Alpha", screencontext);
         Utils.asserts(element.getNodeName().equalsIgnoreCase("AlphaAnimation"), (new StringBuilder()).append("wrong tag name:").append(element.getNodeName()).toString());
     }
 

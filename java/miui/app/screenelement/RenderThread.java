@@ -57,12 +57,15 @@ _L2:
         arraylist;
         JVM INSTR monitorenter ;
         RendererController renderercontroller;
-        for(Iterator iterator = mRendererControllerList.iterator(); iterator.hasNext(); renderercontroller.init()) {
+        for(Iterator iterator = mRendererControllerList.iterator(); iterator.hasNext(); renderercontroller.requestUpdate()) {
             renderercontroller = (RendererController)iterator.next();
             renderercontroller.setLastUpdateTime(l);
+            renderercontroller.init();
+            if(mPaused)
+                renderercontroller.tick(l);
         }
 
-        break MISSING_BLOCK_LABEL_74;
+        break MISSING_BLOCK_LABEL_92;
         Exception exception;
         exception;
         throw exception;
@@ -145,32 +148,6 @@ _L3:
         throw exception;
     }
 
-    private void postInit() {
-        if(mRendererControllerList.size() != 0) goto _L2; else goto _L1
-_L1:
-        return;
-_L2:
-        ArrayList arraylist = mRendererControllerList;
-        arraylist;
-        JVM INSTR monitorenter ;
-        RendererController renderercontroller;
-        for(Iterator iterator = mRendererControllerList.iterator(); iterator.hasNext(); renderercontroller.requestUpdate()) {
-            renderercontroller = (RendererController)iterator.next();
-            if(mPaused) {
-                renderercontroller.tick(0L);
-                renderercontroller.doRender();
-            }
-        }
-
-        break MISSING_BLOCK_LABEL_77;
-        Exception exception;
-        exception;
-        throw exception;
-        arraylist;
-        JVM INSTR monitorexit ;
-          goto _L1
-    }
-
     private void sleepForFramerate(float f) {
         if(f <= 50F) {
             long l = 50L;
@@ -223,7 +200,6 @@ _L1:
         Log.i("RenderThread", "RenderThread started");
         doInit();
         mStarted = true;
-        postInit();
 _L6:
         if(mStop) goto _L2; else goto _L1
 _L1:
@@ -294,7 +270,7 @@ _L11:
         renderercontroller.setCurFramerate(f1);
         Log.d("RenderThread", (new StringBuilder()).append("framerate changed: ").append(f1).append(" at time: ").append(l).toString());
         if(f1 == 0.0F)
-            break MISSING_BLOCK_LABEL_436;
+            break MISSING_BLOCK_LABEL_432;
         f2 = 1000F / f1;
 _L14:
         renderercontroller.setFrameTime((int)f2);

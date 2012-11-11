@@ -85,37 +85,37 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 95
+    .line 93
     invoke-direct {p0, v0, p1, v0}, Lmiui/app/screenelement/elements/ScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 47
+    .line 45
     const/high16 v0, 0x41f0
 
     iput v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->DEFAULT_FRAME_RATE:F
 
-    .line 51
+    .line 49
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->DEFAULT_FRAME_RATE:F
 
     iput v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
 
-    .line 79
+    .line 77
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFramerateControllers:Ljava/util/ArrayList;
 
-    .line 96
+    .line 94
     iput-object p0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
-    .line 97
+    .line 95
     new-instance v0, Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-direct {v0, p1}, Lmiui/app/screenelement/data/VariableUpdaterManager;-><init>(Lmiui/app/screenelement/ScreenContext;)V
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
-    .line 98
+    .line 96
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "touch_x"
@@ -130,7 +130,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchX:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 99
+    .line 97
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "touch_y"
@@ -145,7 +145,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchY:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 100
+    .line 98
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "touch_begin_x"
@@ -160,7 +160,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchBeginX:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 101
+    .line 99
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "touch_begin_y"
@@ -175,7 +175,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchBeginY:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 102
+    .line 100
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "touch_begin_time"
@@ -190,7 +190,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchBeginTime:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 103
+    .line 101
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "intercept_sys_touch"
@@ -205,7 +205,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNeedDisallowInterceptTouchEventVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 105
+    .line 103
     return-void
 .end method
 
@@ -214,14 +214,14 @@
     .parameter "root"
 
     .prologue
-    .line 321
+    .line 319
     const-string v6, "useVariableUpdater"
 
     invoke-interface {p1, v6}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 322
+    .line 320
     .local v4, updater:Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -229,16 +229,16 @@
 
     if-eqz v6, :cond_12
 
-    .line 323
+    .line 321
     iget-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {p0, v6}, Lmiui/app/screenelement/ScreenElementRoot;->onAddVariableUpdater(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
-    .line 334
+    .line 332
     :cond_11
     return-void
 
-    .line 325
+    .line 323
     :cond_12
     const-string v6, ","
 
@@ -246,7 +246,7 @@
 
     move-result-object v5
 
-    .line 326
+    .line 324
     .local v5, updaters:[Ljava/lang/String;
     move-object v0, v5
 
@@ -262,7 +262,7 @@
 
     aget-object v3, v0, v1
 
-    .line 327
+    .line 325
     .local v3, s:Ljava/lang/String;
     const-string v6, "DateTime"
 
@@ -272,7 +272,7 @@
 
     if-eqz v6, :cond_36
 
-    .line 328
+    .line 326
     iget-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     new-instance v7, Lmiui/app/screenelement/data/DateTimeVariableUpdater;
@@ -283,14 +283,14 @@
 
     invoke-virtual {v6, v7}, Lmiui/app/screenelement/data/VariableUpdaterManager;->add(Lmiui/app/screenelement/data/VariableUpdater;)V
 
-    .line 326
+    .line 324
     :cond_33
     :goto_33
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1b
 
-    .line 329
+    .line 327
     :cond_36
     const-string v6, "Battery"
 
@@ -300,7 +300,7 @@
 
     if-eqz v6, :cond_33
 
-    .line 330
+    .line 328
     iget-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     new-instance v7, Lmiui/app/screenelement/data/BatteryVariableUpdater;
@@ -320,14 +320,14 @@
     .parameter "screenWidth"
 
     .prologue
-    .line 339
+    .line 337
     const-string v11, "extraResourcesScreenWidth"
 
     invoke-interface {p1, v11}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 340
+    .line 338
     .local v4, extraResources:Ljava/lang/String;
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -335,22 +335,22 @@
 
     if-nez v11, :cond_3c
 
-    .line 341
+    .line 339
     const-string v11, ","
 
     invoke-virtual {v4, v11}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v8
 
-    .line 342
+    .line 340
     .local v8, resources:[Ljava/lang/String;
     const v7, 0x7fffffff
 
-    .line 343
+    .line 341
     .local v7, minDiff:I
     const/4 v1, 0x0
 
-    .line 344
+    .line 342
     .local v1, closestSw:I
     move-object v0, v8
 
@@ -366,14 +366,14 @@
 
     aget-object v10, v0, v5
 
-    .line 346
+    .line 344
     .local v10, swStr:Ljava/lang/String;
     :try_start_1d
     invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v9
 
-    .line 347
+    .line 345
     .local v9, sw:I
     sub-int v11, p2, v9
 
@@ -383,20 +383,20 @@
 
     move-result v3
 
-    .line 348
+    .line 346
     .local v3, diff:I
     if-ge v3, v7, :cond_3e
 
-    .line 349
+    .line 347
     move v7, v3
 
-    .line 350
+    .line 348
     move v1, v9
 
-    .line 351
+    .line 349
     if-nez v3, :cond_3e
 
-    .line 358
+    .line 356
     .end local v3           #diff:I
     .end local v9           #sw:I
     .end local v10           #swStr:Ljava/lang/String;
@@ -409,16 +409,16 @@
 
     move-result v2
 
-    .line 359
+    .line 357
     .local v2, defaultDiff:I
     if-lt v2, v7, :cond_3c
 
-    .line 360
+    .line 358
     iget-object v11, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v11, v1}, Lmiui/app/screenelement/ScreenContext;->setExtraResource(I)V
 
-    .line 363
+    .line 361
     .end local v0           #arr$:[Ljava/lang/String;
     .end local v1           #closestSw:I
     .end local v2           #defaultDiff:I
@@ -429,7 +429,7 @@
     :cond_3c
     return-void
 
-    .line 354
+    .line 352
     .restart local v0       #arr$:[Ljava/lang/String;
     .restart local v1       #closestSw:I
     .restart local v5       #i$:I
@@ -440,7 +440,7 @@
     :catch_3d
     move-exception v11
 
-    .line 344
+    .line 342
     :cond_3e
     add-int/lit8 v5, v5, 0x1
 
@@ -454,12 +454,12 @@
     .parameter "framerateController"
 
     .prologue
-    .line 495
+    .line 493
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFramerateControllers:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 496
+    .line 494
     return-void
 .end method
 
@@ -474,7 +474,7 @@
     .end annotation
 
     .prologue
-    .line 396
+    .line 394
     new-instance v0, Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-direct {v0, p1, p2, p0}, Lmiui/app/screenelement/elements/ElementGroup;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
@@ -487,7 +487,7 @@
     .parameter "name"
 
     .prologue
-    .line 108
+    .line 106
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/ScreenContext;->createToken(Ljava/lang/String;)Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
@@ -502,17 +502,17 @@
     .parameter "c"
 
     .prologue
-    .line 149
+    .line 147
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_9
 
-    .line 150
+    .line 148
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/elements/ElementGroup;->doRender(Landroid/graphics/Canvas;)V
 
-    .line 152
+    .line 150
     :cond_9
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrames:I
 
@@ -520,10 +520,10 @@
 
     iput v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrames:I
 
-    .line 153
+    .line 151
     invoke-virtual {p0}, Lmiui/app/screenelement/ScreenElementRoot;->doneRender()V
 
-    .line 154
+    .line 152
     return-void
 .end method
 
@@ -531,12 +531,12 @@
     .registers 2
 
     .prologue
-    .line 503
+    .line 501
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenContext;->doneRender()V
 
-    .line 504
+    .line 502
     return-void
 .end method
 
@@ -545,7 +545,7 @@
     .parameter "name"
 
     .prologue
-    .line 144
+    .line 142
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     if-eqz v0, :cond_b
@@ -570,7 +570,7 @@
     .parameter "name"
 
     .prologue
-    .line 137
+    .line 135
     const-string v0, "__root"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -579,7 +579,7 @@
 
     if-eqz v0, :cond_9
 
-    .line 140
+    .line 138
     .end local p0
     :goto_8
     return-object p0
@@ -612,7 +612,7 @@
     .parameter "id"
 
     .prologue
-    .line 383
+    .line 381
     const/4 v0, 0x0
 
     return-object v0
@@ -622,7 +622,7 @@
     .registers 2
 
     .prologue
-    .line 427
+    .line 425
     monitor-enter p0
 
     :try_start_1
@@ -632,78 +632,78 @@
 
     if-eqz v0, :cond_7
 
-    .line 452
+    .line 450
     :goto_5
     monitor-exit p0
 
     return-void
 
-    .line 430
+    .line 428
     :cond_7
     :try_start_7
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_13
 
-    .line 431
+    .line 429
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->finish()V
 
-    .line 432
+    .line 430
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
-    .line 434
+    .line 432
     :cond_13
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     if-eqz v0, :cond_1f
 
-    .line 435
+    .line 433
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableBinderManager;->finish()V
 
-    .line 436
+    .line 434
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
-    .line 438
+    .line 436
     :cond_1f
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     if-eqz v0, :cond_2b
 
-    .line 439
+    .line 437
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ExternalCommandManager;->finish()V
 
-    .line 440
+    .line 438
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
-    .line 442
+    .line 440
     :cond_2b
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     if-eqz v0, :cond_37
 
-    .line 443
+    .line 441
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->finish()V
 
-    .line 444
+    .line 442
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
-    .line 446
+    .line 444
     :cond_37
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -711,22 +711,22 @@
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ResourceManager;->clear()V
 
-    .line 447
+    .line 445
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mSoundManager:Lmiui/app/screenelement/SoundManager;
 
     if-eqz v0, :cond_4a
 
-    .line 448
+    .line 446
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mSoundManager:Lmiui/app/screenelement/SoundManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/SoundManager;->release()V
 
-    .line 449
+    .line 447
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mSoundManager:Lmiui/app/screenelement/SoundManager;
 
-    .line 451
+    .line 449
     :cond_4a
     const/4 v0, 0x1
 
@@ -736,7 +736,7 @@
 
     goto :goto_5
 
-    .line 427
+    .line 425
     :catchall_4e
     move-exception v0
 
@@ -749,7 +749,7 @@
     .registers 2
 
     .prologue
-    .line 133
+    .line 131
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     return-object v0
@@ -759,7 +759,7 @@
     .registers 2
 
     .prologue
-    .line 422
+    .line 420
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mDefaultScreenWidth:I
 
     return v0
@@ -769,7 +769,7 @@
     .registers 2
 
     .prologue
-    .line 414
+    .line 412
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mDefaultResourceDensity:I
 
     return v0
@@ -779,7 +779,7 @@
     .registers 3
 
     .prologue
-    .line 405
+    .line 403
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mScale:F
 
     const/4 v1, 0x0
@@ -788,17 +788,17 @@
 
     if-nez v0, :cond_11
 
-    .line 406
+    .line 404
     const-string v0, "ScreenElementRoot"
 
     const-string v1, "scale not initialized!"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 407
+    .line 405
     const/high16 v0, 0x3f80
 
-    .line 410
+    .line 408
     :goto_10
     return v0
 
@@ -812,7 +812,7 @@
     .registers 2
 
     .prologue
-    .line 418
+    .line 416
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTargetDensity:I
 
     return v0
@@ -823,7 +823,7 @@
     .parameter "effectId"
 
     .prologue
-    .line 379
+    .line 377
     return-void
 .end method
 
@@ -831,59 +831,62 @@
     .registers 2
 
     .prologue
-    .line 158
+    .line 156
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->init()V
 
-    .line 161
+    .line 158
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     if-eqz v0, :cond_c
 
-    .line 162
+    .line 159
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->init()V
 
-    .line 165
+    .line 162
     :cond_c
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     if-eqz v0, :cond_15
 
-    .line 166
+    .line 163
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableBinderManager;->init()V
 
-    .line 169
+    .line 166
     :cond_15
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     if-eqz v0, :cond_1e
 
-    .line 170
+    .line 167
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ExternalCommandManager;->init()V
 
-    .line 173
+    .line 170
     :cond_1e
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_27
 
-    .line 174
+    .line 171
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->init()V
 
-    .line 176
+    .line 173
     :cond_27
+    invoke-virtual {p0}, Lmiui/app/screenelement/ScreenElementRoot;->reset()V
+
+    .line 174
     iget v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
 
     invoke-virtual {p0, v0}, Lmiui/app/screenelement/ScreenElementRoot;->requestFramerate(F)V
 
-    .line 177
+    .line 175
     return-void
 .end method
 
@@ -891,7 +894,7 @@
     .registers 20
 
     .prologue
-    .line 257
+    .line 255
     :try_start_0
     move-object/from16 v0, p0
 
@@ -903,19 +906,19 @@
 
     move-result-object v6
 
-    .line 258
+    .line 256
     .local v6, root:Lorg/w3c/dom/Element;
     if-nez v6, :cond_e
 
-    .line 259
+    .line 257
     const/4 v15, 0x0
 
-    .line 315
+    .line 313
     .end local v6           #root:Lorg/w3c/dom/Element;
     :goto_d
     return v15
 
-    .line 263
+    .line 261
     .restart local v6       #root:Lorg/w3c/dom/Element;
     :cond_e
     move-object/from16 v0, p0
@@ -960,7 +963,7 @@
 
     invoke-static/range {v15 .. v17}, Lmiui/app/screenelement/LanguageHelper;->load(Ljava/util/Locale;Lmiui/app/screenelement/ResourceManager;Lmiui/app/screenelement/data/Variables;)Z
 
-    .line 265
+    .line 263
     const-string v15, "frameRate"
 
     move-object/from16 v0, p0
@@ -979,7 +982,7 @@
 
     iput v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
 
-    .line 266
+    .line 264
     move-object/from16 v0, p0
 
     iget v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
@@ -988,7 +991,7 @@
 
     iput v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
 
-    .line 267
+    .line 265
     const-string v15, "screenWidth"
 
     const/16 v16, 0x0
@@ -999,7 +1002,7 @@
 
     move-result v13
 
-    .line 268
+    .line 266
     .local v13, width:I
     if-lez v13, :cond_1cb
 
@@ -1009,7 +1012,7 @@
 
     iput v13, v0, Lmiui/app/screenelement/ScreenElementRoot;->mDefaultScreenWidth:I
 
-    .line 269
+    .line 267
     move-object/from16 v0, p0
 
     iget v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mDefaultScreenWidth:I
@@ -1022,7 +1025,7 @@
 
     iput v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mDefaultResourceDensity:I
 
-    .line 270
+    .line 268
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -1035,7 +1038,7 @@
 
     invoke-virtual/range {v15 .. v16}, Lmiui/app/screenelement/ScreenContext;->setResourceDensity(I)V
 
-    .line 271
+    .line 269
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -1050,14 +1053,14 @@
 
     iput-object v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
-    .line 273
+    .line 271
     const-string v15, "VariableBinders"
 
     invoke-static {v6, v15}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v2
 
-    .line 275
+    .line 273
     .local v2, binders:Lorg/w3c/dom/Element;
     new-instance v15, Lmiui/app/screenelement/data/VariableBinderManager;
 
@@ -1075,18 +1078,18 @@
 
     iput-object v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
-    .line 277
+    .line 275
     const-string v15, "ExternalCommands"
 
     invoke-static {v6, v15}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v3
 
-    .line 278
+    .line 276
     .local v3, commands:Lorg/w3c/dom/Element;
     if-eqz v3, :cond_bc
 
-    .line 279
+    .line 277
     new-instance v15, Lmiui/app/screenelement/ExternalCommandManager;
 
     move-object/from16 v0, p0
@@ -1105,7 +1108,7 @@
 
     iput-object v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
-    .line 283
+    .line 281
     :cond_bc
     move-object/from16 v0, p0
 
@@ -1121,31 +1124,31 @@
 
     check-cast v14, Landroid/view/WindowManager;
 
-    .line 284
+    .line 282
     .local v14, wm:Landroid/view/WindowManager;
     invoke-interface {v14}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v4
 
-    .line 286
+    .line 284
     .local v4, display:Landroid/view/Display;
     invoke-virtual {v4}, Landroid/view/Display;->getWidth()I
 
     move-result v12
 
-    .line 287
+    .line 285
     .local v12, tmpW:I
     invoke-virtual {v4}, Landroid/view/Display;->getHeight()I
 
     move-result v11
 
-    .line 288
+    .line 286
     .local v11, tmpH:I
     invoke-virtual {v4}, Landroid/view/Display;->getRotation()I
 
     move-result v8
 
-    .line 289
+    .line 287
     .local v8, rotation:I
     const/4 v15, 0x1
 
@@ -1158,21 +1161,21 @@
     :cond_e0
     const/4 v7, 0x1
 
-    .line 290
+    .line 288
     .local v7, rotated:Z
     :goto_e1
     if-eqz v7, :cond_1d2
 
     move v10, v11
 
-    .line 291
+    .line 289
     .local v10, screenWidth:I
     :goto_e4
     if-eqz v7, :cond_1d5
 
     move v9, v12
 
-    .line 292
+    .line 290
     .local v9, screenHeight:I
     :goto_e7
     move-object/from16 v0, p0
@@ -1181,7 +1184,7 @@
 
     if-nez v15, :cond_1d8
 
-    .line 293
+    .line 291
     int-to-float v15, v10
 
     move-object/from16 v0, p0
@@ -1202,7 +1205,7 @@
 
     iput v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mScale:F
 
-    .line 294
+    .line 292
     move-object/from16 v0, p0
 
     iget v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mDefaultResourceDensity:I
@@ -1225,7 +1228,7 @@
 
     iput v15, v0, Lmiui/app/screenelement/ScreenElementRoot;->mTargetDensity:I
 
-    .line 298
+    .line 296
     :goto_114
     const-string v15, "ScreenElementRoot"
 
@@ -1255,7 +1258,7 @@
 
     invoke-static/range {v15 .. v16}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 299
+    .line 297
     move-object/from16 v0, p0
 
     iget-object v15, v0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -1268,7 +1271,7 @@
 
     invoke-virtual/range {v15 .. v16}, Lmiui/app/screenelement/ScreenContext;->setTargetDensity(I)V
 
-    .line 300
+    .line 298
     const-string v15, "raw_screen_width"
 
     move-object/from16 v0, p0
@@ -1293,7 +1296,7 @@
 
     invoke-static/range {v15 .. v17}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 301
+    .line 299
     const-string v15, "raw_screen_height"
 
     move-object/from16 v0, p0
@@ -1318,7 +1321,7 @@
 
     invoke-static/range {v15 .. v17}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 302
+    .line 300
     const-string v15, "screen_width"
 
     move-object/from16 v0, p0
@@ -1357,7 +1360,7 @@
 
     invoke-static/range {v15 .. v17}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 304
+    .line 302
     const-string v15, "screen_height"
 
     move-object/from16 v0, p0
@@ -1396,17 +1399,17 @@
 
     invoke-static/range {v15 .. v17}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 307
+    .line 305
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6, v10}, Lmiui/app/screenelement/ScreenElementRoot;->resolveResource(Lorg/w3c/dom/Element;I)V
 
-    .line 308
+    .line 306
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6}, Lmiui/app/screenelement/ScreenElementRoot;->processUseVariableUpdater(Lorg/w3c/dom/Element;)V
 
-    .line 309
+    .line 307
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v6}, Lmiui/app/screenelement/ScreenElementRoot;->onLoad(Lorg/w3c/dom/Element;)Z
@@ -1415,7 +1418,7 @@
 
     goto/16 :goto_d
 
-    .line 268
+    .line 266
     .end local v2           #binders:Lorg/w3c/dom/Element;
     .end local v3           #commands:Lorg/w3c/dom/Element;
     .end local v4           #display:Landroid/view/Display;
@@ -1432,7 +1435,7 @@
 
     goto/16 :goto_5f
 
-    .line 289
+    .line 287
     .end local v13           #width:I
     .restart local v2       #binders:Lorg/w3c/dom/Element;
     .restart local v3       #commands:Lorg/w3c/dom/Element;
@@ -1450,17 +1453,17 @@
     :cond_1d2
     move v10, v12
 
-    .line 290
+    .line 288
     goto/16 :goto_e4
 
     .restart local v10       #screenWidth:I
     :cond_1d5
     move v9, v11
 
-    .line 291
+    .line 289
     goto/16 :goto_e7
 
-    .line 296
+    .line 294
     .restart local v9       #screenHeight:I
     :cond_1d8
     move-object/from16 v0, p0
@@ -1492,7 +1495,7 @@
 
     goto/16 :goto_114
 
-    .line 310
+    .line 308
     .end local v2           #binders:Lorg/w3c/dom/Element;
     .end local v3           #commands:Lorg/w3c/dom/Element;
     .end local v4           #display:Landroid/view/Display;
@@ -1507,22 +1510,22 @@
     :catch_1f0
     move-exception v5
 
-    .line 311
+    .line 309
     .local v5, e:Lmiui/app/screenelement/ScreenElementLoadException;
     invoke-virtual {v5}, Lmiui/app/screenelement/ScreenElementLoadException;->printStackTrace()V
 
-    .line 315
+    .line 313
     .end local v5           #e:Lmiui/app/screenelement/ScreenElementLoadException;
     :goto_1f4
     const/4 v15, 0x0
 
     goto/16 :goto_d
 
-    .line 312
+    .line 310
     :catch_1f7
     move-exception v5
 
-    .line 313
+    .line 311
     .local v5, e:Ljava/lang/Exception;
     invoke-virtual {v5}, Ljava/lang/Exception;->printStackTrace()V
 
@@ -1533,7 +1536,7 @@
     .registers 2
 
     .prologue
-    .line 252
+    .line 250
     iget-boolean v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNeedDisallowInterceptTouchEvent:Z
 
     return v0
@@ -1544,14 +1547,14 @@
     .parameter "m"
 
     .prologue
-    .line 112
+    .line 110
     new-instance v0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;
 
     invoke-direct {v0, p1}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;-><init>(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
     invoke-virtual {p1, v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->add(Lmiui/app/screenelement/data/VariableUpdater;)V
 
-    .line 113
+    .line 111
     return-void
 .end method
 
@@ -1561,7 +1564,7 @@
     .parameter "a"
 
     .prologue
-    .line 492
+    .line 490
     return-void
 .end method
 
@@ -1570,12 +1573,12 @@
     .parameter "command"
 
     .prologue
-    .line 480
+    .line 478
     iget-object v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     if-eqz v1, :cond_9
 
-    .line 482
+    .line 480
     :try_start_4
     iget-object v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
@@ -1583,16 +1586,16 @@
     :try_end_9
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_9} :catch_a
 
-    .line 488
+    .line 486
     :cond_9
     :goto_9
     return-void
 
-    .line 483
+    .line 481
     :catch_a
     move-exception v0
 
-    .line 484
+    .line 482
     .local v0, e:Ljava/lang/Exception;
     const-string v1, "ScreenElementRoot"
 
@@ -1602,7 +1605,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 485
+    .line 483
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 
     goto :goto_9
@@ -1613,7 +1616,7 @@
     .parameter "root"
 
     .prologue
-    .line 392
+    .line 390
     const/4 v0, 0x1
 
     return v0
@@ -1626,16 +1629,16 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 223
+    .line 221
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-nez v3, :cond_6
 
-    .line 248
+    .line 246
     :goto_5
     return v0
 
-    .line 227
+    .line 225
     :cond_6
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -1645,7 +1648,7 @@
 
     move-result v1
 
-    .line 228
+    .line 226
     .local v1, x:F
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
@@ -1655,7 +1658,7 @@
 
     move-result v2
 
-    .line 230
+    .line 228
     .local v2, y:F
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchX:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -1663,21 +1666,21 @@
 
     invoke-virtual {v3, v4, v5}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 231
+    .line 229
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchY:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     float-to-double v4, v2
 
     invoke-virtual {v3, v4, v5}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 232
+    .line 230
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v3
 
     packed-switch v3, :pswitch_data_50
 
-    .line 246
+    .line 244
     :goto_29
     :pswitch_29
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
@@ -1686,13 +1689,13 @@
 
     move-result v0
 
-    .line 247
+    .line 245
     .local v0, ret:Z
     invoke-virtual {p0}, Lmiui/app/screenelement/ScreenElementRoot;->requestUpdate()V
 
     goto :goto_5
 
-    .line 234
+    .line 232
     .end local v0           #ret:Z
     :pswitch_33
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchBeginX:Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -1701,14 +1704,14 @@
 
     invoke-virtual {v3, v4, v5}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 235
+    .line 233
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchBeginY:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     float-to-double v4, v2
 
     invoke-virtual {v3, v4, v5}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 236
+    .line 234
     iget-object v3, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTouchBeginTime:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1719,18 +1722,18 @@
 
     invoke-virtual {v3, v4, v5}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 238
+    .line 236
     iput-boolean v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNeedDisallowInterceptTouchEvent:Z
 
     goto :goto_29
 
-    .line 243
+    .line 241
     :pswitch_4c
     iput-boolean v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNeedDisallowInterceptTouchEvent:Z
 
     goto :goto_29
 
-    .line 232
+    .line 230
     nop
 
     :pswitch_data_50
@@ -1745,53 +1748,53 @@
     .registers 2
 
     .prologue
-    .line 188
+    .line 186
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->pause()V
 
-    .line 189
+    .line 187
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_c
 
-    .line 190
+    .line 188
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->pause()V
 
-    .line 192
+    .line 190
     :cond_c
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     if-eqz v0, :cond_15
 
-    .line 193
+    .line 191
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableBinderManager;->pause()V
 
-    .line 195
+    .line 193
     :cond_15
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     if-eqz v0, :cond_1e
 
-    .line 196
+    .line 194
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ExternalCommandManager;->pause()V
 
-    .line 198
+    .line 196
     :cond_1e
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     if-eqz v0, :cond_27
 
-    .line 199
+    .line 197
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->pause()V
 
-    .line 200
+    .line 198
     :cond_27
     return-void
 .end method
@@ -1801,19 +1804,19 @@
     .parameter "sound"
 
     .prologue
-    .line 366
+    .line 364
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_7
 
-    .line 375
+    .line 373
     :cond_6
     :goto_6
     return-void
 
-    .line 369
+    .line 367
     :cond_7
     invoke-virtual {p0}, Lmiui/app/screenelement/ScreenElementRoot;->shouldPlaySound()Z
 
@@ -1821,12 +1824,12 @@
 
     if-eqz v0, :cond_6
 
-    .line 370
+    .line 368
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mSoundManager:Lmiui/app/screenelement/SoundManager;
 
     if-nez v0, :cond_20
 
-    .line 371
+    .line 369
     new-instance v0, Lmiui/app/screenelement/SoundManager;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -1841,7 +1844,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mSoundManager:Lmiui/app/screenelement/SoundManager;
 
-    .line 373
+    .line 371
     :cond_20
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mSoundManager:Lmiui/app/screenelement/SoundManager;
 
@@ -1857,20 +1860,20 @@
     .parameter "time"
 
     .prologue
-    .line 181
+    .line 179
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/elements/ScreenElement;->reset(J)V
 
-    .line 182
+    .line 180
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_c
 
-    .line 183
+    .line 181
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->reset(J)V
 
-    .line 185
+    .line 183
     :cond_c
     return-void
 .end method
@@ -1879,57 +1882,57 @@
     .registers 2
 
     .prologue
-    .line 203
+    .line 201
     invoke-super {p0}, Lmiui/app/screenelement/elements/ScreenElement;->resume()V
 
-    .line 204
+    .line 202
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_c
 
-    .line 205
+    .line 203
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/elements/ElementGroup;->resume()V
 
-    .line 207
+    .line 205
     :cond_c
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     if-eqz v0, :cond_15
 
-    .line 208
+    .line 206
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableBinderManager;->resume()V
 
-    .line 210
+    .line 208
     :cond_15
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     if-eqz v0, :cond_1e
 
-    .line 211
+    .line 209
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mExternalCommandManager:Lmiui/app/screenelement/ExternalCommandManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ExternalCommandManager;->resume()V
 
-    .line 213
+    .line 211
     :cond_1e
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     if-eqz v0, :cond_27
 
-    .line 214
+    .line 212
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->resume()V
 
-    .line 218
+    .line 216
     :cond_27
     invoke-virtual {p0}, Lmiui/app/screenelement/ScreenElementRoot;->requestUpdate()V
 
-    .line 219
+    .line 217
     return-void
 .end method
 
@@ -1938,10 +1941,10 @@
     .parameter "f"
 
     .prologue
-    .line 129
+    .line 127
     iput p1, p0, Lmiui/app/screenelement/ScreenElementRoot;->DEFAULT_FRAME_RATE:F
 
-    .line 130
+    .line 128
     return-void
 .end method
 
@@ -1950,12 +1953,12 @@
     .parameter "controller"
 
     .prologue
-    .line 507
+    .line 505
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/ScreenContext;->setRenderController(Lmiui/app/screenelement/RendererController;)V
 
-    .line 508
+    .line 506
     return-void
 .end method
 
@@ -1964,15 +1967,15 @@
     .parameter "targetDensity"
 
     .prologue
-    .line 400
+    .line 398
     iput p1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mTargetDensity:I
 
-    .line 401
+    .line 399
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/ScreenContext;->setTargetDensity(I)V
 
-    .line 402
+    .line 400
     return-void
 .end method
 
@@ -1980,7 +1983,7 @@
     .registers 2
 
     .prologue
-    .line 387
+    .line 385
     const/4 v0, 0x1
 
     return v0
@@ -1990,7 +1993,7 @@
     .registers 2
 
     .prologue
-    .line 499
+    .line 497
     iget-object v0, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenContext;->shouldUpdate()Z
@@ -2005,22 +2008,22 @@
     .parameter "currentTime"
 
     .prologue
-    .line 117
+    .line 115
     iget-object v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {v1, p1, p2}, Lmiui/app/screenelement/data/VariableUpdaterManager;->tick(J)V
 
-    .line 118
+    .line 116
     iget-object v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v1, :cond_e
 
-    .line 119
+    .line 117
     iget-object v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     invoke-virtual {v1, p1, p2}, Lmiui/app/screenelement/elements/ElementGroup;->tick(J)V
 
-    .line 122
+    .line 120
     :cond_e
     iget-object v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNeedDisallowInterceptTouchEventVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -2028,11 +2031,11 @@
 
     move-result-object v0
 
-    .line 123
+    .line 121
     .local v0, d:Ljava/lang/Double;
     if-eqz v0, :cond_23
 
-    .line 124
+    .line 122
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v1
@@ -2048,11 +2051,11 @@
     :goto_21
     iput-boolean v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNeedDisallowInterceptTouchEvent:Z
 
-    .line 126
+    .line 124
     :cond_23
     return-void
 
-    .line 124
+    .line 122
     :cond_24
     const/4 v1, 0x0
 
@@ -2066,7 +2069,7 @@
     .prologue
     const-wide/16 v9, 0x0
 
-    .line 455
+    .line 453
     iget-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFramerateControllers:Ljava/util/ArrayList;
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -2087,20 +2090,20 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/FramerateController;
 
-    .line 456
+    .line 454
     .local v0, f:Lmiui/app/screenelement/elements/FramerateController;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/elements/FramerateController;->updateFramerate(J)V
 
     goto :goto_8
 
-    .line 460
+    .line 458
     .end local v0           #f:Lmiui/app/screenelement/elements/FramerateController;
     :cond_18
     iget-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     if-nez v6, :cond_2b
 
-    .line 461
+    .line 459
     new-instance v6, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v7, "frame_rate"
@@ -2113,10 +2116,10 @@
 
     iput-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 462
+    .line 460
     iput-wide v9, p0, Lmiui/app/screenelement/ScreenElementRoot;->mCheckPoint:J
 
-    .line 465
+    .line 463
     :cond_2b
     iget-wide v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mCheckPoint:J
 
@@ -2124,21 +2127,21 @@
 
     if-nez v6, :cond_34
 
-    .line 466
+    .line 464
     iput-wide p1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mCheckPoint:J
 
-    .line 477
+    .line 475
     :cond_33
     :goto_33
     return-void
 
-    .line 468
+    .line 466
     :cond_34
     iget-wide v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mCheckPoint:J
 
     sub-long v4, p1, v6
 
-    .line 469
+    .line 467
     .local v4, t:J
     const-wide/16 v6, 0x3e8
 
@@ -2146,7 +2149,7 @@
 
     if-ltz v6, :cond_33
 
-    .line 470
+    .line 468
     iget v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrames:I
 
     mul-int/lit16 v6, v6, 0x3e8
@@ -2155,7 +2158,7 @@
 
     div-long v1, v6, v4
 
-    .line 471
+    .line 469
     .local v1, frameRate:J
     iget-object v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -2163,12 +2166,12 @@
 
     invoke-virtual {v6, v7, v8}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 472
+    .line 470
     const/4 v6, 0x0
 
     iput v6, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrames:I
 
-    .line 473
+    .line 471
     iput-wide p1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mCheckPoint:J
 
     goto :goto_33

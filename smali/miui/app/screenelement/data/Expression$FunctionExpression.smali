@@ -446,15 +446,15 @@
     .prologue
     const/4 v1, -0x1
 
-    .line 631
+    .line 633
     if-gtz p2, :cond_4
 
-    .line 636
+    .line 638
     :cond_3
     :goto_3
     return v1
 
-    .line 633
+    .line 635
     :cond_4
     const/4 v0, 0x0
 
@@ -466,15 +466,15 @@
 
     if-ge v0, v2, :cond_10
 
-    .line 634
+    .line 636
     div-int/lit8 p1, p1, 0xa
 
-    .line 633
+    .line 635
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_5
 
-    .line 636
+    .line 638
     :cond_10
     if-lez p1, :cond_3
 
@@ -488,25 +488,25 @@
     .parameter "number"
 
     .prologue
-    .line 641
+    .line 643
     const/4 v0, 0x1
 
-    .line 642
+    .line 644
     .local v0, len:I
     :goto_1
     const/16 v1, 0xa
 
     if-lt p1, v1, :cond_a
 
-    .line 643
+    .line 645
     div-int/lit8 p1, p1, 0xa
 
-    .line 644
+    .line 646
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 646
+    .line 648
     :cond_a
     return v0
 .end method
@@ -1184,9 +1184,9 @@
     .parameter "var"
 
     .prologue
-    const/4 v6, 0x0
-
     const/4 v9, 0x1
+
+    const/4 v6, 0x0
 
     .line 598
     sget-object v7, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$FunctionExpression$Fun:[I
@@ -1199,9 +1199,9 @@
 
     aget v7, v7, v8
 
-    packed-switch v7, :pswitch_data_a0
+    packed-switch v7, :pswitch_data_a6
 
-    .line 626
+    .line 628
     :pswitch_f
     invoke-virtual {p0, p1}, Lmiui/app/screenelement/data/Expression$FunctionExpression;->evaluate(Lmiui/app/screenelement/data/Variables;)D
 
@@ -1211,6 +1211,7 @@
 
     move-result-object v6
 
+    :cond_17
     :goto_17
     return-object v6
 
@@ -1218,11 +1219,11 @@
     :pswitch_18
     iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    array-length v3, v7
+    array-length v2, v7
 
     .line 601
-    .local v3, len:I
-    rem-int/lit8 v7, v3, 0x2
+    .local v2, len:I
+    rem-int/lit8 v7, v2, 0x2
 
     if-eq v7, v9, :cond_3e
 
@@ -1259,20 +1260,20 @@
 
     .line 605
     :cond_3e
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    .local v2, i:I
+    .local v1, i:I
     :goto_3f
-    add-int/lit8 v6, v3, -0x1
+    add-int/lit8 v6, v2, -0x1
 
     div-int/lit8 v6, v6, 0x2
 
-    if-ge v2, v6, :cond_65
+    if-ge v1, v6, :cond_65
 
     .line 606
     iget-object v6, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    mul-int/lit8 v7, v2, 0x2
+    mul-int/lit8 v7, v1, 0x2
 
     aget-object v6, v6, v7
 
@@ -1289,7 +1290,7 @@
     .line 607
     iget-object v6, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    mul-int/lit8 v7, v2, 0x2
+    mul-int/lit8 v7, v1, 0x2
 
     add-int/lit8 v7, v7, 0x1
 
@@ -1303,7 +1304,7 @@
 
     .line 605
     :cond_62
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_3f
 
@@ -1311,7 +1312,7 @@
     :cond_65
     iget-object v6, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
-    add-int/lit8 v7, v3, -0x1
+    add-int/lit8 v7, v2, -0x1
 
     aget-object v6, v6, v7
 
@@ -1322,8 +1323,8 @@
     goto :goto_17
 
     .line 612
-    .end local v2           #i:I
-    .end local v3           #len:I
+    .end local v1           #i:I
+    .end local v2           #len:I
     :pswitch_70
     iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
@@ -1337,12 +1338,15 @@
 
     .line 613
     .local v5, str:Ljava/lang/String;
+    if-eqz v5, :cond_17
+
+    .line 615
     iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     array-length v3, v7
 
-    .line 614
-    .restart local v3       #len:I
+    .line 616
+    .local v3, size:I
     iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     aget-object v7, v7, v9
@@ -1353,14 +1357,14 @@
 
     double-to-int v4, v7
 
-    .line 616
+    .line 618
     .local v4, start:I
     const/4 v7, 0x3
 
-    if-lt v3, v7, :cond_97
+    if-lt v3, v7, :cond_9c
 
-    .line 617
-    :try_start_88
+    .line 619
+    :try_start_8a
     iget-object v7, p0, Lmiui/app/screenelement/data/Expression$FunctionExpression;->mParaExps:[Lmiui/app/screenelement/data/Expression;
 
     const/4 v8, 0x2
@@ -1371,37 +1375,41 @@
 
     move-result-wide v7
 
-    double-to-int v1, v7
-
-    .line 618
-    .local v1, end:I
-    invoke-virtual {v5, v4, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_17
+    double-to-int v2, v7
 
     .line 620
-    .end local v1           #end:I
-    :cond_97
-    invoke-virtual {v5, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-    :try_end_9a
-    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_88 .. :try_end_9a} :catch_9d
+    .restart local v2       #len:I
+    add-int v7, v4, v2
+
+    invoke-virtual {v5, v4, v7}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v6
 
     goto/16 :goto_17
 
-    .line 621
-    :catch_9d
+    .line 622
+    .end local v2           #len:I
+    :cond_9c
+    invoke-virtual {v5, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    :try_end_9f
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_8a .. :try_end_9f} :catch_a2
+
+    move-result-object v6
+
+    goto/16 :goto_17
+
+    .line 623
+    :catch_a2
     move-exception v0
 
-    .line 622
+    .line 624
     .local v0, e:Ljava/lang/IndexOutOfBoundsException;
     goto/16 :goto_17
 
     .line 598
-    :pswitch_data_a0
+    nop
+
+    :pswitch_data_a6
     .packed-switch 0x19
         :pswitch_18
         :pswitch_f

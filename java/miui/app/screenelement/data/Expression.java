@@ -536,11 +536,13 @@ _L3:
             int i;
             int j;
             s1 = mParaExps[0].evaluateStr(variables);
+            if(s1 == null)
+                continue; /* Loop/switch isn't completed */
             i = mParaExps.length;
             j = (int)mParaExps[1].evaluate(variables);
             if(i < 3) goto _L5; else goto _L4
 _L4:
-            s = s1.substring(j, (int)mParaExps[2].evaluate(variables));
+            s = s1.substring(j, j + (int)mParaExps[2].evaluate(variables));
             continue; /* Loop/switch isn't completed */
 _L5:
             String s2 = s1.substring(j);

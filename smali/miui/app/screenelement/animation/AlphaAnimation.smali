@@ -107,12 +107,7 @@
     .line 22
     const-string v0, "Alpha"
 
-    invoke-direct {p0, p1, v0, p2}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
-
-    .line 17
-    const/16 v0, 0xff
-
-    iput v0, p0, Lmiui/app/screenelement/animation/AlphaAnimation;->mCurrentAlpha:I
+    invoke-direct {p0, p1, v0, p2}, Lmiui/app/screenelement/animation/AlphaAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
     .line 23
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;

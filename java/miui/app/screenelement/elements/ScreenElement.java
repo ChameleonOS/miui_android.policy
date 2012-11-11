@@ -245,7 +245,6 @@ _L3:
     }
 
     public void init() {
-        reset();
         updateVisibility();
         if(isVisible())
             onVisibilityChange(true);

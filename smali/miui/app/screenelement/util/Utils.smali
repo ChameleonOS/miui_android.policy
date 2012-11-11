@@ -21,7 +21,7 @@
     .line 13
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 182
+    .line 184
     return-void
 .end method
 
@@ -623,12 +623,12 @@
     .parameter "vars"
 
     .prologue
-    .line 240
+    .line 242
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 241
+    .line 243
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedNumberVariable;
     invoke-virtual {v0}, Lmiui/app/screenelement/util/IndexedNumberVariable;->get()Ljava/lang/Double;
 
@@ -647,7 +647,7 @@
     .parameter "vars"
 
     .prologue
-    .line 236
+    .line 238
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lmiui/app/screenelement/util/Utils;->getVariableNumber(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)D
@@ -664,12 +664,12 @@
     .parameter "vars"
 
     .prologue
-    .line 231
+    .line 233
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 232
+    .line 234
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedStringVariable;
     invoke-virtual {v0}, Lmiui/app/screenelement/util/IndexedStringVariable;->get()Ljava/lang/String;
 
@@ -684,7 +684,7 @@
     .parameter "vars"
 
     .prologue
-    .line 227
+    .line 229
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lmiui/app/screenelement/util/Utils;->getVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
@@ -702,25 +702,25 @@
     .prologue
     const/16 v0, 0xff
 
-    .line 198
+    .line 200
     if-lt p0, v0, :cond_5
 
-    .line 203
+    .line 205
     .end local p1
     :goto_4
     return p1
 
-    .line 200
+    .line 202
     .restart local p1
     :cond_5
     if-lt p1, v0, :cond_9
 
     move p1, p0
 
-    .line 201
+    .line 203
     goto :goto_4
 
-    .line 203
+    .line 205
     :cond_9
     mul-int v0, p0, p1
 
@@ -856,16 +856,16 @@
     .parameter "value"
 
     .prologue
-    .line 222
+    .line 224
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 223
+    .line 225
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedNumberVariable;
     invoke-virtual {v0, p3}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(Ljava/lang/Double;)V
 
-    .line 224
+    .line 226
     return-void
 .end method
 
@@ -876,12 +876,12 @@
     .parameter "value"
 
     .prologue
-    .line 218
+    .line 220
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 219
+    .line 221
     return-void
 .end method
 
@@ -893,16 +893,16 @@
     .parameter "str"
 
     .prologue
-    .line 213
+    .line 215
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 214
+    .line 216
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedStringVariable;
     invoke-virtual {v0, p3}, Lmiui/app/screenelement/util/IndexedStringVariable;->set(Ljava/lang/String;)V
 
-    .line 215
+    .line 217
     return-void
 .end method
 
@@ -913,12 +913,12 @@
     .parameter "str"
 
     .prologue
-    .line 209
+    .line 211
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Lmiui/app/screenelement/util/Utils;->putVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/String;)V
 
-    .line 210
+    .line 212
     return-void
 .end method
 
@@ -928,27 +928,33 @@
     .parameter "def"
 
     .prologue
-    .line 176
-    :try_start_0
+    .line 175
+    if-nez p0, :cond_3
+
+    .line 180
+    .end local p1
+    :goto_2
+    return-wide p1
+
+    .line 178
+    .restart local p1
+    :cond_3
+    :try_start_3
     invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
-    :try_end_3
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_3} :catch_5
+    :try_end_6
+    .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_6} :catch_8
 
     move-result-wide p1
 
-    .line 178
-    .end local p1
-    :goto_4
-    return-wide p1
+    goto :goto_2
 
-    .line 177
-    .restart local p1
-    :catch_5
+    .line 179
+    :catch_8
     move-exception v0
 
-    .line 178
+    .line 180
     .local v0, e:Ljava/lang/NumberFormatException;
-    goto :goto_4
+    goto :goto_2
 .end method
 
 .method public static traverseXmlElementChildren(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/util/Utils$XmlTraverseListener;)V
@@ -958,12 +964,12 @@
     .parameter "l"
 
     .prologue
-    .line 187
+    .line 189
     invoke-interface {p0}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v0
 
-    .line 188
+    .line 190
     .local v0, children:Lorg/w3c/dom/NodeList;
     const/4 v1, 0x0
 
@@ -975,12 +981,12 @@
 
     if-ge v1, v3, :cond_2a
 
-    .line 189
+    .line 191
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
-    .line 190
+    .line 192
     .local v2, node:Lorg/w3c/dom/Node;
     invoke-interface {v2}, Lorg/w3c/dom/Node;->getNodeType()S
 
@@ -1002,20 +1008,20 @@
 
     if-eqz v3, :cond_27
 
-    .line 192
+    .line 194
     :cond_22
     check-cast v2, Lorg/w3c/dom/Element;
 
     .end local v2           #node:Lorg/w3c/dom/Node;
     invoke-interface {p2, v2}, Lmiui/app/screenelement/util/Utils$XmlTraverseListener;->onChild(Lorg/w3c/dom/Element;)V
 
-    .line 188
+    .line 190
     :cond_27
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_5
 
-    .line 195
+    .line 197
     :cond_2a
     return-void
 .end method

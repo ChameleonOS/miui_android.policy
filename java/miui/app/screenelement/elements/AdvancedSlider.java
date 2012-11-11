@@ -397,6 +397,16 @@ _L3:
 
     private class SliderPoint {
 
+        private ElementGroup loadGroup(Element element, String s) throws ScreenElementLoadException {
+            Element element1 = Utils.getChild(element, s);
+            ElementGroup elementgroup;
+            if(element1 != null)
+                elementgroup = new ElementGroup(element1, mContext, mRoot);
+            else
+                elementgroup = null;
+            return elementgroup;
+        }
+
         public ScreenElement findElement(String s) {
             if(mPressedStateElements == null) goto _L2; else goto _L1
 _L1:
@@ -458,18 +468,12 @@ _L4:
         public void init() {
             mCurrentX = scale(mX.evaluate(mContext.mVariables));
             mCurrentY = scale(mY.evaluate(mContext.mVariables));
-            if(mNormalStateElements != null) {
+            if(mNormalStateElements != null)
                 mNormalStateElements.init();
-                mNormalStateElements.show(true);
-            }
-            if(mPressedStateElements != null) {
+            if(mPressedStateElements != null)
                 mPressedStateElements.init();
-                mPressedStateElements.show(false);
-            }
-            if(mReachedStateElements != null) {
+            if(mReachedStateElements != null)
                 mReachedStateElements.init();
-                mReachedStateElements.show(false);
-            }
             setState(State.Normal);
         }
 
@@ -483,15 +487,9 @@ _L4:
             mY = Expression.build(element.getAttribute("y"));
             mWidth = Expression.build(element.getAttribute("w"));
             mHeight = Expression.build(element.getAttribute("h"));
-            Element element1 = Utils.getChild(element, "NormalState");
-            if(element1 != null)
-                mNormalStateElements = new ElementGroup(element1, mContext, mRoot);
-            Element element2 = Utils.getChild(element, "PressedState");
-            if(element2 != null)
-                mPressedStateElements = new ElementGroup(element2, mContext, mRoot);
-            Element element3 = Utils.getChild(element, "ReachedState");
-            if(element3 != null)
-                mReachedStateElements = new ElementGroup(element3, mContext, mRoot);
+            mNormalStateElements = loadGroup(element, "NormalState");
+            mPressedStateElements = loadGroup(element, "PressedState");
+            mReachedStateElements = loadGroup(element, "ReachedState");
         }
 
         public void moveTo(float f, float f1) {
@@ -545,50 +543,58 @@ _L1:
             return;
 _L2:
             State state1;
-            ElementGroup elementgroup;
+            Object obj;
+            boolean flag;
             state1 = mState;
             mState = state;
-            elementgroup = null;
+            obj = null;
+            flag = false;
             _cls1..SwitchMap.miui.app.screenelement.elements.AdvancedSlider.State[state.ordinal()];
-            JVM INSTR tableswitch 1 3: default 56
-        //                       1 131
-        //                       2 139
-        //                       3 162;
+            JVM INSTR tableswitch 1 3: default 60
+        //                       1 90
+        //                       2 114
+        //                       3 163;
                goto _L3 _L4 _L5 _L6
 _L6:
-            break MISSING_BLOCK_LABEL_162;
+            break MISSING_BLOCK_LABEL_163;
 _L3:
             break; /* Loop/switch isn't completed */
 _L4:
             break; /* Loop/switch isn't completed */
 _L8:
-            if(elementgroup != null && (elementgroup != mPressedStateElements || !mPressed))
-                elementgroup.reset();
-            if(mCurrentStateElements != elementgroup) {
-                if(mCurrentStateElements != null)
-                    mCurrentStateElements.show(false);
-                if(elementgroup != null)
-                    elementgroup.show(true);
-                mCurrentStateElements = elementgroup;
-            }
+            if(obj != null && flag)
+                ((ElementGroup) (obj)).reset();
+            mCurrentStateElements = ((ScreenElement) (obj));
             onStateChange(state1, mState);
             if(true) goto _L1; else goto _L7
 _L7:
-            elementgroup = mNormalStateElements;
+            obj = mNormalStateElements;
+            if(mPressedStateElements != null)
+                flag = true;
+            else
+                flag = false;
               goto _L8
 _L5:
             if(mPressedStateElements != null)
-                elementgroup = mPressedStateElements;
+                obj = mPressedStateElements;
             else
-                elementgroup = mNormalStateElements;
+                obj = mNormalStateElements;
+            if(mPressedStateElements != null && !mPressed)
+                flag = true;
+            else
+                flag = false;
               goto _L8
             if(mReachedStateElements != null)
-                elementgroup = mReachedStateElements;
+                obj = mReachedStateElements;
             else
             if(mPressedStateElements != null)
-                elementgroup = mPressedStateElements;
+                obj = mPressedStateElements;
             else
-                elementgroup = mNormalStateElements;
+                obj = mNormalStateElements;
+            if(mReachedStateElements != null)
+                flag = true;
+            else
+                flag = false;
               goto _L8
         }
 
@@ -707,13 +713,11 @@ _L5:
             mEndPoint = endpoint;
             mStartX = mStartPoint.getCurrentX();
             mStartY = mStartPoint.getCurrentY();
-            if(mBounceProgress != null)
-                mBounceProgress.set(0.0D);
             mBounceStartPointIndex = -1;
             mTraveledDistance = 0.0D;
             point = new miui.app.screenelement.util.Utils.Point(mStartX, mStartY);
             if(endpoint == null || endpoint.mPath == null)
-                break MISSING_BLOCK_LABEL_305;
+                break MISSING_BLOCK_LABEL_308;
             i = 1;
 _L5:
             if(i >= endpoint.mPath.size()) goto _L2; else goto _L1
@@ -731,7 +735,14 @@ _L3:
             mBounceStartPointIndex = i - 1;
             mTraveledDistance = mTraveledDistance + Utils.Dist(point1, point3, true);
 _L2:
-            requestUpdate();
+            if(mTraveledDistance < 3D) {
+                cancelMoving();
+                mBounceStartTime = -1L;
+            } else {
+                if(mBounceProgress != null)
+                    mBounceProgress.set(0.0D);
+                requestUpdate();
+            }
             return;
 _L4:
             mTraveledDistance = mTraveledDistance + Utils.Dist(point1, point2, true);

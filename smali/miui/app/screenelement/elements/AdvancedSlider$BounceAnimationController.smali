@@ -52,12 +52,12 @@
     .parameter
 
     .prologue
-    .line 93
+    .line 92
     iput-object p1, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 106
+    .line 105
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
@@ -71,7 +71,7 @@
     .parameter "x1"
 
     .prologue
-    .line 93
+    .line 92
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;-><init>(Lmiui/app/screenelement/elements/AdvancedSlider;)V
 
     return-void
@@ -86,7 +86,7 @@
     .parameter "distance"
 
     .prologue
-    .line 249
+    .line 256
     new-instance v6, Lmiui/app/screenelement/util/Utils$Point;
 
     move/from16 v0, p1
@@ -99,7 +99,7 @@
 
     invoke-direct {v6, v12, v13, v14, v15}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 250
+    .line 257
     .local v6, pt1:Lmiui/app/screenelement/util/Utils$Point;
     new-instance v7, Lmiui/app/screenelement/util/Utils$Point;
 
@@ -113,7 +113,7 @@
 
     invoke-direct {v7, v12, v13, v14, v15}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 251
+    .line 258
     .local v7, pt2:Lmiui/app/screenelement/util/Utils$Point;
     const/4 v12, 0x1
 
@@ -121,7 +121,7 @@
 
     move-result-wide v10
 
-    .line 252
+    .line 259
     .local v10, total:D
     move-wide/from16 v0, p5
 
@@ -131,14 +131,14 @@
 
     if-ltz v12, :cond_24
 
-    .line 253
+    .line 260
     const/4 v12, 0x0
 
-    .line 257
+    .line 264
     :goto_23
     return-object v12
 
-    .line 254
+    .line 261
     :cond_24
     move-wide/from16 v0, p5
 
@@ -148,7 +148,7 @@
 
     div-double v8, v12, v10
 
-    .line 255
+    .line 262
     .local v8, ratio:D
     iget-wide v12, v7, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
@@ -158,7 +158,7 @@
 
     mul-double v2, v12, v8
 
-    .line 256
+    .line 263
     .local v2, dx:D
     iget-wide v12, v7, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
@@ -168,7 +168,7 @@
 
     mul-double v4, v12, v8
 
-    .line 257
+    .line 264
     .local v4, dy:D
     new-instance v12, Lmiui/app/screenelement/util/Utils$Point;
 
@@ -186,20 +186,16 @@
 .end method
 
 .method private startBounceAnimation(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)V
-    .registers 15
+    .registers 14
     .parameter "ep"
 
     .prologue
-    const-wide/16 v9, 0x0
-
-    const/4 v12, 0x1
-
-    .line 146
+    .line 145
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceInitSpeedExp:Lmiui/app/screenelement/data/Expression;
 
-    if-eqz v7, :cond_16
+    if-eqz v7, :cond_13
 
-    .line 147
+    .line 146
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceInitSpeedExp:Lmiui/app/screenelement/data/Expression;
 
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
@@ -216,13 +212,13 @@
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceInitSpeed:I
 
-    .line 148
-    :cond_16
+    .line 147
+    :cond_13
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceAccelationExp:Lmiui/app/screenelement/data/Expression;
 
-    if-eqz v7, :cond_29
+    if-eqz v7, :cond_26
 
-    .line 149
+    .line 148
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceAccelationExp:Lmiui/app/screenelement/data/Expression;
 
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
@@ -239,16 +235,16 @@
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceAccelation:I
 
-    .line 150
-    :cond_29
+    .line 149
+    :cond_26
     const-wide/16 v7, 0x0
 
     iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
 
-    .line 151
+    .line 150
     iput-object p1, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mEndPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
 
-    .line 152
+    .line 151
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
@@ -262,7 +258,7 @@
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mStartX:F
 
-    .line 153
+    .line 152
     iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider;->mStartPoint:Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;
@@ -276,26 +272,17 @@
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mStartY:F
 
-    .line 154
-    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
-
-    if-eqz v7, :cond_50
-
-    .line 155
-    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
-
-    invoke-virtual {v7, v9, v10}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
-
-    .line 156
-    :cond_50
+    .line 153
     const/4 v7, -0x1
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartPointIndex:I
 
-    .line 157
-    iput-wide v9, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
+    .line 154
+    const-wide/16 v7, 0x0
 
-    .line 158
+    iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
+
+    .line 155
     new-instance v1, Lmiui/app/screenelement/util/Utils$Point;
 
     iget v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mStartX:F
@@ -308,22 +295,22 @@
 
     invoke-direct {v1, v7, v8, v9, v10}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 159
+    .line 156
     .local v1, p0:Lmiui/app/screenelement/util/Utils$Point;
-    if-eqz p1, :cond_cd
+    if-eqz p1, :cond_d1
 
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mPath:Ljava/util/ArrayList;
     invoke-static {p1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->access$300(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Ljava/util/ArrayList;
 
     move-result-object v7
 
-    if-eqz v7, :cond_cd
+    if-eqz v7, :cond_d1
 
-    .line 160
+    .line 157
     const/4 v0, 0x1
 
     .local v0, i:I
-    :goto_69
+    :goto_5f
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mPath:Ljava/util/ArrayList;
     invoke-static {p1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->access$300(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Ljava/util/ArrayList;
 
@@ -333,9 +320,9 @@
 
     move-result v7
 
-    if-ge v0, v7, :cond_bb
+    if-ge v0, v7, :cond_b2
 
-    .line 161
+    .line 158
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mPath:Ljava/util/ArrayList;
     invoke-static {p1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->access$300(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Ljava/util/ArrayList;
 
@@ -349,7 +336,7 @@
 
     check-cast v5, Lmiui/app/screenelement/elements/AdvancedSlider$Position;
 
-    .line 162
+    .line 159
     .local v5, pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
     #getter for: Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->mPath:Ljava/util/ArrayList;
     invoke-static {p1}, Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;->access$300(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)Ljava/util/ArrayList;
@@ -362,7 +349,7 @@
 
     check-cast v6, Lmiui/app/screenelement/elements/AdvancedSlider$Position;
 
-    .line 163
+    .line 160
     .local v6, pt2:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
     new-instance v2, Lmiui/app/screenelement/util/Utils$Point;
 
@@ -380,7 +367,7 @@
 
     invoke-direct {v2, v7, v8, v9, v10}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 164
+    .line 161
     .local v2, p1:Lmiui/app/screenelement/util/Utils$Point;
     new-instance v3, Lmiui/app/screenelement/util/Utils$Point;
 
@@ -398,7 +385,7 @@
 
     invoke-direct {v3, v7, v8, v9, v10}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 165
+    .line 162
     .local v3, p2:Lmiui/app/screenelement/util/Utils$Point;
     const/4 v7, 0x0
 
@@ -406,64 +393,27 @@
 
     move-result-object v4
 
-    .line 166
+    .line 163
     .local v4, pt:Lmiui/app/screenelement/util/Utils$Point;
-    if-eqz v4, :cond_c1
+    if-eqz v4, :cond_c4
 
-    .line 167
+    .line 164
     add-int/lit8 v7, v0, -0x1
 
     iput v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartPointIndex:I
 
-    .line 168
+    .line 165
     iget-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
 
-    invoke-static {v2, v4, v12}, Lmiui/app/screenelement/util/Utils;->Dist(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/util/Utils$Point;Z)D
+    const/4 v9, 0x1
+
+    invoke-static {v2, v4, v9}, Lmiui/app/screenelement/util/Utils;->Dist(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/util/Utils$Point;Z)D
 
     move-result-wide v9
 
     add-double/2addr v7, v9
 
     iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
-
-    .line 176
-    .end local v0           #i:I
-    .end local v2           #p1:Lmiui/app/screenelement/util/Utils$Point;
-    .end local v3           #p2:Lmiui/app/screenelement/util/Utils$Point;
-    .end local v4           #pt:Lmiui/app/screenelement/util/Utils$Point;
-    .end local v5           #pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
-    .end local v6           #pt2:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
-    :cond_bb
-    :goto_bb
-    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
-
-    invoke-virtual {v7}, Lmiui/app/screenelement/elements/AdvancedSlider;->requestUpdate()V
-
-    .line 177
-    return-void
-
-    .line 171
-    .restart local v0       #i:I
-    .restart local v2       #p1:Lmiui/app/screenelement/util/Utils$Point;
-    .restart local v3       #p2:Lmiui/app/screenelement/util/Utils$Point;
-    .restart local v4       #pt:Lmiui/app/screenelement/util/Utils$Point;
-    .restart local v5       #pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
-    .restart local v6       #pt2:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
-    :cond_c1
-    iget-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
-
-    invoke-static {v2, v3, v12}, Lmiui/app/screenelement/util/Utils;->Dist(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/util/Utils$Point;Z)D
-
-    move-result-wide v9
-
-    add-double/2addr v7, v9
-
-    iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
-
-    .line 160
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_69
 
     .line 174
     .end local v0           #i:I
@@ -472,7 +422,64 @@
     .end local v4           #pt:Lmiui/app/screenelement/util/Utils$Point;
     .end local v5           #pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
     .end local v6           #pt2:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
-    :cond_cd
+    :cond_b2
+    :goto_b2
+    iget-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
+
+    const-wide/high16 v9, 0x4008
+
+    cmpg-double v7, v7, v9
+
+    if-gez v7, :cond_f4
+
+    .line 175
+    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
+
+    #calls: Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
+    invoke-static {v7}, Lmiui/app/screenelement/elements/AdvancedSlider;->access$100(Lmiui/app/screenelement/elements/AdvancedSlider;)V
+
+    .line 176
+    const-wide/16 v7, -0x1
+
+    iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
+
+    .line 184
+    :goto_c3
+    return-void
+
+    .line 168
+    .restart local v0       #i:I
+    .restart local v2       #p1:Lmiui/app/screenelement/util/Utils$Point;
+    .restart local v3       #p2:Lmiui/app/screenelement/util/Utils$Point;
+    .restart local v4       #pt:Lmiui/app/screenelement/util/Utils$Point;
+    .restart local v5       #pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
+    .restart local v6       #pt2:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
+    :cond_c4
+    iget-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
+
+    const/4 v9, 0x1
+
+    invoke-static {v2, v3, v9}, Lmiui/app/screenelement/util/Utils;->Dist(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/util/Utils$Point;Z)D
+
+    move-result-wide v9
+
+    add-double/2addr v7, v9
+
+    iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
+
+    .line 157
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_5f
+
+    .line 171
+    .end local v0           #i:I
+    .end local v2           #p1:Lmiui/app/screenelement/util/Utils$Point;
+    .end local v3           #p2:Lmiui/app/screenelement/util/Utils$Point;
+    .end local v4           #pt:Lmiui/app/screenelement/util/Utils$Point;
+    .end local v5           #pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
+    .end local v6           #pt2:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
+    :cond_d1
     new-instance v7, Lmiui/app/screenelement/util/Utils$Point;
 
     iget-object v8, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
@@ -503,13 +510,36 @@
 
     invoke-direct {v7, v8, v9, v10, v11}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    invoke-static {v7, v1, v12}, Lmiui/app/screenelement/util/Utils;->Dist(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/util/Utils$Point;Z)D
+    const/4 v8, 0x1
+
+    invoke-static {v7, v1, v8}, Lmiui/app/screenelement/util/Utils;->Dist(Lmiui/app/screenelement/util/Utils$Point;Lmiui/app/screenelement/util/Utils$Point;Z)D
 
     move-result-wide v7
 
     iput-wide v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
 
-    goto :goto_bb
+    goto :goto_b2
+
+    .line 180
+    :cond_f4
+    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
+
+    if-eqz v7, :cond_ff
+
+    .line 181
+    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
+
+    const-wide/16 v8, 0x0
+
+    invoke-virtual {v7, v8, v9}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
+
+    .line 183
+    :cond_ff
+    iget-object v7, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
+
+    invoke-virtual {v7}, Lmiui/app/screenelement/elements/AdvancedSlider;->requestUpdate()V
+
+    goto :goto_c3
 .end method
 
 
@@ -518,24 +548,24 @@
     .registers 4
 
     .prologue
-    .line 132
+    .line 131
     const-wide/16 v0, -0x1
 
     iput-wide v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
 
-    .line 133
+    .line 132
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     if-eqz v0, :cond_f
 
-    .line 134
+    .line 133
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-wide/high16 v1, 0x3ff0
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 135
+    .line 134
     :cond_f
     return-void
 .end method
@@ -545,7 +575,7 @@
     .parameter "node"
 
     .prologue
-    .line 124
+    .line 123
     const-string v0, "bounceInitSpeed"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -558,7 +588,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceInitSpeedExp:Lmiui/app/screenelement/data/Expression;
 
-    .line 125
+    .line 124
     const-string v0, "bounceAcceleration"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -571,14 +601,14 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceAccelationExp:Lmiui/app/screenelement/data/Expression;
 
-    .line 126
+    .line 125
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     iget-boolean v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v0, :cond_31
 
-    .line 127
+    .line 126
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
@@ -597,7 +627,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 129
+    .line 128
     :cond_31
     return-void
 .end method
@@ -607,22 +637,22 @@
     .parameter "ep"
 
     .prologue
-    .line 138
+    .line 137
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceInitSpeedExp:Lmiui/app/screenelement/data/Expression;
 
     if-nez v0, :cond_a
 
-    .line 139
+    .line 138
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     #calls: Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
     invoke-static {v0}, Lmiui/app/screenelement/elements/AdvancedSlider;->access$100(Lmiui/app/screenelement/elements/AdvancedSlider;)V
 
-    .line 143
+    .line 142
     :goto_9
     return-void
 
-    .line 141
+    .line 140
     :cond_a
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->startBounceAnimation(Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;)V
 
@@ -634,7 +664,7 @@
     .parameter "currentTime"
 
     .prologue
-    .line 181
+    .line 188
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
@@ -645,12 +675,12 @@
 
     if-gez v3, :cond_b
 
-    .line 245
+    .line 252
     :cond_a
     :goto_a
     return-void
 
-    .line 184
+    .line 191
     :cond_b
     move-object/from16 v0, p0
 
@@ -662,21 +692,21 @@
 
     if-nez v3, :cond_55
 
-    .line 185
+    .line 192
     move-wide/from16 v0, p1
 
     move-object/from16 v2, p0
 
     iput-wide v0, v2, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
 
-    .line 186
+    .line 193
     const-wide/16 v3, 0x0
 
     move-object/from16 v0, p0
 
     iput-wide v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mPreDistance:J
 
-    .line 236
+    .line 243
     :goto_21
     move-object/from16 v0, p0
 
@@ -684,7 +714,7 @@
 
     invoke-virtual {v3}, Lmiui/app/screenelement/elements/AdvancedSlider;->requestUpdate()V
 
-    .line 238
+    .line 245
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mTraveledDistance:D
@@ -695,7 +725,7 @@
 
     if-lez v3, :cond_a
 
-    .line 239
+    .line 246
     move-object/from16 v0, p0
 
     iget-wide v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mPreDistance:J
@@ -708,7 +738,7 @@
 
     div-double v20, v3, v5
 
-    .line 242
+    .line 249
     .local v20, progress:D
     move-object/from16 v0, p0
 
@@ -716,7 +746,7 @@
 
     if-eqz v3, :cond_a
 
-    .line 243
+    .line 250
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -737,7 +767,7 @@
 
     goto :goto_a
 
-    .line 188
+    .line 195
     :cond_55
     move-object/from16 v0, p0
 
@@ -745,7 +775,7 @@
 
     sub-long v26, p1, v3
 
-    .line 189
+    .line 196
     .local v26, time:J
     move-object/from16 v0, p0
 
@@ -775,7 +805,7 @@
 
     add-long v8, v3, v5
 
-    .line 190
+    .line 197
     .local v8, dist:J
     move-object/from16 v0, p0
 
@@ -797,7 +827,7 @@
 
     add-long v24, v3, v5
 
-    .line 191
+    .line 198
     .local v24, speed:J
     const-wide/16 v3, 0x0
 
@@ -815,7 +845,7 @@
 
     if-gez v3, :cond_b3
 
-    .line 192
+    .line 199
     :cond_95
     move-object/from16 v0, p0
 
@@ -824,21 +854,21 @@
     #calls: Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
     invoke-static {v3}, Lmiui/app/screenelement/elements/AdvancedSlider;->access$100(Lmiui/app/screenelement/elements/AdvancedSlider;)V
 
-    .line 193
+    .line 200
     const-wide/16 v3, -0x1
 
     move-object/from16 v0, p0
 
     iput-wide v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
 
-    .line 194
+    .line 201
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     if-eqz v3, :cond_a
 
-    .line 195
+    .line 202
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceProgress:Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -849,7 +879,7 @@
 
     goto/16 :goto_a
 
-    .line 199
+    .line 206
     :cond_b3
     move-object/from16 v0, p0
 
@@ -868,7 +898,7 @@
 
     if-nez v3, :cond_112
 
-    .line 200
+    .line 207
     :cond_c3
     move-object/from16 v0, p0
 
@@ -910,11 +940,11 @@
 
     move-result-object v22
 
-    .line 201
+    .line 208
     .local v22, pt:Lmiui/app/screenelement/util/Utils$Point;
     if-nez v22, :cond_fe
 
-    .line 202
+    .line 209
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
@@ -922,14 +952,14 @@
     #calls: Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
     invoke-static {v3}, Lmiui/app/screenelement/elements/AdvancedSlider;->access$100(Lmiui/app/screenelement/elements/AdvancedSlider;)V
 
-    .line 203
+    .line 210
     const-wide/16 v3, -0x1
 
     move-object/from16 v0, p0
 
     iput-wide v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartTime:J
 
-    .line 233
+    .line 240
     .end local v22           #pt:Lmiui/app/screenelement/util/Utils$Point;
     :cond_f8
     :goto_f8
@@ -939,7 +969,7 @@
 
     goto/16 :goto_21
 
-    .line 205
+    .line 212
     .restart local v22       #pt:Lmiui/app/screenelement/util/Utils$Point;
     :cond_fe
     move-object/from16 v0, p0
@@ -967,7 +997,7 @@
 
     goto :goto_f8
 
-    .line 208
+    .line 215
     .end local v22           #pt:Lmiui/app/screenelement/util/Utils$Point;
     :cond_112
     move-object/from16 v0, p0
@@ -983,7 +1013,7 @@
 
     move-result v13
 
-    .line 209
+    .line 216
     .local v13, x2:F
     move-object/from16 v0, p0
 
@@ -998,7 +1028,7 @@
 
     move-result v14
 
-    .line 210
+    .line 217
     .local v14, y2:F
     move-object/from16 v0, p0
 
@@ -1006,7 +1036,7 @@
 
     sub-long v15, v8, v3
 
-    .line 211
+    .line 218
     .local v15, d:J
     move-object/from16 v0, p0
 
@@ -1018,7 +1048,7 @@
     :goto_136
     if-ltz v17, :cond_f8
 
-    .line 212
+    .line 219
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mEndPoint:Lmiui/app/screenelement/elements/AdvancedSlider$EndPoint;
@@ -1036,7 +1066,7 @@
 
     check-cast v23, Lmiui/app/screenelement/elements/AdvancedSlider$Position;
 
-    .line 213
+    .line 220
     .local v23, pt1:Lmiui/app/screenelement/elements/AdvancedSlider$Position;
     invoke-virtual/range {v23 .. v23}, Lmiui/app/screenelement/elements/AdvancedSlider$Position;->getX()F
 
@@ -1052,14 +1082,14 @@
 
     move-result-object v22
 
-    .line 214
+    .line 221
     .restart local v22       #pt:Lmiui/app/screenelement/util/Utils$Point;
     if-nez v22, :cond_199
 
-    .line 215
+    .line 222
     if-nez v17, :cond_168
 
-    .line 216
+    .line 223
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
@@ -1067,7 +1097,7 @@
     #calls: Lmiui/app/screenelement/elements/AdvancedSlider;->cancelMoving()V
     invoke-static {v3}, Lmiui/app/screenelement/elements/AdvancedSlider;->access$100(Lmiui/app/screenelement/elements/AdvancedSlider;)V
 
-    .line 217
+    .line 224
     const-wide/16 v3, -0x1
 
     move-object/from16 v0, p0
@@ -1076,7 +1106,7 @@
 
     goto :goto_f8
 
-    .line 220
+    .line 227
     :cond_168
     new-instance v18, Lmiui/app/screenelement/util/Utils$Point;
 
@@ -1096,7 +1126,7 @@
 
     invoke-direct {v0, v3, v4, v5, v6}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 221
+    .line 228
     .local v18, p1:Lmiui/app/screenelement/util/Utils$Point;
     new-instance v19, Lmiui/app/screenelement/util/Utils$Point;
 
@@ -1108,7 +1138,7 @@
 
     invoke-direct {v0, v3, v4, v5, v6}, Lmiui/app/screenelement/util/Utils$Point;-><init>(DD)V
 
-    .line 222
+    .line 229
     .local v19, p2:Lmiui/app/screenelement/util/Utils$Point;
     long-to-double v3, v15
 
@@ -1126,22 +1156,22 @@
 
     double-to-long v15, v3
 
-    .line 223
+    .line 230
     invoke-virtual/range {v23 .. v23}, Lmiui/app/screenelement/elements/AdvancedSlider$Position;->getX()F
 
     move-result v13
 
-    .line 224
+    .line 231
     invoke-virtual/range {v23 .. v23}, Lmiui/app/screenelement/elements/AdvancedSlider$Position;->getY()F
 
     move-result v14
 
-    .line 211
+    .line 218
     add-int/lit8 v17, v17, -0x1
 
     goto :goto_136
 
-    .line 227
+    .line 234
     .end local v18           #p1:Lmiui/app/screenelement/util/Utils$Point;
     .end local v19           #p2:Lmiui/app/screenelement/util/Utils$Point;
     :cond_199
@@ -1151,7 +1181,7 @@
 
     iput v0, v1, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->mBounceStartPointIndex:I
 
-    .line 228
+    .line 235
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lmiui/app/screenelement/elements/AdvancedSlider$BounceAnimationController;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;

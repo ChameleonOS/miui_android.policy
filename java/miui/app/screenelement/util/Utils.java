@@ -268,14 +268,17 @@ _L3:
     }
 
     public static double stringToDouble(String s, double d) {
+        if(s != null) goto _L2; else goto _L1
+_L1:
+        return d;
+_L2:
         double d1 = Double.parseDouble(s);
         d = d1;
-_L2:
-        return d;
+        continue; /* Loop/switch isn't completed */
         NumberFormatException numberformatexception;
         numberformatexception;
-        if(true) goto _L2; else goto _L1
-_L1:
+        if(true) goto _L1; else goto _L3
+_L3:
     }
 
     public static void traverseXmlElementChildren(Element element, String s, XmlTraverseListener xmltraverselistener) {

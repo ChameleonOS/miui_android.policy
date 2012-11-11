@@ -240,6 +240,7 @@ _L3:
             mExternalCommandManager.init();
         if(mElementGroup != null)
             mElementGroup.init();
+        reset();
         requestFramerate(mFrameRate);
     }
 

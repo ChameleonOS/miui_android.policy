@@ -20,6 +20,7 @@ public class ElementGroup extends AnimatedScreenElement {
     public ElementGroup(Element element, ScreenContext screencontext, ScreenElementRoot screenelementroot) throws ScreenElementLoadException {
         super(element, screencontext, screenelementroot);
         mElements = new ArrayList();
+        mClip = Boolean.parseBoolean(element.getAttribute("clip"));
         load(element, screenelementroot);
     }
 
@@ -28,6 +29,10 @@ public class ElementGroup extends AnimatedScreenElement {
         float f1 = getY();
         int i = canvas.save();
         canvas.translate(f, f1);
+        float f2 = getWidth();
+        float f3 = getHeight();
+        if(f2 > 0.0F && f3 > 0.0F && mClip)
+            canvas.clipRect(0.0F, 0.0F, f2, f3);
         for(Iterator iterator = mElements.iterator(); iterator.hasNext(); ((ScreenElement)iterator.next()).render(canvas));
         canvas.restoreToCount(i);
     }
@@ -147,5 +152,6 @@ _L3:
     private static final String LOG_TAG = "LockScreen_ElementGroup";
     public static final String TAG_NAME = "ElementGroup";
     public static final String TAG_NAME1 = "Group";
+    private boolean mClip;
     protected ArrayList mElements;
 }

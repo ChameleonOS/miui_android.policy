@@ -20,7 +20,7 @@ public class VariableElement extends ScreenElement {
         super(element, screencontext, screenelementroot);
         mOldValue = null;
         if(element == null)
-            break MISSING_BLOCK_LABEL_162;
+            break MISSING_BLOCK_LABEL_183;
         mExpression = Expression.build(element.getAttribute("expression"));
         mThreshold = Math.abs(Utils.getAttrAsFloat(element, "threshold", 1.0F));
         mIsStringType = "string".equalsIgnoreCase(element.getAttribute("type"));
@@ -29,6 +29,7 @@ public class VariableElement extends ScreenElement {
         Element element2;
         if(mIsStringType) {
             mStringVar = new IndexedStringVariable(super.mName, screencontext.mVariables);
+            mOldStringVar = new IndexedStringVariable(super.mName, "old_value", screencontext.mVariables);
         } else {
             mNumberVar = new IndexedNumberVariable(super.mName, screencontext.mVariables);
             mOldNumberVar = new IndexedNumberVariable(super.mName, "old_value", screencontext.mVariables);
@@ -43,7 +44,7 @@ public class VariableElement extends ScreenElement {
             }
         element2 = Utils.getChild(element, "Trigger");
         if(element2 == null)
-            break MISSING_BLOCK_LABEL_162;
+            break MISSING_BLOCK_LABEL_183;
         mTrigger = new CommandTrigger(super.mContext, element2, screenelementroot);
 _L1:
         return;
@@ -57,8 +58,16 @@ _L1:
         miui.app.screenelement.data.Variables variables = super.mContext.mVariables;
         if(!mIsStringType) goto _L2; else goto _L1
 _L1:
-        if(mExpression != null)
-            mStringVar.set(mExpression.evaluateStr(variables));
+        if(mExpression != null) {
+            String s = mExpression.evaluateStr(variables);
+            String s1 = mStringVar.get();
+            if(!Utils.equals(s, s1)) {
+                mOldStringVar.set(s1);
+                mStringVar.set(s);
+                if(mTrigger != null)
+                    mTrigger.perform();
+            }
+        }
 _L4:
         return;
 _L2:
@@ -122,6 +131,7 @@ _L3:
     private boolean mIsStringType;
     private IndexedNumberVariable mNumberVar;
     private IndexedNumberVariable mOldNumberVar;
+    private IndexedStringVariable mOldStringVar;
     private Double mOldValue;
     private IndexedStringVariable mStringVar;
     private double mThreshold;

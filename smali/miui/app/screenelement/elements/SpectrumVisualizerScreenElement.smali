@@ -12,7 +12,9 @@
 
 .field private mDotbar:Ljava/lang/String;
 
-.field private mPanel:Ljava/lang/String;
+.field private mPanel:Landroid/graphics/Bitmap;
+
+.field private mPanelSrc:Ljava/lang/String;
 
 .field private mResDensity:I
 
@@ -36,19 +38,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 34
+    .line 37
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ImageScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 36
+    .line 39
     const-string v0, "panelSrc"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Ljava/lang/String;
+    iput-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanelSrc:Ljava/lang/String;
 
-    .line 37
+    .line 40
     const-string v0, "dotbarSrc"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -57,7 +59,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mDotbar:Ljava/lang/String;
 
-    .line 38
+    .line 41
     const-string v0, "shadowSrc"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -66,7 +68,7 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mShadow:Ljava/lang/String;
 
-    .line 40
+    .line 43
     new-instance v0, Lmiui/widget/SpectrumVisualizer;
 
     iget-object v1, p2, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -75,33 +77,75 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
-    .line 41
+    .line 44
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
     invoke-virtual {v0, v2}, Lmiui/widget/SpectrumVisualizer;->setSoftDrawEnabled(Z)V
 
-    .line 42
+    .line 45
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
     invoke-virtual {v0, v2}, Lmiui/widget/SpectrumVisualizer;->enableUpdate(Z)V
 
-    .line 43
+    .line 46
     return-void
 .end method
 
 
 # virtual methods
+.method public doRender(Landroid/graphics/Canvas;)V
+    .registers 6
+    .parameter "c"
+
+    .prologue
+    .line 83
+    iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Landroid/graphics/Bitmap;
+
+    if-eqz v0, :cond_1c
+
+    .line 84
+    iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->getAlpha()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    .line 85
+    iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Landroid/graphics/Bitmap;
+
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->getLeft()F
+
+    move-result v1
+
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->getTop()F
+
+    move-result v2
+
+    iget-object v3, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    .line 87
+    :cond_1c
+    invoke-super {p0, p1}, Lmiui/app/screenelement/elements/ImageScreenElement;->doRender(Landroid/graphics/Canvas;)V
+
+    .line 88
+    return-void
+.end method
+
 .method public enableUpdate(Z)V
     .registers 3
     .parameter "b"
 
     .prologue
-    .line 73
+    .line 102
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
     invoke-virtual {v0, p1}, Lmiui/widget/SpectrumVisualizer;->enableUpdate(Z)V
 
-    .line 74
+    .line 103
     return-void
 .end method
 
@@ -111,198 +155,260 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 65
+    .line 91
+    iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
+
+    if-nez v0, :cond_7
+
+    .line 92
+    const/4 v0, 0x0
+
+    .line 98
+    :goto_6
+    return-object v0
+
+    .line 94
+    :cond_7
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
 
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->CLEAR:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v0, v2, v1}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 66
+    .line 95
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0, v2}, Landroid/graphics/Canvas;->setDensity(I)V
 
-    .line 67
+    .line 96
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
 
     invoke-virtual {v0, v1}, Lmiui/widget/SpectrumVisualizer;->draw(Landroid/graphics/Canvas;)V
 
-    .line 68
+    .line 97
     iget-object v0, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
 
     iget v1, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mResDensity:I
 
     invoke-virtual {v0, v1}, Landroid/graphics/Canvas;->setDensity(I)V
 
-    .line 69
+    .line 98
     iget-object v0, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
-    return-object v0
+    goto :goto_6
 .end method
 
 .method public init()V
-    .registers 10
+    .registers 9
 
     .prologue
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
     const/4 v5, 0x0
 
-    .line 47
-    iget-object v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Ljava/lang/String;
-
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_56
-
-    move-object v2, v5
-
-    .line 48
-    .local v2, panel:Landroid/graphics/Bitmap;
-    :goto_b
-    iget-object v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mDotbar:Ljava/lang/String;
-
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_61
-
-    move-object v0, v5
-
-    .line 49
-    .local v0, dotbar:Landroid/graphics/Bitmap;
-    :goto_14
-    iget-object v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mShadow:Ljava/lang/String;
-
-    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6c
-
-    move-object v3, v5
-
     .line 50
-    .local v3, shadow:Landroid/graphics/Bitmap;
-    :goto_1d
-    if-eqz v2, :cond_2c
-
-    if-eqz v0, :cond_2c
-
-    .line 51
-    iget-object v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
-
-    invoke-virtual {v5, v2, v0, v3}, Lmiui/widget/SpectrumVisualizer;->setBitmaps(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
+    invoke-super {p0}, Lmiui/app/screenelement/elements/ImageScreenElement;->init()V
 
     .line 52
-    invoke-virtual {v2}, Landroid/graphics/Bitmap;->getDensity()I
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanelSrc:Ljava/lang/String;
 
-    move-result v5
-
-    iput v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mResDensity:I
-
-    .line 56
-    :cond_2c
-    iget-object v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
-
-    invoke-virtual {v5}, Lmiui/widget/SpectrumVisualizer;->getVisualWidth()I
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    .line 57
-    .local v4, width:I
-    iget-object v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
+    if-eqz v4, :cond_4a
 
-    invoke-virtual {v5}, Lmiui/widget/SpectrumVisualizer;->getVisualHeight()I
+    move-object v4, v5
+
+    :goto_e
+    iput-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Landroid/graphics/Bitmap;
+
+    .line 53
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mDotbar:Ljava/lang/String;
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_55
+
+    move-object v0, v5
+
+    .line 54
+    .local v0, dotbar:Landroid/graphics/Bitmap;
+    :goto_19
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mShadow:Ljava/lang/String;
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_60
+
+    move-object v2, v5
+
+    .line 55
+    .local v2, shadow:Landroid/graphics/Bitmap;
+    :goto_22
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->getWidth()F
+
+    move-result v4
+
+    float-to-int v3, v4
+
+    .line 56
+    .local v3, width:I
+    invoke-virtual {p0}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->getHeight()F
+
+    move-result v4
+
+    float-to-int v1, v4
+
+    .line 57
+    .local v1, height:I
+    if-lez v3, :cond_30
+
+    if-gtz v1, :cond_40
+
+    .line 58
+    :cond_30
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Landroid/graphics/Bitmap;
+
+    if-eqz v4, :cond_6b
+
+    .line 59
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v3
+
+    .line 60
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v1
 
-    .line 58
-    .local v1, height:I
-    iget-object v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
+    .line 67
+    :cond_40
+    if-nez v0, :cond_73
 
-    invoke-virtual {v5, v8, v8, v4, v1}, Lmiui/widget/SpectrumVisualizer;->layout(IIII)V
+    .line 68
+    const-string v4, "SpectrumVisualizerScreenElement"
 
-    .line 59
-    sget-object v5, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+    const-string v5, "no dotbar"
 
-    invoke-static {v4, v1, v5}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v5
-
-    iput-object v5, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
-
-    .line 60
-    iget-object v5, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
-
-    iget v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mResDensity:I
-
-    invoke-virtual {v5, v6}, Landroid/graphics/Bitmap;->setDensity(I)V
-
-    .line 61
-    new-instance v5, Landroid/graphics/Canvas;
-
-    iget-object v6, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
-
-    invoke-direct {v5, v6}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    iput-object v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
-
-    .line 62
+    .line 80
+    :goto_49
     return-void
 
-    .line 47
+    .line 52
     .end local v0           #dotbar:Landroid/graphics/Bitmap;
     .end local v1           #height:I
-    .end local v2           #panel:Landroid/graphics/Bitmap;
-    .end local v3           #shadow:Landroid/graphics/Bitmap;
-    .end local v4           #width:I
-    :cond_56
-    iget-object v6, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+    .end local v2           #shadow:Landroid/graphics/Bitmap;
+    .end local v3           #width:I
+    :cond_4a
+    iget-object v4, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    iget-object v6, v6, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
+    iget-object v4, v4, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
-    iget-object v7, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanel:Ljava/lang/String;
+    iget-object v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mPanelSrc:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-virtual {v4, v6}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v2
+    move-result-object v4
 
-    goto :goto_b
+    goto :goto_e
 
-    .line 48
-    .restart local v2       #panel:Landroid/graphics/Bitmap;
-    :cond_61
-    iget-object v6, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+    .line 53
+    :cond_55
+    iget-object v4, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    iget-object v6, v6, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
+    iget-object v4, v4, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
-    iget-object v7, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mDotbar:Ljava/lang/String;
+    iget-object v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mDotbar:Ljava/lang/String;
 
-    invoke-virtual {v6, v7}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-virtual {v4, v6}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    goto :goto_14
+    goto :goto_19
 
-    .line 49
+    .line 54
     .restart local v0       #dotbar:Landroid/graphics/Bitmap;
-    :cond_6c
-    iget-object v5, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
+    :cond_60
+    iget-object v4, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    iget-object v5, v5, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
+    iget-object v4, v4, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
 
-    iget-object v6, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mShadow:Ljava/lang/String;
+    iget-object v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mShadow:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
+    invoke-virtual {v4, v5}, Lmiui/app/screenelement/ResourceManager;->getBitmap(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
-    move-result-object v3
+    move-result-object v2
 
-    goto :goto_1d
+    goto :goto_22
+
+    .line 62
+    .restart local v1       #height:I
+    .restart local v2       #shadow:Landroid/graphics/Bitmap;
+    .restart local v3       #width:I
+    :cond_6b
+    const-string v4, "SpectrumVisualizerScreenElement"
+
+    const-string v5, "no panel or size"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_49
+
+    .line 72
+    :cond_73
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
+
+    invoke-virtual {v4, v3, v1, v0, v2}, Lmiui/widget/SpectrumVisualizer;->setBitmaps(IILandroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
+
+    .line 73
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->getDensity()I
+
+    move-result v4
+
+    iput v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mResDensity:I
+
+    .line 76
+    iget-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
+
+    invoke-virtual {v4, v7, v7, v3, v1}, Lmiui/widget/SpectrumVisualizer;->layout(IIII)V
+
+    .line 77
+    sget-object v4, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v3, v1, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v4
+
+    iput-object v4, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
+
+    .line 78
+    iget-object v4, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
+
+    iget v5, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mResDensity:I
+
+    invoke-virtual {v4, v5}, Landroid/graphics/Bitmap;->setDensity(I)V
+
+    .line 79
+    new-instance v4, Landroid/graphics/Canvas;
+
+    iget-object v5, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
+
+    invoke-direct {v4, v5}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    iput-object v4, p0, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->mCanvas:Landroid/graphics/Canvas;
+
+    goto :goto_49
 .end method
