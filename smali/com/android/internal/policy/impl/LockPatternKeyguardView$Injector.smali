@@ -23,7 +23,6 @@
     .registers 1
 
     .prologue
-    .line 122
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +33,6 @@
     .parameter "keyguardView"
 
     .prologue
-    .line 131
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getMode()Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     move-result-object v0
@@ -57,10 +55,8 @@
 
     if-eqz v0, :cond_18
 
-    .line 132
     const/4 v0, 0x0
 
-    .line 133
     :goto_17
     return v0
 
@@ -75,17 +71,14 @@
     .parameter "keyguardView"
 
     .prologue
-    .line 137
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getScreenOn()Z
 
     move-result v0
 
     if-eqz v0, :cond_9
 
-    .line 138
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->callMaybeStartBiometricUnlock()V
 
-    .line 140
     :cond_9
     return-void
 .end method
@@ -95,7 +88,6 @@
     .parameter "keyguardView"
 
     .prologue
-    .line 124
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -114,6 +106,5 @@
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/LockPatternKeyguardView;->setShowLockBeforeUnlock(Z)V
 
-    .line 128
     return-void
 .end method

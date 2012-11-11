@@ -29,7 +29,6 @@
     .parameter
 
     .prologue
-    .line 249
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     iput-object p4, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->val$user:Landroid/content/pm/UserInfo;
@@ -45,7 +44,6 @@
     .registers 5
 
     .prologue
-    .line 252
     :try_start_0
     invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
 
@@ -57,7 +55,6 @@
 
     invoke-interface {v1, v2}, Landroid/app/IActivityManager;->switchUser(I)Z
 
-    .line 253
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$3;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #calls: Lcom/android/internal/policy/impl/GlobalActions;->getWindowManager()Landroid/view/IWindowManager;
@@ -69,15 +66,12 @@
     :try_end_14
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_14} :catch_15
 
-    .line 257
     :goto_14
     return-void
 
-    .line 254
     :catch_15
     move-exception v0
 
-    .line 255
     .local v0, re:Landroid/os/RemoteException;
     const-string v1, "GlobalActions"
 
@@ -108,7 +102,6 @@
     .registers 2
 
     .prologue
-    .line 264
     const/4 v0, 0x0
 
     return v0
@@ -118,7 +111,6 @@
     .registers 2
 
     .prologue
-    .line 260
     const/4 v0, 0x1
 
     return v0

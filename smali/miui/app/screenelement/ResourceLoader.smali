@@ -14,7 +14,6 @@
     .registers 1
 
     .prologue
-    .line 14
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -36,24 +35,20 @@
     .parameter "locale"
 
     .prologue
-    .line 20
     if-eqz p1, :cond_1b
 
-    .line 21
     invoke-virtual {p1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/ResourceLoader;->mLanguageSuffix:Ljava/lang/String;
 
-    .line 22
     invoke-virtual {p1}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/ResourceLoader;->mLanguageCountrySuffix:Ljava/lang/String;
 
-    .line 24
     iget-object v0, p0, Lmiui/app/screenelement/ResourceLoader;->mLanguageSuffix:Ljava/lang/String;
 
     iget-object v1, p0, Lmiui/app/screenelement/ResourceLoader;->mLanguageCountrySuffix:Ljava/lang/String;
@@ -64,12 +59,10 @@
 
     if-eqz v0, :cond_1b
 
-    .line 25
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ResourceLoader;->mLanguageSuffix:Ljava/lang/String;
 
-    .line 28
     :cond_1b
     return-object p0
 .end method

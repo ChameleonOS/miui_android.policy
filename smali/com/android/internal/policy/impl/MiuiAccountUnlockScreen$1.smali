@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 135
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
@@ -38,7 +37,6 @@
     .registers 2
 
     .prologue
-    .line 138
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mAccounts:Ljava/util/ArrayList;
@@ -58,7 +56,6 @@
     .parameter "position"
 
     .prologue
-    .line 143
     const/4 v0, 0x0
 
     return-object v0
@@ -69,7 +66,6 @@
     .parameter "position"
 
     .prologue
-    .line 148
     const-wide/16 v0, 0x0
 
     return-wide v0
@@ -84,14 +80,11 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 153
     const/4 v0, 0x0
 
-    .line 155
     .local v0, holder:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;
     if-nez p2, :cond_5c
 
-    .line 156
     new-instance v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;
 
     .end local v0           #holder:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;
@@ -99,7 +92,6 @@
 
     invoke-direct {v0, v1, v3}, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;-><init>(Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$1;)V
 
-    .line 157
     .restart local v0       #holder:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
@@ -117,7 +109,6 @@
 
     move-result-object p2
 
-    .line 158
     const v1, 0x60b007c
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -128,7 +119,6 @@
 
     iput-object v1, v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;->mAccountIcon:Landroid/widget/ImageView;
 
-    .line 159
     const v1, 0x60b007d
 
     invoke-virtual {p2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -139,10 +129,8 @@
 
     iput-object v1, v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;->mAccountId:Landroid/widget/TextView;
 
-    .line 160
     invoke-virtual {p2, v0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 165
     :goto_35
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
@@ -153,7 +141,6 @@
 
     if-ge p1, v1, :cond_63
 
-    .line 166
     iget-object v1, v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;->mAccountIcon:Landroid/widget/ImageView;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
@@ -165,7 +152,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 170
     :goto_48
     iget-object v2, v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;->mAccountId:Landroid/widget/TextView;
 
@@ -186,10 +172,8 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 171
     return-object p2
 
-    .line 162
     :cond_5c
     invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -201,7 +185,6 @@
     .restart local v0       #holder:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;
     goto :goto_35
 
-    .line 168
     :cond_63
     iget-object v1, v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$ViewHolder;->mAccountIcon:Landroid/widget/ImageView;
 

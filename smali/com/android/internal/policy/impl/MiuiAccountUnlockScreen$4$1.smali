@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 374
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$4$1;->this$1:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$4;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 2
 
     .prologue
-    .line 376
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$4$1;->this$1:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$4;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$4;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
@@ -53,6 +51,5 @@
 
     invoke-virtual {v0}, Landroid/app/Dialog;->hide()V
 
-    .line 377
     return-void
 .end method

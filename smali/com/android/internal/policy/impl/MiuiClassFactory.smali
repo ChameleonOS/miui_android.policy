@@ -8,7 +8,6 @@
     .registers 1
 
     .prologue
-    .line 8
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -23,7 +22,6 @@
     .parameter "controller"
 
     .prologue
-    .line 18
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
     move-object v1, p0
@@ -48,7 +46,6 @@
     .parameter "powerManager"
 
     .prologue
-    .line 12
     new-instance v0, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/internal/policy/impl/MiuiKeyguardViewMediator;-><init>(Landroid/content/Context;Lcom/android/internal/policy/impl/PhoneWindowManager;Landroid/os/LocalPowerManager;)V
@@ -62,7 +59,6 @@
     .parameter "updateMonitor"
 
     .prologue
-    .line 24
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardViewProperties;
 
     invoke-direct {v0, p0, p1}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardViewProperties;-><init>(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;)V
@@ -75,7 +71,6 @@
     .parameter "context"
 
     .prologue
-    .line 32
     new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;-><init>(Landroid/content/Context;)V
@@ -87,7 +82,6 @@
     .registers 1
 
     .prologue
-    .line 28
     new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct {v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;-><init>()V

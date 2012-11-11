@@ -44,7 +44,6 @@
 
     const/4 v2, 0x0
 
-    .line 71
     new-instance v0, Lmiui/app/screenelement/elements/ScreenElement$Align;
 
     const-string v1, "LEFT"
@@ -69,7 +68,6 @@
 
     sput-object v0, Lmiui/app/screenelement/elements/ScreenElement$Align;->RIGHT:Lmiui/app/screenelement/elements/ScreenElement$Align;
 
-    .line 70
     const/4 v0, 0x3
 
     new-array v0, v0, [Lmiui/app/screenelement/elements/ScreenElement$Align;
@@ -102,7 +100,6 @@
     .end annotation
 
     .prologue
-    .line 70
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -113,7 +110,6 @@
     .parameter "name"
 
     .prologue
-    .line 70
     const-class v0, Lmiui/app/screenelement/elements/ScreenElement$Align;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -129,7 +125,6 @@
     .registers 1
 
     .prologue
-    .line 70
     sget-object v0, Lmiui/app/screenelement/elements/ScreenElement$Align;->$VALUES:[Lmiui/app/screenelement/elements/ScreenElement$Align;
 
     invoke-virtual {v0}, [Lmiui/app/screenelement/elements/ScreenElement$Align;->clone()Ljava/lang/Object;

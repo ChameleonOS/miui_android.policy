@@ -20,10 +20,8 @@
     .parameter "c"
 
     .prologue
-    .line 254
     invoke-direct {p0, p1}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;-><init>(Landroid/content/Context;)V
 
-    .line 255
     return-void
 .end method
 
@@ -33,7 +31,6 @@
     .registers 2
 
     .prologue
-    .line 258
     const-string v0, "android.intent.action.BATTERY_CHANGED"
 
     return-object v0

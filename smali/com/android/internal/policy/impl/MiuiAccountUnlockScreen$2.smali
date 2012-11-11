@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 176
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +53,6 @@
     .end annotation
 
     .prologue
-    .line 180
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
@@ -74,7 +72,6 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mCurAccount:Landroid/accounts/Account;
     invoke-static {v1, v0}, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->access$502(Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;Landroid/accounts/Account;)Landroid/accounts/Account;
 
-    .line 181
     return-void
 .end method
 
@@ -90,7 +87,6 @@
     .end annotation
 
     .prologue
-    .line 185
     .local p1, parent:Landroid/widget/AdapterView;,"Landroid/widget/AdapterView<*>;"
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
@@ -99,6 +95,5 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mCurAccount:Landroid/accounts/Account;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->access$502(Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;Landroid/accounts/Account;)Landroid/accounts/Account;
 
-    .line 186
     return-void
 .end method

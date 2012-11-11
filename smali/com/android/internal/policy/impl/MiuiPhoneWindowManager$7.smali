@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 925
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 3
 
     .prologue
-    .line 927
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mMiuiBootMsgDialog:Landroid/app/Dialog;
@@ -51,7 +49,6 @@
 
     if-eqz v0, :cond_20
 
-    .line 928
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
@@ -61,7 +58,6 @@
 
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
 
-    .line 929
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mMiuiBootMsgDialog:Landroid/app/Dialog;
@@ -71,7 +67,6 @@
 
     invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
 
-    .line 930
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v1, 0x0
@@ -79,7 +74,6 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mMiuiBootMsgDialog:Landroid/app/Dialog;
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->access$702(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;Landroid/app/Dialog;)Landroid/app/Dialog;
 
-    .line 932
     :cond_20
     return-void
 .end method

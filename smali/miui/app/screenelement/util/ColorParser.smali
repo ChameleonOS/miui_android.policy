@@ -36,17 +36,14 @@
     .parameter "expression"
 
     .prologue
-    .line 33
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 34
     invoke-virtual {p1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
 
-    .line 35
     iget-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
 
     const-string v2, "#"
@@ -57,12 +54,10 @@
 
     if-eqz v1, :cond_25
 
-    .line 36
     sget-object v1, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->CONST:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     iput-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mType:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
-    .line 38
     :try_start_17
     iget-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
 
@@ -74,16 +69,13 @@
     :try_end_1f
     .catch Ljava/lang/IllegalArgumentException; {:try_start_17 .. :try_end_1f} :catch_20
 
-    .line 54
     :cond_1f
     :goto_1f
     return-void
 
-    .line 39
     :catch_20
     move-exception v0
 
-    .line 40
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const/4 v1, -0x1
 
@@ -91,7 +83,6 @@
 
     goto :goto_1f
 
-    .line 42
     .end local v0           #e:Ljava/lang/IllegalArgumentException;
     :cond_25
     iget-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
@@ -104,14 +95,12 @@
 
     if-eqz v1, :cond_34
 
-    .line 43
     sget-object v1, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->VARIABLE:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     iput-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mType:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     goto :goto_1f
 
-    .line 44
     :cond_34
     iget-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
 
@@ -133,12 +122,10 @@
 
     if-eqz v1, :cond_76
 
-    .line 45
     sget-object v1, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->ARGB:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     iput-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mType:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
-    .line 46
     iget-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
 
     const/4 v2, 0x5
@@ -161,7 +148,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mRGBExpression:[Lmiui/app/screenelement/data/Expression;
 
-    .line 47
     iget-object v1, p0, Lmiui/app/screenelement/util/ColorParser;->mRGBExpression:[Lmiui/app/screenelement/data/Expression;
 
     array-length v1, v1
@@ -170,14 +156,12 @@
 
     if-eq v1, v2, :cond_1f
 
-    .line 48
     const-string v1, "ColorParser"
 
     const-string v2, "bad expression format"
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 49
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "bad expression format."
@@ -186,7 +170,6 @@
 
     throw v1
 
-    .line 52
     :cond_76
     sget-object v1, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->INVALID:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
@@ -200,7 +183,6 @@
     .parameter "e"
 
     .prologue
-    .line 81
     new-instance v0, Lmiui/app/screenelement/util/ColorParser;
 
     const-string v1, "color"
@@ -223,7 +205,6 @@
     .prologue
     const/4 v6, 0x1
 
-    .line 57
     sget-object v4, Lmiui/app/screenelement/util/ColorParser$1;->$SwitchMap$miui$app$screenelement$util$ColorParser$ExpressionType:[I
 
     iget-object v5, p0, Lmiui/app/screenelement/util/ColorParser;->mType:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
@@ -236,20 +217,17 @@
 
     packed-switch v4, :pswitch_data_68
 
-    .line 77
     :goto_e
     :pswitch_e
     iget v4, p0, Lmiui/app/screenelement/util/ColorParser;->mColor:I
 
     return v4
 
-    .line 61
     :pswitch_11
     iget-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mIndexedColorVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     if-nez v4, :cond_22
 
-    .line 62
     new-instance v4, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     iget-object v5, p0, Lmiui/app/screenelement/util/ColorParser;->mColorExpression:Ljava/lang/String;
@@ -262,7 +240,6 @@
 
     iput-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mIndexedColorVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 64
     :cond_22
     iget-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mIndexedColorVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
@@ -292,7 +269,6 @@
 
     goto :goto_34
 
-    .line 67
     :pswitch_39
     iget-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mRGBExpression:[Lmiui/app/screenelement/data/Expression;
 
@@ -306,7 +282,6 @@
 
     double-to-int v0, v4
 
-    .line 68
     .local v0, a:I
     iget-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mRGBExpression:[Lmiui/app/screenelement/data/Expression;
 
@@ -318,7 +293,6 @@
 
     double-to-int v3, v4
 
-    .line 69
     .local v3, r:I
     iget-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mRGBExpression:[Lmiui/app/screenelement/data/Expression;
 
@@ -332,7 +306,6 @@
 
     double-to-int v2, v4
 
-    .line 70
     .local v2, g:I
     iget-object v4, p0, Lmiui/app/screenelement/util/ColorParser;->mRGBExpression:[Lmiui/app/screenelement/data/Expression;
 
@@ -346,7 +319,6 @@
 
     double-to-int v1, v4
 
-    .line 71
     .local v1, b:I
     invoke-static {v0, v3, v2, v1}, Landroid/graphics/Color;->argb(IIII)I
 
@@ -356,7 +328,6 @@
 
     goto :goto_e
 
-    .line 57
     nop
 
     :pswitch_data_68

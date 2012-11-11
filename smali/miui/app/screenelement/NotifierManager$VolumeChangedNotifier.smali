@@ -20,10 +20,8 @@
     .parameter "c"
 
     .prologue
-    .line 336
     invoke-direct {p0, p1}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;-><init>(Landroid/content/Context;)V
 
-    .line 337
     return-void
 .end method
 
@@ -33,7 +31,6 @@
     .registers 2
 
     .prologue
-    .line 340
     const-string v0, "android.media.VOLUME_CHANGED_ACTION"
 
     return-object v0

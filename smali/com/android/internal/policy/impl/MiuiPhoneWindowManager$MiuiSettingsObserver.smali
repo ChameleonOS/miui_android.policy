@@ -27,13 +27,10 @@
     .parameter "handler"
 
     .prologue
-    .line 790
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
-    .line 791
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    .line 792
     return-void
 .end method
 
@@ -45,7 +42,6 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 795
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     iget-object v1, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -54,7 +50,6 @@
 
     move-result-object v0
 
-    .line 796
     .local v0, resolver:Landroid/content/ContentResolver;
     const-string v1, "trackball_wake_screen"
 
@@ -64,7 +59,6 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 798
     const-string v1, "camera_key_preferred_action_type"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -73,7 +67,6 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 800
     const-string v1, "camera_key_preferred_action_shortcut_id"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -82,7 +75,6 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 802
     const-string v1, "volumekey_wake_screen"
 
     invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -91,7 +83,6 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 804
     const-string v1, "screen_buttons_state"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
@@ -100,10 +91,8 @@
 
     invoke-virtual {v0, v1, v2, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 807
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->onChange(Z)V
 
-    .line 808
     return-void
 .end method
 
@@ -116,14 +105,12 @@
 
     const/4 v6, 0x0
 
-    .line 811
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     iget-object v8, v7, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v8
 
-    .line 812
     :try_start_7
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -133,7 +120,6 @@
 
     move-result-object v4
 
-    .line 813
     .local v4, resolver:Landroid/content/ContentResolver;
     iget-object v9, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -152,28 +138,24 @@
     :goto_1b
     iput-boolean v7, v9, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mScreenButtonsDisabled:Z
 
-    .line 815
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->mScreenButtonNotification:Landroid/app/Notification;
 
     if-nez v7, :cond_cf
 
     move v2, v5
 
-    .line 816
     .local v2, isFirst:Z
     :goto_22
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->mScreenButtonNotification:Landroid/app/Notification;
 
     if-nez v7, :cond_7c
 
-    .line 817
     new-instance v1, Landroid/content/Intent;
 
     const-string v7, "com.miui.app.ExtraStatusBarManager.TRIGGER_TOGGLE_SCREEN_BUTTONS"
 
     invoke-direct {v1, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 819
     .local v1, intent:Landroid/content/Intent;
     new-instance v7, Landroid/app/Notification$Builder;
 
@@ -253,7 +235,6 @@
 
     iput-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->mScreenButtonNotification:Landroid/app/Notification;
 
-    .line 831
     .end local v1           #intent:Landroid/content/Intent;
     :cond_7c
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -268,7 +249,6 @@
 
     check-cast v3, Landroid/app/NotificationManager;
 
-    .line 833
     .local v3, notificationManager:Landroid/app/NotificationManager;
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -276,7 +256,6 @@
 
     if-eqz v7, :cond_d2
 
-    .line 834
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->mScreenButtonNotification:Landroid/app/Notification;
 
     iget v7, v7, Landroid/app/Notification;->icon:I
@@ -285,7 +264,6 @@
 
     invoke-virtual {v3, v7, v9}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    .line 840
     :cond_97
     :goto_97
     iget-object v9, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -305,7 +283,6 @@
     :goto_a3
     iput-boolean v7, v9, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mTrackballWakeScreen:Z
 
-    .line 842
     iget-object v9, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const-string v7, "volumekey_wake_screen"
@@ -323,7 +300,6 @@
     :goto_b1
     iput-boolean v7, v9, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mVolumeKeyWakeScreen:Z
 
-    .line 845
     const-string v7, "camera_key_preferred_action_type"
 
     const/4 v9, 0x0
@@ -332,11 +308,9 @@
 
     move-result v0
 
-    .line 848
     .local v0, cameraKeyActionType:I
     if-ne v5, v0, :cond_e5
 
-    .line 849
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     const/4 v9, 0x4
@@ -354,11 +328,9 @@
     :goto_c8
     iput-boolean v5, v7, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mCameraKeyWakeScreen:Z
 
-    .line 858
     :goto_ca
     monitor-exit v8
 
-    .line 859
     return-void
 
     .end local v0           #cameraKeyActionType:I
@@ -367,22 +339,18 @@
     :cond_cc
     move v7, v6
 
-    .line 813
     goto/16 :goto_1b
 
     :cond_cf
     move v2, v6
 
-    .line 815
     goto/16 :goto_22
 
-    .line 836
     .restart local v2       #isFirst:Z
     .restart local v3       #notificationManager:Landroid/app/NotificationManager;
     :cond_d2
     if-nez v2, :cond_97
 
-    .line 837
     iget-object v7, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->mScreenButtonNotification:Landroid/app/Notification;
 
     iget v7, v7, Landroid/app/Notification;->icon:I
@@ -391,7 +359,6 @@
 
     goto :goto_97
 
-    .line 858
     .end local v2           #isFirst:Z
     .end local v3           #notificationManager:Landroid/app/NotificationManager;
     .end local v4           #resolver:Landroid/content/ContentResolver;
@@ -410,23 +377,19 @@
     :cond_df
     move v7, v6
 
-    .line 840
     goto :goto_a3
 
     :cond_e1
     move v7, v6
 
-    .line 842
     goto :goto_b1
 
     .restart local v0       #cameraKeyActionType:I
     :cond_e3
     move v5, v6
 
-    .line 849
     goto :goto_c8
 
-    .line 856
     :cond_e5
     :try_start_e5
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$MiuiSettingsObserver;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;

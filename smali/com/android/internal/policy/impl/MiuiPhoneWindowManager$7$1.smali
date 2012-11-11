@@ -26,7 +26,6 @@
     .parameter "x1"
 
     .prologue
-    .line 844
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7$1;->this$1:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$7;
 
     invoke-direct {p0, p2, p3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
@@ -41,7 +40,6 @@
     .parameter "ev"
 
     .prologue
-    .line 860
     const/4 v0, 0x1
 
     return v0
@@ -52,7 +50,6 @@
     .parameter "event"
 
     .prologue
-    .line 848
     const/4 v0, 0x1
 
     return v0
@@ -63,7 +60,6 @@
     .parameter "event"
 
     .prologue
-    .line 851
     const/4 v0, 0x1
 
     return v0
@@ -74,7 +70,6 @@
     .parameter "event"
 
     .prologue
-    .line 864
     const/4 v0, 0x1
 
     return v0
@@ -85,7 +80,6 @@
     .parameter "ev"
 
     .prologue
-    .line 854
     const/4 v0, 0x1
 
     return v0
@@ -96,7 +90,6 @@
     .parameter "ev"
 
     .prologue
-    .line 857
     const/4 v0, 0x1
 
     return v0

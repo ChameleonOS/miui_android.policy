@@ -46,14 +46,12 @@
     .parameter "text"
 
     .prologue
-    .line 39
     const-string v0, ""
 
     const-string v1, ""
 
     invoke-direct {p0, p1, v0, v1}, Lmiui/app/screenelement/util/TextFormatter;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 40
     return-void
 .end method
 
@@ -63,12 +61,10 @@
     .parameter "paras"
 
     .prologue
-    .line 43
     const-string v0, ""
 
     invoke-direct {p0, v0, p1, p2}, Lmiui/app/screenelement/util/TextFormatter;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 44
     return-void
 .end method
 
@@ -81,13 +77,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 46
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 50
     iput-object p1, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
-    .line 51
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
     const-string v1, "@"
@@ -98,7 +91,6 @@
 
     if-eqz v0, :cond_2f
 
-    .line 52
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -107,7 +99,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
-    .line 53
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
     const-string v1, "@"
@@ -118,7 +109,6 @@
 
     if-nez v0, :cond_2f
 
-    .line 54
     new-instance v0, Lmiui/app/screenelement/util/Variable;
 
     iget-object v1, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
@@ -127,16 +117,13 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mTextVar:Lmiui/app/screenelement/util/Variable;
 
-    .line 55
     const-string v0, ""
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
-    .line 59
     :cond_2f
     iput-object p2, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
-    .line 60
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
     const-string v1, "@"
@@ -147,7 +134,6 @@
 
     if-eqz v0, :cond_5a
 
-    .line 61
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -156,7 +142,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
-    .line 62
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
     const-string v1, "@"
@@ -167,7 +152,6 @@
 
     if-nez v0, :cond_5a
 
-    .line 63
     new-instance v0, Lmiui/app/screenelement/util/Variable;
 
     iget-object v1, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
@@ -176,12 +160,10 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormatVar:Lmiui/app/screenelement/util/Variable;
 
-    .line 64
     const-string v0, ""
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
-    .line 68
     :cond_5a
     invoke-static {p3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -189,19 +171,16 @@
 
     if-nez v0, :cond_71
 
-    .line 69
     invoke-static {p3}, Lmiui/app/screenelement/util/TextFormatter$FormatPara;->buildArray(Ljava/lang/String;)[Lmiui/app/screenelement/util/TextFormatter$FormatPara;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mParas:[Lmiui/app/screenelement/util/TextFormatter$FormatPara;
 
-    .line 70
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mParas:[Lmiui/app/screenelement/util/TextFormatter$FormatPara;
 
     if-eqz v0, :cond_71
 
-    .line 71
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mParas:[Lmiui/app/screenelement/util/TextFormatter$FormatPara;
 
     array-length v0, v0
@@ -210,7 +189,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mParasValue:[Ljava/lang/Object;
 
-    .line 74
     :cond_71
     return-void
 .end method
@@ -224,16 +202,12 @@
     .parameter "formatExp"
 
     .prologue
-    .line 77
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/util/TextFormatter;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 78
     iput-object p4, p0, Lmiui/app/screenelement/util/TextFormatter;->mTextExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 79
     iput-object p5, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormatExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 80
     return-void
 .end method
 
@@ -242,7 +216,6 @@
     .parameter "e"
 
     .prologue
-    .line 210
     new-instance v0, Lmiui/app/screenelement/util/TextFormatter;
 
     const-string v1, "text"
@@ -298,7 +271,6 @@
     .parameter "formatExpAttr"
 
     .prologue
-    .line 216
     new-instance v0, Lmiui/app/screenelement/util/TextFormatter;
 
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -341,34 +313,28 @@
     .parameter "v"
 
     .prologue
-    .line 89
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormatExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v0, :cond_b
 
-    .line 90
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormatExpression:Lmiui/app/screenelement/data/Expression;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 98
     :goto_a
     return-object v0
 
-    .line 92
     :cond_b
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormatVar:Lmiui/app/screenelement/util/Variable;
 
     if-eqz v0, :cond_2d
 
-    .line 93
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mIndexedFormatVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     if-nez v0, :cond_26
 
-    .line 94
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormatVar:Lmiui/app/screenelement/util/Variable;
@@ -387,7 +353,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mIndexedFormatVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 96
     :cond_26
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mIndexedFormatVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
@@ -397,7 +362,6 @@
 
     goto :goto_a
 
-    .line 98
     :cond_2d
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
@@ -409,29 +373,24 @@
     .parameter "v"
 
     .prologue
-    .line 106
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mTextExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v3, :cond_b
 
-    .line 107
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mTextExpression:Lmiui/app/screenelement/data/Expression;
 
     invoke-virtual {v3, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
 
     move-result-object v3
 
-    .line 126
     :goto_a
     return-object v3
 
-    .line 109
     :cond_b
     invoke-virtual {p0, p1}, Lmiui/app/screenelement/util/TextFormatter;->getFormat(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 110
     .local v1, format:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -443,7 +402,6 @@
 
     if-eqz v3, :cond_4a
 
-    .line 111
     const/4 v2, 0x0
 
     .local v2, i:I
@@ -454,7 +412,6 @@
 
     if-ge v2, v3, :cond_2e
 
-    .line 112
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mParasValue:[Ljava/lang/Object;
 
     iget-object v4, p0, Lmiui/app/screenelement/util/TextFormatter;->mParas:[Lmiui/app/screenelement/util/TextFormatter$FormatPara;
@@ -467,12 +424,10 @@
 
     aput-object v4, v3, v2
 
-    .line 111
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_1a
 
-    .line 115
     :cond_2e
     :try_start_2e
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mParasValue:[Ljava/lang/Object;
@@ -485,11 +440,9 @@
 
     goto :goto_a
 
-    .line 116
     :catch_35
     move-exception v0
 
-    .line 117
     .local v0, e:Ljava/util/IllegalFormatException;
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -511,7 +464,6 @@
 
     goto :goto_a
 
-    .line 120
     .end local v0           #e:Ljava/util/IllegalFormatException;
     .end local v2           #i:I
     :cond_4a
@@ -519,12 +471,10 @@
 
     if-eqz v3, :cond_6c
 
-    .line 121
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mIndexedTextVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     if-nez v3, :cond_65
 
-    .line 122
     new-instance v3, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     iget-object v4, p0, Lmiui/app/screenelement/util/TextFormatter;->mTextVar:Lmiui/app/screenelement/util/Variable;
@@ -543,7 +493,6 @@
 
     iput-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mIndexedTextVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 124
     :cond_65
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mIndexedTextVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
@@ -553,7 +502,6 @@
 
     goto :goto_a
 
-    .line 126
     :cond_6c
     iget-object v3, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
@@ -564,7 +512,6 @@
     .registers 2
 
     .prologue
-    .line 102
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -594,14 +541,11 @@
     .parameter "text"
 
     .prologue
-    .line 83
     iput-object p1, p0, Lmiui/app/screenelement/util/TextFormatter;->mText:Ljava/lang/String;
 
-    .line 85
     const-string v0, ""
 
     iput-object v0, p0, Lmiui/app/screenelement/util/TextFormatter;->mFormat:Ljava/lang/String;
 
-    .line 86
     return-void
 .end method

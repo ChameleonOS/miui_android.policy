@@ -78,7 +78,6 @@
     .registers 1
 
     .prologue
-    .line 12
     const/4 v0, 0x0
 
     sput-boolean v0, Lmiui/app/screenelement/data/Variables;->DBG:Z
@@ -92,51 +91,42 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 9
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 17
     iput v0, p0, Lmiui/app/screenelement/data/Variables;->mNextDoubleIndex:I
 
-    .line 19
     iput v0, p0, Lmiui/app/screenelement/data/Variables;->mNextStringIndex:I
 
-    .line 22
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Variables;->mNumObjects:Ljava/util/HashMap;
 
-    .line 25
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Variables;->mStrObjects:Ljava/util/HashMap;
 
-    .line 27
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Variables;->mDoubleArray:Ljava/util/ArrayList;
 
-    .line 29
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Variables;->mStringArray:Ljava/util/ArrayList;
 
-    .line 31
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Variables;->mNumLock:Ljava/lang/Object;
 
-    .line 33
     new-instance v0, Ljava/lang/Object;
 
     invoke-direct/range {v0 .. v0}, Ljava/lang/Object;-><init>()V
@@ -170,14 +160,11 @@
     .end annotation
 
     .prologue
-    .line 60
     .local p1, map:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;>;"
     if-nez p2, :cond_4
 
-    .line 61
     const-string p2, "__global"
 
-    .line 62
     :cond_4
     invoke-virtual {p1, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -185,21 +172,17 @@
 
     check-cast v1, Ljava/util/HashMap;
 
-    .line 63
     .local v1, obj:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     if-nez v1, :cond_14
 
-    .line 64
     new-instance v1, Ljava/util/HashMap;
 
     .end local v1           #obj:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
 
-    .line 65
     .restart local v1       #obj:Ljava/util/HashMap;,"Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Integer;>;"
     invoke-virtual {p1, p2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 67
     :cond_14
     invoke-virtual {v1, p3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -207,19 +190,15 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    .line 68
     .local v0, index:Ljava/lang/Integer;
     if-nez v0, :cond_23
 
-    .line 69
     invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    .line 70
     invoke-virtual {v1, p3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 72
     :cond_23
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
@@ -235,12 +214,10 @@
     .parameter "index"
 
     .prologue
-    .line 102
     iget-object v1, p0, Lmiui/app/screenelement/data/Variables;->mNumLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 103
     const/4 v0, -0x1
 
     if-lt p1, v0, :cond_10
@@ -256,13 +233,11 @@
 
     if-le p1, v0, :cond_13
 
-    .line 104
     :cond_10
     const/4 v0, 0x0
 
     monitor-exit v1
 
-    .line 106
     :goto_12
     return-object v0
 
@@ -279,7 +254,6 @@
 
     goto :goto_12
 
-    .line 107
     :catchall_1d
     move-exception v0
 
@@ -295,12 +269,10 @@
     .parameter "index"
 
     .prologue
-    .line 111
     iget-object v1, p0, Lmiui/app/screenelement/data/Variables;->mStrLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 112
     const/4 v0, -0x1
 
     if-lt p1, v0, :cond_10
@@ -316,13 +288,11 @@
 
     if-le p1, v0, :cond_13
 
-    .line 113
     :cond_10
     const/4 v0, 0x0
 
     monitor-exit v1
 
-    .line 115
     :goto_12
     return-object v0
 
@@ -339,7 +309,6 @@
 
     goto :goto_12
 
-    .line 116
     :catchall_1d
     move-exception v0
 
@@ -356,14 +325,12 @@
     .parameter "value"
 
     .prologue
-    .line 76
     invoke-static {p2, p3}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lmiui/app/screenelement/data/Variables;->putNum(ILjava/lang/Double;)V
 
-    .line 77
     return-void
 .end method
 
@@ -373,20 +340,16 @@
     .parameter "value"
 
     .prologue
-    .line 80
     if-gez p1, :cond_3
 
-    .line 88
     :goto_2
     return-void
 
-    .line 82
     :cond_3
     iget-object v1, p0, Lmiui/app/screenelement/data/Variables;->mNumLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 83
     :goto_6
     :try_start_6
     iget-object v0, p0, Lmiui/app/screenelement/data/Variables;->mDoubleArray:Ljava/util/ArrayList;
@@ -399,7 +362,6 @@
 
     if-le p1, v0, :cond_1a
 
-    .line 84
     iget-object v0, p0, Lmiui/app/screenelement/data/Variables;->mDoubleArray:Ljava/util/ArrayList;
 
     const/4 v2, 0x0
@@ -408,7 +370,6 @@
 
     goto :goto_6
 
-    .line 87
     :catchall_17
     move-exception v0
 
@@ -418,14 +379,12 @@
 
     throw v0
 
-    .line 86
     :cond_1a
     :try_start_1a
     iget-object v0, p0, Lmiui/app/screenelement/data/Variables;->mDoubleArray:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 87
     monitor-exit v1
     :try_end_20
     .catchall {:try_start_1a .. :try_end_20} :catchall_17
@@ -439,20 +398,16 @@
     .parameter "value"
 
     .prologue
-    .line 91
     if-gez p1, :cond_3
 
-    .line 99
     :goto_2
     return-void
 
-    .line 93
     :cond_3
     iget-object v1, p0, Lmiui/app/screenelement/data/Variables;->mStrLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 94
     :goto_6
     :try_start_6
     iget-object v0, p0, Lmiui/app/screenelement/data/Variables;->mStringArray:Ljava/util/ArrayList;
@@ -465,7 +420,6 @@
 
     if-le p1, v0, :cond_1a
 
-    .line 95
     iget-object v0, p0, Lmiui/app/screenelement/data/Variables;->mStringArray:Ljava/util/ArrayList;
 
     const/4 v2, 0x0
@@ -474,7 +428,6 @@
 
     goto :goto_6
 
-    .line 98
     :catchall_17
     move-exception v0
 
@@ -484,14 +437,12 @@
 
     throw v0
 
-    .line 97
     :cond_1a
     :try_start_1a
     iget-object v0, p0, Lmiui/app/screenelement/data/Variables;->mStringArray:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
-    .line 98
     monitor-exit v1
     :try_end_20
     .catchall {:try_start_1a .. :try_end_20} :catchall_17
@@ -505,12 +456,10 @@
     .parameter "property"
 
     .prologue
-    .line 36
     iget-object v2, p0, Lmiui/app/screenelement/data/Variables;->mNumLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 37
     :try_start_3
     iget-object v1, p0, Lmiui/app/screenelement/data/Variables;->mNumObjects:Ljava/util/HashMap;
 
@@ -520,26 +469,22 @@
 
     move-result v0
 
-    .line 38
     .local v0, index:I
     iget v1, p0, Lmiui/app/screenelement/data/Variables;->mNextDoubleIndex:I
 
     if-ne v0, v1, :cond_15
 
-    .line 39
     iget v1, p0, Lmiui/app/screenelement/data/Variables;->mNextDoubleIndex:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lmiui/app/screenelement/data/Variables;->mNextDoubleIndex:I
 
-    .line 40
     :cond_15
     sget-boolean v1, Lmiui/app/screenelement/data/Variables;->DBG:Z
 
     if-eqz v1, :cond_45
 
-    .line 41
     const-string v1, "Variables"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -582,13 +527,11 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 43
     :cond_45
     monitor-exit v2
 
     return v0
 
-    .line 44
     .end local v0           #index:I
     :catchall_47
     move-exception v1
@@ -606,12 +549,10 @@
     .parameter "property"
 
     .prologue
-    .line 48
     iget-object v2, p0, Lmiui/app/screenelement/data/Variables;->mStrLock:Ljava/lang/Object;
 
     monitor-enter v2
 
-    .line 49
     :try_start_3
     iget-object v1, p0, Lmiui/app/screenelement/data/Variables;->mStrObjects:Ljava/util/HashMap;
 
@@ -621,26 +562,22 @@
 
     move-result v0
 
-    .line 50
     .local v0, index:I
     iget v1, p0, Lmiui/app/screenelement/data/Variables;->mNextStringIndex:I
 
     if-ne v0, v1, :cond_15
 
-    .line 51
     iget v1, p0, Lmiui/app/screenelement/data/Variables;->mNextStringIndex:I
 
     add-int/lit8 v1, v1, 0x1
 
     iput v1, p0, Lmiui/app/screenelement/data/Variables;->mNextStringIndex:I
 
-    .line 52
     :cond_15
     sget-boolean v1, Lmiui/app/screenelement/data/Variables;->DBG:Z
 
     if-eqz v1, :cond_45
 
-    .line 53
     const-string v1, "Variables"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -683,13 +620,11 @@
 
     invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 55
     :cond_45
     monitor-exit v2
 
     return v0
 
-    .line 56
     .end local v0           #index:I
     :catchall_47
     move-exception v1

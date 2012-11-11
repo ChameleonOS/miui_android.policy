@@ -44,12 +44,10 @@
     .parameter "textView"
 
     .prologue
-    .line 124
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->this$0:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 122
     new-instance v0, Ljava/util/ArrayList;
 
     const/4 v1, 0x5
@@ -58,10 +56,8 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mMessages:Ljava/util/ArrayList;
 
-    .line 125
     iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
-    .line 126
     return-void
 .end method
 
@@ -70,7 +66,6 @@
     .parameter "x0"
 
     .prologue
-    .line 112
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mMessages:Ljava/util/ArrayList;
 
     return-object v0
@@ -81,7 +76,6 @@
     .parameter "x0"
 
     .prologue
-    .line 112
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
     return-object v0
@@ -98,32 +92,26 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 133
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
     if-nez v1, :cond_6
 
-    .line 158
     :goto_5
     return-void
 
-    .line 136
     :cond_6
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 137
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1, p2, v2, v2, v2}, Landroid/widget/TextView;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    .line 138
     new-instance v0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager$Data;
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager$Data;-><init>(Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;Ljava/lang/CharSequence;I)V
 
-    .line 139
     .local v0, data:Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager$Data;
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardStatusViewManager$TransientTextManager;->this$0:Lcom/android/internal/policy/impl/KeyguardStatusViewManager;
 

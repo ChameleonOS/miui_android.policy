@@ -34,20 +34,16 @@
     .parameter "ele"
 
     .prologue
-    .line 817
     invoke-direct {p0, p1}, Lmiui/app/screenelement/ActionCommand;-><init>(Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 818
     iput-object p2, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
-    .line 819
     invoke-static {p3}, Lmiui/app/screenelement/util/Task;->load(Lorg/w3c/dom/Element;)Lmiui/app/screenelement/util/Task;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
 
-    .line 820
     return-void
 .end method
 
@@ -57,12 +53,10 @@
     .registers 4
 
     .prologue
-    .line 846
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mIntent:Landroid/content/Intent;
 
     if-eqz v1, :cond_d
 
-    .line 848
     :try_start_4
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -74,20 +68,16 @@
     :try_end_d
     .catch Landroid/content/ActivityNotFoundException; {:try_start_4 .. :try_end_d} :catch_e
 
-    .line 854
     :cond_d
     :goto_d
     return-void
 
-    .line 849
     :catch_e
     move-exception v0
 
-    .line 850
     .local v0, e:Landroid/content/ActivityNotFoundException;
     invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->printStackTrace()V
 
-    .line 851
     const-string v1, "ActionCommand"
 
     invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->toString()Ljava/lang/String;
@@ -103,7 +93,6 @@
     .registers 6
 
     .prologue
-    .line 823
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     iget-object v2, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
@@ -114,7 +103,6 @@
 
     move-result-object v0
 
-    .line 825
     .local v0, configTask:Lmiui/app/screenelement/util/Task;
     if-eqz v0, :cond_16
 
@@ -126,10 +114,8 @@
 
     if-nez v1, :cond_16
 
-    .line 826
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
 
-    .line 829
     :cond_16
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
 
@@ -141,7 +127,6 @@
 
     if-nez v1, :cond_7e
 
-    .line 830
     new-instance v1, Landroid/content/Intent;
 
     iget-object v2, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
@@ -152,7 +137,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mIntent:Landroid/content/Intent;
 
-    .line 831
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
 
     iget-object v1, v1, Lmiui/app/screenelement/util/Task;->type:Ljava/lang/String;
@@ -163,7 +147,6 @@
 
     if-nez v1, :cond_3e
 
-    .line 832
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mIntent:Landroid/content/Intent;
 
     iget-object v2, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
@@ -172,7 +155,6 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 833
     :cond_3e
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
 
@@ -184,7 +166,6 @@
 
     if-nez v1, :cond_51
 
-    .line 834
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mIntent:Landroid/content/Intent;
 
     iget-object v2, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
@@ -193,7 +174,6 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 835
     :cond_51
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mTask:Lmiui/app/screenelement/util/Task;
 
@@ -215,7 +195,6 @@
 
     if-nez v1, :cond_77
 
-    .line 836
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mIntent:Landroid/content/Intent;
 
     new-instance v2, Landroid/content/ComponentName;
@@ -232,7 +211,6 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    .line 838
     :cond_77
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$IntentCommand;->mIntent:Landroid/content/Intent;
 
@@ -240,7 +218,6 @@
 
     invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 842
     :cond_7e
     return-void
 .end method

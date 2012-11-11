@@ -30,7 +30,6 @@
     .parameter
 
     .prologue
-    .line 156
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1$1;->val$enabled:Z
@@ -46,7 +45,6 @@
     .registers 3
 
     .prologue
-    .line 159
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
@@ -56,6 +54,5 @@
     #calls: Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->updateTorchCover(Z)V
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->access$100(Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;Z)V
 
-    .line 160
     return-void
 .end method

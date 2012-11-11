@@ -29,12 +29,10 @@
     .parameter
 
     .prologue
-    .line 690
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 691
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
@@ -48,7 +46,6 @@
     .parameter "x1"
 
     .prologue
-    .line 690
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;-><init>(Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;)V
 
     return-void
@@ -60,7 +57,6 @@
     .prologue
     const/high16 v4, 0x2
 
-    .line 756
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -69,20 +65,17 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    .line 757
     .local v0, builder:Landroid/app/AlertDialog$Builder;
     const v2, 0x60c016f
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    .line 758
     const v2, 0x1040009
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 759
     const v2, 0x1040013
 
     new-instance v3, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable$1;
@@ -91,12 +84,10 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    .line 769
     invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v1
 
-    .line 770
     .local v1, dialog:Landroid/app/AlertDialog;
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -106,17 +97,14 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Window;->setType(I)V
 
-    .line 771
     invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v2
 
     invoke-virtual {v2, v4, v4}, Landroid/view/Window;->setFlags(II)V
 
-    .line 773
     invoke-virtual {v1}, Landroid/app/AlertDialog;->show()V
 
-    .line 774
     return-void
 .end method
 
@@ -126,7 +114,6 @@
     .registers 18
 
     .prologue
-    .line 698
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -135,7 +122,6 @@
 
     iput-boolean v12, v11, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->mBackLongPressed:Z
 
-    .line 699
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -148,21 +134,17 @@
 
     invoke-virtual {v11, v12, v13, v14}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
 
-    .line 701
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
 
     if-nez v11, :cond_1b
 
-    .line 702
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->showHint()V
 
-    .line 753
     :goto_1a
     return-void
 
-    .line 707
     :cond_1b
     move-object/from16 v0, p0
 
@@ -174,11 +156,9 @@
 
     iget-object v8, v11, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    .line 708
     .local v8, packageName:Ljava/lang/String;
     const/4 v10, 0x0
 
-    .line 710
     .local v10, title:Ljava/lang/String;
     move-object/from16 v0, p0
 
@@ -194,7 +174,6 @@
 
     check-cast v4, Ljava/lang/String;
 
-    .line 711
     .local v4, className:Ljava/lang/String;
     const/16 v11, 0x2f
 
@@ -202,11 +181,9 @@
 
     move-result v7
 
-    .line 712
     .local v7, index:I
     if-ltz v7, :cond_77
 
-    .line 713
     new-instance v5, Landroid/content/ComponentName;
 
     add-int/lit8 v11, v7, 0x1
@@ -223,7 +200,6 @@
 
     invoke-direct {v5, v8, v11}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    .line 717
     .local v5, componentName:Landroid/content/ComponentName;
     move-object/from16 v0, p0
 
@@ -235,7 +211,6 @@
 
     move-result-object v9
 
-    .line 720
     .local v9, pm:Landroid/content/pm/PackageManager;
     const/4 v11, 0x0
 
@@ -244,7 +219,6 @@
 
     move-result-object v1
 
-    .line 721
     .local v1, activityInfo:Landroid/content/pm/ActivityInfo;
     invoke-virtual {v1, v9}, Landroid/content/pm/ActivityInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
@@ -254,21 +228,18 @@
 
     move-result-object v10
 
-    .line 723
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v11
 
     if-eqz v11, :cond_77
 
-    .line 724
     const/4 v11, 0x0
 
     invoke-virtual {v9, v8, v11}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v3
 
-    .line 725
     .local v3, applicationInfo:Landroid/content/pm/ApplicationInfo;
     invoke-virtual {v3, v9}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
 
@@ -280,7 +251,6 @@
 
     move-result-object v10
 
-    .line 734
     .end local v1           #activityInfo:Landroid/content/pm/ActivityInfo;
     .end local v3           #applicationInfo:Landroid/content/pm/ApplicationInfo;
     .end local v5           #componentName:Landroid/content/ComponentName;
@@ -310,7 +280,6 @@
     :try_end_8a
     .catch Landroid/os/RemoteException; {:try_start_77 .. :try_end_8a} :catch_c4
 
-    .line 741
     :goto_8a
     move-object/from16 v0, p0
 
@@ -326,11 +295,9 @@
 
     check-cast v2, Landroid/app/ActivityManager;
 
-    .line 743
     .local v2, am:Landroid/app/ActivityManager;
     invoke-virtual {v2, v8}, Landroid/app/ActivityManager;->forceStopPackage(Ljava/lang/String;)V
 
-    .line 746
     move-object/from16 v0, p0
 
     iget-object v11, v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
@@ -375,13 +342,11 @@
 
     goto/16 :goto_1a
 
-    .line 736
     .end local v2           #am:Landroid/app/ActivityManager;
     .restart local v10       #title:Ljava/lang/String;
     :catch_c4
     move-exception v6
 
-    .line 737
     .local v6, e:Landroid/os/RemoteException;
     invoke-virtual {v6}, Landroid/os/RemoteException;->printStackTrace()V
 
@@ -392,10 +357,8 @@
     :cond_c9
     move-object v10, v8
 
-    .line 746
     goto :goto_b4
 
-    .line 728
     .end local v2           #am:Landroid/app/ActivityManager;
     .restart local v5       #componentName:Landroid/content/ComponentName;
     .restart local v9       #pm:Landroid/content/pm/PackageManager;
@@ -410,9 +373,7 @@
     .parameter "win"
 
     .prologue
-    .line 694
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$BackLongPressRunnable;->mWin:Landroid/view/WindowManagerPolicy$WindowState;
 
-    .line 695
     return-void
 .end method

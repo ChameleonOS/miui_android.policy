@@ -20,10 +20,8 @@
     .parameter "c"
 
     .prologue
-    .line 264
     invoke-direct {p0, p1}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;-><init>(Landroid/content/Context;)V
 
-    .line 265
     return-void
 .end method
 
@@ -33,7 +31,6 @@
     .registers 2
 
     .prologue
-    .line 268
     const-string v0, "android.hardware.usb.action.USB_STATE"
 
     return-object v0

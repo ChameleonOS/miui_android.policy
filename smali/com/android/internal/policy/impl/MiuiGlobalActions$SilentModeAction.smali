@@ -37,33 +37,26 @@
     .prologue
     const/4 v1, 0x3
 
-    .line 591
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 580
     new-array v0, v1, [I
 
     fill-array-data v0, :array_18
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->ITEM_IDS:[I
 
-    .line 582
     new-array v0, v1, [I
 
     fill-array-data v0, :array_22
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->ICON_IDS:[I
 
-    .line 592
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 593
     iput-object p2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->mHandler:Landroid/os/Handler;
 
-    .line 594
     return-void
 
-    .line 580
     nop
 
     :array_18
@@ -73,7 +66,6 @@
         0x2bt 0x0t 0xbt 0x6t
     .end array-data
 
-    .line 582
     :array_22
     .array-data 0x4
         0x19t 0x1t 0x2t 0x6t
@@ -87,7 +79,6 @@
     .parameter "index"
 
     .prologue
-    .line 603
     return p1
 .end method
 
@@ -96,7 +87,6 @@
     .parameter "ringerMode"
 
     .prologue
-    .line 598
     return p1
 .end method
 
@@ -112,14 +102,12 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 608
     const v4, 0x6030022
 
     invoke-virtual {p4, v4, p3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v3
 
-    .line 610
     .local v3, v:Landroid/view/View;
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->mAudioManager:Landroid/media/AudioManager;
 
@@ -131,7 +119,6 @@
 
     move-result v2
 
-    .line 611
     .local v2, selectedIndex:I
     const/4 v0, 0x0
 
@@ -141,7 +128,6 @@
 
     if-ge v0, v4, :cond_42
 
-    .line 612
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->ITEM_IDS:[I
 
     aget v4, v4, v0
@@ -152,7 +138,6 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    .line 613
     .local v1, itemView:Landroid/widget/LinearLayout;
     if-ne v2, v0, :cond_40
 
@@ -161,17 +146,14 @@
     :goto_23
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setSelected(Z)V
 
-    .line 615
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
     invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->setTag(Ljava/lang/Object;)V
 
-    .line 616
     invoke-virtual {v1, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    .line 617
     invoke-virtual {v1, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v4
@@ -184,7 +166,6 @@
 
     invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 611
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_13
@@ -192,10 +173,8 @@
     :cond_40
     move v4, v5
 
-    .line 613
     goto :goto_23
 
-    .line 619
     .end local v1           #itemView:Landroid/widget/LinearLayout;
     :cond_42
     return-object v3
@@ -205,7 +184,6 @@
     .registers 2
 
     .prologue
-    .line 634
     const/4 v0, 0x1
 
     return v0
@@ -216,7 +194,6 @@
     .parameter "v"
 
     .prologue
-    .line 641
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v1
@@ -225,11 +202,9 @@
 
     if-nez v1, :cond_9
 
-    .line 646
     :goto_8
     return-void
 
-    .line 643
     :cond_9
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -241,7 +216,6 @@
 
     move-result v0
 
-    .line 644
     .local v0, index:I
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->mAudioManager:Landroid/media/AudioManager;
 
@@ -251,7 +225,6 @@
 
     invoke-virtual {v1, v2}, Landroid/media/AudioManager;->setRingerMode(I)V
 
-    .line 645
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$SilentModeAction;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x0
@@ -267,7 +240,6 @@
     .registers 1
 
     .prologue
-    .line 623
     return-void
 .end method
 
@@ -275,7 +247,6 @@
     .registers 2
 
     .prologue
-    .line 630
     const/4 v0, 0x0
 
     return v0
@@ -285,7 +256,6 @@
     .registers 2
 
     .prologue
-    .line 626
     const/4 v0, 0x1
 
     return v0
@@ -295,6 +265,5 @@
     .registers 1
 
     .prologue
-    .line 638
     return-void
 .end method

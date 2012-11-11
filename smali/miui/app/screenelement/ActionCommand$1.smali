@@ -23,7 +23,6 @@
     .registers 3
 
     .prologue
-    .line 801
     invoke-static {}, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;->values()[Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;
 
     move-result-object v0

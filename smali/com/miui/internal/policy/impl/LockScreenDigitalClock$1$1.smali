@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 61
     iput-object p1, p0, Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1$1;->this$1:Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 2
 
     .prologue
-    .line 63
     iget-object v0, p0, Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1$1;->this$1:Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1;
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1;->this$0:Lcom/miui/internal/policy/impl/LockScreenDigitalClock;
@@ -49,6 +47,5 @@
     #calls: Lcom/miui/internal/policy/impl/LockScreenDigitalClock;->updateTime()V
     invoke-static {v0}, Lcom/miui/internal/policy/impl/LockScreenDigitalClock;->access$100(Lcom/miui/internal/policy/impl/LockScreenDigitalClock;)V
 
-    .line 64
     return-void
 .end method

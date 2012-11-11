@@ -26,17 +26,14 @@
     .parameter "c"
 
     .prologue
-    .line 227
     invoke-direct {p0, p1}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;-><init>(Landroid/content/Context;)V
 
-    .line 215
     new-instance v0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier$1;
 
     invoke-direct {v0, p0}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier$1;-><init>(Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;)V
 
     iput-object v0, p0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    .line 228
     return-void
 .end method
 
@@ -46,12 +43,10 @@
     .registers 3
 
     .prologue
-    .line 243
     invoke-virtual {p0}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->getIntentAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 244
     .local v0, action:Ljava/lang/String;
     if-nez v0, :cond_8
 
@@ -72,7 +67,6 @@
     .registers 3
 
     .prologue
-    .line 248
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "no intent filter action"
@@ -86,19 +80,16 @@
     .registers 4
 
     .prologue
-    .line 232
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->mIntentFilter:Landroid/content/IntentFilter;
 
     if-nez v0, :cond_a
 
-    .line 233
     invoke-virtual {p0}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->createIntentFilter()Landroid/content/IntentFilter;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->mIntentFilter:Landroid/content/IntentFilter;
 
-    .line 234
     :cond_a
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->mContext:Landroid/content/Context;
 
@@ -108,7 +99,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    .line 235
     return-void
 .end method
 
@@ -116,13 +106,11 @@
     .registers 3
 
     .prologue
-    .line 239
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->mContext:Landroid/content/Context;
 
     iget-object v1, p0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 240
     return-void
 .end method

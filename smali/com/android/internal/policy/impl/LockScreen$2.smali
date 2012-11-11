@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 107
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockScreen$2;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,12 +41,10 @@
     .parameter "simState"
 
     .prologue
-    .line 109
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$2;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
     #calls: Lcom/android/internal/policy/impl/LockScreen;->updateTargets()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/LockScreen;->access$200(Lcom/android/internal/policy/impl/LockScreen;)V
 
-    .line 110
     return-void
 .end method

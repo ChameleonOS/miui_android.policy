@@ -23,7 +23,6 @@
     .registers 3
 
     .prologue
-    .line 176
     invoke-static {}, Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;->values()[Lmiui/app/screenelement/elements/ImageScreenElement$SrcType;
 
     move-result-object v0

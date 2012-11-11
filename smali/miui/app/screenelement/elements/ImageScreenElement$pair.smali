@@ -48,7 +48,6 @@
     .registers 1
 
     .prologue
-    .line 361
     .local p0, this:Lmiui/app/screenelement/elements/ImageScreenElement$pair;,"Lmiui/app/screenelement/elements/ImageScreenElement$pair<TT1;TT2;>;"
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,7 +59,6 @@
     .parameter "x0"
 
     .prologue
-    .line 361
     .local p0, this:Lmiui/app/screenelement/elements/ImageScreenElement$pair;,"Lmiui/app/screenelement/elements/ImageScreenElement$pair<TT1;TT2;>;"
     invoke-direct {p0}, Lmiui/app/screenelement/elements/ImageScreenElement$pair;-><init>()V
 

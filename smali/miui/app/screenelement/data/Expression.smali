@@ -33,7 +33,6 @@
     .registers 3
 
     .prologue
-    .line 798
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
@@ -59,10 +58,8 @@
     .registers 1
 
     .prologue
-    .line 24
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 420
     return-void
 .end method
 
@@ -71,7 +68,6 @@
     .parameter "x0"
 
     .prologue
-    .line 24
     invoke-static {p0}, Lmiui/app/screenelement/data/Expression;->isVariableChar(C)Z
 
     move-result v0
@@ -84,7 +80,6 @@
     .parameter "x0"
 
     .prologue
-    .line 24
     invoke-static {p0}, Lmiui/app/screenelement/data/Expression;->isDigitChar(C)Z
 
     move-result v0
@@ -97,7 +92,6 @@
     .parameter "x0"
 
     .prologue
-    .line 24
     invoke-static {p0}, Lmiui/app/screenelement/data/Expression;->isFunctionChar(C)Z
 
     move-result v0
@@ -112,7 +106,6 @@
     .prologue
     const/4 v12, 0x0
 
-    .line 692
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v11
@@ -125,42 +118,34 @@
 
     move-object v1, v12
 
-    .line 777
     :cond_c
     :goto_c
     return-object v1
 
-    .line 699
     :cond_d
     new-instance v9, Lmiui/app/screenelement/data/Expression$Tokenizer;
 
     invoke-direct {v9, p0}, Lmiui/app/screenelement/data/Expression$Tokenizer;-><init>(Ljava/lang/String;)V
 
-    .line 700
     .local v9, tk:Lmiui/app/screenelement/data/Expression$Tokenizer;
     const/4 v10, 0x0
 
-    .line 701
     .local v10, token:Lmiui/app/screenelement/data/Expression$Tokenizer$Token;
     const/4 v8, 0x0
 
-    .line 702
     .local v8, preToken:Lmiui/app/screenelement/data/Expression$Tokenizer$Token;
     new-instance v7, Ljava/util/Stack;
 
     invoke-direct {v7}, Ljava/util/Stack;-><init>()V
 
-    .line 703
     .local v7, opeStack:Ljava/util/Stack;,"Ljava/util/Stack<Lmiui/app/screenelement/data/Expression$Tokenizer$Token;>;"
     new-instance v3, Ljava/util/Stack;
 
     invoke-direct {v3}, Ljava/util/Stack;-><init>()V
 
-    .line 704
     .local v3, expStack:Ljava/util/Stack;,"Ljava/util/Stack<Lmiui/app/screenelement/data/Expression;>;"
     const/4 v4, 0x0
 
-    .line 705
     .local v4, minus:Z
     :goto_1f
     invoke-virtual {v9}, Lmiui/app/screenelement/data/Expression$Tokenizer;->getToken()Lmiui/app/screenelement/data/Expression$Tokenizer$Token;
@@ -169,7 +154,6 @@
 
     if-eqz v10, :cond_109
 
-    .line 709
     sget-object v11, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$Tokenizer$TokenType:[I
 
     iget-object v13, v10, Lmiui/app/screenelement/data/Expression$Tokenizer$Token;->type:Lmiui/app/screenelement/data/Expression$Tokenizer$TokenType;
@@ -182,17 +166,14 @@
 
     packed-switch v11, :pswitch_data_154
 
-    .line 764
     :goto_32
     move-object v8, v10
 
     goto :goto_1f
 
-    .line 715
     :pswitch_34
     const/4 v5, 0x0
 
-    .line 716
     .local v5, newExp:Lmiui/app/screenelement/data/Expression;
     sget-object v11, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$Tokenizer$TokenType:[I
 
@@ -209,20 +190,17 @@
     :cond_42
     move-object v6, v5
 
-    .line 737
     .end local v5           #newExp:Lmiui/app/screenelement/data/Expression;
     .local v6, newExp:Lmiui/app/screenelement/data/Expression;
     :goto_43
     if-eqz v4, :cond_151
 
-    .line 738
     new-instance v5, Lmiui/app/screenelement/data/Expression$UnaryExpression;
 
     const-string v11, "-"
 
     invoke-direct {v5, v6, v11}, Lmiui/app/screenelement/data/Expression$UnaryExpression;-><init>(Lmiui/app/screenelement/data/Expression;Ljava/lang/String;)V
 
-    .line 740
     .end local v6           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     :goto_4c
@@ -230,7 +208,6 @@
 
     goto :goto_32
 
-    .line 718
     :pswitch_50
     new-instance v5, Lmiui/app/screenelement/data/Expression$NumberVariableExpression;
 
@@ -242,12 +219,10 @@
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     move-object v6, v5
 
-    .line 719
     .end local v5           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v6       #newExp:Lmiui/app/screenelement/data/Expression;
     goto :goto_43
 
-    .line 721
     .end local v6           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     :pswitch_59
@@ -261,12 +236,10 @@
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     move-object v6, v5
 
-    .line 722
     .end local v5           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v6       #newExp:Lmiui/app/screenelement/data/Expression;
     goto :goto_43
 
-    .line 724
     .end local v6           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     :pswitch_62
@@ -298,25 +271,21 @@
 
     invoke-direct {v5, v11}, Lmiui/app/screenelement/data/Expression$NumberExpression;-><init>(Ljava/lang/String;)V
 
-    .line 725
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     const/4 v4, 0x0
 
     move-object v6, v5
 
-    .line 726
     .end local v5           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v6       #newExp:Lmiui/app/screenelement/data/Expression;
     goto :goto_43
 
-    .line 724
     .end local v6           #newExp:Lmiui/app/screenelement/data/Expression;
     :cond_81
     const-string v11, ""
 
     goto :goto_6d
 
-    .line 728
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     :pswitch_84
     new-instance v5, Lmiui/app/screenelement/data/Expression$StringExpression;
@@ -329,12 +298,10 @@
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     move-object v6, v5
 
-    .line 729
     .end local v5           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v6       #newExp:Lmiui/app/screenelement/data/Expression;
     goto :goto_43
 
-    .line 731
     .end local v6           #newExp:Lmiui/app/screenelement/data/Expression;
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     :pswitch_8d
@@ -342,15 +309,12 @@
 
     move-result-object v5
 
-    .line 732
     if-nez v5, :cond_42
 
     move-object v1, v12
 
-    .line 733
     goto/16 :goto_c
 
-    .line 743
     .end local v5           #newExp:Lmiui/app/screenelement/data/Expression;
     :pswitch_96
     iget-object v11, v10, Lmiui/app/screenelement/data/Expression$Tokenizer$Token;->token:Ljava/lang/String;
@@ -371,13 +335,11 @@
 
     if-ne v11, v13, :cond_c6
 
-    .line 745
     :cond_a8
     const/4 v4, 0x1
 
     goto :goto_32
 
-    .line 752
     :cond_aa
     invoke-virtual {v3}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
@@ -385,7 +347,6 @@
 
     check-cast v1, Lmiui/app/screenelement/data/Expression;
 
-    .line 753
     .local v1, exp2:Lmiui/app/screenelement/data/Expression;
     invoke-virtual {v3}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
@@ -393,7 +354,6 @@
 
     check-cast v0, Lmiui/app/screenelement/data/Expression;
 
-    .line 754
     .local v0, exp1:Lmiui/app/screenelement/data/Expression;
     new-instance v13, Lmiui/app/screenelement/data/Expression$BinaryExpression;
 
@@ -409,7 +369,6 @@
 
     invoke-virtual {v3, v13}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 747
     .end local v0           #exp1:Lmiui/app/screenelement/data/Expression;
     .end local v1           #exp2:Lmiui/app/screenelement/data/Expression;
     :cond_c6
@@ -435,7 +394,6 @@
 
     if-gtz v11, :cond_fe
 
-    .line 748
     invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
     move-result v11
@@ -444,7 +402,6 @@
 
     if-ge v11, v13, :cond_aa
 
-    .line 749
     const-string v11, "Expression"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -469,26 +426,20 @@
 
     move-object v1, v12
 
-    .line 750
     goto/16 :goto_c
 
-    .line 756
     :cond_fe
     invoke-virtual {v7, v10}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 757
     const/4 v4, 0x0
 
-    .line 759
     goto/16 :goto_32
 
-    .line 761
     :pswitch_104
     invoke-virtual {v7, v10}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto/16 :goto_32
 
-    .line 767
     :cond_109
     invoke-virtual {v3}, Ljava/util/Stack;->size()I
 
@@ -502,7 +453,6 @@
 
     if-eq v11, v13, :cond_130
 
-    .line 768
     const-string v11, "Expression"
 
     new-instance v13, Ljava/lang/StringBuilder;
@@ -527,10 +477,8 @@
 
     move-object v1, v12
 
-    .line 769
     goto/16 :goto_c
 
-    .line 772
     :cond_130
     invoke-virtual {v3}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
@@ -538,7 +486,6 @@
 
     check-cast v1, Lmiui/app/screenelement/data/Expression;
 
-    .line 773
     .restart local v1       #exp2:Lmiui/app/screenelement/data/Expression;
     :goto_136
     invoke-virtual {v7}, Ljava/util/Stack;->size()I
@@ -547,14 +494,12 @@
 
     if-lez v11, :cond_c
 
-    .line 774
     invoke-virtual {v3}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lmiui/app/screenelement/data/Expression;
 
-    .line 775
     .restart local v0       #exp1:Lmiui/app/screenelement/data/Expression;
     new-instance v2, Lmiui/app/screenelement/data/Expression$BinaryExpression;
 
@@ -572,7 +517,6 @@
     .local v2, exp2:Lmiui/app/screenelement/data/Expression;
     move-object v1, v2
 
-    .line 776
     .end local v2           #exp2:Lmiui/app/screenelement/data/Expression;
     .restart local v1       #exp2:Lmiui/app/screenelement/data/Expression;
     goto :goto_136
@@ -587,7 +531,6 @@
     .restart local v5       #newExp:Lmiui/app/screenelement/data/Expression;
     goto/16 :goto_4c
 
-    .line 709
     :pswitch_data_154
     .packed-switch 0x1
         :pswitch_34
@@ -599,7 +542,6 @@
         :pswitch_104
     .end packed-switch
 
-    .line 716
     :pswitch_data_166
     .packed-switch 0x1
         :pswitch_50
@@ -627,7 +569,6 @@
     .end annotation
 
     .prologue
-    .line 782
     .local p1, opeStack:Ljava/util/Stack;,"Ljava/util/Stack<Lmiui/app/screenelement/data/Expression$Tokenizer$Token;>;"
     iget-object v2, p0, Lmiui/app/screenelement/data/Expression$Tokenizer$Token;->token:Ljava/lang/String;
 
@@ -635,7 +576,6 @@
 
     move-result-object v1
 
-    .line 785
     .local v1, newExps:[Lmiui/app/screenelement/data/Expression;
     :try_start_6
     invoke-virtual {p1}, Ljava/util/Stack;->isEmpty()Z
@@ -656,7 +596,6 @@
 
     if-ne v2, v3, :cond_27
 
-    .line 786
     new-instance v3, Lmiui/app/screenelement/data/Expression$FunctionExpression;
 
     invoke-virtual {p1}, Ljava/util/Stack;->pop()Ljava/lang/Object;
@@ -671,11 +610,9 @@
 
     move-object v2, v3
 
-    .line 795
     :goto_26
     return-object v2
 
-    .line 787
     :cond_27
     array-length v2, v1
 
@@ -683,7 +620,6 @@
 
     if-ne v2, v3, :cond_33
 
-    .line 788
     const/4 v2, 0x0
 
     aget-object v2, v1, v2
@@ -692,15 +628,12 @@
 
     goto :goto_26
 
-    .line 790
     :catch_2f
     move-exception v0
 
-    .line 791
     .local v0, e:Lmiui/app/screenelement/ScreenElementLoadException;
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenElementLoadException;->printStackTrace()V
 
-    .line 794
     .end local v0           #e:Lmiui/app/screenelement/ScreenElementLoadException;
     :cond_33
     const-string v2, "Expression"
@@ -727,7 +660,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 795
     const/4 v2, 0x0
 
     goto :goto_26
@@ -738,24 +670,19 @@
     .parameter "exp"
 
     .prologue
-    .line 666
     const/4 v0, 0x0
 
-    .line 667
     .local v0, bracketCount:I
     const/4 v4, 0x0
 
-    .line 668
     .local v4, inApostrophe:Z
     const/4 v6, 0x0
 
-    .line 669
     .local v6, start:I
     new-instance v2, Ljava/util/ArrayList;
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    .line 670
     .local v2, exps:Ljava/util/ArrayList;,"Ljava/util/ArrayList<Lmiui/app/screenelement/data/Expression;>;"
     const/4 v3, 0x0
 
@@ -767,23 +694,19 @@
 
     if-ge v3, v7, :cond_42
 
-    .line 671
     invoke-virtual {p0, v3}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
-    .line 672
     .local v1, c:C
     if-nez v4, :cond_28
 
-    .line 673
     const/16 v7, 0x2c
 
     if-ne v1, v7, :cond_32
 
     if-nez v0, :cond_32
 
-    .line 674
     invoke-virtual {p0, v6, v3}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v7
@@ -794,57 +717,47 @@
 
     invoke-virtual {v2, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 675
     add-int/lit8 v6, v3, 0x1
 
-    .line 682
     :cond_28
     :goto_28
     const/16 v7, 0x27
 
     if-ne v1, v7, :cond_2f
 
-    .line 683
     if-nez v4, :cond_40
 
     const/4 v4, 0x1
 
-    .line 670
     :cond_2f
     :goto_2f
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_9
 
-    .line 676
     :cond_32
     const/16 v7, 0x28
 
     if-ne v1, v7, :cond_39
 
-    .line 677
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_28
 
-    .line 678
     :cond_39
     const/16 v7, 0x29
 
     if-ne v1, v7, :cond_28
 
-    .line 679
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_28
 
-    .line 683
     :cond_40
     const/4 v4, 0x0
 
     goto :goto_2f
 
-    .line 686
     .end local v1           #c:C
     :cond_42
     invoke-virtual {p0, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -857,14 +770,12 @@
 
     invoke-virtual {v2, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 687
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v7
 
     new-array v5, v7, [Lmiui/app/screenelement/data/Expression;
 
-    .line 688
     .local v5, ret:[Lmiui/app/screenelement/data/Expression;
     invoke-virtual {v2, v5}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
@@ -881,7 +792,6 @@
     .parameter "op2"
 
     .prologue
-    .line 803
     invoke-static {p0}, Lmiui/app/screenelement/data/Expression;->getPriority(Ljava/lang/String;)I
 
     move-result v0
@@ -900,7 +810,6 @@
     .parameter "op"
 
     .prologue
-    .line 807
     const/4 v0, 0x0
 
     .local v0, i:I
@@ -911,7 +820,6 @@
 
     if-ge v0, v1, :cond_14
 
-    .line 808
     sget-object v1, Lmiui/app/screenelement/data/Expression;->mOperatorsPriority:[Ljava/lang/String;
 
     aget-object v1, v1, v0
@@ -922,19 +830,16 @@
 
     if-ltz v1, :cond_11
 
-    .line 811
     .end local v0           #i:I
     :goto_10
     return v0
 
-    .line 807
     .restart local v0       #i:I
     :cond_11
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    .line 811
     :cond_14
     const/4 v0, -0x1
 
@@ -946,7 +851,6 @@
     .parameter "c"
 
     .prologue
-    .line 657
     const/16 v0, 0x30
 
     if-lt p0, v0, :cond_8
@@ -977,7 +881,6 @@
     .parameter "c"
 
     .prologue
-    .line 661
     const/16 v0, 0x61
 
     if-lt p0, v0, :cond_8
@@ -1012,7 +915,6 @@
     .parameter "c"
 
     .prologue
-    .line 653
     const/16 v0, 0x61
 
     if-lt p0, v0, :cond_8
@@ -1069,7 +971,6 @@
     .parameter "var"
 
     .prologue
-    .line 821
     const/4 v0, 0x0
 
     return-object v0
@@ -1080,7 +981,6 @@
     .parameter "var"
 
     .prologue
-    .line 817
     const/4 v0, 0x0
 
     return v0

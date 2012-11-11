@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 188
     iput-object p1, p0, Lmiui/app/screenelement/util/LockscreenConfigFile$2;->this$0:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .parameter "ele"
 
     .prologue
-    .line 191
     iget-object v0, p0, Lmiui/app/screenelement/util/LockscreenConfigFile$2;->this$0:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
     invoke-static {p1}, Lmiui/app/screenelement/util/Task;->load(Lorg/w3c/dom/Element;)Lmiui/app/screenelement/util/Task;
@@ -51,6 +49,5 @@
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/util/LockscreenConfigFile;->putTask(Lmiui/app/screenelement/util/Task;)V
 
-    .line 192
     return-void
 .end method

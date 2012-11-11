@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 590
     iput-object p1, p0, Lcom/android/internal/policy/impl/LockScreen$4;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 2
 
     .prologue
-    .line 592
     iget-object v0, p0, Lcom/android/internal/policy/impl/LockScreen$4;->this$0:Lcom/android/internal/policy/impl/LockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/LockScreen;->mUnlockWidgetMethods:Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;
@@ -51,6 +49,5 @@
 
     invoke-interface {v0}, Lcom/android/internal/policy/impl/LockScreen$UnlockWidgetCommonMethods;->ping()V
 
-    .line 593
     return-void
 .end method

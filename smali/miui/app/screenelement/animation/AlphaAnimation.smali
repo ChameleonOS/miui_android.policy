@@ -30,22 +30,18 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 27
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 17
     const/16 v2, 0xff
 
     iput v2, p0, Lmiui/app/screenelement/animation/AlphaAnimation;->mCurrentAlpha:I
 
-    .line 29
     const-string v2, "delayValue"
 
     invoke-interface {p1, v2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 30
     .local v1, delayValue:Ljava/lang/String;
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -53,7 +49,6 @@
 
     if-nez v2, :cond_1b
 
-    .line 32
     :try_start_14
     invoke-static {v1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -63,17 +58,14 @@
     :try_end_1a
     .catch Ljava/lang/NumberFormatException; {:try_start_14 .. :try_end_1a} :catch_27
 
-    .line 40
     :goto_1a
     return-void
 
-    .line 37
     :cond_1b
     invoke-virtual {p0, v3}, Lmiui/app/screenelement/animation/AlphaAnimation;->getItem(I)Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     move-result-object v0
 
-    .line 38
     .local v0, ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     invoke-virtual {v0, v3}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
@@ -85,7 +77,6 @@
 
     goto :goto_1a
 
-    .line 33
     .end local v0           #ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     :catch_27
     move-exception v2
@@ -104,12 +95,10 @@
     .end annotation
 
     .prologue
-    .line 22
     const-string v0, "Alpha"
 
     invoke-direct {p0, p1, v0, p2}, Lmiui/app/screenelement/animation/AlphaAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 23
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
     move-result-object v0
@@ -144,7 +133,6 @@
 
     invoke-static {v0, v1}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 24
     return-void
 .end method
 
@@ -154,7 +142,6 @@
     .registers 2
 
     .prologue
-    .line 43
     iget v0, p0, Lmiui/app/screenelement/animation/AlphaAnimation;->mCurrentAlpha:I
 
     return v0
@@ -164,7 +151,6 @@
     .registers 5
 
     .prologue
-    .line 48
     new-instance v0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     const/4 v1, 0x1
@@ -193,22 +179,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 61
     if-nez p1, :cond_6
 
     if-nez p2, :cond_6
 
-    .line 67
     :goto_5
     return-void
 
-    .line 65
     :cond_6
     if-nez p1, :cond_1d
 
     const-wide v0, 0x406fe00000000000L
 
-    .line 66
     .local v0, a1:D
     :goto_d
     invoke-virtual {p2, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -233,7 +215,6 @@
 
     goto :goto_5
 
-    .line 65
     .end local v0           #a1:D
     :cond_1d
     invoke-virtual {p1, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -248,14 +229,11 @@
     .parameter "time"
 
     .prologue
-    .line 54
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
-    .line 55
     iget v0, p0, Lmiui/app/screenelement/animation/AlphaAnimation;->mDelayValue:I
 
     iput v0, p0, Lmiui/app/screenelement/animation/AlphaAnimation;->mCurrentAlpha:I
 
-    .line 56
     return-void
 .end method

@@ -26,10 +26,8 @@
     .end annotation
 
     .prologue
-    .line 22
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ElementGroup;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 23
     return-void
 .end method
 
@@ -40,7 +38,6 @@
     .parameter "c"
 
     .prologue
-    .line 46
     iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
 
     const/4 v1, 0x0
@@ -49,12 +46,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 47
     iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
 
     invoke-super {p0, v0}, Lmiui/app/screenelement/elements/ElementGroup;->doRender(Landroid/graphics/Canvas;)V
 
-    .line 48
     return-void
 .end method
 
@@ -62,12 +57,10 @@
     .registers 2
 
     .prologue
-    .line 41
     iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenBitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
-    .line 42
     return-void
 .end method
 
@@ -75,7 +68,6 @@
     .registers 2
 
     .prologue
-    .line 51
     iget-object v0, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenBitmap:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -87,21 +79,17 @@
     .prologue
     const/4 v4, 0x0
 
-    .line 27
     invoke-super {p0}, Lmiui/app/screenelement/elements/ElementGroup;->init()V
 
-    .line 28
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/VirtualScreen;->getWidth()F
 
     move-result v1
 
-    .line 29
     .local v1, width:F
     cmpg-float v2, v1, v4
 
     if-gez v2, :cond_1a
 
-    .line 30
     const-string v2, "screen_width"
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -116,19 +104,16 @@
 
     move-result v1
 
-    .line 31
     :cond_1a
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/VirtualScreen;->getHeight()F
 
     move-result v0
 
-    .line 32
     .local v0, height:F
     cmpg-float v2, v0, v4
 
     if-gez v2, :cond_30
 
-    .line 33
     const-string v2, "screen_height"
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -143,7 +128,6 @@
 
     move-result v0
 
-    .line 34
     :cond_30
     invoke-static {v1}, Ljava/lang/Math;->round(F)I
 
@@ -161,7 +145,6 @@
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenBitmap:Landroid/graphics/Bitmap;
 
-    .line 35
     iget-object v2, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenBitmap:Landroid/graphics/Bitmap;
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -172,7 +155,6 @@
 
     invoke-virtual {v2, v3}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    .line 36
     new-instance v2, Landroid/graphics/Canvas;
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenBitmap:Landroid/graphics/Bitmap;
@@ -181,6 +163,5 @@
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/VirtualScreen;->mScreenCanvas:Landroid/graphics/Canvas;
 
-    .line 37
     return-void
 .end method

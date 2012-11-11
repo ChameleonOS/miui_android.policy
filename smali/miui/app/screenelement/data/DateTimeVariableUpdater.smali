@@ -47,31 +47,26 @@
     .parameter "m"
 
     .prologue
-    .line 53
     invoke-direct {p0, p1}, Lmiui/app/screenelement/data/VariableUpdater;-><init>(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
-    .line 39
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
 
-    .line 43
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
 
-    .line 45
     new-instance v0, Lmiui/app/screenelement/data/DateTimeVariableUpdater$1;
 
     invoke-direct {v0, p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater$1;-><init>(Lmiui/app/screenelement/data/DateTimeVariableUpdater;)V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeUpdater:Ljava/lang/Runnable;
 
-    .line 55
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "ampm"
@@ -86,7 +81,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mAmPm:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 56
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "hour12"
@@ -101,7 +95,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHour12:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 57
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "hour24"
@@ -116,7 +109,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHour24:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 58
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "minute"
@@ -131,7 +123,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mMinute:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 59
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "second"
@@ -146,7 +137,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mSecond:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 60
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "year"
@@ -161,7 +151,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mYear:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 61
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "month"
@@ -176,7 +165,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mMonth:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 62
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "date"
@@ -191,7 +179,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mDate:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 63
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "day_of_week"
@@ -206,7 +193,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mDayOfWeek:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 65
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "time"
@@ -221,7 +207,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTime:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 66
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "time_sys"
@@ -236,7 +221,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeSys:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 67
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeSys:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -247,7 +231,6 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 69
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     const-string v1, "next_alarm_time"
@@ -262,7 +245,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mNextAlarm:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 70
     return-void
 .end method
 
@@ -271,7 +253,6 @@
     .parameter "x0"
 
     .prologue
-    .line 12
     invoke-direct {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->updateTime()V
 
     return-void
@@ -282,7 +263,6 @@
     .parameter "x0"
 
     .prologue
-    .line 12
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -292,7 +272,6 @@
     .registers 4
 
     .prologue
-    .line 107
     invoke-virtual {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->getContext()Lmiui/app/screenelement/ScreenContext;
 
     move-result-object v1
@@ -309,13 +288,11 @@
 
     move-result-object v0
 
-    .line 109
     .local v0, nextAlarm:Ljava/lang/String;
     iget-object v1, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mNextAlarm:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-virtual {v1, v0}, Lmiui/app/screenelement/util/IndexedStringVariable;->set(Ljava/lang/String;)V
 
-    .line 110
     return-void
 .end method
 
@@ -323,12 +300,10 @@
     .registers 7
 
     .prologue
-    .line 113
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
-    .line 114
     .local v0, elapsedRealTimeMillis:J
     iget-wide v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mLastUpdatedTime:J
 
@@ -340,7 +315,6 @@
 
     if-ltz v2, :cond_93
 
-    .line 115
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -349,7 +323,6 @@
 
     invoke-virtual {v2, v3, v4}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 117
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mAmPm:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -364,7 +337,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 118
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHour12:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -379,7 +351,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 119
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHour24:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -394,7 +365,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 120
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mMinute:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -409,7 +379,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 121
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mYear:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -424,7 +393,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 122
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mMonth:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -439,7 +407,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 123
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mDate:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -454,7 +421,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 125
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mDayOfWeek:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -469,7 +435,6 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 126
     iget-object v2, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mSecond:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v3, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
@@ -484,10 +449,8 @@
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 127
     iput-wide v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mLastUpdatedTime:J
 
-    .line 129
     :cond_93
     return-void
 .end method
@@ -498,17 +461,14 @@
     .registers 3
 
     .prologue
-    .line 102
     invoke-super {p0}, Lmiui/app/screenelement/data/VariableUpdater;->finish()V
 
-    .line 103
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 104
     return-void
 .end method
 
@@ -516,16 +476,12 @@
     .registers 5
 
     .prologue
-    .line 73
     invoke-super {p0}, Lmiui/app/screenelement/data/VariableUpdater;->init()V
 
-    .line 74
     invoke-direct {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->refreshAlarm()V
 
-    .line 75
     invoke-direct {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->updateTime()V
 
-    .line 76
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeUpdater:Ljava/lang/Runnable;
@@ -534,7 +490,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 77
     return-void
 .end method
 
@@ -542,17 +497,14 @@
     .registers 3
 
     .prologue
-    .line 97
     invoke-super {p0}, Lmiui/app/screenelement/data/VariableUpdater;->pause()V
 
-    .line 98
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 99
     return-void
 .end method
 
@@ -560,30 +512,24 @@
     .registers 3
 
     .prologue
-    .line 87
     invoke-super {p0}, Lmiui/app/screenelement/data/VariableUpdater;->resume()V
 
-    .line 88
     invoke-direct {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->refreshAlarm()V
 
-    .line 91
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mCalendar:Ljava/util/Calendar;
 
-    .line 92
     invoke-direct {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->updateTime()V
 
-    .line 93
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeUpdater:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 94
     return-void
 .end method
 
@@ -592,17 +538,14 @@
     .parameter "currentTime"
 
     .prologue
-    .line 80
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/data/VariableUpdater;->tick(J)V
 
-    .line 81
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTime:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     long-to-double v1, p1
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 82
     iget-object v0, p0, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->mTimeSys:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -613,9 +556,7 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 83
     invoke-direct {p0}, Lmiui/app/screenelement/data/DateTimeVariableUpdater;->updateTime()V
 
-    .line 84
     return-void
 .end method

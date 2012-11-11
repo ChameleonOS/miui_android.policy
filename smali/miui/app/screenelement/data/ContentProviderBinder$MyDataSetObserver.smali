@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 503
     iput-object p1, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     invoke-direct {p0}, Landroid/database/DataSetObserver;-><init>()V
@@ -38,7 +37,6 @@
     .parameter "x1"
 
     .prologue
-    .line 503
     invoke-direct {p0, p1}, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;-><init>(Lmiui/app/screenelement/data/ContentProviderBinder;)V
 
     return-void
@@ -50,7 +48,6 @@
     .registers 3
 
     .prologue
-    .line 506
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #getter for: Lmiui/app/screenelement/data/ContentProviderBinder;->mFinished:Z
@@ -60,19 +57,16 @@
 
     if-eqz v0, :cond_9
 
-    .line 514
     :cond_8
     :goto_8
     return-void
 
-    .line 509
     :cond_9
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #calls: Lmiui/app/screenelement/data/ContentProviderBinder;->updateVariables()V
     invoke-static {v0}, Lmiui/app/screenelement/data/ContentProviderBinder;->access$400(Lmiui/app/screenelement/data/ContentProviderBinder;)V
 
-    .line 511
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #getter for: Lmiui/app/screenelement/data/ContentProviderBinder;->mQueryCompletedListener:Lmiui/app/screenelement/data/ContentProviderBinder$QueryCompleteListener;
@@ -82,7 +76,6 @@
 
     if-eqz v0, :cond_8
 
-    .line 512
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #getter for: Lmiui/app/screenelement/data/ContentProviderBinder;->mQueryCompletedListener:Lmiui/app/screenelement/data/ContentProviderBinder$QueryCompleteListener;
@@ -103,7 +96,6 @@
     .registers 3
 
     .prologue
-    .line 518
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #getter for: Lmiui/app/screenelement/data/ContentProviderBinder;->mFinished:Z
@@ -113,19 +105,16 @@
 
     if-eqz v0, :cond_9
 
-    .line 526
     :cond_8
     :goto_8
     return-void
 
-    .line 521
     :cond_9
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #calls: Lmiui/app/screenelement/data/ContentProviderBinder;->updateVariables()V
     invoke-static {v0}, Lmiui/app/screenelement/data/ContentProviderBinder;->access$400(Lmiui/app/screenelement/data/ContentProviderBinder;)V
 
-    .line 523
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #getter for: Lmiui/app/screenelement/data/ContentProviderBinder;->mQueryCompletedListener:Lmiui/app/screenelement/data/ContentProviderBinder$QueryCompleteListener;
@@ -135,7 +124,6 @@
 
     if-eqz v0, :cond_8
 
-    .line 524
     iget-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$MyDataSetObserver;->this$0:Lmiui/app/screenelement/data/ContentProviderBinder;
 
     #getter for: Lmiui/app/screenelement/data/ContentProviderBinder;->mQueryCompletedListener:Lmiui/app/screenelement/data/ContentProviderBinder$QueryCompleteListener;

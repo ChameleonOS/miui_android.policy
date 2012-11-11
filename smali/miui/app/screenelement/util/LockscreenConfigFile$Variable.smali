@@ -30,7 +30,6 @@
     .parameter
 
     .prologue
-    .line 39
     iput-object p1, p0, Lmiui/app/screenelement/util/LockscreenConfigFile$Variable;->this$0:Lmiui/app/screenelement/util/LockscreenConfigFile;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V

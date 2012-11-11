@@ -30,7 +30,6 @@
     .parameter
 
     .prologue
-    .line 3661
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iput-object p2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
@@ -47,10 +46,8 @@
     .parameter "windowToken"
 
     .prologue
-    .line 3663
     if-eqz p1, :cond_f
 
-    .line 3665
     :try_start_2
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -64,11 +61,9 @@
     :try_end_e
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_e} :catch_2a
 
-    .line 3684
     :goto_e
     return-void
 
-    .line 3678
     :cond_f
     const-string v0, "WindowManager"
 
@@ -76,19 +71,16 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 3679
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->val$screenOnListener:Landroid/view/WindowManagerPolicy$ScreenOnListener;
 
     invoke-interface {v0}, Landroid/view/WindowManagerPolicy$ScreenOnListener;->onScreenOn()V
 
-    .line 3680
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     iget-object v1, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mLock:Ljava/lang/Object;
 
     monitor-enter v1
 
-    .line 3681
     :try_start_20
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$14;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -96,7 +88,6 @@
 
     iput-boolean v2, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenOnFully:Z
 
-    .line 3682
     monitor-exit v1
 
     goto :goto_e
@@ -110,7 +101,6 @@
 
     throw v0
 
-    .line 3675
     :catch_2a
     move-exception v0
 

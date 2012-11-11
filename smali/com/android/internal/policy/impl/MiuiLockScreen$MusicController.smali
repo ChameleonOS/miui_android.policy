@@ -89,40 +89,34 @@
     .parameter
 
     .prologue
-    .line 1512
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1904
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$2;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$2;-><init>(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
-    .line 1991
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mHandler:Landroid/os/Handler;
 
-    .line 1993
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;-><init>(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mPlayerStatusListener:Landroid/content/BroadcastReceiver;
 
-    .line 2046
     new-instance v0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$4;
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$4;-><init>(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;)V
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnableSpectrumVisualizerRunnable:Ljava/lang/Runnable;
 
-    .line 1513
     return-void
 .end method
 
@@ -131,7 +125,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateSpectrumVisualizer()V
 
     return-void
@@ -142,7 +135,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     return-object v0
@@ -153,7 +145,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     return-object v0
@@ -164,7 +155,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mDefaultAlbum:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -175,7 +165,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     return-object v0
@@ -186,7 +175,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->isAlbumShow()Z
 
     move-result v0
@@ -199,7 +187,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateMusic()V
 
     return-void
@@ -210,7 +197,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     return-object v0
@@ -222,7 +208,6 @@
     .parameter "x1"
 
     .prologue
-    .line 1490
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setTrackInfo(Landroid/content/Intent;)V
 
     return-void
@@ -234,7 +219,6 @@
     .parameter "x1"
 
     .prologue
-    .line 1490
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->requestAlbum(Landroid/content/Intent;)V
 
     return-void
@@ -246,7 +230,6 @@
     .parameter "x1"
 
     .prologue
-    .line 1490
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setAlbumInfo(Landroid/content/Intent;)V
 
     return-void
@@ -257,7 +240,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->showAlbum()V
 
     return-void
@@ -269,7 +251,6 @@
     .parameter "x1"
 
     .prologue
-    .line 1490
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mIsOnlineSongBlocking:Z
 
     return p1
@@ -280,7 +261,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
     return-object v0
@@ -291,7 +271,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnableSpectrumVisualizerRunnable:Ljava/lang/Runnable;
 
     return-object v0
@@ -302,7 +281,6 @@
     .parameter "x0"
 
     .prologue
-    .line 1490
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     return-object v0
@@ -317,7 +295,6 @@
 
     const/4 v1, 0x0
 
-    .line 1891
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-eqz p1, :cond_1a
@@ -327,16 +304,13 @@
     :goto_7
     invoke-virtual {v2, v0}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1892
     if-eqz p1, :cond_1d
 
-    .line 1893
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #setter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mControlViewType:I
     invoke-static {v0, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2102(Lcom/android/internal/policy/impl/MiuiLockScreen;I)I
 
-    .line 1894
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
@@ -346,22 +320,18 @@
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen;->setControlView(Landroid/view/View;Landroid/view/ViewGroup$MarginLayoutParams;)V
     invoke-static {v0, v1, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2300(Lcom/android/internal/policy/impl/MiuiLockScreen;Landroid/view/View;Landroid/view/ViewGroup$MarginLayoutParams;)V
 
-    .line 1901
     :cond_19
     :goto_19
     return-void
 
-    .line 1891
     :cond_1a
     const/16 v0, 0x8
 
     goto :goto_7
 
-    .line 1896
     :cond_1d
     iput v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
-    .line 1897
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mControlViewType:I
@@ -371,7 +341,6 @@
 
     if-ne v0, v3, :cond_19
 
-    .line 1898
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen;->updateControlView()V
@@ -386,40 +355,33 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1754
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->clearAnimation()V
 
-    .line 1755
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->clearAnimation()V
 
-    .line 1756
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setVisibility(I)V
 
-    .line 1757
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0, v2}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1758
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0, v2}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1759
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen;->updateBackground()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2000(Lcom/android/internal/policy/impl/MiuiLockScreen;)V
 
-    .line 1760
     return-void
 .end method
 
@@ -427,7 +389,6 @@
     .registers 2
 
     .prologue
-    .line 1742
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_6
@@ -447,19 +408,16 @@
     .registers 3
 
     .prologue
-    .line 1686
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumChanged:Z
 
     if-eqz v1, :cond_14
 
-    .line 1687
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "lockscreen.action.SONG_METADATA_REQUEST"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1688
     .local v0, requestIntent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
@@ -470,7 +428,6 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 1690
     .end local v0           #requestIntent:Landroid/content/Intent;
     :cond_14
     return-void
@@ -481,12 +438,10 @@
     .parameter "intent"
 
     .prologue
-    .line 1693
     const/4 v0, 0x0
 
     invoke-virtual {p0, p1, v0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->requestAlbum(Landroid/content/Intent;Z)V
 
-    .line 1694
     return-void
 .end method
 
@@ -498,12 +453,10 @@
     .prologue
     const/4 v9, 0x0
 
-    .line 1653
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
-    .line 1654
     .local v1, eventtime:J
     new-instance v0, Landroid/view/KeyEvent;
 
@@ -517,7 +470,6 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/view/KeyEvent;-><init>(JJIII)V
 
-    .line 1656
     .local v0, event:Landroid/view/KeyEvent;
     new-instance v8, Landroid/content/Intent;
 
@@ -525,7 +477,6 @@
 
     invoke-direct {v8, v3, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 1657
     .local v8, intent:Landroid/content/Intent;
     const-string v3, "forbid_double_click"
 
@@ -533,7 +484,6 @@
 
     invoke-virtual {v8, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 1658
     const-string v3, "android.intent.extra.KEY_EVENT"
 
     const/16 v4, 0x8
@@ -544,7 +494,6 @@
 
     invoke-virtual {v8, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 1661
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -554,7 +503,6 @@
 
     invoke-virtual {v3, v8, v9}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 1662
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->isPaused:Z
@@ -577,7 +525,6 @@
 
     if-eqz v3, :cond_4c
 
-    .line 1663
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
@@ -587,7 +534,6 @@
 
     invoke-interface {v3}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock()V
 
-    .line 1665
     :cond_4c
     return-void
 .end method
@@ -601,20 +547,16 @@
 
     const/4 v6, 0x0
 
-    .line 1799
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnable:Z
 
     if-nez v3, :cond_8
 
-    .line 1832
     :goto_7
     return-void
 
-    .line 1802
     :cond_8
     iput-boolean v6, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumChanged:Z
 
-    .line 1803
     const-string v3, "album"
 
     invoke-virtual {p1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -623,7 +565,6 @@
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumName:Ljava/lang/String;
 
-    .line 1804
     const-string v3, "artist"
 
     invoke-virtual {p1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -632,7 +573,6 @@
 
     iput-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mArtistName:Ljava/lang/String;
 
-    .line 1806
     :try_start_1a
     const-string v3, "tmp_album_path"
 
@@ -640,11 +580,9 @@
 
     move-result-object v0
 
-    .line 1807
     .local v0, albumPath:Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 1808
     .local v1, bm:Landroid/graphics/Bitmap;
     if-eqz v0, :cond_4a
 
@@ -654,50 +592,42 @@
 
     if-eqz v1, :cond_4a
 
-    .line 1810
     iput-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
     :try_end_2b
     .catchall {:try_start_1a .. :try_end_2b} :catchall_9b
     .catch Ljava/lang/OutOfMemoryError; {:try_start_1a .. :try_end_2b} :catch_4e
 
-    .line 1818
     :goto_2b
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v3, :cond_71
 
-    .line 1819
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v3, v4}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1820
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v3, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1825
     :goto_3b
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v3, :cond_7e
 
-    .line 1826
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v3, v4}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1830
     :goto_46
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->startTrackChangeAnim()V
 
     goto :goto_7
 
-    .line 1813
     :cond_4a
     const/4 v3, 0x0
 
@@ -709,13 +639,11 @@
 
     goto :goto_2b
 
-    .line 1815
     .end local v0           #albumPath:Ljava/lang/String;
     .end local v1           #bm:Landroid/graphics/Bitmap;
     :catch_4e
     move-exception v2
 
-    .line 1816
     .local v2, e:Ljava/lang/OutOfMemoryError;
     const/4 v3, 0x0
 
@@ -724,43 +652,36 @@
     :try_end_52
     .catchall {:try_start_50 .. :try_end_52} :catchall_9b
 
-    .line 1818
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v3, :cond_86
 
-    .line 1819
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v3, v4}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1820
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v3, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1825
     :goto_62
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v3, :cond_93
 
-    .line 1826
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v3, v4}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1830
     :goto_6d
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->startTrackChangeAnim()V
 
     goto :goto_7
 
-    .line 1822
     .end local v2           #e:Ljava/lang/OutOfMemoryError;
     .restart local v0       #albumPath:Ljava/lang/String;
     .restart local v1       #bm:Landroid/graphics/Bitmap;
@@ -771,14 +692,12 @@
 
     invoke-virtual {v3, v4}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1823
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v3, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_3b
 
-    .line 1828
     :cond_7e
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
@@ -788,7 +707,6 @@
 
     goto :goto_46
 
-    .line 1822
     .end local v0           #albumPath:Ljava/lang/String;
     .end local v1           #bm:Landroid/graphics/Bitmap;
     .restart local v2       #e:Ljava/lang/OutOfMemoryError;
@@ -799,14 +717,12 @@
 
     invoke-virtual {v3, v4}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1823
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v3, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_62
 
-    .line 1828
     :cond_93
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
@@ -816,7 +732,6 @@
 
     goto :goto_6d
 
-    .line 1818
     .end local v2           #e:Ljava/lang/OutOfMemoryError;
     :catchall_9b
     move-exception v3
@@ -825,38 +740,32 @@
 
     if-eqz v4, :cond_bb
 
-    .line 1819
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v4, v5}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1820
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v4, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1825
     :goto_ac
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v4, :cond_c8
 
-    .line 1826
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v4, v5}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1830
     :goto_b7
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->startTrackChangeAnim()V
 
     throw v3
 
-    .line 1822
     :cond_bb
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
@@ -864,14 +773,12 @@
 
     invoke-virtual {v4, v5}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1823
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     goto :goto_ac
 
-    .line 1828
     :cond_c8
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
@@ -891,14 +798,12 @@
 
     const/4 v5, 0x0
 
-    .line 1836
     const-string v2, "track"
 
     invoke-virtual {p1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1837
     .local v1, title:Ljava/lang/String;
     const-string v2, "artist"
 
@@ -906,11 +811,9 @@
 
     move-result-object v0
 
-    .line 1838
     .local v0, artist:Ljava/lang/String;
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mIsOnlineSongBlocking:Z
 
-    .line 1840
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -923,18 +826,15 @@
 
     if-eqz v2, :cond_24
 
-    .line 1841
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
     const/16 v3, 0x8
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1854
     :goto_23
     return-void
 
-    .line 1843
     :cond_24
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -942,25 +842,21 @@
 
     if-eqz v2, :cond_3a
 
-    .line 1844
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1851
     :goto_2f
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setVisibility(I)V
 
-    .line 1852
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setSelected(Z)V
 
     goto :goto_23
 
-    .line 1845
     :cond_3a
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -968,14 +864,12 @@
 
     if-eqz v2, :cond_46
 
-    .line 1846
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
     invoke-virtual {v2, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_2f
 
-    .line 1848
     :cond_46
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
@@ -1002,7 +896,6 @@
     .registers 6
 
     .prologue
-    .line 1580
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -1020,7 +913,6 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
-    .line 1581
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
@@ -1035,14 +927,12 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1584
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
 
-    .line 1585
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b0041
@@ -1055,7 +945,6 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicTitle:Landroid/widget/TextView;
 
-    .line 1587
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b0044
@@ -1068,19 +957,16 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
-    .line 1588
     iget v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicatorId:I
 
     if-eqz v0, :cond_49
 
-    .line 1589
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     iget v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicatorId:I
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1592
     :cond_49
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
@@ -1092,7 +978,6 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 1593
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b0043
@@ -1103,7 +988,6 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 1595
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b003d
@@ -1116,12 +1000,10 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicPlayPauseButton:Landroid/widget/ImageView;
 
-    .line 1596
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicPlayPauseButton:Landroid/widget/ImageView;
 
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    .line 1598
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b0040
@@ -1134,7 +1016,6 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
-    .line 1599
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b003e
@@ -1147,7 +1028,6 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
-    .line 1600
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const v1, 0x60b003f
@@ -1160,17 +1040,14 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
-    .line 1601
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    .line 1602
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->init()V
 
-    .line 1603
     return-void
 .end method
 
@@ -1182,44 +1059,36 @@
 
     const/4 v2, 0x0
 
-    .line 1763
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0, v3}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setVisibility(I)V
 
-    .line 1764
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0, v2}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setVisibility(I)V
 
-    .line 1766
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     if-eqz v0, :cond_23
 
-    .line 1767
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1768
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1773
     :goto_1d
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen;->updateBackground()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2000(Lcom/android/internal/policy/impl/MiuiLockScreen;)V
 
-    .line 1774
     return-void
 
-    .line 1770
     :cond_23
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
@@ -1227,7 +1096,6 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1771
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -1240,19 +1108,15 @@
     .parameter "type"
 
     .prologue
-    .line 1780
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->clearAnimation()V
 
-    .line 1781
     packed-switch p1, :pswitch_data_22
 
-    .line 1796
     :goto_8
     return-void
 
-    .line 1783
     :pswitch_9
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
@@ -1260,12 +1124,10 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1784
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->showAlbum()V
 
     goto :goto_8
 
-    .line 1788
     :pswitch_14
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
@@ -1275,7 +1137,6 @@
 
     goto :goto_8
 
-    .line 1792
     :pswitch_1c
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
@@ -1283,7 +1144,6 @@
 
     goto :goto_8
 
-    .line 1781
     :pswitch_data_22
     .packed-switch 0x0
         :pswitch_1c
@@ -1296,37 +1156,31 @@
     .registers 3
 
     .prologue
-    .line 1746
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->clearAnimation()V
 
-    .line 1747
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->clearAnimation()V
 
-    .line 1748
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen;->updateBackground()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2000(Lcom/android/internal/policy/impl/MiuiLockScreen;)V
 
-    .line 1749
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setVisibility(I)V
 
-    .line 1750
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumFadeOutAnim:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 1751
     return-void
 .end method
 
@@ -1334,17 +1188,14 @@
     .registers 5
 
     .prologue
-    .line 1932
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-nez v2, :cond_5
 
-    .line 1957
     :cond_4
     :goto_4
     return-void
 
-    .line 1935
     :cond_5
     const/4 v2, 0x3
 
@@ -1354,20 +1205,16 @@
 
     move-result v0
 
-    .line 1937
     .local v0, isMusicActive:Z
     move v1, v0
 
-    .line 1938
     .local v1, isShowPlaying:Z
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mIsOnlineSongBlocking:Z
 
     if-eqz v2, :cond_11
 
-    .line 1939
     const/4 v1, 0x1
 
-    .line 1941
     :cond_11
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicPlayPauseButton:Landroid/widget/ImageView;
 
@@ -1378,42 +1225,35 @@
     :goto_18
     invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1944
     iget v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
     packed-switch v2, :pswitch_data_32
 
     goto :goto_4
 
-    .line 1952
     :pswitch_21
     if-eqz v0, :cond_4
 
-    .line 1953
     const/4 v2, 0x2
 
     iput v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
     goto :goto_4
 
-    .line 1941
     :cond_27
     const v2, 0x60200b1
 
     goto :goto_18
 
-    .line 1946
     :pswitch_2b
     if-nez v0, :cond_4
 
-    .line 1947
     const/4 v2, 0x1
 
     iput v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
     goto :goto_4
 
-    .line 1944
     nop
 
     :pswitch_data_32
@@ -1429,16 +1269,13 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 2055
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
     if-nez v1, :cond_6
 
-    .line 2062
     :goto_5
     return-void
 
-    .line 2058
     :cond_6
     const/4 v1, 0x3
 
@@ -1467,7 +1304,6 @@
 
     const/4 v0, 0x1
 
-    .line 2061
     .local v0, isEnable:Z
     :cond_1e
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
@@ -1483,12 +1319,10 @@
     .registers 2
 
     .prologue
-    .line 1918
     const/16 v0, 0x3e8
 
     invoke-virtual {p0, v0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->addCheckStreamCallbacks(I)V
 
-    .line 1919
     return-void
 .end method
 
@@ -1497,10 +1331,8 @@
     .parameter "delayTime"
 
     .prologue
-    .line 1922
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->removeCheckStreamCallbacks()V
 
-    .line 1923
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
@@ -1509,7 +1341,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 1924
     return-void
 .end method
 
@@ -1517,17 +1348,14 @@
     .registers 2
 
     .prologue
-    .line 1974
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-eqz v0, :cond_9
 
-    .line 1975
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
 
-    .line 1977
     :cond_9
     return-void
 .end method
@@ -1539,25 +1367,19 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1672
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnable:Z
 
-    .line 1673
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumChanged:Z
 
     if-eqz v1, :cond_b
 
-    .line 1674
     iput-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
-    .line 1675
     iput-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
-    .line 1677
     :cond_b
     if-eqz p1, :cond_1c
 
-    .line 1678
     const/4 v1, 0x3
 
     const/4 v2, 0x0
@@ -1566,7 +1388,6 @@
 
     move-result v0
 
-    .line 1679
     .local v0, isMusicActive:Z
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mIsOnlineSongBlocking:Z
 
@@ -1574,11 +1395,9 @@
 
     if-eqz v0, :cond_1c
 
-    .line 1680
     :cond_19
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->requestAlbum()V
 
-    .line 1683
     .end local v0           #isMusicActive:Z
     :cond_1c
     return-void
@@ -1588,19 +1407,15 @@
     .registers 2
 
     .prologue
-    .line 1980
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-nez v0, :cond_7
 
-    .line 1981
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setupMusicControl()V
 
-    .line 1983
     :cond_7
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateMusic()V
 
-    .line 1984
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     return-object v0
@@ -1614,7 +1429,6 @@
 
     const/4 v10, 0x1
 
-    .line 1516
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -1630,7 +1444,6 @@
 
     iput-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumFadeInAnim:Landroid/view/animation/Animation;
 
-    .line 1517
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -1646,10 +1459,8 @@
 
     iput-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumFadeOutAnim:Landroid/view/animation/Animation;
 
-    .line 1518
     iput-boolean v10, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumChanged:Z
 
-    .line 1519
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -1669,28 +1480,23 @@
 
     iput-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mDefaultAlbum:Landroid/graphics/Bitmap;
 
-    .line 1521
     new-instance v2, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;
 
     invoke-direct {v2, p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;-><init>(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;)V
 
-    .line 1547
     .local v2, animationListener:Landroid/view/animation/Animation$AnimationListener;
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumFadeInAnim:Landroid/view/animation/Animation;
 
     invoke-virtual {v8, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 1548
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumFadeOutAnim:Landroid/view/animation/Animation;
 
     invoke-virtual {v8, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 1549
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumFadeInAnim:Landroid/view/animation/Animation;
 
     invoke-virtual {v8, v10}, Landroid/view/animation/Animation;->setFillAfter(Z)V
 
-    .line 1551
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -1702,7 +1508,6 @@
 
     move-result-object v6
 
-    .line 1552
     .local v6, res:Landroid/content/res/Resources;
     const v8, 0x60200a3
 
@@ -1710,48 +1515,40 @@
 
     move-result-object v4
 
-    .line 1553
     .local v4, is:Ljava/io/InputStream;
     new-instance v5, Landroid/graphics/Rect;
 
     invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
 
-    .line 1554
     .local v5, rect:Landroid/graphics/Rect;
     invoke-static {v6, v11, v4, v5, v11}, Landroid/graphics/BitmapFactory;->decodeResourceStream(Landroid/content/res/Resources;Landroid/util/TypedValue;Ljava/io/InputStream;Landroid/graphics/Rect;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
-    .line 1556
     .local v0, albumFilter:Landroid/graphics/Bitmap;
     if-eqz v4, :cond_68
 
-    .line 1557
     :try_start_65
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
     :try_end_68
     .catch Ljava/io/IOException; {:try_start_65 .. :try_end_68} :catch_bd
 
-    .line 1562
     :cond_68
     :goto_68
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8, v5}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setRect(Landroid/graphics/Rect;)V
 
-    .line 1563
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8, v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setFilterBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1564
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v9, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mDefaultAlbum:Landroid/graphics/Bitmap;
 
     invoke-virtual {v8, v9}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1565
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8}, Lcom/miui/internal/policy/impl/AlbumFrameView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1760,7 +1557,6 @@
 
     check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 1566
     .local v1, albumView:Landroid/widget/FrameLayout$LayoutParams;
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -1768,36 +1564,30 @@
 
     iput v8, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1567
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v8
 
     iput v8, v1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
-    .line 1568
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1570
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8, v5}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setRect(Landroid/graphics/Rect;)V
 
-    .line 1571
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8, v0}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setFilterBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1572
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     iget-object v9, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mDefaultAlbum:Landroid/graphics/Bitmap;
 
     invoke-virtual {v8, v9}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1573
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8}, Lcom/miui/internal/policy/impl/AlbumFrameView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1806,7 +1596,6 @@
 
     check-cast v7, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 1574
     .local v7, tempAlbumView:Landroid/widget/FrameLayout$LayoutParams;
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
@@ -1814,28 +1603,23 @@
 
     iput v8, v7, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    .line 1575
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v8
 
     iput v8, v7, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
-    .line 1576
     iget-object v8, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v8, v7}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 1577
     return-void
 
-    .line 1559
     .end local v1           #albumView:Landroid/widget/FrameLayout$LayoutParams;
     .end local v7           #tempAlbumView:Landroid/widget/FrameLayout$LayoutParams;
     :catch_bd
     move-exception v3
 
-    .line 1560
     .local v3, e:Ljava/io/IOException;
     invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
 
@@ -1846,7 +1630,6 @@
     .registers 2
 
     .prologue
-    .line 1606
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-eqz v0, :cond_e
@@ -1874,7 +1657,6 @@
     .registers 2
 
     .prologue
-    .line 1960
     iget v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
     if-nez v0, :cond_6
@@ -1896,32 +1678,25 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 2066
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnableSpectrumVisualizerRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MiuiLockScreen;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 2067
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-eqz v0, :cond_12
 
-    .line 2068
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableMusicControl(Z)V
 
-    .line 2069
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableAlbum(Z)V
 
-    .line 2071
     :cond_12
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->removeCheckStreamCallbacks()V
 
-    .line 2072
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateSpectrumVisualizer()V
 
-    .line 2073
     return-void
 .end method
 
@@ -1933,7 +1708,6 @@
 
     const/4 v2, 0x0
 
-    .line 2076
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -1945,19 +1719,15 @@
 
     move-result v0
 
-    .line 2077
     .local v0, isMusicActive:Z
     if-eqz v0, :cond_31
 
-    .line 2078
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-nez v1, :cond_15
 
-    .line 2079
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setupMusicControl()V
 
-    .line 2081
     :cond_15
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
@@ -1966,18 +1736,14 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mControlViewType:I
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2102(Lcom/android/internal/policy/impl/MiuiLockScreen;I)I
 
-    .line 2082
     const/4 v1, 0x2
 
     iput v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
-    .line 2083
     invoke-direct {p0, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableMusicControl(Z)V
 
-    .line 2084
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableAlbum(Z)V
 
-    .line 2086
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnableSpectrumVisualizerRunnable:Ljava/lang/Runnable;
@@ -1986,39 +1752,30 @@
 
     invoke-virtual {v1, v2, v3, v4}, Lcom/android/internal/policy/impl/MiuiLockScreen;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 2098
     :cond_2d
     :goto_2d
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->addCheckStreamCallbacks()V
 
-    .line 2099
     return-void
 
-    .line 2088
     :cond_31
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #setter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mControlViewType:I
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2102(Lcom/android/internal/policy/impl/MiuiLockScreen;I)I
 
-    .line 2089
     iput v2, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
-    .line 2090
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-eqz v1, :cond_2d
 
-    .line 2091
     invoke-direct {p0, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableMusicControl(Z)V
 
-    .line 2092
     invoke-virtual {p0, v2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableAlbum(Z)V
 
-    .line 2093
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->hideAlbum()V
 
-    .line 2094
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateSpectrumVisualizer()V
 
     goto :goto_2d
@@ -2036,10 +1793,8 @@
 
     const/4 v3, 0x1
 
-    .line 1617
     const/16 v1, 0x55
 
-    .line 1619
     .local v1, keyCode:I
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -2047,7 +1802,6 @@
 
     packed-switch v4, :pswitch_data_5e
 
-    .line 1629
     :goto_c
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
@@ -2055,11 +1809,9 @@
 
     and-int/lit16 v0, v4, 0xff
 
-    .line 1630
     .local v0, action:I
     if-nez v0, :cond_2a
 
-    .line 1631
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mSelector:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -2069,32 +1821,25 @@
 
     invoke-virtual {v4, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->requestDisallowInterceptTouchEvent(Z)V
 
-    .line 1632
     invoke-direct {p0, v2, v1}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->sendMediaButtonBroadcast(II)V
 
-    .line 1633
     invoke-virtual {p1, v3}, Landroid/view/View;->setPressed(Z)V
 
-    .line 1649
     :cond_23
     :goto_23
     return v3
 
-    .line 1621
     .end local v0           #action:I
     :pswitch_24
     const/16 v1, 0x58
 
-    .line 1622
     goto :goto_c
 
-    .line 1625
     :pswitch_27
     const/16 v1, 0x57
 
     goto :goto_c
 
-    .line 1635
     .restart local v0       #action:I
     :cond_2a
     if-eq v0, v3, :cond_2f
@@ -2103,14 +1848,11 @@
 
     if-ne v0, v4, :cond_23
 
-    .line 1636
     :cond_2f
     invoke-direct {p0, v3, v1}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->sendMediaButtonBroadcast(II)V
 
-    .line 1637
     invoke-virtual {p1, v2}, Landroid/view/View;->setPressed(Z)V
 
-    .line 1639
     const/16 v4, 0x55
 
     if-ne v1, v4, :cond_3e
@@ -2121,7 +1863,6 @@
 
     move v2, v3
 
-    .line 1641
     .local v2, showPlayIcon:Z
     :cond_3e
     iget-object v6, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicPlayPauseButton:Landroid/widget/ImageView;
@@ -2133,7 +1874,6 @@
     :goto_45
     invoke-virtual {v6, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1643
     if-eqz v2, :cond_5c
 
     move v4, v3
@@ -2141,19 +1881,16 @@
     :goto_4b
     iput v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
-    .line 1644
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mSpectrumVisualizer:Lmiui/widget/SpectrumVisualizer;
 
     invoke-virtual {v4, v3}, Lmiui/widget/SpectrumVisualizer;->enableUpdate(Z)V
 
-    .line 1647
     const/16 v4, 0xbb8
 
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->addCheckStreamCallbacks(I)V
 
     goto :goto_23
 
-    .line 1641
     :cond_58
     const v4, 0x60200ae
 
@@ -2162,10 +1899,8 @@
     :cond_5c
     move v4, v5
 
-    .line 1643
     goto :goto_4b
 
-    .line 1619
     :pswitch_data_5e
     .packed-switch 0x60b0042
         :pswitch_24
@@ -2177,33 +1912,27 @@
     .registers 6
 
     .prologue
-    .line 2030
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 2031
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v1, "com.miui.player.metachanged"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 2032
     const-string v1, "lockscreen.action.SONG_METADATA_UPDATED"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 2033
     const-string v1, "com.miui.player.refreshprogress"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 2034
     const-string v1, "com.miui.player.playstatechanged"
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 2035
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -2219,7 +1948,6 @@
 
     invoke-virtual {v1, v2, v0, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 2036
     return-void
 .end method
 
@@ -2227,14 +1955,12 @@
     .registers 3
 
     .prologue
-    .line 1914
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/policy/impl/MiuiLockScreen;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 1915
     return-void
 .end method
 
@@ -2246,22 +1972,18 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 1696
     const/4 v5, 0x1
 
     iput-boolean v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumChanged:Z
 
-    .line 1697
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnable:Z
 
     if-nez v5, :cond_9
 
-    .line 1739
     :cond_8
     :goto_8
     return-void
 
-    .line 1700
     :cond_9
     const-string v5, "album"
 
@@ -2269,7 +1991,6 @@
 
     move-result-object v0
 
-    .line 1701
     .local v0, albumName:Ljava/lang/String;
     const-string v5, "artist"
 
@@ -2277,25 +1998,19 @@
 
     move-result-object v2
 
-    .line 1702
     .local v2, artistName:Ljava/lang/String;
     if-nez v0, :cond_19
 
-    .line 1703
     const-string v0, ""
 
-    .line 1705
     :cond_19
     if-nez v2, :cond_1d
 
-    .line 1706
     const-string v2, ""
 
-    .line 1708
     :cond_1d
     if-nez p2, :cond_37
 
-    .line 1709
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumName:Ljava/lang/String;
 
     invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2312,18 +2027,15 @@
 
     if-eqz v5, :cond_33
 
-    .line 1710
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     if-nez v5, :cond_8
 
-    .line 1715
     :cond_33
     iget-boolean v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mEnable:Z
 
     if-eqz v5, :cond_8
 
-    .line 1720
     :cond_37
     const-string v5, "album_uri"
 
@@ -2333,41 +2045,32 @@
 
     check-cast v4, Landroid/net/Uri;
 
-    .line 1721
     .local v4, uri:Landroid/net/Uri;
     const/4 v3, 0x0
 
-    .line 1722
     .local v3, isNeedRequest:Z
     if-eqz v4, :cond_54
 
-    .line 1723
     const/4 v3, 0x1
 
-    .line 1731
     :cond_43
     :goto_43
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
     iput-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumBm:Landroid/graphics/Bitmap;
 
-    .line 1732
     iput-object v6, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
 
-    .line 1733
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
 
     invoke-virtual {v5, v6}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1734
     if-eqz v3, :cond_5e
 
-    .line 1735
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->requestAlbum()V
 
     goto :goto_8
 
-    .line 1725
     :cond_54
     const-string v5, "album_path"
 
@@ -2375,16 +2078,13 @@
 
     move-result-object v1
 
-    .line 1726
     .local v1, albumPath:Ljava/lang/String;
     if-eqz v1, :cond_43
 
-    .line 1727
     const/4 v3, 0x1
 
     goto :goto_43
 
-    .line 1737
     .end local v1           #albumPath:Ljava/lang/String;
     :cond_5e
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->startTrackChangeAnim()V
@@ -2397,19 +2097,16 @@
     .parameter "resId"
 
     .prologue
-    .line 1610
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_b
 
-    .line 1611
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
 
     iget v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicatorId:I
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 1613
     :cond_b
     return-void
 .end method
@@ -2420,7 +2117,6 @@
     .prologue
     const/4 v0, 0x1
 
-    .line 1964
     iget v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
     const/4 v2, 0x2
@@ -2431,16 +2127,13 @@
 
     if-ne v1, v0, :cond_12
 
-    .line 1965
     :cond_a
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-nez v1, :cond_11
 
-    .line 1966
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setupMusicControl()V
 
-    .line 1970
     :cond_11
     :goto_11
     return v0
@@ -2461,15 +2154,12 @@
 
     const/4 v4, 0x0
 
-    .line 1861
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
     if-nez v5, :cond_a
 
-    .line 1862
     invoke-direct {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setupMusicControl()V
 
-    .line 1864
     :cond_a
     iget-object v5, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
 
@@ -2481,7 +2171,6 @@
 
     move v2, v3
 
-    .line 1865
     .local v2, isMusicShowNow:Z
     :goto_13
     const/4 v5, 0x3
@@ -2490,11 +2179,9 @@
 
     move-result v1
 
-    .line 1867
     .local v1, isMusicActive:Z
     if-nez v2, :cond_33
 
-    .line 1868
     iget-object v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     const/4 v5, 0x4
@@ -2502,23 +2189,17 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mControlViewType:I
     invoke-static {v4, v5}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2102(Lcom/android/internal/policy/impl/MiuiLockScreen;I)I
 
-    .line 1869
     if-eqz v1, :cond_30
 
-    .line 1870
     iput v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
-    .line 1874
     :goto_24
     invoke-direct {p0, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableMusicControl(Z)V
 
-    .line 1875
     invoke-virtual {p0, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableAlbum(Z)V
 
-    .line 1876
     invoke-direct {p0, v3}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->startAlbumAnim(I)V
 
-    .line 1887
     :goto_2d
     return-void
 
@@ -2527,10 +2208,8 @@
     :cond_2e
     move v2, v4
 
-    .line 1864
     goto :goto_13
 
-    .line 1872
     .restart local v1       #isMusicActive:Z
     .restart local v2       #isMusicShowNow:Z
     :cond_30
@@ -2538,20 +2217,16 @@
 
     goto :goto_24
 
-    .line 1879
     :cond_33
     iput v4, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicStatus:I
 
-    .line 1880
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #setter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mControlViewType:I
     invoke-static {v3, v4}, Lcom/android/internal/policy/impl/MiuiLockScreen;->access$2102(Lcom/android/internal/policy/impl/MiuiLockScreen;I)I
 
-    .line 1881
     invoke-virtual {p0, v4}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableAlbum(Z)V
 
-    .line 1882
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mShowingBatteryInfo:Z
@@ -2563,12 +2238,10 @@
 
     move v0, v4
 
-    .line 1884
     .local v0, animType:I
     :cond_46
     invoke-direct {p0, v0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->startAlbumAnim(I)V
 
-    .line 1885
     invoke-direct {p0, v4}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->enableMusicControl(Z)V
 
     goto :goto_2d
@@ -2578,7 +2251,6 @@
     .registers 3
 
     .prologue
-    .line 2039
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mContext:Landroid/content/Context;
@@ -2590,6 +2262,5 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    .line 2040
     return-void
 .end method

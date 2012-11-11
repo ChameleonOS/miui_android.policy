@@ -13,13 +13,10 @@
     .parameter "m"
 
     .prologue
-    .line 10
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 11
     iput-object p1, p0, Lmiui/app/screenelement/data/VariableUpdater;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
-    .line 12
     return-void
 .end method
 
@@ -29,7 +26,6 @@
     .registers 1
 
     .prologue
-    .line 31
     return-void
 .end method
 
@@ -37,7 +33,6 @@
     .registers 2
 
     .prologue
-    .line 15
     iget-object v0, p0, Lmiui/app/screenelement/data/VariableUpdater;->mVariableUpdaterManager:Lmiui/app/screenelement/data/VariableUpdaterManager;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->getContext()Lmiui/app/screenelement/ScreenContext;
@@ -51,7 +46,6 @@
     .registers 1
 
     .prologue
-    .line 19
     return-void
 .end method
 
@@ -59,7 +53,6 @@
     .registers 1
 
     .prologue
-    .line 28
     return-void
 .end method
 
@@ -67,7 +60,6 @@
     .registers 1
 
     .prologue
-    .line 25
     return-void
 .end method
 
@@ -76,6 +68,5 @@
     .parameter "currentTime"
 
     .prologue
-    .line 22
     return-void
 .end method

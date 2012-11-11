@@ -33,7 +33,6 @@
     .parameter
 
     .prologue
-    .line 762
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;->this$1:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     iput-object p2, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;->val$barTranslate1:Landroid/view/animation/TranslateAnimation;
@@ -51,7 +50,6 @@
     .registers 5
 
     .prologue
-    .line 765
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;->this$1:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -65,7 +63,6 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/SlidingPanel;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 766
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;->this$1:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
@@ -77,7 +74,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 767
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;->this$1:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
@@ -89,7 +85,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 768
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;->this$1:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -105,6 +100,5 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 769
     return-void
 .end method

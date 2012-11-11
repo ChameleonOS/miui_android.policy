@@ -23,7 +23,6 @@
     .registers 1
 
     .prologue
-    .line 61
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,28 +33,23 @@
     .parameter "manager"
 
     .prologue
-    .line 63
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->getKeyguardView()Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     move-result-object v1
 
-    .line 64
     .local v1, keyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->getWindowLayoutParams()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v2
 
-    .line 65
     .local v2, params:Landroid/view/WindowManager$LayoutParams;
     const/4 v0, 0x0
 
-    .line 66
     .local v0, displayDesktop:Z
     instance-of v3, v1, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
     if-eqz v3, :cond_13
 
-    .line 67
     check-cast v1, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
     .end local v1           #keyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
@@ -63,7 +57,6 @@
 
     move-result v0
 
-    .line 69
     :cond_13
     if-eqz v0, :cond_2f
 
@@ -77,7 +70,6 @@
 
     if-nez v3, :cond_2f
 
-    .line 70
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     const v4, -0x100001
@@ -86,7 +78,6 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 71
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     const/high16 v4, 0x4000
@@ -95,11 +86,9 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 76
     :goto_2e
     return-void
 
-    .line 73
     :cond_2f
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
@@ -109,7 +98,6 @@
 
     iput v3, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 74
     iget v3, v2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     const v4, -0x40000001

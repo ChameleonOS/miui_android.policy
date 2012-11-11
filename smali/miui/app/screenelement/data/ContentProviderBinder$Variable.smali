@@ -39,10 +39,8 @@
     .registers 1
 
     .prologue
-    .line 165
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 166
     return-void
 .end method
 
@@ -57,16 +55,12 @@
     .end annotation
 
     .prologue
-    .line 168
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 169
     iput-object p2, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mVar:Lmiui/app/screenelement/data/Variables;
 
-    .line 170
     invoke-direct {p0, p1}, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->load(Lorg/w3c/dom/Element;)V
 
-    .line 171
     return-void
 .end method
 
@@ -75,7 +69,6 @@
     .parameter "x0"
 
     .prologue
-    .line 148
     invoke-direct {p0}, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->createVar()V
 
     return-void
@@ -85,7 +78,6 @@
     .registers 4
 
     .prologue
-    .line 187
     const-string v0, "string"
 
     iget-object v1, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mType:Ljava/lang/String;
@@ -96,7 +88,6 @@
 
     if-eqz v0, :cond_16
 
-    .line 188
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mName:Ljava/lang/String;
@@ -107,11 +98,9 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mStringVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 192
     :goto_15
     return-void
 
-    .line 190
     :cond_16
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -136,17 +125,14 @@
     .end annotation
 
     .prologue
-    .line 174
     if-nez p1, :cond_11
 
-    .line 175
     const-string v0, "ContentProviderBinder"
 
     const-string v1, "Variable node is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 176
     new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v1, "node is null"
@@ -155,7 +141,6 @@
 
     throw v0
 
-    .line 178
     :cond_11
     const-string v0, "name"
 
@@ -165,7 +150,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mName:Ljava/lang/String;
 
-    .line 179
     const-string v0, "type"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -174,7 +158,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mType:Ljava/lang/String;
 
-    .line 180
     const-string v0, "column"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -183,7 +166,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mColumn:Ljava/lang/String;
 
-    .line 181
     const-string v0, "row"
 
     const/4 v1, 0x0
@@ -194,9 +176,7 @@
 
     iput v0, p0, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->mRow:I
 
-    .line 183
     invoke-direct {p0}, Lmiui/app/screenelement/data/ContentProviderBinder$Variable;->createVar()V
 
-    .line 184
     return-void
 .end method

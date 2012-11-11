@@ -31,10 +31,8 @@
     .end annotation
 
     .prologue
-    .line 31
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     const-string v0, "time"
 
     invoke-static {p1, v0}, Lmiui/app/screenelement/util/Utils;->getAttrAsLongThrows(Lorg/w3c/dom/Element;Ljava/lang/String;)J
@@ -43,7 +41,6 @@
 
     iput-wide v0, p0, Lmiui/app/screenelement/elements/FramerateController$ControlPoint;->mTime:J
 
-    .line 33
     const-string v0, "frameRate"
 
     const/4 v1, -0x1
@@ -54,6 +51,5 @@
 
     iput v0, p0, Lmiui/app/screenelement/elements/FramerateController$ControlPoint;->mFramerate:I
 
-    .line 34
     return-void
 .end method

@@ -69,7 +69,6 @@
     .registers 1
 
     .prologue
-    .line 51
     new-instance v0, Landroid/os/Handler;
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
@@ -84,13 +83,10 @@
     .parameter "context"
 
     .prologue
-    .line 1043
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1044
     iput-object p1, p0, Lmiui/app/screenelement/ActionCommand;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    .line 1045
     return-void
 .end method
 
@@ -98,7 +94,6 @@
     .registers 1
 
     .prologue
-    .line 36
     sget-object v0, Lmiui/app/screenelement/ActionCommand;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -114,7 +109,6 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 1017
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
@@ -127,18 +121,15 @@
 
     if-eqz v3, :cond_e
 
-    .line 1038
     :cond_d
     :goto_d
     return-object v2
 
-    .line 1020
     :cond_e
     new-instance v1, Lmiui/app/screenelement/util/Variable;
 
     invoke-direct {v1, p2}, Lmiui/app/screenelement/util/Variable;-><init>(Ljava/lang/String;)V
 
-    .line 1021
     .local v1, targetObj:Lmiui/app/screenelement/util/Variable;
     invoke-virtual {v1}, Lmiui/app/screenelement/util/Variable;->getObjName()Ljava/lang/String;
 
@@ -146,20 +137,17 @@
 
     if-eqz v3, :cond_1e
 
-    .line 1022
     invoke-static {p0, p1, p2, p3}, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->create(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;Ljava/lang/String;Ljava/lang/String;)Lmiui/app/screenelement/ActionCommand$PropertyCommand;
 
     move-result-object v2
 
     goto :goto_d
 
-    .line 1025
     :cond_1e
     invoke-virtual {v1}, Lmiui/app/screenelement/util/Variable;->getPropertyName()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 1026
     .local v0, property:Ljava/lang/String;
     const-string v3, "RingMode"
 
@@ -169,14 +157,12 @@
 
     if-eqz v3, :cond_30
 
-    .line 1027
     new-instance v2, Lmiui/app/screenelement/ActionCommand$RingModeCommand;
 
     invoke-direct {v2, p0, p3}, Lmiui/app/screenelement/ActionCommand$RingModeCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Ljava/lang/String;)V
 
     goto :goto_d
 
-    .line 1028
     :cond_30
     const-string v3, "Wifi"
 
@@ -186,14 +172,12 @@
 
     if-eqz v3, :cond_3e
 
-    .line 1029
     new-instance v2, Lmiui/app/screenelement/ActionCommand$WifiSwitchCommand;
 
     invoke-direct {v2, p0, p3}, Lmiui/app/screenelement/ActionCommand$WifiSwitchCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Ljava/lang/String;)V
 
     goto :goto_d
 
-    .line 1030
     :cond_3e
     const-string v3, "Data"
 
@@ -203,14 +187,12 @@
 
     if-eqz v3, :cond_4c
 
-    .line 1031
     new-instance v2, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;
 
     invoke-direct {v2, p0, p3}, Lmiui/app/screenelement/ActionCommand$DataSwitchCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Ljava/lang/String;)V
 
     goto :goto_d
 
-    .line 1032
     :cond_4c
     const-string v3, "Bluetooth"
 
@@ -220,14 +202,12 @@
 
     if-eqz v3, :cond_5a
 
-    .line 1033
     new-instance v2, Lmiui/app/screenelement/ActionCommand$BluetoothSwitchCommand;
 
     invoke-direct {v2, p0, p3}, Lmiui/app/screenelement/ActionCommand$BluetoothSwitchCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Ljava/lang/String;)V
 
     goto :goto_d
 
-    .line 1034
     :cond_5a
     const-string v3, "UsbStorage"
 
@@ -237,7 +217,6 @@
 
     if-eqz v3, :cond_d
 
-    .line 1035
     new-instance v2, Lmiui/app/screenelement/ActionCommand$UsbStorageSwitchCommand;
 
     invoke-direct {v2, p0, p3}, Lmiui/app/screenelement/ActionCommand$UsbStorageSwitchCommand;-><init>(Lmiui/app/screenelement/ScreenContext;Ljava/lang/String;)V
@@ -254,17 +233,13 @@
     .prologue
     const-wide/16 v9, 0x0
 
-    .line 989
     if-nez p1, :cond_6
 
-    .line 990
     const/4 v3, 0x0
 
-    .line 1013
     :goto_5
     return-object v3
 
-    .line 992
     :cond_6
     const-string v8, "condition"
 
@@ -276,7 +251,6 @@
 
     move-result-object v0
 
-    .line 993
     .local v0, condition:Lmiui/app/screenelement/data/Expression;
     const-string v8, "delay"
 
@@ -284,17 +258,14 @@
 
     move-result-wide v1
 
-    .line 994
     .local v1, delay:J
     const/4 v3, 0x0
 
-    .line 995
     .local v3, ret:Lmiui/app/screenelement/ActionCommand;
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
     move-result-object v5
 
-    .line 996
     .local v5, tag:Ljava/lang/String;
     const-string v8, "Command"
 
@@ -304,14 +275,12 @@
 
     if-eqz v8, :cond_4a
 
-    .line 997
     const-string v8, "target"
 
     invoke-interface {p1, v8}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 998
     .local v6, target:Ljava/lang/String;
     const-string v8, "value"
 
@@ -319,7 +288,6 @@
 
     move-result-object v7
 
-    .line 999
     .local v7, value:Ljava/lang/String;
     invoke-static {p0, p2, v6, v7}, Lmiui/app/screenelement/ActionCommand;->create(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;Ljava/lang/String;Ljava/lang/String;)Lmiui/app/screenelement/ActionCommand;
 
@@ -327,7 +295,6 @@
 
     move-object v4, v3
 
-    .line 1007
     .end local v3           #ret:Lmiui/app/screenelement/ActionCommand;
     .end local v6           #target:Ljava/lang/String;
     .end local v7           #value:Ljava/lang/String;
@@ -339,7 +306,6 @@
 
     if-eqz v4, :cond_40
 
-    .line 1008
     new-instance v3, Lmiui/app/screenelement/ActionCommand$DelayCommand;
 
     invoke-direct {v3, v4, v1, v2}, Lmiui/app/screenelement/ActionCommand$DelayCommand;-><init>(Lmiui/app/screenelement/ActionCommand;J)V
@@ -348,7 +314,6 @@
     .restart local v3       #ret:Lmiui/app/screenelement/ActionCommand;
     move-object v4, v3
 
-    .line 1010
     .end local v3           #ret:Lmiui/app/screenelement/ActionCommand;
     .restart local v4       #ret:Lmiui/app/screenelement/ActionCommand;
     :cond_40
@@ -356,7 +321,6 @@
 
     if-eqz v4, :cond_77
 
-    .line 1011
     new-instance v3, Lmiui/app/screenelement/ActionCommand$ConditionCommand;
 
     invoke-direct {v3, v4, v0}, Lmiui/app/screenelement/ActionCommand$ConditionCommand;-><init>(Lmiui/app/screenelement/ActionCommand;Lmiui/app/screenelement/data/Expression;)V
@@ -365,7 +329,6 @@
     .restart local v3       #ret:Lmiui/app/screenelement/ActionCommand;
     goto :goto_5
 
-    .line 1000
     :cond_4a
     const-string v8, "VariableCommand"
 
@@ -375,7 +338,6 @@
 
     if-eqz v8, :cond_59
 
-    .line 1001
     new-instance v3, Lmiui/app/screenelement/ActionCommand$VariableAssignmentCommand;
 
     .end local v3           #ret:Lmiui/app/screenelement/ActionCommand;
@@ -388,7 +350,6 @@
     .restart local v4       #ret:Lmiui/app/screenelement/ActionCommand;
     goto :goto_34
 
-    .line 1002
     .end local v4           #ret:Lmiui/app/screenelement/ActionCommand;
     .restart local v3       #ret:Lmiui/app/screenelement/ActionCommand;
     :cond_59
@@ -400,7 +361,6 @@
 
     if-eqz v8, :cond_68
 
-    .line 1003
     new-instance v3, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;
 
     .end local v3           #ret:Lmiui/app/screenelement/ActionCommand;
@@ -413,7 +373,6 @@
     .restart local v4       #ret:Lmiui/app/screenelement/ActionCommand;
     goto :goto_34
 
-    .line 1004
     .end local v4           #ret:Lmiui/app/screenelement/ActionCommand;
     .restart local v3       #ret:Lmiui/app/screenelement/ActionCommand;
     :cond_68
@@ -425,7 +384,6 @@
 
     if-eqz v8, :cond_79
 
-    .line 1005
     new-instance v3, Lmiui/app/screenelement/ActionCommand$IntentCommand;
 
     .end local v3           #ret:Lmiui/app/screenelement/ActionCommand;
@@ -462,7 +420,6 @@
     .registers 1
 
     .prologue
-    .line 1063
     return-void
 .end method
 
@@ -470,7 +427,6 @@
     .registers 2
 
     .prologue
-    .line 1053
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     return-object v0
@@ -480,7 +436,6 @@
     .registers 1
 
     .prologue
-    .line 1060
     return-void
 .end method
 
@@ -488,7 +443,6 @@
     .registers 1
 
     .prologue
-    .line 1066
     return-void
 .end method
 
@@ -496,15 +450,12 @@
     .registers 2
 
     .prologue
-    .line 1048
     invoke-virtual {p0}, Lmiui/app/screenelement/ActionCommand;->doPerform()V
 
-    .line 1049
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenContext;->requestUpdate()V
 
-    .line 1050
     return-void
 .end method
 
@@ -512,6 +463,5 @@
     .registers 1
 
     .prologue
-    .line 1069
     return-void
 .end method

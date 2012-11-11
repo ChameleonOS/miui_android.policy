@@ -40,7 +40,6 @@
 
     const/4 v2, 0x0
 
-    .line 281
     new-instance v0, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
     const-string v1, "INVALID"
@@ -49,7 +48,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->INVALID:Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
-    .line 282
     new-instance v0, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
     const-string v1, "MIN"
@@ -58,7 +56,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->MIN:Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
-    .line 280
     const/4 v0, 0x2
 
     new-array v0, v0, [Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
@@ -87,7 +84,6 @@
     .end annotation
 
     .prologue
-    .line 280
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -98,7 +94,6 @@
     .parameter "name"
 
     .prologue
-    .line 280
     const-class v0, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -114,7 +109,6 @@
     .registers 1
 
     .prologue
-    .line 280
     sget-object v0, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->$VALUES:[Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
     invoke-virtual {v0}, [Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->clone()Ljava/lang/Object;

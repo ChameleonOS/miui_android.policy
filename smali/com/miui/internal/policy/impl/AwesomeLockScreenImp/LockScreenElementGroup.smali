@@ -19,10 +19,8 @@
     .end annotation
 
     .prologue
-    .line 14
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ElementGroup;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 15
     return-void
 .end method
 
@@ -33,7 +31,6 @@
     .parameter "ele"
 
     .prologue
-    .line 19
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -55,13 +52,11 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 20
     .local v0, e:Lmiui/app/screenelement/elements/ScreenElement;
     instance-of v2, v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerListener;
 
     if-eqz v2, :cond_6
 
-    .line 21
     check-cast v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerListener;
 
     .end local v0           #e:Lmiui/app/screenelement/elements/ScreenElement;
@@ -69,7 +64,6 @@
 
     goto :goto_6
 
-    .line 24
     :cond_1c
     return-void
 .end method
@@ -79,7 +73,6 @@
     .parameter "ele"
 
     .prologue
-    .line 28
     iget-object v2, p0, Lmiui/app/screenelement/elements/ElementGroup;->mElements:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -101,13 +94,11 @@
 
     check-cast v0, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 29
     .local v0, e:Lmiui/app/screenelement/elements/ScreenElement;
     instance-of v2, v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerListener;
 
     if-eqz v2, :cond_6
 
-    .line 30
     check-cast v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerListener;
 
     .end local v0           #e:Lmiui/app/screenelement/elements/ScreenElement;
@@ -115,7 +106,6 @@
 
     goto :goto_6
 
-    .line 33
     :cond_1c
     return-void
 .end method

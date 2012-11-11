@@ -93,41 +93,34 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 83
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ElementGroup;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 158
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
-    .line 161
     new-instance v1, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;
 
     invoke-direct {v1, p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;-><init>(Lmiui/app/screenelement/elements/MusicControlScreenElement;)V
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mPlayerStatusListener:Landroid/content/BroadcastReceiver;
 
-    .line 220
     iput-boolean v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->isPaused:Z
 
-    .line 363
     new-instance v1, Lmiui/app/screenelement/elements/MusicControlScreenElement$2;
 
     invoke-direct {v1, p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement$2;-><init>(Lmiui/app/screenelement/elements/MusicControlScreenElement;)V
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
-    .line 372
     new-instance v1, Lmiui/app/screenelement/elements/MusicControlScreenElement$3;
 
     invoke-direct {v1, p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement$3;-><init>(Lmiui/app/screenelement/elements/MusicControlScreenElement;)V
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mEnableSpectrumVisualizerRunnable:Ljava/lang/Runnable;
 
-    .line 85
     const-string v1, "music_prev"
 
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
@@ -138,7 +131,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPrev:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
-    .line 86
     const-string v1, "music_next"
 
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
@@ -149,7 +141,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonNext:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
-    .line 87
     const-string v1, "music_play"
 
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
@@ -160,7 +151,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPlay:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
-    .line 88
     const-string v1, "music_pause"
 
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
@@ -171,7 +161,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
-    .line 89
     const-string v1, "music_display"
 
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
@@ -182,7 +171,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
 
-    .line 90
     const-string v1, "music_album_cover"
 
     invoke-virtual {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findElement(Ljava/lang/String;)Lmiui/app/screenelement/elements/ScreenElement;
@@ -193,14 +181,12 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
-    .line 91
     invoke-direct {p0, p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->findSpectrumVisualizer(Lmiui/app/screenelement/elements/ElementGroup;)Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     move-result-object v1
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
-    .line 93
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPrev:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     if-eqz v1, :cond_74
@@ -217,7 +203,6 @@
 
     if-nez v1, :cond_7c
 
-    .line 94
     :cond_74
     new-instance v1, Lmiui/app/screenelement/ScreenElementLoadException;
 
@@ -227,45 +212,37 @@
 
     throw v1
 
-    .line 96
     :cond_7c
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPrev:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     invoke-direct {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->setupButton(Lmiui/app/screenelement/elements/ButtonScreenElement;)V
 
-    .line 97
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonNext:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     invoke-direct {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->setupButton(Lmiui/app/screenelement/elements/ButtonScreenElement;)V
 
-    .line 98
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPlay:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     invoke-direct {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->setupButton(Lmiui/app/screenelement/elements/ButtonScreenElement;)V
 
-    .line 99
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     invoke-direct {p0, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->setupButton(Lmiui/app/screenelement/elements/ButtonScreenElement;)V
 
-    .line 100
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     invoke-virtual {v1, v2}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 101
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
     if-eqz v1, :cond_be
 
-    .line 102
     const-string v1, "defAlbumCover"
 
     invoke-interface {p1, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 103
     .local v0, strDefAlbumCoverBmp:Ljava/lang/String;
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -273,7 +250,6 @@
 
     if-nez v1, :cond_e8
 
-    .line 104
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v1, v1, Lmiui/app/screenelement/ScreenContext;->mResourceManager:Lmiui/app/screenelement/ResourceManager;
@@ -284,13 +260,11 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mDefaultAlbumCoverBm:Landroid/graphics/Bitmap;
 
-    .line 110
     :goto_af
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mDefaultAlbumCoverBm:Landroid/graphics/Bitmap;
 
     if-eqz v1, :cond_be
 
-    .line 111
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mDefaultAlbumCoverBm:Landroid/graphics/Bitmap;
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -301,7 +275,6 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Bitmap;->setDensity(I)V
 
-    .line 114
     .end local v0           #strDefAlbumCoverBmp:Ljava/lang/String;
     :cond_be
     const-string v1, "autoShow"
@@ -316,7 +289,6 @@
 
     iput-boolean v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAutoShow:Z
 
-    .line 115
     iget-object v1, p2, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
 
     const-string v2, "audio"
@@ -329,12 +301,10 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAudioManager:Landroid/media/AudioManager;
 
-    .line 117
     iget-boolean v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v1, :cond_e7
 
-    .line 118
     new-instance v1, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mName:Ljava/lang/String;
@@ -347,11 +317,9 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 120
     :cond_e7
     return-void
 
-    .line 106
     .restart local v0       #strDefAlbumCoverBmp:Ljava/lang/String;
     :cond_e8
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -379,7 +347,6 @@
     .parameter "x1"
 
     .prologue
-    .line 32
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum(Landroid/content/Intent;)V
 
     return-void
@@ -392,7 +359,6 @@
     .parameter "x2"
 
     .prologue
-    .line 32
     invoke-direct {p0, p1, p2}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum(Landroid/content/Intent;Z)V
 
     return-void
@@ -403,7 +369,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPlay:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     return-object v0
@@ -415,7 +380,6 @@
     .parameter "x1"
 
     .prologue
-    .line 32
     iput p1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
 
     return p1
@@ -426,7 +390,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     return-object v0
@@ -437,7 +400,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
     return-object v0
@@ -448,7 +410,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     invoke-direct {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum()V
 
     return-void
@@ -460,7 +421,6 @@
     .parameter "x1"
 
     .prologue
-    .line 32
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->setAlbumCover(Landroid/content/Intent;)V
 
     return-void
@@ -472,7 +432,6 @@
     .parameter "x1"
 
     .prologue
-    .line 32
     iput-boolean p1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mIsOnlineSongBlocking:Z
 
     return p1
@@ -483,7 +442,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
 
     return-object v0
@@ -494,7 +452,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     invoke-direct {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->updateMusic()V
 
     return-void
@@ -505,7 +462,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
     return-object v0
@@ -516,7 +472,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mEnableSpectrumVisualizerRunnable:Ljava/lang/Runnable;
 
     return-object v0
@@ -527,7 +482,6 @@
     .parameter "x0"
 
     .prologue
-    .line 32
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     return-object v0
@@ -538,7 +492,6 @@
     .parameter "g"
 
     .prologue
-    .line 123
     invoke-virtual {p1}, Lmiui/app/screenelement/elements/ElementGroup;->getElements()Ljava/util/ArrayList;
 
     move-result-object v3
@@ -561,28 +514,23 @@
 
     check-cast v2, Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 124
     .local v2, se:Lmiui/app/screenelement/elements/ScreenElement;
     instance-of v3, v2, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     if-eqz v3, :cond_1b
 
-    .line 125
     check-cast v2, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
-    .line 132
     .end local v2           #se:Lmiui/app/screenelement/elements/ScreenElement;
     :goto_1a
     return-object v2
 
-    .line 126
     .restart local v2       #se:Lmiui/app/screenelement/elements/ScreenElement;
     :cond_1b
     instance-of v3, v2, Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v3, :cond_8
 
-    .line 127
     check-cast v2, Lmiui/app/screenelement/elements/ElementGroup;
 
     .end local v2           #se:Lmiui/app/screenelement/elements/ScreenElement;
@@ -590,16 +538,13 @@
 
     move-result-object v1
 
-    .line 128
     .local v1, ret:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
     if-eqz v1, :cond_8
 
     move-object v2, v1
 
-    .line 129
     goto :goto_1a
 
-    .line 132
     .end local v1           #ret:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
     :cond_29
     const/4 v2, 0x0
@@ -612,7 +557,6 @@
     .parameter "name"
 
     .prologue
-    .line 452
     const-string v0, "music_prev"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -621,14 +565,11 @@
 
     if-eqz v0, :cond_b
 
-    .line 453
     const/16 v0, 0x58
 
-    .line 459
     :goto_a
     return v0
 
-    .line 454
     :cond_b
     const-string v0, "music_next"
 
@@ -638,12 +579,10 @@
 
     if-eqz v0, :cond_16
 
-    .line 455
     const/16 v0, 0x57
 
     goto :goto_a
 
-    .line 456
     :cond_16
     const-string v0, "music_play"
 
@@ -661,13 +600,11 @@
 
     if-eqz v0, :cond_29
 
-    .line 457
     :cond_26
     const/16 v0, 0x55
 
     goto :goto_a
 
-    .line 459
     :cond_29
     const/4 v0, -0x1
 
@@ -678,14 +615,12 @@
     .registers 3
 
     .prologue
-    .line 249
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "lockscreen.action.SONG_METADATA_REQUEST"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 250
     .local v0, requestIntent:Landroid/content/Intent;
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -693,7 +628,6 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 251
     return-void
 .end method
 
@@ -702,12 +636,10 @@
     .parameter "intent"
 
     .prologue
-    .line 223
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum(Landroid/content/Intent;Z)V
 
-    .line 224
     return-void
 .end method
 
@@ -717,17 +649,14 @@
     .parameter "forceRequest"
 
     .prologue
-    .line 227
     iget-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
     if-nez v4, :cond_5
 
-    .line 246
     :cond_4
     :goto_4
     return-void
 
-    .line 230
     :cond_5
     const-string v4, "album"
 
@@ -735,7 +664,6 @@
 
     move-result-object v0
 
-    .line 231
     .local v0, albumName:Ljava/lang/String;
     const-string v4, "artist"
 
@@ -743,7 +671,6 @@
 
     move-result-object v2
 
-    .line 233
     .local v2, artistName:Ljava/lang/String;
     if-nez p2, :cond_27
 
@@ -767,7 +694,6 @@
 
     if-nez v4, :cond_4
 
-    .line 238
     :cond_27
     const-string v4, "album_uri"
 
@@ -777,7 +703,6 @@
 
     check-cast v3, Landroid/net/Uri;
 
-    .line 239
     .local v3, uri:Landroid/net/Uri;
     const-string v4, "album_path"
 
@@ -785,24 +710,20 @@
 
     move-result-object v1
 
-    .line 240
     .local v1, albumPath:Ljava/lang/String;
     const/4 v4, 0x0
 
     iput-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAlbumCoverBm:Landroid/graphics/Bitmap;
 
-    .line 241
     if-nez v3, :cond_3c
 
     if-eqz v1, :cond_40
 
-    .line 242
     :cond_3c
     invoke-direct {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum()V
 
     goto :goto_4
 
-    .line 244
     :cond_40
     iget-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
@@ -821,12 +742,10 @@
     .prologue
     const/4 v9, 0x0
 
-    .line 463
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
-    .line 464
     .local v1, eventtime:J
     new-instance v0, Landroid/view/KeyEvent;
 
@@ -840,7 +759,6 @@
 
     invoke-direct/range {v0 .. v7}, Landroid/view/KeyEvent;-><init>(JJIII)V
 
-    .line 466
     .local v0, event:Landroid/view/KeyEvent;
     new-instance v8, Landroid/content/Intent;
 
@@ -848,7 +766,6 @@
 
     invoke-direct {v8, v3, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 467
     .local v8, intent:Landroid/content/Intent;
     const-string v3, "android.intent.extra.KEY_EVENT"
 
@@ -860,21 +777,18 @@
 
     invoke-virtual {v8, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 468
     const-string v3, "forbid_double_click"
 
     const/4 v4, 0x1
 
     invoke-virtual {v8, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    .line 469
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v3, v3, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3, v8, v9}, Landroid/content/Context;->sendOrderedBroadcast(Landroid/content/Intent;Ljava/lang/String;)V
 
-    .line 470
     return-void
 .end method
 
@@ -883,16 +797,13 @@
     .parameter "intent"
 
     .prologue
-    .line 254
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
     if-nez v2, :cond_5
 
-    .line 274
     :goto_4
     return-void
 
-    .line 257
     :cond_5
     const-string v2, "album"
 
@@ -902,7 +813,6 @@
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAlbumName:Ljava/lang/String;
 
-    .line 258
     const-string v2, "artist"
 
     invoke-virtual {p1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -911,7 +821,6 @@
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mArtistName:Ljava/lang/String;
 
-    .line 260
     :try_start_15
     const-string v2, "tmp_album_path"
 
@@ -919,23 +828,19 @@
 
     move-result-object v0
 
-    .line 261
     .local v0, albumPath:Ljava/lang/String;
     if-eqz v0, :cond_32
 
-    .line 262
     invoke-static {v0}, Landroid/graphics/BitmapFactory;->decodeFile(Ljava/lang/String;)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
     iput-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAlbumCoverBm:Landroid/graphics/Bitmap;
 
-    .line 263
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAlbumCoverBm:Landroid/graphics/Bitmap;
 
     if-eqz v2, :cond_32
 
-    .line 264
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAlbumCoverBm:Landroid/graphics/Bitmap;
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -949,7 +854,6 @@
     .catchall {:try_start_15 .. :try_end_32} :catchall_73
     .catch Ljava/lang/OutOfMemoryError; {:try_start_15 .. :try_end_32} :catch_44
 
-    .line 270
     :cond_32
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
@@ -962,23 +866,19 @@
     :goto_3a
     invoke-virtual {v3, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 272
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestUpdate()V
 
     goto :goto_4
 
-    .line 270
     :cond_41
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mDefaultAlbumCoverBm:Landroid/graphics/Bitmap;
 
     goto :goto_3a
 
-    .line 267
     .end local v0           #albumPath:Ljava/lang/String;
     :catch_44
     move-exception v1
 
-    .line 268
     .local v1, e:Ljava/lang/OutOfMemoryError;
     :try_start_45
     const-string v2, "MusicControlScreenElement"
@@ -1009,7 +909,6 @@
     :try_end_61
     .catchall {:try_start_45 .. :try_end_61} :catchall_73
 
-    .line 270
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mImageAlbumCover:Lmiui/app/screenelement/elements/ImageScreenElement;
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAlbumCoverBm:Landroid/graphics/Bitmap;
@@ -1021,12 +920,10 @@
     :goto_69
     invoke-virtual {v3, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 272
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestUpdate()V
 
     goto :goto_4
 
-    .line 270
     :cond_70
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mDefaultAlbumCoverBm:Landroid/graphics/Bitmap;
 
@@ -1049,12 +946,10 @@
     :goto_7d
     invoke-virtual {v4, v2}, Lmiui/app/screenelement/elements/ImageScreenElement;->setBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 272
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestUpdate()V
 
     throw v3
 
-    .line 270
     :cond_84
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mDefaultAlbumCoverBm:Landroid/graphics/Bitmap;
 
@@ -1066,16 +961,12 @@
     .parameter "button"
 
     .prologue
-    .line 136
     if-eqz p1, :cond_8
 
-    .line 137
     invoke-virtual {p1, p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->setListener(Lmiui/app/screenelement/elements/ButtonScreenElement$ButtonActionListener;)V
 
-    .line 138
     invoke-virtual {p1, p0}, Lmiui/app/screenelement/elements/ButtonScreenElement;->setParent(Lmiui/app/screenelement/elements/ElementGroup;)V
 
-    .line 140
     :cond_8
     return-void
 .end method
@@ -1088,36 +979,30 @@
 
     const/4 v2, 0x1
 
-    .line 381
     iget-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v4}, Landroid/media/AudioManager;->isMusicActive()Z
 
     move-result v0
 
-    .line 383
     .local v0, isMusicActive:Z
     if-nez v0, :cond_2a
 
     move v1, v2
 
-    .line 384
     .local v1, showPlay:Z
     :goto_b
     iget-boolean v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mIsOnlineSongBlocking:Z
 
     if-eqz v4, :cond_10
 
-    .line 385
     const/4 v1, 0x0
 
-    .line 388
     :cond_10
     iget-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPlay:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     invoke-virtual {v4, v1}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 389
     iget-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mButtonPause:Lmiui/app/screenelement/elements/ButtonScreenElement;
 
     if-nez v1, :cond_1a
@@ -1127,12 +1012,10 @@
     :cond_1a
     invoke-virtual {v4, v3}, Lmiui/app/screenelement/elements/ButtonScreenElement;->show(Z)V
 
-    .line 391
     iget v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
 
     packed-switch v3, :pswitch_data_44
 
-    .line 400
     :cond_22
     :goto_22
     if-eqz v0, :cond_42
@@ -1142,17 +1025,14 @@
     :goto_26
     invoke-virtual {p0, v2}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestFramerate(F)V
 
-    .line 401
     return-void
 
     .end local v1           #showPlay:Z
     :cond_2a
     move v1, v3
 
-    .line 383
     goto :goto_b
 
-    .line 394
     .restart local v1       #showPlay:Z
     :pswitch_2c
     if-eqz v0, :cond_2f
@@ -1162,12 +1042,10 @@
     :cond_2f
     iput v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
 
-    .line 395
     iget-boolean v2, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v2, :cond_22
 
-    .line 396
     iget-object v4, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     if-eqz v0, :cond_3f
@@ -1184,13 +1062,11 @@
 
     goto :goto_3b
 
-    .line 400
     :cond_42
     const/4 v2, 0x0
 
     goto :goto_26
 
-    .line 391
     :pswitch_data_44
     .packed-switch 0x1
         :pswitch_2c
@@ -1204,14 +1080,12 @@
     .registers 4
 
     .prologue
-    .line 329
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 331
     :try_start_7
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -1223,28 +1097,23 @@
     :try_end_10
     .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_10} :catch_1b
 
-    .line 337
     :goto_10
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     if-eqz v1, :cond_1a
 
-    .line 338
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->enableUpdate(Z)V
 
-    .line 340
     :cond_1a
     return-void
 
-    .line 332
     :catch_1b
     move-exception v0
 
-    .line 333
     .local v0, e:Ljava/lang/IllegalArgumentException;
     const-string v1, "MusicControlScreenElement"
 
@@ -1254,7 +1123,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 334
     invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     goto :goto_10
@@ -1264,36 +1132,29 @@
     .registers 8
 
     .prologue
-    .line 278
     invoke-super {p0}, Lmiui/app/screenelement/elements/ElementGroup;->init()V
 
-    .line 280
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
 
-    .line 281
     .local v0, filter:Landroid/content/IntentFilter;
     const-string v3, "com.miui.player.metachanged"
 
     invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 282
     const-string v3, "lockscreen.action.SONG_METADATA_UPDATED"
 
     invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 283
     const-string v3, "com.miui.player.refreshprogress"
 
     invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 284
     const-string v3, "com.miui.player.playstatechanged"
 
     invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    .line 285
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v3, v3, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -1306,7 +1167,6 @@
 
     invoke-virtual {v3, v4, v0, v5, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    .line 287
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v3, v3, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -1315,23 +1175,19 @@
 
     move-result v1
 
-    .line 288
     .local v1, isMusicActive:Z
     if-eqz v1, :cond_4b
 
-    .line 289
     const/4 v3, 0x2
 
     iput v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
 
-    .line 290
     new-instance v2, Landroid/content/Intent;
 
     const-string v3, "lockscreen.action.SONG_METADATA_REQUEST"
 
     invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 291
     .local v2, requestIntent:Landroid/content/Intent;
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -1339,24 +1195,20 @@
 
     invoke-virtual {v3, v2}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 293
     iget-boolean v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAutoShow:Z
 
     if-eqz v3, :cond_4b
 
-    .line 294
     const/4 v3, 0x1
 
     invoke-virtual {p0, v3}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->show(Z)V
 
-    .line 297
     .end local v2           #requestIntent:Landroid/content/Intent;
     :cond_4b
     iget-boolean v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mHasName:Z
 
     if-eqz v3, :cond_58
 
-    .line 298
     iget-object v5, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStateVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     if-eqz v1, :cond_59
@@ -1366,11 +1218,9 @@
     :goto_55
     invoke-virtual {v5, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 300
     :cond_58
     return-void
 
-    .line 298
     :cond_59
     const-wide/16 v3, 0x0
 
@@ -1382,7 +1232,6 @@
     .parameter "name"
 
     .prologue
-    .line 344
     const/4 v0, 0x0
 
     return v0
@@ -1395,26 +1244,21 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 349
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->getKeyCode(Ljava/lang/String;)I
 
     move-result v0
 
-    .line 350
     .local v0, keyCode:I
     const/4 v2, -0x1
 
     if-ne v0, v2, :cond_9
 
-    .line 355
     :goto_8
     return v1
 
-    .line 353
     :cond_9
     invoke-direct {p0, v1, v0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->sendMediaButtonBroadcast(II)V
 
-    .line 355
     const/4 v1, 0x1
 
     goto :goto_8
@@ -1425,7 +1269,6 @@
     .parameter "name"
 
     .prologue
-    .line 360
     const/4 v0, 0x0
 
     return v0
@@ -1438,32 +1281,25 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 412
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->getKeyCode(Ljava/lang/String;)I
 
     move-result v1
 
-    .line 413
     .local v1, keyCode:I
     const/4 v3, -0x1
 
     if-ne v1, v3, :cond_a
 
-    .line 414
     const/4 v2, 0x0
 
-    .line 448
     :goto_9
     return v2
 
-    .line 415
     :cond_a
     invoke-direct {p0, v2, v1}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->sendMediaButtonBroadcast(II)V
 
-    .line 416
     move-object v0, p1
 
-    .line 417
     .local v0, _name:Ljava/lang/String;
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
@@ -1480,34 +1316,28 @@
     .registers 3
 
     .prologue
-    .line 303
     invoke-super {p0}, Lmiui/app/screenelement/elements/ElementGroup;->pause()V
 
-    .line 304
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->isPaused:Z
 
-    .line 305
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 306
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     if-eqz v0, :cond_17
 
-    .line 307
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->enableUpdate(Z)V
 
-    .line 309
     :cond_17
     return-void
 .end method
@@ -1516,22 +1346,18 @@
     .registers 5
 
     .prologue
-    .line 312
     invoke-super {p0}, Lmiui/app/screenelement/elements/ElementGroup;->resume()V
 
-    .line 313
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->isPaused:Z
 
-    .line 314
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->isVisible()Z
 
     move-result v0
 
     if-eqz v0, :cond_15
 
-    .line 315
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
@@ -1540,7 +1366,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 317
     :cond_15
     return-void
 .end method
@@ -1552,47 +1377,37 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 144
     invoke-super {p0, p1}, Lmiui/app/screenelement/elements/ElementGroup;->show(Z)V
 
-    .line 145
     if-nez p1, :cond_1d
 
-    .line 146
     iput v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mMusicStatus:I
 
-    .line 147
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 148
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     if-eqz v0, :cond_18
 
-    .line 149
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     invoke-virtual {v0, v2}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->enableUpdate(Z)V
 
-    .line 151
     :cond_18
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestFramerate(F)V
 
-    .line 156
     :goto_1c
     return-void
 
-    .line 153
     :cond_1d
     invoke-direct {p0}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->updateMusic()V
 
-    .line 154
     iget-object v0, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mCheckStreamMusicRunnable:Ljava/lang/Runnable;
@@ -1608,20 +1423,17 @@
     .registers 4
 
     .prologue
-    .line 404
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {v1}, Landroid/media/AudioManager;->isMusicActive()Z
 
     move-result v0
 
-    .line 405
     .local v0, isMusicActive:Z
     iget-object v1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     if-eqz v1, :cond_1c
 
-    .line 406
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement;->mSpectrumVisualizer:Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;
 
     if-eqz v0, :cond_1d
@@ -1641,11 +1453,9 @@
     :goto_19
     invoke-virtual {v2, v1}, Lmiui/app/screenelement/elements/SpectrumVisualizerScreenElement;->enableUpdate(Z)V
 
-    .line 408
     :cond_1c
     return-void
 
-    .line 406
     :cond_1d
     const/4 v1, 0x0
 

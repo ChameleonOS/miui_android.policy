@@ -34,15 +34,12 @@
     .end annotation
 
     .prologue
-    .line 545
     iput-object p1, p0, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
-    .line 546
     const-string v0, "StartPoint"
 
     invoke-direct {p0, p1, p2, v0}, Lmiui/app/screenelement/elements/AdvancedSlider$SliderPoint;-><init>(Lmiui/app/screenelement/elements/AdvancedSlider;Lorg/w3c/dom/Element;Ljava/lang/String;)V
 
-    .line 547
     return-void
 .end method
 
@@ -54,17 +51,14 @@
     .parameter "s"
 
     .prologue
-    .line 551
     sget-object v0, Lmiui/app/screenelement/elements/AdvancedSlider$State;->Invalid:Lmiui/app/screenelement/elements/AdvancedSlider$State;
 
     if-ne p1, v0, :cond_5
 
-    .line 564
     :cond_4
     :goto_4
     return-void
 
-    .line 555
     :cond_5
     sget-object v0, Lmiui/app/screenelement/elements/AdvancedSlider$1;->$SwitchMap$miui$app$screenelement$elements$AdvancedSlider$State:[I
 
@@ -78,7 +72,6 @@
 
     goto :goto_4
 
-    .line 557
     :pswitch_11
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
@@ -90,7 +83,6 @@
 
     goto :goto_4
 
-    .line 560
     :pswitch_1b
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
@@ -101,7 +93,6 @@
 
     if-nez v0, :cond_4
 
-    .line 561
     iget-object v0, p0, Lmiui/app/screenelement/elements/AdvancedSlider$StartPoint;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     iget-object v0, v0, Lmiui/app/screenelement/elements/ScreenElement;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
@@ -112,7 +103,6 @@
 
     goto :goto_4
 
-    .line 555
     nop
 
     :pswitch_data_2e

@@ -26,10 +26,8 @@
     .parameter "num"
 
     .prologue
-    .line 229
     invoke-direct {p0}, Lmiui/app/screenelement/data/Expression;-><init>()V
 
-    .line 231
     :try_start_3
     invoke-static {p1}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
@@ -39,15 +37,12 @@
     :try_end_9
     .catch Ljava/lang/NumberFormatException; {:try_start_3 .. :try_end_9} :catch_a
 
-    .line 236
     :goto_9
     return-void
 
-    .line 232
     :catch_a
     move-exception v0
 
-    .line 233
     .local v0, e:Ljava/lang/NumberFormatException;
     const-string v1, "Expression"
 
@@ -71,7 +66,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 234
     invoke-virtual {v0}, Ljava/lang/NumberFormatException;->printStackTrace()V
 
     goto :goto_9
@@ -84,7 +78,6 @@
     .parameter "var"
 
     .prologue
-    .line 240
     iget-wide v0, p0, Lmiui/app/screenelement/data/Expression$NumberExpression;->mValue:D
 
     return-wide v0
@@ -95,12 +88,10 @@
     .parameter "var"
 
     .prologue
-    .line 245
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$NumberExpression;->mString:Ljava/lang/String;
 
     if-nez v0, :cond_c
 
-    .line 246
     iget-wide v0, p0, Lmiui/app/screenelement/data/Expression$NumberExpression;->mValue:D
 
     invoke-static {v0, v1}, Lmiui/app/screenelement/util/Utils;->doubleToString(D)Ljava/lang/String;
@@ -109,7 +100,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Expression$NumberExpression;->mString:Ljava/lang/String;
 
-    .line 247
     :cond_c
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$NumberExpression;->mString:Ljava/lang/String;
 

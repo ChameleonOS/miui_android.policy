@@ -25,7 +25,6 @@
     .registers 3
 
     .prologue
-    .line 725
     invoke-static {}, Lcom/android/internal/policy/impl/MiuiLockScreen$Status;->values()[Lcom/android/internal/policy/impl/MiuiLockScreen$Status;
 
     move-result-object v0
@@ -131,7 +130,6 @@
     :try_end_4b
     .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_a3
 
-    .line 698
     :goto_4b
     invoke-static {}, Lcom/android/internal/telephony/IccCard$State;->values()[Lcom/android/internal/telephony/IccCard$State;
 
@@ -271,7 +269,6 @@
 
     goto :goto_5f
 
-    .line 725
     :catch_a3
     move-exception v0
 

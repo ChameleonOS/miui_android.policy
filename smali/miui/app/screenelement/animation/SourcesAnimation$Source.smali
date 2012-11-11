@@ -29,10 +29,8 @@
     .parameter "context"
 
     .prologue
-    .line 15
     invoke-direct {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;-><init>([Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 16
     return-void
 .end method
 
@@ -48,7 +46,6 @@
     .end annotation
 
     .prologue
-    .line 23
     const-string v0, "src"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -57,7 +54,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/SourcesAnimation$Source;->mSrc:Ljava/lang/String;
 
-    .line 24
     invoke-super {p0, p1}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->load(Lorg/w3c/dom/Element;)Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     move-result-object v0

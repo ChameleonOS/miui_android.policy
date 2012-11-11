@@ -24,10 +24,8 @@
     .parameter "c"
 
     .prologue
-    .line 294
     invoke-direct {p0, p1}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;-><init>(Landroid/content/Context;)V
 
-    .line 283
     new-instance v0, Lmiui/app/screenelement/NotifierManager$MobileDataNotifier$1;
 
     const/4 v1, 0x0
@@ -36,7 +34,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/NotifierManager$MobileDataNotifier;->mMobileDataEnableObserver:Landroid/database/ContentObserver;
 
-    .line 295
     return-void
 .end method
 
@@ -46,7 +43,6 @@
     .registers 5
 
     .prologue
-    .line 299
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -65,7 +61,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 301
     return-void
 .end method
 
@@ -73,7 +68,6 @@
     .registers 3
 
     .prologue
-    .line 305
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -84,6 +78,5 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 306
     return-void
 .end method

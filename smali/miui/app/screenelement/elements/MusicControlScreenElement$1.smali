@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 161
     iput-object p1, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -41,7 +40,6 @@
 
     const/4 v5, 0x0
 
-    .line 195
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
@@ -51,11 +49,9 @@
 
     if-nez v2, :cond_b
 
-    .line 213
     :goto_a
     return-void
 
-    .line 198
     :cond_b
     const-string v2, "track"
 
@@ -63,7 +59,6 @@
 
     move-result-object v1
 
-    .line 199
     .local v1, title:Ljava/lang/String;
     const-string v2, "artist"
 
@@ -71,14 +66,12 @@
 
     move-result-object v0
 
-    .line 200
     .local v0, artist:Ljava/lang/String;
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #setter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mIsOnlineSongBlocking:Z
     invoke-static {v2, v5}, Lmiui/app/screenelement/elements/MusicControlScreenElement;->access$402(Lmiui/app/screenelement/elements/MusicControlScreenElement;Z)Z
 
-    .line 201
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -91,7 +84,6 @@
 
     if-eqz v2, :cond_32
 
-    .line 202
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
@@ -103,7 +95,6 @@
 
     goto :goto_a
 
-    .line 204
     :cond_32
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -111,7 +102,6 @@
 
     if-eqz v2, :cond_4b
 
-    .line 205
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
@@ -121,7 +111,6 @@
 
     invoke-virtual {v2, v0}, Lmiui/app/screenelement/elements/TextScreenElement;->setText(Ljava/lang/String;)V
 
-    .line 211
     :goto_41
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
@@ -134,7 +123,6 @@
 
     goto :goto_a
 
-    .line 206
     :cond_4b
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -142,7 +130,6 @@
 
     if-eqz v2, :cond_5b
 
-    .line 207
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
@@ -154,7 +141,6 @@
 
     goto :goto_41
 
-    .line 209
     :cond_5b
     iget-object v2, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
@@ -192,12 +178,10 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 165
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 166
     .local v0, action:Ljava/lang/String;
     const-string v3, "playing"
 
@@ -205,16 +189,13 @@
 
     move-result v2
 
-    .line 167
     .local v2, isPlaying:Z
     if-nez v2, :cond_e
 
-    .line 192
     :cond_d
     :goto_d
     return-void
 
-    .line 171
     :cond_e
     const-string v3, "com.miui.player.metachanged"
 
@@ -224,14 +205,12 @@
 
     if-eqz v3, :cond_42
 
-    .line 172
     const-string v3, "other"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 173
     .local v1, extra:Ljava/lang/String;
     const-string v3, "meta_changed_track"
 
@@ -241,10 +220,8 @@
 
     if-eqz v3, :cond_2d
 
-    .line 174
     invoke-direct {p0, p2}, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->setTrackInfo(Landroid/content/Intent;)V
 
-    .line 175
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #calls: Lmiui/app/screenelement/elements/MusicControlScreenElement;->requestAlbum(Landroid/content/Intent;)V
@@ -252,7 +229,6 @@
 
     goto :goto_d
 
-    .line 176
     :cond_2d
     const-string v3, "meta_changed_album"
 
@@ -262,7 +238,6 @@
 
     if-eqz v3, :cond_3c
 
-    .line 177
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     const/4 v4, 0x1
@@ -272,7 +247,6 @@
 
     goto :goto_d
 
-    .line 179
     :cond_3c
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
@@ -281,7 +255,6 @@
 
     goto :goto_d
 
-    .line 181
     .end local v1           #extra:Ljava/lang/String;
     :cond_42
     const-string v3, "lockscreen.action.SONG_METADATA_UPDATED"
@@ -292,10 +265,8 @@
 
     if-eqz v3, :cond_53
 
-    .line 182
     invoke-direct {p0, p2}, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->setTrackInfo(Landroid/content/Intent;)V
 
-    .line 183
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #calls: Lmiui/app/screenelement/elements/MusicControlScreenElement;->setAlbumCover(Landroid/content/Intent;)V
@@ -303,7 +274,6 @@
 
     goto :goto_d
 
-    .line 184
     :cond_53
     const-string v3, "com.miui.player.refreshprogress"
 
@@ -313,7 +283,6 @@
 
     if-eqz v3, :cond_67
 
-    .line 185
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     const-string v4, "blocking"
@@ -327,7 +296,6 @@
 
     goto :goto_d
 
-    .line 186
     :cond_67
     const-string v3, "com.miui.player.playstatechanged"
 
@@ -337,7 +305,6 @@
 
     if-eqz v3, :cond_d
 
-    .line 187
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 
     #getter for: Lmiui/app/screenelement/elements/MusicControlScreenElement;->mTextDisplay:Lmiui/app/screenelement/elements/TextScreenElement;
@@ -360,10 +327,8 @@
 
     if-nez v3, :cond_86
 
-    .line 188
     invoke-direct {p0, p2}, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->setTrackInfo(Landroid/content/Intent;)V
 
-    .line 190
     :cond_86
     iget-object v3, p0, Lmiui/app/screenelement/elements/MusicControlScreenElement$1;->this$0:Lmiui/app/screenelement/elements/MusicControlScreenElement;
 

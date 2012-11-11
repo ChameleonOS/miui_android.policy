@@ -25,12 +25,10 @@
     .end annotation
 
     .prologue
-    .line 17
     const-string v0, "Rotation"
 
     invoke-direct {p0, p1, v0, p2}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 18
     return-void
 .end method
 
@@ -40,7 +38,6 @@
     .registers 2
 
     .prologue
-    .line 21
     iget v0, p0, Lmiui/app/screenelement/animation/RotationAnimation;->mCurrentAngle:F
 
     return v0
@@ -50,7 +47,6 @@
     .registers 5
 
     .prologue
-    .line 26
     new-instance v0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     const/4 v1, 0x1
@@ -79,27 +75,22 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 34
     if-nez p1, :cond_9
 
     if-nez p2, :cond_9
 
-    .line 35
     const/4 v2, 0x0
 
     iput v2, p0, Lmiui/app/screenelement/animation/RotationAnimation;->mCurrentAngle:F
 
-    .line 41
     :goto_8
     return-void
 
-    .line 39
     :cond_9
     if-nez p1, :cond_19
 
     const-wide/16 v0, 0x0
 
-    .line 40
     .local v0, a1:D
     :goto_d
     invoke-virtual {p2, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -120,7 +111,6 @@
 
     goto :goto_8
 
-    .line 39
     .end local v0           #a1:D
     :cond_19
     invoke-virtual {p1, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D

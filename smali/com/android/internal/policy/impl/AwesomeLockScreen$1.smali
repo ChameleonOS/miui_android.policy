@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 262
     iput-object p1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen$1;->this$0:Lcom/android/internal/policy/impl/AwesomeLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 4
 
     .prologue
-    .line 266
     :try_start_0
     iget-object v1, p0, Lcom/android/internal/policy/impl/AwesomeLockScreen$1;->this$0:Lcom/android/internal/policy/impl/AwesomeLockScreen;
 
@@ -54,15 +52,12 @@
     :try_end_9
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_9} :catch_a
 
-    .line 271
     :goto_9
     return-void
 
-    .line 267
     :catch_a
     move-exception v0
 
-    .line 268
     .local v0, e:Landroid/content/ActivityNotFoundException;
     const-string v1, "AwesomeLockScreen"
 
@@ -72,7 +67,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 269
     invoke-virtual {v0}, Landroid/content/ActivityNotFoundException;->printStackTrace()V
 
     goto :goto_9

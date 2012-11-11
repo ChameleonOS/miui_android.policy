@@ -23,7 +23,6 @@
     .registers 3
 
     .prologue
-    .line 57
     invoke-static {}, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->values()[Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     move-result-object v0

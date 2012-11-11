@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 732
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -39,7 +38,6 @@
     .parameter "serviceState"
 
     .prologue
-    .line 735
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
@@ -49,11 +47,9 @@
 
     if-nez v1, :cond_9
 
-    .line 740
     :goto_8
     return-void
 
-    .line 736
     :cond_9
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getState()I
 
@@ -65,7 +61,6 @@
 
     const/4 v0, 0x1
 
-    .line 737
     .local v0, inAirplaneMode:Z
     :goto_11
     iget-object v2, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
@@ -78,7 +73,6 @@
     #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
     invoke-static {v2, v1}, Lcom/android/internal/policy/impl/GlobalActions;->access$402(Lcom/android/internal/policy/impl/GlobalActions;Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;)Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
-    .line 738
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAirplaneModeOn:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;
@@ -95,7 +89,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->updateState(Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;)V
 
-    .line 739
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$6;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mAdapter:Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;
@@ -107,14 +100,12 @@
 
     goto :goto_8
 
-    .line 736
     .end local v0           #inAirplaneMode:Z
     :cond_33
     const/4 v0, 0x0
 
     goto :goto_11
 
-    .line 737
     .restart local v0       #inAirplaneMode:Z
     :cond_35
     sget-object v1, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;->Off:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;

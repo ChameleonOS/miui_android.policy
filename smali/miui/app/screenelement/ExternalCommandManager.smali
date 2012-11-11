@@ -37,26 +37,20 @@
     .end annotation
 
     .prologue
-    .line 30
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 16
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
 
-    .line 31
     iput-object p2, p0, Lmiui/app/screenelement/ExternalCommandManager;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    .line 32
     if-eqz p1, :cond_11
 
-    .line 33
     invoke-direct {p0, p1, p3}, Lmiui/app/screenelement/ExternalCommandManager;->load(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 34
     :cond_11
     return-void
 .end method
@@ -72,17 +66,14 @@
     .end annotation
 
     .prologue
-    .line 70
     if-nez p1, :cond_11
 
-    .line 71
     const-string v3, "ExternalCommandManager"
 
     const-string v4, "node is null"
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 72
     new-instance v3, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v4, "node is null"
@@ -91,13 +82,11 @@
 
     throw v3
 
-    .line 76
     :cond_11
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v0
 
-    .line 77
     .local v0, children:Lorg/w3c/dom/NodeList;
     const/4 v1, 0x0
 
@@ -109,7 +98,6 @@
 
     if-ge v1, v3, :cond_49
 
-    .line 78
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v3
@@ -122,14 +110,12 @@
 
     if-ne v3, v4, :cond_39
 
-    .line 79
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
     check-cast v2, Lorg/w3c/dom/Element;
 
-    .line 80
     .local v2, item:Lorg/w3c/dom/Element;
     invoke-interface {v2}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
@@ -143,7 +129,6 @@
 
     if-nez v3, :cond_3c
 
-    .line 77
     .end local v2           #item:Lorg/w3c/dom/Element;
     :cond_39
     :goto_39
@@ -151,7 +136,6 @@
 
     goto :goto_16
 
-    .line 83
     .restart local v2       #item:Lorg/w3c/dom/Element;
     :cond_3c
     iget-object v3, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
@@ -166,7 +150,6 @@
 
     goto :goto_39
 
-    .line 86
     .end local v2           #item:Lorg/w3c/dom/Element;
     :cond_49
     return-void
@@ -178,7 +161,6 @@
     .registers 4
 
     .prologue
-    .line 52
     iget-object v2, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -199,13 +181,11 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 53
     .local v1, t:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->finish()V
 
     goto :goto_6
 
-    .line 55
     .end local v1           #t:Lmiui/app/screenelement/CommandTrigger;
     :cond_16
     return-void
@@ -215,7 +195,6 @@
     .registers 4
 
     .prologue
-    .line 46
     iget-object v2, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -236,13 +215,11 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 47
     .local v1, t:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->init()V
 
     goto :goto_6
 
-    .line 49
     .end local v1           #t:Lmiui/app/screenelement/CommandTrigger;
     :cond_16
     return-void
@@ -253,7 +230,6 @@
     .parameter "command"
 
     .prologue
-    .line 37
     iget-object v2, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -274,7 +250,6 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 38
     .local v1, t:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->getActionString()Ljava/lang/String;
 
@@ -286,10 +261,8 @@
 
     if-eqz v2, :cond_6
 
-    .line 39
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->perform()V
 
-    .line 43
     .end local v1           #t:Lmiui/app/screenelement/CommandTrigger;
     :cond_1f
     return-void
@@ -299,7 +272,6 @@
     .registers 4
 
     .prologue
-    .line 58
     iget-object v2, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -320,13 +292,11 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 59
     .local v1, t:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->pause()V
 
     goto :goto_6
 
-    .line 61
     .end local v1           #t:Lmiui/app/screenelement/CommandTrigger;
     :cond_16
     return-void
@@ -336,7 +306,6 @@
     .registers 4
 
     .prologue
-    .line 64
     iget-object v2, p0, Lmiui/app/screenelement/ExternalCommandManager;->mTriggers:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -357,13 +326,11 @@
 
     check-cast v1, Lmiui/app/screenelement/CommandTrigger;
 
-    .line 65
     .local v1, t:Lmiui/app/screenelement/CommandTrigger;
     invoke-virtual {v1}, Lmiui/app/screenelement/CommandTrigger;->resume()V
 
     goto :goto_6
 
-    .line 67
     .end local v1           #t:Lmiui/app/screenelement/CommandTrigger;
     :cond_16
     return-void

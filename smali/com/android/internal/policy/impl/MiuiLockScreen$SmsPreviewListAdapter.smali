@@ -32,15 +32,12 @@
     .parameter "c"
 
     .prologue
-    .line 1299
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
-    .line 1300
     const v0, 0x6030015
 
     invoke-direct {p0, p1, p2, v0, p3}, Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater;-><init>(Lcom/android/internal/policy/impl/MiuiLockScreen;Landroid/content/Context;ILandroid/database/Cursor;)V
 
-    .line 1301
     return-void
 .end method
 
@@ -53,14 +50,12 @@
     .parameter "c"
 
     .prologue
-    .line 1330
     invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v12
 
     check-cast v12, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;
 
-    .line 1331
     .local v12, views:Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;
     const/4 v13, 0x1
 
@@ -70,7 +65,6 @@
 
     move-result-object v1
 
-    .line 1332
     .local v1, address:Ljava/lang/String;
     const/4 v13, 0x2
 
@@ -80,7 +74,6 @@
 
     move-result-wide v3
 
-    .line 1333
     .local v3, date:J
     const/4 v13, 0x3
 
@@ -90,7 +83,6 @@
 
     move-result v10
 
-    .line 1334
     .local v10, type:I
     const/4 v13, 0x4
 
@@ -100,14 +92,11 @@
 
     move-result-object v9
 
-    .line 1335
     .local v9, text:Ljava/lang/String;
     if-nez v9, :cond_26
 
-    .line 1336
     const-string v9, ""
 
-    .line 1340
     :cond_26
     const/4 v13, 0x7
 
@@ -119,7 +108,6 @@
 
     if-nez v13, :cond_4f
 
-    .line 1342
     const/4 v13, 0x5
 
     :try_start_30
@@ -133,11 +121,9 @@
 
     move-result-object v2
 
-    .line 1343
     .local v2, charset:Ljava/lang/Integer;
     if-eqz v2, :cond_4f
 
-    .line 1344
     new-instance v11, Lcom/google/android/mms/pdu/EncodedStringValue;
 
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
@@ -152,7 +138,6 @@
 
     invoke-direct {v11, v13, v14}, Lcom/google/android/mms/pdu/EncodedStringValue;-><init>(I[B)V
 
-    .line 1347
     .local v11, value:Lcom/google/android/mms/pdu/EncodedStringValue;
     invoke-virtual {v11}, Lcom/google/android/mms/pdu/EncodedStringValue;->getString()Ljava/lang/String;
     :try_end_4e
@@ -160,7 +145,6 @@
 
     move-result-object v9
 
-    .line 1353
     .end local v2           #charset:Ljava/lang/Integer;
     .end local v11           #value:Lcom/google/android/mms/pdu/EncodedStringValue;
     :cond_4f
@@ -171,7 +155,6 @@
 
     move-result-object v6
 
-    .line 1354
     .local v6, info:Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater$ContactInfo;
     if-eqz v6, :cond_c2
 
@@ -183,7 +166,6 @@
 
     if-nez v13, :cond_c2
 
-    .line 1355
     iget-object v13, v12, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->line1View:Landroid/widget/TextView;
 
     new-instance v14, Ljava/lang/StringBuilder;
@@ -218,7 +200,6 @@
 
     invoke-virtual {v13, v14}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1363
     :goto_83
     new-instance v5, Lmiui/security/ChooseLockSettingsHelper;
 
@@ -226,7 +207,6 @@
 
     invoke-direct {v5, v0}, Lmiui/security/ChooseLockSettingsHelper;-><init>(Landroid/content/Context;)V
 
-    .line 1364
     .local v5, helper:Lmiui/security/ChooseLockSettingsHelper;
     invoke-virtual/range {p2 .. p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -269,7 +249,6 @@
 
     const/4 v8, 0x1
 
-    .line 1371
     .local v8, showBodySetting:Z
     :goto_af
     iget-object v13, v12, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->textView:Landroid/widget/TextView;
@@ -280,7 +259,6 @@
     :goto_b3
     invoke-virtual {v13, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1372
     iget-object v13, v12, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->dateView:Landroid/widget/TextView;
 
     move-object/from16 v0, p0
@@ -291,10 +269,8 @@
 
     invoke-virtual {v13, v14}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 1373
     return-void
 
-    .line 1357
     .end local v5           #helper:Lmiui/security/ChooseLockSettingsHelper;
     .end local v8           #showBodySetting:Z
     .restart local v9       #text:Ljava/lang/String;
@@ -307,7 +283,6 @@
 
     move-result-object v7
 
-    .line 1358
     .local v7, location:Ljava/lang/String;
     iget-object v14, v12, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->line1View:Landroid/widget/TextView;
 
@@ -359,7 +334,6 @@
 
     goto :goto_d8
 
-    .line 1364
     .end local v7           #location:Ljava/lang/String;
     .restart local v5       #helper:Lmiui/security/ChooseLockSettingsHelper;
     :cond_fa
@@ -367,14 +341,12 @@
 
     goto :goto_af
 
-    .line 1371
     .restart local v8       #showBodySetting:Z
     :cond_fc
     const-string v9, ""
 
     goto :goto_b3
 
-    .line 1349
     .end local v5           #helper:Lmiui/security/ChooseLockSettingsHelper;
     .end local v6           #info:Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater$ContactInfo;
     .end local v8           #showBodySetting:Z
@@ -394,20 +366,17 @@
 
     const/4 v8, 0x1
 
-    .line 1305
     invoke-virtual {p0, p2}, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->getItem(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/database/Cursor;
 
-    .line 1306
     .local v0, c:Landroid/database/Cursor;
     invoke-interface {v0, v10}, Landroid/database/Cursor;->getLong(I)J
 
     move-result-wide v1
 
-    .line 1307
     .local v1, id:J
     const/4 v5, 0x3
 
@@ -415,19 +384,16 @@
 
     move-result v3
 
-    .line 1309
     .local v3, type:I
     new-instance v4, Landroid/content/ContentValues;
 
     invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
 
-    .line 1310
     .local v4, values:Landroid/content/ContentValues;
     const/4 v5, 0x7
 
     if-ge v3, v5, :cond_36
 
-    .line 1311
     const-string v5, "seen"
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -436,7 +402,6 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 1312
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -455,11 +420,9 @@
 
     invoke-virtual {v5, v6, v4, v7, v8}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    .line 1326
     :goto_35
     return-void
 
-    .line 1319
     :cond_36
     const-string v5, "seen"
 
@@ -469,7 +432,6 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    .line 1320
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -498,18 +460,15 @@
     .parameter "parent"
 
     .prologue
-    .line 1377
     invoke-super {p0, p1, p2, p3}, Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater;->newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    .line 1380
     .local v0, view:Landroid/view/View;
     new-instance v1, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;
 
     invoke-direct {v1, p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;-><init>(Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;)V
 
-    .line 1381
     .local v1, views:Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;
     const v2, 0x60b0033
 
@@ -521,7 +480,6 @@
 
     iput-object v2, v1, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->line1View:Landroid/widget/TextView;
 
-    .line 1382
     const v2, 0x60b0037
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -532,7 +490,6 @@
 
     iput-object v2, v1, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->textView:Landroid/widget/TextView;
 
-    .line 1383
     const v2, 0x60b0035
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -543,10 +500,8 @@
 
     iput-object v2, v1, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->dateView:Landroid/widget/TextView;
 
-    .line 1384
     invoke-virtual {v0, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
 
-    .line 1386
     return-object v0
 .end method
 
@@ -556,10 +511,8 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 1391
     invoke-super {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater;->onContentChanged()V
 
-    .line 1392
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->getCount()I
 
     move-result v0
@@ -594,7 +547,6 @@
 
     if-ne v0, v2, :cond_31
 
-    .line 1414
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
@@ -606,7 +558,6 @@
 
     invoke-interface {v0, v1}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 1416
     :cond_31
     return-void
 .end method
@@ -618,10 +569,8 @@
     .prologue
     const/4 v3, 0x2
 
-    .line 1420
     if-lez p1, :cond_11
 
-    .line 1421
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mSelector:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -635,12 +584,10 @@
 
     invoke-virtual {v1, v3, v2}, Lcom/miui/internal/policy/impl/SlidingPanel;->setSliderText(ILjava/lang/String;)V
 
-    .line 1430
     :cond_10
     :goto_10
     return-void
 
-    .line 1422
     :cond_11
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
@@ -655,7 +602,6 @@
 
     if-nez v1, :cond_10
 
-    .line 1423
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mSelector:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -667,14 +613,12 @@
 
     invoke-virtual {v1, v3, v2}, Lcom/miui/internal/policy/impl/SlidingPanel;->setSliderText(ILjava/lang/String;)V
 
-    .line 1427
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.provider.Telephony.DISMISS_NEW_MESSAGE_NOTIFICATION"
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    .line 1428
     .local v0, i:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater;->mContext:Landroid/content/Context;
 

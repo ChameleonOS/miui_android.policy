@@ -39,12 +39,10 @@
 
     const/4 v6, 0x0
 
-    .line 28
     const-string v2, "Size"
 
     invoke-direct {p0, p1, v2, p2}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 29
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getNodeName()Ljava/lang/String;
 
     move-result-object v2
@@ -79,7 +77,6 @@
 
     invoke-static {v2, v3}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 31
     iget-object v2, p0, Lmiui/app/screenelement/animation/BaseAnimation;->mItems:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -101,7 +98,6 @@
 
     check-cast v0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
-    .line 32
     .local v0, ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     invoke-virtual {v0, v6}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
@@ -113,14 +109,12 @@
 
     if-lez v2, :cond_4d
 
-    .line 33
     invoke-virtual {v0, v6}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
     move-result-wide v2
 
     iput-wide v2, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mMaxW:D
 
-    .line 34
     :cond_4d
     invoke-virtual {v0, v7}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
@@ -132,7 +126,6 @@
 
     if-lez v2, :cond_31
 
-    .line 35
     invoke-virtual {v0, v7}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
     move-result-wide v2
@@ -141,14 +134,12 @@
 
     goto :goto_31
 
-    .line 39
     .end local v0           #ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     :cond_5e
     invoke-virtual {p0, v6}, Lmiui/app/screenelement/animation/SizeAnimation;->getItem(I)Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     move-result-object v0
 
-    .line 40
     .restart local v0       #ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     invoke-virtual {v0, v6}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
@@ -156,14 +147,12 @@
 
     iput-wide v2, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mDelayW:D
 
-    .line 41
     invoke-virtual {v0, v7}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
     move-result-wide v2
 
     iput-wide v2, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mDelayH:D
 
-    .line 42
     return-void
 .end method
 
@@ -173,7 +162,6 @@
     .registers 3
 
     .prologue
-    .line 49
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mCurrentH:D
 
     return-wide v0
@@ -183,7 +171,6 @@
     .registers 3
 
     .prologue
-    .line 57
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mMaxH:D
 
     return-wide v0
@@ -193,7 +180,6 @@
     .registers 3
 
     .prologue
-    .line 53
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mMaxW:D
 
     return-wide v0
@@ -203,7 +189,6 @@
     .registers 3
 
     .prologue
-    .line 45
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mCurrentW:D
 
     return-wide v0
@@ -213,7 +198,6 @@
     .registers 5
 
     .prologue
-    .line 62
     new-instance v0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     const/4 v1, 0x2
@@ -252,27 +236,22 @@
 
     const-wide/16 v2, 0x0
 
-    .line 76
     if-nez p1, :cond_9
 
     if-nez p2, :cond_9
 
-    .line 84
     :goto_8
     return-void
 
-    .line 80
     :cond_9
     if-nez p1, :cond_23
 
     move-wide v0, v2
 
-    .line 81
     .local v0, x1:D
     :goto_c
     if-nez p1, :cond_28
 
-    .line 82
     .local v2, y1:D
     :goto_e
     invoke-virtual {p2, v4}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -289,7 +268,6 @@
 
     iput-wide v4, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mCurrentW:D
 
-    .line 83
     invoke-virtual {p2, v8}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
     move-result-wide v4
@@ -306,7 +284,6 @@
 
     goto :goto_8
 
-    .line 80
     .end local v0           #x1:D
     .end local v2           #y1:D
     :cond_23
@@ -316,7 +293,6 @@
 
     goto :goto_c
 
-    .line 81
     .restart local v0       #x1:D
     :cond_28
     invoke-virtual {p1, v8}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -331,19 +307,15 @@
     .parameter "time"
 
     .prologue
-    .line 68
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
-    .line 69
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mDelayW:D
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mCurrentW:D
 
-    .line 70
     iget-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mDelayH:D
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/SizeAnimation;->mCurrentH:D
 
-    .line 71
     return-void
 .end method

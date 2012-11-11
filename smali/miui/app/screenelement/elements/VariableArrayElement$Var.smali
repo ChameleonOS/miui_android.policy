@@ -39,20 +39,16 @@
     .parameter "ele"
 
     .prologue
-    .line 56
     iput-object p1, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->this$0:Lmiui/app/screenelement/elements/VariableArrayElement;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 45
     const/4 v0, -0x1
 
     iput v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndex:I
 
-    .line 57
     if-eqz p2, :cond_3d
 
-    .line 58
     const-string v0, "name"
 
     invoke-interface {p2, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -61,7 +57,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mName:Ljava/lang/String;
 
-    .line 59
     const-string v0, "index"
 
     invoke-interface {p2, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -74,7 +69,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndexExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 60
     const-string v0, "const"
 
     invoke-interface {p2, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -87,7 +81,6 @@
 
     iput-boolean v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mConst:Z
 
-    .line 62
     #getter for: Lmiui/app/screenelement/elements/VariableArrayElement;->mIsStringType:Z
     invoke-static {p1}, Lmiui/app/screenelement/elements/VariableArrayElement;->access$000(Lmiui/app/screenelement/elements/VariableArrayElement;)Z
 
@@ -95,7 +88,6 @@
 
     if-eqz v0, :cond_3e
 
-    .line 63
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mName:Ljava/lang/String;
@@ -108,12 +100,10 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mStringVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 69
     :cond_3d
     :goto_3d
     return-void
 
-    .line 65
     :cond_3e
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -136,17 +126,14 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 81
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndexExpression:Lmiui/app/screenelement/data/Expression;
 
     if-nez v3, :cond_6
 
-    .line 112
     :cond_5
     :goto_5
     return-void
 
-    .line 84
     :cond_6
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->this$0:Lmiui/app/screenelement/elements/VariableArrayElement;
 
@@ -154,7 +141,6 @@
 
     iget-object v2, v3, Lmiui/app/screenelement/ScreenContext;->mVariables:Lmiui/app/screenelement/data/Variables;
 
-    .line 85
     .local v2, var:Lmiui/app/screenelement/data/Variables;
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndexExpression:Lmiui/app/screenelement/data/Expression;
 
@@ -164,7 +150,6 @@
 
     double-to-int v0, v3
 
-    .line 86
     .local v0, index:I
     if-ltz v0, :cond_21
 
@@ -181,7 +166,6 @@
 
     if-lt v0, v3, :cond_35
 
-    .line 88
     :cond_21
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->this$0:Lmiui/app/screenelement/elements/VariableArrayElement;
 
@@ -192,14 +176,12 @@
 
     if-eqz v3, :cond_2f
 
-    .line 89
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mStringVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-virtual {v3, v5}, Lmiui/app/screenelement/util/IndexedStringVariable;->set(Ljava/lang/String;)V
 
     goto :goto_5
 
-    .line 91
     :cond_2f
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mNumberVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -207,7 +189,6 @@
 
     goto :goto_5
 
-    .line 96
     :cond_35
     iget v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndex:I
 
@@ -217,7 +198,6 @@
 
     if-eqz v3, :cond_5
 
-    .line 101
     :cond_3d
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->this$0:Lmiui/app/screenelement/elements/VariableArrayElement;
 
@@ -232,23 +212,19 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/VariableArrayElement$Item;
 
-    .line 102
     .local v1, item:Lmiui/app/screenelement/elements/VariableArrayElement$Item;
     iget v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndex:I
 
     if-eq v3, v0, :cond_55
 
-    .line 103
     iput v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mIndex:I
 
-    .line 104
     invoke-virtual {v1}, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->isExpression()Z
 
     move-result v3
 
     iput-boolean v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mCurrentItemIsExpression:Z
 
-    .line 107
     :cond_55
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->this$0:Lmiui/app/screenelement/elements/VariableArrayElement;
 
@@ -259,7 +235,6 @@
 
     if-eqz v3, :cond_67
 
-    .line 108
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mStringVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-virtual {v1, v2}, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
@@ -270,7 +245,6 @@
 
     goto :goto_5
 
-    .line 110
     :cond_67
     iget-object v3, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mNumberVar:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
@@ -289,10 +263,8 @@
     .registers 1
 
     .prologue
-    .line 77
     invoke-direct {p0}, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->update()V
 
-    .line 78
     return-void
 .end method
 
@@ -300,15 +272,12 @@
     .registers 2
 
     .prologue
-    .line 72
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->mConst:Z
 
     if-nez v0, :cond_7
 
-    .line 73
     invoke-direct {p0}, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->update()V
 
-    .line 74
     :cond_7
     return-void
 .end method

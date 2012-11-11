@@ -29,17 +29,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 19
     const-string v1, "AniFrame"
 
     invoke-direct {p0, p1, v1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 21
     invoke-virtual {p0, v2}, Lmiui/app/screenelement/animation/VariableAnimation;->getItem(I)Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     move-result-object v0
 
-    .line 22
     .local v0, ai:Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
     invoke-virtual {v0, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
 
@@ -47,7 +44,6 @@
 
     iput-wide v1, p0, Lmiui/app/screenelement/animation/VariableAnimation;->mDelayValue:D
 
-    .line 23
     return-void
 .end method
 
@@ -57,7 +53,6 @@
     .registers 3
 
     .prologue
-    .line 26
     iget-wide v0, p0, Lmiui/app/screenelement/animation/VariableAnimation;->mCurrentValue:D
 
     return-wide v0
@@ -67,7 +62,6 @@
     .registers 5
 
     .prologue
-    .line 31
     new-instance v0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;
 
     const/4 v1, 0x1
@@ -96,22 +90,18 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 44
     if-nez p1, :cond_6
 
     if-nez p2, :cond_6
 
-    .line 50
     :goto_5
     return-void
 
-    .line 48
     :cond_6
     if-nez p1, :cond_15
 
     const-wide/16 v0, 0x0
 
-    .line 49
     .local v0, a1:D
     :goto_a
     invoke-virtual {p2, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -130,7 +120,6 @@
 
     goto :goto_5
 
-    .line 48
     .end local v0           #a1:D
     :cond_15
     invoke-virtual {p1, v2}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -145,14 +134,11 @@
     .parameter "time"
 
     .prologue
-    .line 37
     invoke-super {p0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
-    .line 38
     iget-wide v0, p0, Lmiui/app/screenelement/animation/VariableAnimation;->mDelayValue:D
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/VariableAnimation;->mCurrentValue:D
 
-    .line 39
     return-void
 .end method

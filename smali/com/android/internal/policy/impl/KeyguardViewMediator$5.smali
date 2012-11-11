@@ -23,7 +23,6 @@
     .registers 3
 
     .prologue
-    .line 751
     invoke-static {}, Lcom/android/internal/telephony/IccCard$State;->values()[Lcom/android/internal/telephony/IccCard$State;
 
     move-result-object v0

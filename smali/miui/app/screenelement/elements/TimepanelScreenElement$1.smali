@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 47
     iput-object p1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 5
 
     .prologue
-    .line 50
     :try_start_0
     iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
@@ -50,7 +48,6 @@
     :try_end_5
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_11
 
-    .line 54
     :goto_5
     iget-object v1, p0, Lmiui/app/screenelement/elements/TimepanelScreenElement$1;->this$0:Lmiui/app/screenelement/elements/TimepanelScreenElement;
 
@@ -63,14 +60,11 @@
 
     invoke-virtual {v1, p0, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 55
     return-void
 
-    .line 51
     :catch_11
     move-exception v0
 
-    .line 52
     .local v0, e:Ljava/lang/Exception;
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
 

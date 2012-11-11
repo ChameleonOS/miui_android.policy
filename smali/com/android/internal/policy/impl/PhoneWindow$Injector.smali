@@ -23,7 +23,6 @@
     .registers 1
 
     .prologue
-    .line 109
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -38,7 +37,6 @@
     .parameter "drawingBounds"
 
     .prologue
-    .line 126
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
@@ -61,18 +59,15 @@
 
     if-eqz v0, :cond_17
 
-    .line 138
     :cond_16
     :goto_16
     return-void
 
-    .line 132
     :cond_17
     iget-object v0, p1, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mRoundedCorners:Lcom/android/internal/policy/impl/RoundedCorners;
 
     if-nez v0, :cond_26
 
-    .line 133
     new-instance v0, Lcom/android/internal/policy/impl/RoundedCorners;
 
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
@@ -83,7 +78,6 @@
 
     iput-object v0, p1, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mRoundedCorners:Lcom/android/internal/policy/impl/RoundedCorners;
 
-    .line 136
     :cond_26
     iget-object v0, p1, Lcom/android/internal/policy/impl/PhoneWindow$DecorView;->mRoundedCorners:Lcom/android/internal/policy/impl/RoundedCorners;
 
@@ -113,10 +107,8 @@
     .parameter "lp"
 
     .prologue
-    .line 111
     const/4 v0, -0x2
 
-    .line 112
     .local v0, height:I
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindow;->getContext()Landroid/content/Context;
 
@@ -134,12 +126,10 @@
 
     const/4 v1, 0x1
 
-    .line 113
     .local v1, isIcsApp:Z
     :goto_10
     if-eqz v1, :cond_2d
 
-    .line 114
     invoke-interface {p1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v3
@@ -148,7 +138,6 @@
 
     move-result v2
 
-    .line 115
     .local v2, rotation:I
     if-eqz v2, :cond_20
 
@@ -156,31 +145,25 @@
 
     if-eq v2, v3, :cond_20
 
-    .line 117
     const/4 v0, -0x1
 
-    .line 119
     :cond_20
     iput v0, p2, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    .line 120
     iget v3, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     or-int/lit8 v3, v3, 0x2
 
     iput v3, p2, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 121
     const v3, 0x3f333333
 
     iput v3, p2, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
 
-    .line 123
     .end local v2           #rotation:I
     :cond_2d
     return-void
 
-    .line 112
     .end local v1           #isIcsApp:Z
     :cond_2e
     const/4 v1, 0x0

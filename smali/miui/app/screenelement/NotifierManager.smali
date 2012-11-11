@@ -51,7 +51,6 @@
     .registers 1
 
     .prologue
-    .line 21
     const/4 v0, 0x1
 
     sput-boolean v0, Lmiui/app/screenelement/NotifierManager;->DBG:Z
@@ -64,20 +63,16 @@
     .parameter "c"
 
     .prologue
-    .line 38
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 36
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/NotifierManager;->mNotifiers:Ljava/util/HashMap;
 
-    .line 39
     iput-object p1, p0, Lmiui/app/screenelement/NotifierManager;->mContext:Landroid/content/Context;
 
-    .line 40
     return-void
 .end method
 
@@ -85,7 +80,6 @@
     .registers 1
 
     .prologue
-    .line 19
     sget-boolean v0, Lmiui/app/screenelement/NotifierManager;->DBG:Z
 
     return v0
@@ -97,7 +91,6 @@
     .parameter "c"
 
     .prologue
-    .line 43
     sget-object v0, Lmiui/app/screenelement/NotifierManager$1;->$SwitchMap$miui$app$screenelement$NotifierManager$NotifierType:[I
 
     invoke-virtual {p0}, Lmiui/app/screenelement/NotifierManager$NotifierType;->ordinal()I
@@ -108,13 +101,11 @@
 
     packed-switch v0, :pswitch_data_38
 
-    .line 59
     const/4 v0, 0x0
 
     :goto_c
     return-object v0
 
-    .line 45
     :pswitch_d
     new-instance v0, Lmiui/app/screenelement/NotifierManager$BatteryNotifier;
 
@@ -122,7 +113,6 @@
 
     goto :goto_c
 
-    .line 47
     :pswitch_13
     new-instance v0, Lmiui/app/screenelement/NotifierManager$UsbStateNotifier;
 
@@ -130,7 +120,6 @@
 
     goto :goto_c
 
-    .line 49
     :pswitch_19
     new-instance v0, Lmiui/app/screenelement/NotifierManager$BluetoothNotifier;
 
@@ -138,7 +127,6 @@
 
     goto :goto_c
 
-    .line 51
     :pswitch_1f
     new-instance v0, Lmiui/app/screenelement/NotifierManager$RingModeNotifier;
 
@@ -146,7 +134,6 @@
 
     goto :goto_c
 
-    .line 53
     :pswitch_25
     new-instance v0, Lmiui/app/screenelement/NotifierManager$MobileDataNotifier;
 
@@ -154,7 +141,6 @@
 
     goto :goto_c
 
-    .line 55
     :pswitch_2b
     new-instance v0, Lmiui/app/screenelement/NotifierManager$WifiNotifier;
 
@@ -162,7 +148,6 @@
 
     goto :goto_c
 
-    .line 57
     :pswitch_31
     new-instance v0, Lmiui/app/screenelement/NotifierManager$VolumeChangedNotifier;
 
@@ -170,7 +155,6 @@
 
     goto :goto_c
 
-    .line 43
     nop
 
     :pswitch_data_38
@@ -190,7 +174,6 @@
     .parameter "c"
 
     .prologue
-    .line 63
     const-class v1, Lmiui/app/screenelement/NotifierManager;
 
     monitor-enter v1
@@ -200,14 +183,12 @@
 
     if-nez v0, :cond_e
 
-    .line 64
     new-instance v0, Lmiui/app/screenelement/NotifierManager;
 
     invoke-direct {v0, p0}, Lmiui/app/screenelement/NotifierManager;-><init>(Landroid/content/Context;)V
 
     sput-object v0, Lmiui/app/screenelement/NotifierManager;->sInstance:Lmiui/app/screenelement/NotifierManager;
 
-    .line 66
     :cond_e
     sget-object v0, Lmiui/app/screenelement/NotifierManager;->sInstance:Lmiui/app/screenelement/NotifierManager;
     :try_end_10
@@ -217,7 +198,6 @@
 
     return-object v0
 
-    .line 63
     :catchall_12
     move-exception v0
 
@@ -234,7 +214,6 @@
     .parameter "l"
 
     .prologue
-    .line 74
     monitor-enter p0
 
     :try_start_1
@@ -242,7 +221,6 @@
 
     if-eqz v1, :cond_2f
 
-    .line 75
     const-string v1, "NotifierManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -283,7 +261,6 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 77
     :cond_2f
     iget-object v1, p0, Lmiui/app/screenelement/NotifierManager;->mNotifiers:Ljava/util/HashMap;
 
@@ -293,11 +270,9 @@
 
     check-cast v0, Lmiui/app/screenelement/NotifierManager$BaseNotifier;
 
-    .line 78
     .local v0, notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     if-nez v0, :cond_4b
 
-    .line 79
     iget-object v1, p0, Lmiui/app/screenelement/NotifierManager;->mContext:Landroid/content/Context;
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/NotifierManager;->createNotifier(Lmiui/app/screenelement/NotifierManager$NotifierType;Landroid/content/Context;)Lmiui/app/screenelement/NotifierManager$BaseNotifier;
@@ -306,40 +281,32 @@
 
     move-result-object v0
 
-    .line 80
     if-nez v0, :cond_43
 
-    .line 89
     :goto_41
     monitor-exit p0
 
     return-void
 
-    .line 83
     :cond_43
     :try_start_43
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->init()V
 
-    .line 84
     iget-object v1, p0, Lmiui/app/screenelement/NotifierManager;->mNotifiers:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    .line 86
     :cond_4b
     invoke-virtual {v0, p2}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->addListener(Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 87
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->addRef()I
 
-    .line 88
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->addActiveRef()I
     :try_end_54
     .catchall {:try_start_43 .. :try_end_54} :catchall_55
 
     goto :goto_41
 
-    .line 74
     .end local v0           #notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     :catchall_55
     move-exception v1
@@ -355,7 +322,6 @@
     .parameter "l"
 
     .prologue
-    .line 105
     monitor-enter p0
 
     :try_start_1
@@ -369,37 +335,31 @@
     :try_end_9
     .catchall {:try_start_1 .. :try_end_9} :catchall_1a
 
-    .line 106
     .local v0, notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     if-nez v0, :cond_d
 
-    .line 111
     :cond_b
     :goto_b
     monitor-exit p0
 
     return-void
 
-    .line 108
     :cond_d
     :try_start_d
     invoke-virtual {v0, p2}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->removeListener(Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 109
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->releaseActiveRef()I
 
     move-result v1
 
     if-nez v1, :cond_b
 
-    .line 110
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->pause()V
     :try_end_19
     .catchall {:try_start_d .. :try_end_19} :catchall_1a
 
     goto :goto_b
 
-    .line 105
     .end local v0           #notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     :catchall_1a
     move-exception v1
@@ -415,7 +375,6 @@
     .parameter "l"
 
     .prologue
-    .line 92
     monitor-enter p0
 
     :try_start_1
@@ -429,36 +388,29 @@
     :try_end_9
     .catchall {:try_start_1 .. :try_end_9} :catchall_22
 
-    .line 93
     .local v0, notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     if-nez v0, :cond_d
 
-    .line 102
     :cond_b
     :goto_b
     monitor-exit p0
 
     return-void
 
-    .line 96
     :cond_d
     :try_start_d
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->releaseActiveRef()I
 
-    .line 97
     invoke-virtual {v0, p2}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->removeListener(Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 98
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->releaseRef()I
 
     move-result v1
 
     if-nez v1, :cond_b
 
-    .line 99
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->finish()V
 
-    .line 100
     iget-object v1, p0, Lmiui/app/screenelement/NotifierManager;->mNotifiers:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -467,7 +419,6 @@
 
     goto :goto_b
 
-    .line 92
     .end local v0           #notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     :catchall_22
     move-exception v1
@@ -483,7 +434,6 @@
     .parameter "l"
 
     .prologue
-    .line 114
     monitor-enter p0
 
     :try_start_1
@@ -497,23 +447,19 @@
     :try_end_9
     .catchall {:try_start_1 .. :try_end_9} :catchall_1b
 
-    .line 115
     .local v0, notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     if-nez v0, :cond_d
 
-    .line 120
     :cond_b
     :goto_b
     monitor-exit p0
 
     return-void
 
-    .line 117
     :cond_d
     :try_start_d
     invoke-virtual {v0, p2}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->addListener(Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 118
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->addActiveRef()I
 
     move-result v1
@@ -522,14 +468,12 @@
 
     if-ne v1, v2, :cond_b
 
-    .line 119
     invoke-virtual {v0}, Lmiui/app/screenelement/NotifierManager$BaseNotifier;->resume()V
     :try_end_1a
     .catchall {:try_start_d .. :try_end_1a} :catchall_1b
 
     goto :goto_b
 
-    .line 114
     .end local v0           #notifier:Lmiui/app/screenelement/NotifierManager$BaseNotifier;
     :catchall_1b
     move-exception v1

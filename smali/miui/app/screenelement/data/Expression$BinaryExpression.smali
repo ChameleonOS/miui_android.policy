@@ -36,35 +36,28 @@
     .parameter "op"
 
     .prologue
-    .line 356
     invoke-direct {p0}, Lmiui/app/screenelement/data/Expression;-><init>()V
 
-    .line 329
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->INVALID:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mOpe:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 357
     iput-object p1, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
-    .line 358
     iput-object p2, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp2:Lmiui/app/screenelement/data/Expression;
 
-    .line 359
     invoke-static {p3}, Lmiui/app/screenelement/data/Expression$BinaryExpression;->parseOperator(Ljava/lang/String;)Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mOpe:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 360
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mOpe:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     sget-object v1, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->INVALID:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     if-ne v0, v1, :cond_2f
 
-    .line 361
     const-string v0, "Expression"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -87,7 +80,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 363
     :cond_2f
     return-void
 .end method
@@ -97,7 +89,6 @@
     .parameter "op"
 
     .prologue
-    .line 341
     const-string v0, "+"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -106,14 +97,11 @@
 
     if-eqz v0, :cond_b
 
-    .line 342
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->ADD:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 353
     :goto_a
     return-object v0
 
-    .line 343
     :cond_b
     const-string v0, "-"
 
@@ -123,12 +111,10 @@
 
     if-eqz v0, :cond_16
 
-    .line 344
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MIN:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     goto :goto_a
 
-    .line 345
     :cond_16
     const-string v0, "*"
 
@@ -138,12 +124,10 @@
 
     if-eqz v0, :cond_21
 
-    .line 346
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MUL:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     goto :goto_a
 
-    .line 347
     :cond_21
     const-string v0, "/"
 
@@ -153,12 +137,10 @@
 
     if-eqz v0, :cond_2c
 
-    .line 348
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->DIV:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     goto :goto_a
 
-    .line 349
     :cond_2c
     const-string v0, "%"
 
@@ -168,12 +150,10 @@
 
     if-eqz v0, :cond_37
 
-    .line 350
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MOD:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     goto :goto_a
 
-    .line 353
     :cond_37
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->INVALID:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
@@ -187,7 +167,6 @@
     .parameter "var"
 
     .prologue
-    .line 367
     sget-object v0, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     iget-object v1, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mOpe:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -200,20 +179,17 @@
 
     packed-switch v0, :pswitch_data_5e
 
-    .line 380
     const-string v0, "Expression"
 
     const-string v1, "fail to evalute BinaryExpression, invalid operator"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 381
     const-wide/16 v0, 0x0
 
     :goto_16
     return-wide v0
 
-    .line 369
     :pswitch_17
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -231,7 +207,6 @@
 
     goto :goto_16
 
-    .line 371
     :pswitch_25
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -249,7 +224,6 @@
 
     goto :goto_16
 
-    .line 373
     :pswitch_33
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -267,7 +241,6 @@
 
     goto :goto_16
 
-    .line 375
     :pswitch_41
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -285,7 +258,6 @@
 
     goto :goto_16
 
-    .line 377
     :pswitch_4f
     iget-object v0, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -303,7 +275,6 @@
 
     goto :goto_16
 
-    .line 367
     nop
 
     :pswitch_data_5e
@@ -323,14 +294,12 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 401
     iget-object v3, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
     invoke-virtual {v3, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 402
     .local v0, str1:Ljava/lang/String;
     iget-object v3, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp2:Lmiui/app/screenelement/data/Expression;
 
@@ -338,7 +307,6 @@
 
     move-result-object v1
 
-    .line 403
     .local v1, str2:Ljava/lang/String;
     sget-object v3, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
@@ -352,7 +320,6 @@
 
     packed-switch v3, :pswitch_data_42
 
-    .line 415
     const-string v3, "Expression"
 
     const-string v4, "fail to evalute string BinaryExpression, invalid operator"
@@ -361,13 +328,11 @@
 
     move-object v1, v2
 
-    .line 416
     .end local v1           #str2:Ljava/lang/String;
     :cond_22
     :goto_22
     return-object v1
 
-    .line 405
     .restart local v1       #str2:Ljava/lang/String;
     :pswitch_23
     if-nez v0, :cond_29
@@ -376,22 +341,17 @@
 
     move-object v1, v2
 
-    .line 406
     goto :goto_22
 
-    .line 407
     :cond_29
     if-eqz v0, :cond_22
 
-    .line 409
     if-nez v1, :cond_2f
 
     move-object v1, v0
 
-    .line 410
     goto :goto_22
 
-    .line 412
     :cond_2f
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -411,7 +371,6 @@
 
     goto :goto_22
 
-    .line 403
     nop
 
     :pswitch_data_42
@@ -429,7 +388,6 @@
 
     const/4 v0, 0x1
 
-    .line 386
     sget-object v2, Lmiui/app/screenelement/data/Expression$1;->$SwitchMap$miui$app$screenelement$data$Expression$BinaryExpression$Ope:[I
 
     iget-object v3, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mOpe:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -442,12 +400,10 @@
 
     packed-switch v2, :pswitch_data_36
 
-    .line 396
     :cond_f
     :goto_f
     return v0
 
-    .line 389
     :pswitch_10
     iget-object v2, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -470,7 +426,6 @@
 
     goto :goto_f
 
-    .line 393
     :pswitch_22
     iget-object v2, p0, Lmiui/app/screenelement/data/Expression$BinaryExpression;->mExp1:Lmiui/app/screenelement/data/Expression;
 
@@ -496,7 +451,6 @@
 
     goto :goto_f
 
-    .line 386
     nop
 
     :pswitch_data_36

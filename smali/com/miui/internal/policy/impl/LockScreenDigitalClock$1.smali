@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 53
     iput-object p1, p0, Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1;->this$0:Lcom/miui/internal/policy/impl/LockScreenDigitalClock;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +39,6 @@
     .parameter "intent"
 
     .prologue
-    .line 56
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
@@ -53,7 +51,6 @@
 
     if-eqz v0, :cond_15
 
-    .line 58
     iget-object v0, p0, Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1;->this$0:Lcom/miui/internal/policy/impl/LockScreenDigitalClock;
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
@@ -63,7 +60,6 @@
     #setter for: Lcom/miui/internal/policy/impl/LockScreenDigitalClock;->mCalendar:Ljava/util/Calendar;
     invoke-static {v0, v1}, Lcom/miui/internal/policy/impl/LockScreenDigitalClock;->access$002(Lcom/miui/internal/policy/impl/LockScreenDigitalClock;Ljava/util/Calendar;)Ljava/util/Calendar;
 
-    .line 61
     :cond_15
     iget-object v0, p0, Lcom/miui/internal/policy/impl/LockScreenDigitalClock$1;->this$0:Lcom/miui/internal/policy/impl/LockScreenDigitalClock;
 
@@ -78,6 +74,5 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    .line 66
     return-void
 .end method

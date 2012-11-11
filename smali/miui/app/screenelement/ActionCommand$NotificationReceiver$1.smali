@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 91
     iput-object p1, p0, Lmiui/app/screenelement/ActionCommand$NotificationReceiver$1;->this$0:Lmiui/app/screenelement/ActionCommand$NotificationReceiver;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,11 +40,9 @@
     .registers 2
 
     .prologue
-    .line 94
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$NotificationReceiver$1;->this$0:Lmiui/app/screenelement/ActionCommand$NotificationReceiver;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand$NotificationReceiver;->update()V
 
-    .line 95
     return-void
 .end method

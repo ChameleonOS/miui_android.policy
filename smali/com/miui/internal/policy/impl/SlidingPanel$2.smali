@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 326
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$2;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 4
 
     .prologue
-    .line 329
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$2;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$2;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -53,7 +51,6 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/SlidingPanel;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 330
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$2;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
@@ -63,7 +60,6 @@
 
     if-nez v0, :cond_19
 
-    .line 331
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$2;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     const/4 v1, 0x3
@@ -71,7 +67,6 @@
     #calls: Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
     invoke-static {v0, v1}, Lcom/miui/internal/policy/impl/SlidingPanel;->access$700(Lcom/miui/internal/policy/impl/SlidingPanel;I)V
 
-    .line 333
     :cond_19
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$2;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
@@ -80,6 +75,5 @@
     #setter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mLastDownTime:J
     invoke-static {v0, v1, v2}, Lcom/miui/internal/policy/impl/SlidingPanel;->access$802(Lcom/miui/internal/policy/impl/SlidingPanel;J)J
 
-    .line 334
     return-void
 .end method

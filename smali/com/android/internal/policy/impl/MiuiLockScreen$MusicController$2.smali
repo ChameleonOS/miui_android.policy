@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 1904
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$2;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,23 +40,19 @@
     .registers 2
 
     .prologue
-    .line 1907
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$2;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateMusic()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->access$2500(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;)V
 
-    .line 1908
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$2;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->updateSpectrumVisualizer()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->access$100(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;)V
 
-    .line 1909
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$2;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->addCheckStreamCallbacks()V
 
-    .line 1910
     return-void
 .end method

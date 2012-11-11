@@ -20,7 +20,6 @@
     .registers 1
 
     .prologue
-    .line 22
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,14 +34,11 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 32
     const/4 v5, 0x0
 
-    .line 33
     .local v5, stringFile:Landroid/os/MemoryFile;
     if-eqz p0, :cond_22
 
-    .line 35
     const-string v7, "strings/strings.xml"
 
     invoke-virtual {p0}, Ljava/util/Locale;->toString()Ljava/lang/String;
@@ -57,10 +53,8 @@
 
     move-result-object v5
 
-    .line 36
     if-nez v5, :cond_22
 
-    .line 38
     const-string v7, "strings/strings.xml"
 
     invoke-virtual {p0}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
@@ -75,55 +69,45 @@
 
     move-result-object v5
 
-    .line 41
     :cond_22
     if-nez v5, :cond_34
 
-    .line 42
     const-string v7, "strings/strings.xml"
 
     invoke-virtual {p1, v7}, Lmiui/app/screenelement/ResourceManager;->getFile(Ljava/lang/String;)Landroid/os/MemoryFile;
 
     move-result-object v5
 
-    .line 43
     if-nez v5, :cond_34
 
-    .line 44
     const-string v7, "LanguageHelper"
 
     const-string v8, "no available string resources to load."
 
     invoke-static {v7, v8}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 60
     :goto_33
     return v6
 
-    .line 49
     :cond_34
     const/4 v1, 0x0
 
-    .line 50
     .local v1, doc:Lorg/w3c/dom/Document;
     invoke-static {}, Ljavax/xml/parsers/DocumentBuilderFactory;->newInstance()Ljavax/xml/parsers/DocumentBuilderFactory;
 
     move-result-object v3
 
-    .line 52
     .local v3, factory:Ljavax/xml/parsers/DocumentBuilderFactory;
     :try_start_39
     invoke-virtual {v3}, Ljavax/xml/parsers/DocumentBuilderFactory;->newDocumentBuilder()Ljavax/xml/parsers/DocumentBuilder;
 
     move-result-object v0
 
-    .line 53
     .local v0, builder:Ljavax/xml/parsers/DocumentBuilder;
     invoke-virtual {v5}, Landroid/os/MemoryFile;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v4
 
-    .line 54
     .local v4, is:Ljava/io/InputStream;
     invoke-virtual {v0, v4}, Ljavax/xml/parsers/DocumentBuilder;->parse(Ljava/io/InputStream;)Lorg/w3c/dom/Document;
     :try_end_44
@@ -131,20 +115,17 @@
 
     move-result-object v1
 
-    .line 60
     invoke-static {v1, p2}, Lmiui/app/screenelement/LanguageHelper;->setVariables(Lorg/w3c/dom/Document;Lmiui/app/screenelement/data/Variables;)Z
 
     move-result v6
 
     goto :goto_33
 
-    .line 55
     .end local v0           #builder:Ljavax/xml/parsers/DocumentBuilder;
     .end local v4           #is:Ljava/io/InputStream;
     :catch_4a
     move-exception v2
 
-    .line 56
     .local v2, e:Ljava/lang/Exception;
     const-string v7, "LanguageHelper"
 
@@ -165,18 +146,15 @@
     .prologue
     const/4 v6, 0x0
 
-    .line 64
     const-string v7, "strings"
 
     invoke-interface {p0, v7}, Lorg/w3c/dom/Document;->getElementsByTagName(Ljava/lang/String;)Lorg/w3c/dom/NodeList;
 
     move-result-object v2
 
-    .line 65
     .local v2, rootsList:Lorg/w3c/dom/NodeList;
     const/4 v1, 0x0
 
-    .line 66
     .local v1, root:Lorg/w3c/dom/Element;
     invoke-interface {v2}, Lorg/w3c/dom/NodeList;->getLength()I
 
@@ -184,11 +162,9 @@
 
     if-gtz v7, :cond_f
 
-    .line 79
     :goto_e
     return v6
 
-    .line 69
     :cond_f
     invoke-interface {v2, v6}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
@@ -197,7 +173,6 @@
     .end local v1           #root:Lorg/w3c/dom/Element;
     check-cast v1, Lorg/w3c/dom/Element;
 
-    .line 71
     .restart local v1       #root:Lorg/w3c/dom/Element;
     const-string v6, "string"
 
@@ -205,7 +180,6 @@
 
     move-result-object v4
 
-    .line 72
     .local v4, stringList:Lorg/w3c/dom/NodeList;
     const/4 v0, 0x0
 
@@ -217,14 +191,12 @@
 
     if-ge v0, v6, :cond_3f
 
-    .line 73
     invoke-interface {v4, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v3
 
     check-cast v3, Lorg/w3c/dom/Element;
 
-    .line 74
     .local v3, string:Lorg/w3c/dom/Element;
     new-instance v5, Lmiui/app/screenelement/util/IndexedStringVariable;
 
@@ -236,7 +208,6 @@
 
     invoke-direct {v5, v6, p1}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 76
     .local v5, stringVar:Lmiui/app/screenelement/util/IndexedStringVariable;
     const-string v6, "value"
 
@@ -246,12 +217,10 @@
 
     invoke-virtual {v5, v6}, Lmiui/app/screenelement/util/IndexedStringVariable;->set(Ljava/lang/String;)V
 
-    .line 72
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1c
 
-    .line 79
     .end local v3           #string:Lorg/w3c/dom/Element;
     .end local v5           #stringVar:Lmiui/app/screenelement/util/IndexedStringVariable;
     :cond_3f

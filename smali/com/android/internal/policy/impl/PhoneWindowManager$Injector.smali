@@ -23,7 +23,6 @@
     .registers 1
 
     .prologue
-    .line 178
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -35,7 +34,6 @@
     .parameter "ws"
 
     .prologue
-    .line 180
     const/4 v0, 0x1
 
     return v0
@@ -50,7 +48,6 @@
     .prologue
     const/4 v1, 0x0
 
-    .line 184
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
     move-result v2
@@ -59,7 +56,6 @@
 
     const/4 v0, 0x1
 
-    .line 185
     .local v0, down:Z
     :goto_8
     if-nez v0, :cond_19
@@ -74,14 +70,12 @@
 
     if-nez v2, :cond_19
 
-    .line 186
     const/4 v2, 0x0
 
     const/4 v3, 0x2
 
     invoke-virtual {p0, v2, v3, v1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->performHapticFeedbackLw(Landroid/view/WindowManagerPolicy$WindowState;IZ)Z
 
-    .line 188
     :cond_19
     return-void
 
@@ -89,7 +83,6 @@
     :cond_1a
     move v0, v1
 
-    .line 184
     goto :goto_8
 .end method
 
@@ -98,14 +91,12 @@
     .parameter "manager"
 
     .prologue
-    .line 191
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     if-eqz v0, :cond_14
 
-    .line 192
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -118,7 +109,6 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
-    .line 194
     :cond_14
     return-void
 .end method

@@ -38,7 +38,6 @@
     .registers 1
 
     .prologue
-    .line 13
     const/4 v0, 0x4
 
     new-array v0, v0, [I
@@ -67,30 +66,24 @@
     .prologue
     const/4 v5, 0x4
 
-    .line 31
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 19
     new-array v2, v5, [Landroid/graphics/drawable/Drawable;
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
-    .line 20
     new-array v2, v5, [I
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mWidth:[I
 
-    .line 21
     new-array v2, v5, [I
 
     iput-object v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mHeight:[I
 
-    .line 32
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    .line 33
     .local v1, res:Landroid/content/res/Resources;
     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -100,7 +93,6 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mDisplayWidth:I
 
-    .line 34
     invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v2
@@ -109,7 +101,6 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mDisplayHeight:I
 
-    .line 35
     const/high16 v2, 0x60a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -118,7 +109,6 @@
 
     iput v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mStatusBarHeight:I
 
-    .line 36
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -142,22 +132,18 @@
     :goto_40
     iput-boolean v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mEnabled:Z
 
-    .line 40
     iget-boolean v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mEnabled:Z
 
     if-nez v2, :cond_49
 
-    .line 49
     :cond_46
     return-void
 
-    .line 36
     :cond_47
     const/4 v2, 0x0
 
     goto :goto_40
 
-    .line 44
     :cond_49
     const/4 v0, 0x0
 
@@ -165,7 +151,6 @@
     :goto_4a
     if-ge v0, v5, :cond_46
 
-    .line 45
     iget-object v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
     sget-object v3, Lcom/android/internal/policy/impl/RoundedCorners;->CORNER_IDS:[I
@@ -178,7 +163,6 @@
 
     aput-object v3, v2, v0
 
-    .line 46
     iget-object v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mWidth:[I
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
@@ -191,7 +175,6 @@
 
     aput v3, v2, v0
 
-    .line 47
     iget-object v2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mHeight:[I
 
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
@@ -204,7 +187,6 @@
 
     aput v3, v2, v0
 
-    .line 44
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_4a
@@ -216,7 +198,6 @@
     .parameter "height"
 
     .prologue
-    .line 52
     iget v0, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mDisplayWidth:I
 
     if-ne p1, v0, :cond_11
@@ -251,7 +232,6 @@
     .parameter "height"
 
     .prologue
-    .line 56
     iget v0, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mDisplayHeight:I
 
     if-ne p1, v0, :cond_11
@@ -299,14 +279,11 @@
 
     const/4 v6, 0x0
 
-    .line 60
     sub-int v2, p4, p2
 
-    .line 61
     .local v2, width:I
     sub-int v0, p5, p3
 
-    .line 63
     .local v0, height:I
     iget-boolean v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mEnabled:Z
 
@@ -324,11 +301,9 @@
 
     if-nez v3, :cond_19
 
-    .line 82
     :cond_18
     return-void
 
-    .line 67
     :cond_19
     iget v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mLastLeft:I
 
@@ -346,20 +321,15 @@
 
     if-eq p5, v3, :cond_79
 
-    .line 68
     :cond_29
     iput p2, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mLastLeft:I
 
-    .line 69
     iput p3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mLastTop:I
 
-    .line 70
     iput p4, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mLastRight:I
 
-    .line 71
     iput p5, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mLastBottom:I
 
-    .line 73
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
     aget-object v3, v3, v6
@@ -378,7 +348,6 @@
 
     invoke-virtual {v3, p2, p3, v4, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 74
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
     aget-object v3, v3, v7
@@ -397,7 +366,6 @@
 
     invoke-virtual {v3, v4, p3, p4, v5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 75
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
     aget-object v3, v3, v8
@@ -416,7 +384,6 @@
 
     invoke-virtual {v3, p2, v4, v5, p5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 76
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
     aget-object v3, v3, v9
@@ -435,7 +402,6 @@
 
     invoke-virtual {v3, v4, v5, p4, p5}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    .line 79
     :cond_79
     const/4 v1, 0x0
 
@@ -445,14 +411,12 @@
 
     if-ge v1, v3, :cond_18
 
-    .line 80
     iget-object v3, p0, Lcom/android/internal/policy/impl/RoundedCorners;->mCorners:[Landroid/graphics/drawable/Drawable;
 
     aget-object v3, v3, v1
 
     invoke-virtual {v3, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    .line 79
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_7a

@@ -41,7 +41,6 @@
     .parameter
 
     .prologue
-    .line 452
     iput-object p1, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;->this$0:Lmiui/app/screenelement/ActionCommand$WifiStateTracker;
 
     iput-object p2, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
@@ -60,7 +59,6 @@
     .parameter "x0"
 
     .prologue
-    .line 452
     check-cast p1, [Ljava/lang/Void;
 
     .end local p1
@@ -78,14 +76,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 458
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->getWifiApState()I
 
     move-result v0
 
-    .line 459
     .local v0, wifiApState:I
     iget-boolean v1, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;->val$desiredState:Z
 
@@ -99,7 +95,6 @@
 
     if-ne v0, v1, :cond_19
 
-    .line 461
     :cond_13
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
@@ -107,7 +102,6 @@
 
     invoke-virtual {v1, v3, v2}, Landroid/net/wifi/WifiManager;->setWifiApEnabled(Landroid/net/wifi/WifiConfiguration;Z)Z
 
-    .line 464
     :cond_19
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;->val$wifiManager:Landroid/net/wifi/WifiManager;
 
@@ -115,6 +109,5 @@
 
     invoke-virtual {v1, v2}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
 
-    .line 465
     return-object v3
 .end method

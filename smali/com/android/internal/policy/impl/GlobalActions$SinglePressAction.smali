@@ -32,21 +32,16 @@
     .parameter "messageResId"
 
     .prologue
-    .line 445
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 446
     iput p1, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mIconResId:I
 
-    .line 447
     iput p2, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
-    .line 448
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
-    .line 449
     return-void
 .end method
 
@@ -56,21 +51,16 @@
     .parameter "message"
 
     .prologue
-    .line 451
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 452
     iput p1, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mIconResId:I
 
-    .line 453
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
-    .line 454
     iput-object p2, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
-    .line 455
     return-void
 .end method
 
@@ -84,7 +74,6 @@
     .parameter "inflater"
 
     .prologue
-    .line 468
     const v3, 0x1090041
 
     const/4 v4, 0x0
@@ -93,7 +82,6 @@
 
     move-result-object v2
 
-    .line 470
     .local v2, v:Landroid/view/View;
     const v3, 0x1020006
 
@@ -103,7 +91,6 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    .line 471
     .local v0, icon:Landroid/widget/ImageView;
     const v3, 0x102000b
 
@@ -113,7 +100,6 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    .line 473
     .local v1, messageView:Landroid/widget/TextView;
     const v3, 0x1020275
 
@@ -125,7 +111,6 @@
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setVisibility(I)V
 
-    .line 475
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
@@ -138,21 +123,17 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    .line 476
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
     if-eqz v3, :cond_3d
 
-    .line 477
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessage:Ljava/lang/CharSequence;
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    .line 482
     :goto_3c
     return-object v2
 
-    .line 479
     :cond_3d
     iget v3, p0, Lcom/android/internal/policy/impl/GlobalActions$SinglePressAction;->mMessageResId:I
 
@@ -165,7 +146,6 @@
     .registers 2
 
     .prologue
-    .line 457
     const/4 v0, 0x1
 
     return v0
@@ -175,7 +155,6 @@
     .registers 2
 
     .prologue
-    .line 463
     const/4 v0, 0x0
 
     return v0

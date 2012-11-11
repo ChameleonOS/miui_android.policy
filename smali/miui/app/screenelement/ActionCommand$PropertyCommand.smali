@@ -31,16 +31,12 @@
     .parameter "value"
 
     .prologue
-    .line 911
     invoke-direct {p0, p1}, Lmiui/app/screenelement/ActionCommand;-><init>(Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 912
     iput-object p2, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
-    .line 913
     iput-object p3, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetObj:Lmiui/app/screenelement/util/Variable;
 
-    .line 914
     return-void
 .end method
 
@@ -52,12 +48,10 @@
     .parameter "value"
 
     .prologue
-    .line 917
     new-instance v0, Lmiui/app/screenelement/util/Variable;
 
     invoke-direct {v0, p2}, Lmiui/app/screenelement/util/Variable;-><init>(Ljava/lang/String;)V
 
-    .line 918
     .local v0, t:Lmiui/app/screenelement/util/Variable;
     const-string v1, "visibility"
 
@@ -71,16 +65,13 @@
 
     if-eqz v1, :cond_17
 
-    .line 919
     new-instance v1, Lmiui/app/screenelement/ActionCommand$VisibilityProperty;
 
     invoke-direct {v1, p0, p1, v0, p3}, Lmiui/app/screenelement/ActionCommand$VisibilityProperty;-><init>(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;Lmiui/app/screenelement/util/Variable;Ljava/lang/String;)V
 
-    .line 923
     :goto_16
     return-object v1
 
-    .line 920
     :cond_17
     const-string v1, "animation"
 
@@ -94,14 +85,12 @@
 
     if-eqz v1, :cond_29
 
-    .line 921
     new-instance v1, Lmiui/app/screenelement/ActionCommand$AnimationProperty;
 
     invoke-direct {v1, p0, p1, v0, p3}, Lmiui/app/screenelement/ActionCommand$AnimationProperty;-><init>(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;Lmiui/app/screenelement/util/Variable;Ljava/lang/String;)V
 
     goto :goto_16
 
-    .line 923
     :cond_29
     const/4 v1, 0x0
 
@@ -114,22 +103,18 @@
     .registers 4
 
     .prologue
-    .line 928
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetObj:Lmiui/app/screenelement/util/Variable;
 
     if-nez v0, :cond_5
 
-    .line 940
     :goto_4
     return-void
 
-    .line 931
     :cond_5
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
 
     if-nez v0, :cond_3d
 
-    .line 932
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetObj:Lmiui/app/screenelement/util/Variable;
@@ -144,12 +129,10 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
 
-    .line 933
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetElement:Lmiui/app/screenelement/elements/ScreenElement;
 
     if-nez v0, :cond_3d
 
-    .line 934
     const-string v0, "ActionCommand"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -178,14 +161,12 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 935
     const/4 v0, 0x0
 
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->mTargetObj:Lmiui/app/screenelement/util/Variable;
 
     goto :goto_4
 
-    .line 939
     :cond_3d
     invoke-virtual {p0}, Lmiui/app/screenelement/ActionCommand$PropertyCommand;->doPerform()V
 

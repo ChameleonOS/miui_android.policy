@@ -54,7 +54,6 @@
 
     const/4 v3, 0x0
 
-    .line 332
     new-instance v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     const-string v1, "INVALID"
@@ -63,7 +62,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->INVALID:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 333
     new-instance v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     const-string v1, "ADD"
@@ -72,7 +70,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->ADD:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 334
     new-instance v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     const-string v1, "MIN"
@@ -81,7 +78,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MIN:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 335
     new-instance v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     const-string v1, "MUL"
@@ -90,7 +86,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MUL:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 336
     new-instance v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     const-string v1, "DIV"
@@ -99,7 +94,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->DIV:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 337
     new-instance v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     const-string v1, "MOD"
@@ -110,7 +104,6 @@
 
     sput-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->MOD:Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
-    .line 331
     const/4 v0, 0x6
 
     new-array v0, v0, [Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
@@ -157,7 +150,6 @@
     .end annotation
 
     .prologue
-    .line 331
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -168,7 +160,6 @@
     .parameter "name"
 
     .prologue
-    .line 331
     const-class v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -184,7 +175,6 @@
     .registers 1
 
     .prologue
-    .line 331
     sget-object v0, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->$VALUES:[Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
     invoke-virtual {v0}, [Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->clone()Ljava/lang/Object;

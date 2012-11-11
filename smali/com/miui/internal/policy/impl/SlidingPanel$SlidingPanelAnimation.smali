@@ -34,23 +34,18 @@
     .parameter "mode"
 
     .prologue
-    .line 148
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
 
-    .line 143
     const/4 v0, 0x0
 
     iput v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mMode:I
 
-    .line 149
     iput-object p2, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mPanel:Lcom/miui/internal/policy/impl/SlidingPanel;
 
-    .line 150
     iput p3, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mMode:I
 
-    .line 151
     return-void
 .end method
 
@@ -62,7 +57,6 @@
     .parameter "t"
 
     .prologue
-    .line 169
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mPanel:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     const/4 v1, 0x0
@@ -81,7 +75,6 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/miui/internal/policy/impl/SlidingPanel;->scrollTo(II)V
 
-    .line 170
     return-void
 .end method
 
@@ -89,10 +82,8 @@
     .registers 3
 
     .prologue
-    .line 155
     invoke-super {p0}, Landroid/view/animation/Animation;->reset()V
 
-    .line 156
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mScrollY:I
@@ -102,24 +93,20 @@
 
     iput v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mInitBottom:I
 
-    .line 157
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mMode:I
 
     if-nez v0, :cond_15
 
-    .line 158
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mInitBottom:I
 
     neg-int v0, v0
 
     iput v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mDeltaY:I
 
-    .line 162
     :cond_14
     :goto_14
     return-void
 
-    .line 159
     :cond_15
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->mMode:I
 
@@ -127,7 +114,6 @@
 
     if-ne v0, v1, :cond_14
 
-    .line 160
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayHeight:I

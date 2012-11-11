@@ -29,15 +29,12 @@
     .parameter "name"
 
     .prologue
-    .line 15
     iput-object p1, p0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->this$0:Lmiui/app/screenelement/FramerateTokenList;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 16
     iput-object p2, p0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->mName:Ljava/lang/String;
 
-    .line 17
     return-void
 .end method
 
@@ -47,7 +44,6 @@
     .registers 2
 
     .prologue
-    .line 20
     iget v0, p0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->mFramerate:F
 
     return v0
@@ -58,14 +54,12 @@
     .parameter "f"
 
     .prologue
-    .line 24
     iget v0, p0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->mFramerate:F
 
     cmpl-float v0, v0, p1
 
     if-eqz v0, :cond_31
 
-    .line 25
     const-string v0, "FramerateTokenList"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -100,16 +94,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 26
     iput p1, p0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->mFramerate:F
 
-    .line 27
     iget-object v0, p0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->this$0:Lmiui/app/screenelement/FramerateTokenList;
 
     #calls: Lmiui/app/screenelement/FramerateTokenList;->onChange()V
     invoke-static {v0}, Lmiui/app/screenelement/FramerateTokenList;->access$000(Lmiui/app/screenelement/FramerateTokenList;)V
 
-    .line 29
     :cond_31
     return-void
 .end method

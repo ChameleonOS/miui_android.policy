@@ -25,13 +25,10 @@
     .parameter "looper"
 
     .prologue
-    .line 1448
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$QueryHandler$CatchingWorkerHandler;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen$QueryHandler;
 
-    .line 1449
     invoke-direct {p0, p1, p2}, Landroid/content/AsyncQueryHandler$WorkerHandler;-><init>(Landroid/content/AsyncQueryHandler;Landroid/os/Looper;)V
 
-    .line 1450
     return-void
 .end method
 
@@ -42,7 +39,6 @@
     .parameter "msg"
 
     .prologue
-    .line 1456
     :try_start_0
     invoke-super {p0, p1}, Landroid/content/AsyncQueryHandler$WorkerHandler;->handleMessage(Landroid/os/Message;)V
     :try_end_3
@@ -50,15 +46,12 @@
     .catch Landroid/database/sqlite/SQLiteFullException; {:try_start_0 .. :try_end_3} :catch_d
     .catch Landroid/database/sqlite/SQLiteDatabaseCorruptException; {:try_start_0 .. :try_end_3} :catch_16
 
-    .line 1464
     :goto_3
     return-void
 
-    .line 1457
     :catch_4
     move-exception v0
 
-    .line 1458
     .local v0, e:Landroid/database/sqlite/SQLiteDiskIOException;
     const-string v1, "LockScreen"
 
@@ -68,12 +61,10 @@
 
     goto :goto_3
 
-    .line 1459
     .end local v0           #e:Landroid/database/sqlite/SQLiteDiskIOException;
     :catch_d
     move-exception v0
 
-    .line 1460
     .local v0, e:Landroid/database/sqlite/SQLiteFullException;
     const-string v1, "LockScreen"
 
@@ -83,12 +74,10 @@
 
     goto :goto_3
 
-    .line 1461
     .end local v0           #e:Landroid/database/sqlite/SQLiteFullException;
     :catch_16
     move-exception v0
 
-    .line 1462
     .local v0, e:Landroid/database/sqlite/SQLiteDatabaseCorruptException;
     const-string v1, "LockScreen"
 

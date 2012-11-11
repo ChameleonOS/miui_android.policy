@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 1993
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -42,7 +41,6 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 1996
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicControl:Landroid/view/View;
@@ -52,18 +50,15 @@
 
     if-nez v3, :cond_a
 
-    .line 2025
     :cond_9
     :goto_9
     return-void
 
-    .line 1999
     :cond_a
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 2000
     .local v0, action:Ljava/lang/String;
     const-string v3, "playing"
 
@@ -71,11 +66,9 @@
 
     move-result v2
 
-    .line 2001
     .local v2, isPlaying:Z
     if-eqz v2, :cond_9
 
-    .line 2004
     const-string v3, "com.miui.player.metachanged"
 
     invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -84,14 +77,12 @@
 
     if-eqz v3, :cond_46
 
-    .line 2005
     const-string v3, "other"
 
     invoke-virtual {p2, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 2006
     .local v1, extra:Ljava/lang/String;
     const-string v3, "meta_changed_track"
 
@@ -101,13 +92,11 @@
 
     if-eqz v3, :cond_37
 
-    .line 2007
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setTrackInfo(Landroid/content/Intent;)V
     invoke-static {v3, p2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->access$2700(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;Landroid/content/Intent;)V
 
-    .line 2008
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->requestAlbum(Landroid/content/Intent;)V
@@ -115,7 +104,6 @@
 
     goto :goto_9
 
-    .line 2009
     :cond_37
     const-string v3, "meta_changed_album"
 
@@ -125,7 +113,6 @@
 
     if-eqz v3, :cond_9
 
-    .line 2010
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     const/4 v4, 0x1
@@ -134,7 +121,6 @@
 
     goto :goto_9
 
-    .line 2012
     .end local v1           #extra:Ljava/lang/String;
     :cond_46
     const-string v3, "lockscreen.action.SONG_METADATA_UPDATED"
@@ -145,13 +131,11 @@
 
     if-eqz v3, :cond_59
 
-    .line 2013
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setTrackInfo(Landroid/content/Intent;)V
     invoke-static {v3, p2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->access$2700(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;Landroid/content/Intent;)V
 
-    .line 2014
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setAlbumInfo(Landroid/content/Intent;)V
@@ -159,7 +143,6 @@
 
     goto :goto_9
 
-    .line 2015
     :cond_59
     const-string v3, "com.miui.player.refreshprogress"
 
@@ -169,7 +152,6 @@
 
     if-eqz v3, :cond_6d
 
-    .line 2016
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     const-string v4, "blocking"
@@ -183,7 +165,6 @@
 
     goto :goto_9
 
-    .line 2017
     :cond_6d
     const-string v3, "com.miui.player.playstatechanged"
 
@@ -208,13 +189,11 @@
 
     if-ne v3, v4, :cond_9
 
-    .line 2022
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->setTrackInfo(Landroid/content/Intent;)V
     invoke-static {v3, p2}, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->access$2700(Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;Landroid/content/Intent;)V
 
-    .line 2023
     iget-object v3, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$3;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #calls: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->requestAlbum(Landroid/content/Intent;)V

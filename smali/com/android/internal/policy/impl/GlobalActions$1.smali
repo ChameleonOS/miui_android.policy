@@ -29,7 +29,6 @@
     .parameter "x4"
 
     .prologue
-    .line 162
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     move-object v0, p0
@@ -56,7 +55,6 @@
     .parameter "buttonOn"
 
     .prologue
-    .line 180
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
@@ -66,12 +64,10 @@
 
     if-nez v0, :cond_9
 
-    .line 188
     :cond_8
     :goto_8
     return-void
 
-    .line 183
     :cond_9
     const-string v0, "ril.cdma.inecmmode"
 
@@ -85,7 +81,6 @@
 
     if-nez v0, :cond_8
 
-    .line 185
     if-eqz p1, :cond_23
 
     sget-object v0, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;->TurningOn:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
@@ -93,7 +88,6 @@
     :goto_19
     iput-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->mState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
-    .line 186
     iget-object v0, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction;->mState:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
@@ -103,7 +97,6 @@
 
     goto :goto_8
 
-    .line 185
     :cond_23
     sget-object v0, Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;->TurningOff:Lcom/android/internal/policy/impl/GlobalActions$ToggleAction$State;
 
@@ -115,7 +108,6 @@
     .parameter "on"
 
     .prologue
-    .line 165
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mHasTelephony:Z
@@ -137,7 +129,6 @@
 
     if-eqz v1, :cond_31
 
-    .line 167
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     const/4 v2, 0x1
@@ -145,7 +136,6 @@
     #setter for: Lcom/android/internal/policy/impl/GlobalActions;->mIsWaitingForEcmExit:Z
     invoke-static {v1, v2}, Lcom/android/internal/policy/impl/GlobalActions;->access$102(Lcom/android/internal/policy/impl/GlobalActions;Z)Z
 
-    .line 169
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "android.intent.action.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS"
@@ -154,13 +144,11 @@
 
     invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    .line 171
     .local v0, ecmDialogIntent:Landroid/content/Intent;
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    .line 172
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mContext:Landroid/content/Context;
@@ -170,12 +158,10 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    .line 176
     .end local v0           #ecmDialogIntent:Landroid/content/Intent;
     :goto_30
     return-void
 
-    .line 174
     :cond_31
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$1;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -189,7 +175,6 @@
     .registers 2
 
     .prologue
-    .line 195
     const/4 v0, 0x0
 
     return v0
@@ -199,7 +184,6 @@
     .registers 2
 
     .prologue
-    .line 191
     const/4 v0, 0x1
 
     return v0

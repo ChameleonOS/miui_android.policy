@@ -25,7 +25,6 @@
     .parameter "x0"
 
     .prologue
-    .line 16
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor$1;->this$0:Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -40,10 +39,8 @@
     .parameter "selfChange"
 
     .prologue
-    .line 19
     invoke-super {p0, p1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 20
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor$1;->this$0:Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor$1;->this$0:Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
@@ -66,7 +63,6 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mLowBatteryThreshold:I
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->access$002(Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;I)I
 
-    .line 22
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor$1;->this$0:Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor$1;->this$0:Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;
@@ -96,6 +92,5 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mLowBatteryThreshold:I
     invoke-static {v0, v1}, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->access$002(Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;I)I
 
-    .line 26
     return-void
 .end method

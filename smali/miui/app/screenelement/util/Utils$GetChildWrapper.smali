@@ -24,13 +24,10 @@
     .parameter "ele"
 
     .prologue
-    .line 80
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 81
     iput-object p1, p0, Lmiui/app/screenelement/util/Utils$GetChildWrapper;->mEle:Lorg/w3c/dom/Element;
 
-    .line 82
     return-void
 .end method
 
@@ -41,7 +38,6 @@
     .parameter "name"
 
     .prologue
-    .line 89
     new-instance v0, Lmiui/app/screenelement/util/Utils$GetChildWrapper;
 
     iget-object v1, p0, Lmiui/app/screenelement/util/Utils$GetChildWrapper;->mEle:Lorg/w3c/dom/Element;
@@ -59,7 +55,6 @@
     .registers 2
 
     .prologue
-    .line 85
     iget-object v0, p0, Lmiui/app/screenelement/util/Utils$GetChildWrapper;->mEle:Lorg/w3c/dom/Element;
 
     return-object v0

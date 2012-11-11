@@ -26,15 +26,12 @@
     .parameter "v"
 
     .prologue
-    .line 195
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lmiui/app/screenelement/util/TextFormatter$FormatPara;-><init>(Lmiui/app/screenelement/util/TextFormatter$1;)V
 
-    .line 196
     iput-object p1, p0, Lmiui/app/screenelement/util/TextFormatter$StringVarPara;->mVariable:Lmiui/app/screenelement/util/Variable;
 
-    .line 197
     return-void
 .end method
 
@@ -45,12 +42,10 @@
     .parameter "var"
 
     .prologue
-    .line 201
     iget-object v1, p0, Lmiui/app/screenelement/util/TextFormatter$StringVarPara;->mVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
     if-nez v1, :cond_17
 
-    .line 202
     new-instance v1, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     iget-object v2, p0, Lmiui/app/screenelement/util/TextFormatter$StringVarPara;->mVariable:Lmiui/app/screenelement/util/Variable;
@@ -69,7 +64,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/util/TextFormatter$StringVarPara;->mVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
-    .line 204
     :cond_17
     iget-object v1, p0, Lmiui/app/screenelement/util/TextFormatter$StringVarPara;->mVar:Lmiui/app/screenelement/util/IndexedStringVariable;
 
@@ -77,7 +71,6 @@
 
     move-result-object v0
 
-    .line 205
     .local v0, string:Ljava/lang/String;
     if-nez v0, :cond_21
 

@@ -31,15 +31,12 @@
     .parameter "ele"
 
     .prologue
-    .line 122
     iput-object p1, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->this$0:Lmiui/app/screenelement/elements/VariableArrayElement;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 123
     if-eqz p2, :cond_29
 
-    .line 124
     const-string v0, "expression"
 
     invoke-interface {p2, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -52,7 +49,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 125
     const-string v0, "value"
 
     invoke-interface {p2, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -61,7 +57,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mStrValue:Ljava/lang/String;
 
-    .line 126
     #getter for: Lmiui/app/screenelement/elements/VariableArrayElement;->mIsStringType:Z
     invoke-static {p1}, Lmiui/app/screenelement/elements/VariableArrayElement;->access$000(Lmiui/app/screenelement/elements/VariableArrayElement;)Z
 
@@ -69,7 +64,6 @@
 
     if-nez v0, :cond_29
 
-    .line 128
     :try_start_21
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mStrValue:Ljava/lang/String;
 
@@ -81,12 +75,10 @@
     :try_end_29
     .catch Ljava/lang/NumberFormatException; {:try_start_21 .. :try_end_29} :catch_2a
 
-    .line 133
     :cond_29
     :goto_29
     return-void
 
-    .line 129
     :catch_2a
     move-exception v0
 
@@ -100,12 +92,10 @@
     .parameter "vars"
 
     .prologue
-    .line 146
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v0, :cond_19
 
-    .line 147
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/data/Expression;->isNull(Lmiui/app/screenelement/data/Variables;)Z
@@ -116,11 +106,9 @@
 
     const/4 v0, 0x0
 
-    .line 149
     :goto_d
     return-object v0
 
-    .line 147
     :cond_e
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
@@ -134,7 +122,6 @@
 
     goto :goto_d
 
-    .line 149
     :cond_19
     iget-wide v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mNumValue:D
 
@@ -150,19 +137,16 @@
     .parameter "vars"
 
     .prologue
-    .line 140
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v0, :cond_b
 
-    .line 141
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/data/Expression;->evaluateStr(Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 142
     :goto_a
     return-object v0
 
@@ -176,7 +160,6 @@
     .registers 2
 
     .prologue
-    .line 136
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement$Item;->mExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v0, :cond_6

@@ -27,16 +27,12 @@
     .parameter "y0"
 
     .prologue
-    .line 111
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 112
     iput-wide p1, p0, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
-    .line 113
     iput-wide p3, p0, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
-    .line 114
     return-void
 .end method
 
@@ -47,7 +43,6 @@
     .parameter "a"
 
     .prologue
-    .line 117
     iget-wide v0, p0, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
     iget-wide v2, p1, Lmiui/app/screenelement/util/Utils$Point;->x:D
@@ -56,7 +51,6 @@
 
     iput-wide v0, p0, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
-    .line 118
     iget-wide v0, p0, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
     iget-wide v2, p1, Lmiui/app/screenelement/util/Utils$Point;->y:D
@@ -65,7 +59,6 @@
 
     iput-wide v0, p0, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
-    .line 119
     return-void
 .end method
 
@@ -74,7 +67,6 @@
     .parameter "a"
 
     .prologue
-    .line 122
     new-instance v0, Lmiui/app/screenelement/util/Utils$Point;
 
     iget-wide v1, p0, Lmiui/app/screenelement/util/Utils$Point;->x:D

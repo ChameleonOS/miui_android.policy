@@ -31,12 +31,10 @@
     .end annotation
 
     .prologue
-    .line 29
     const-string v0, "Source"
 
     invoke-direct {p0, p1, v0, p2}, Lmiui/app/screenelement/animation/PositionAnimation;-><init>(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 30
     return-void
 .end method
 
@@ -46,7 +44,6 @@
     .registers 2
 
     .prologue
-    .line 33
     iget-object v0, p0, Lmiui/app/screenelement/animation/SourcesAnimation;->mCurrentBitmap:Ljava/lang/String;
 
     return-object v0
@@ -56,7 +53,6 @@
     .registers 5
 
     .prologue
-    .line 52
     new-instance v0, Lmiui/app/screenelement/animation/SourcesAnimation$Source;
 
     const/4 v1, 0x2
@@ -91,21 +87,16 @@
     .prologue
     const-wide/16 v0, 0x0
 
-    .line 39
     if-nez p2, :cond_9
 
-    .line 40
     iput-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentX:D
 
-    .line 41
     iput-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentY:D
 
-    .line 48
     .end local p2
     :goto_8
     return-void
 
-    .line 45
     .restart local p2
     :cond_9
     const/4 v0, 0x0
@@ -116,7 +107,6 @@
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentX:D
 
-    .line 46
     const/4 v0, 0x1
 
     invoke-virtual {p2, v0}, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->get(I)D
@@ -125,7 +115,6 @@
 
     iput-wide v0, p0, Lmiui/app/screenelement/animation/PositionAnimation;->mCurrentY:D
 
-    .line 47
     check-cast p2, Lmiui/app/screenelement/animation/SourcesAnimation$Source;
 
     .end local p2

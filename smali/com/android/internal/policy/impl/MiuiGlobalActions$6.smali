@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 670
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$6;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     invoke-direct {p0}, Landroid/telephony/PhoneStateListener;-><init>()V
@@ -39,7 +38,6 @@
     .parameter "serviceState"
 
     .prologue
-    .line 673
     invoke-virtual {p1}, Landroid/telephony/ServiceState;->getState()I
 
     move-result v1
@@ -50,7 +48,6 @@
 
     const/4 v0, 0x1
 
-    .line 674
     .local v0, inAirplaneMode:Z
     :goto_8
     iget-object v2, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$6;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
@@ -63,7 +60,6 @@
     #setter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAirplaneState:Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;
     invoke-static {v2, v1}, Lcom/android/internal/policy/impl/MiuiGlobalActions;->access$302(Lcom/android/internal/policy/impl/MiuiGlobalActions;Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;)Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;
 
-    .line 675
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$6;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAirplaneModeOn:Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction;
@@ -80,7 +76,6 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction;->updateState(Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;)V
 
-    .line 676
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$6;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mAdapter:Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;
@@ -90,17 +85,14 @@
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/MiuiGlobalActions$MyAdapter;->notifyDataSetChanged()V
 
-    .line 677
     return-void
 
-    .line 673
     .end local v0           #inAirplaneMode:Z
     :cond_2a
     const/4 v0, 0x0
 
     goto :goto_8
 
-    .line 674
     .restart local v0       #inAirplaneMode:Z
     :cond_2c
     sget-object v1, Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;->Off:Lcom/android/internal/policy/impl/MiuiGlobalActions$ToggleAction$State;

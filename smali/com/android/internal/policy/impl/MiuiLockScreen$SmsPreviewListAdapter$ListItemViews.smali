@@ -30,7 +30,6 @@
     .parameter
 
     .prologue
-    .line 1293
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter$ListItemViews;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$SmsPreviewListAdapter;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V

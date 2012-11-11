@@ -18,10 +18,8 @@
     .registers 1
 
     .prologue
-    .line 13
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 184
     return-void
 .end method
 
@@ -32,14 +30,12 @@
     .parameter "sqr"
 
     .prologue
-    .line 127
     iget-wide v4, p0, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
     iget-wide v6, p1, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
     sub-double v0, v4, v6
 
-    .line 128
     .local v0, x:D
     iget-wide v4, p0, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
@@ -47,11 +43,9 @@
 
     sub-double v2, v4, v6
 
-    .line 129
     .local v2, y:D
     if-eqz p2, :cond_18
 
-    .line 130
     mul-double v4, v0, v0
 
     mul-double v6, v2, v2
@@ -62,7 +56,6 @@
 
     move-result-wide v4
 
-    .line 132
     :goto_17
     return-wide v4
 
@@ -82,7 +75,6 @@
     .parameter "suffix"
 
     .prologue
-    .line 165
     const-string v0, "_"
 
     invoke-static {p0, v0, p1}, Lmiui/app/screenelement/util/Utils;->addFileNameSuffix(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -99,14 +91,12 @@
     .parameter "suffix"
 
     .prologue
-    .line 159
     const/16 v2, 0x2e
 
     invoke-virtual {p0, v2}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
 
-    .line 160
     .local v0, dot:I
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -118,7 +108,6 @@
 
     invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    .line 161
     .local v1, sb:Ljava/lang/StringBuilder;
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -153,12 +142,10 @@
     .end annotation
 
     .prologue
-    .line 16
     const-string v0, "assert error"
 
     invoke-static {p0, v0}, Lmiui/app/screenelement/util/Utils;->asserts(ZLjava/lang/String;)V
 
-    .line 17
     return-void
 .end method
 
@@ -173,17 +160,14 @@
     .end annotation
 
     .prologue
-    .line 20
     if-nez p0, :cond_8
 
-    .line 21
     new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
 
     invoke-direct {v0, p1}, Lmiui/app/screenelement/ScreenElementLoadException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
-    .line 22
     :cond_8
     return-void
 .end method
@@ -193,12 +177,10 @@
     .parameter "value"
 
     .prologue
-    .line 170
     invoke-static {p0, p1}, Ljava/lang/String;->valueOf(D)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 171
     .local v0, str:Ljava/lang/String;
     const-string v1, ".0"
 
@@ -231,7 +213,6 @@
     .parameter "b"
 
     .prologue
-    .line 136
     if-eq p0, p1, :cond_c
 
     if-nez p0, :cond_6
@@ -262,7 +243,6 @@
     .parameter "def"
 
     .prologue
-    .line 62
     :try_start_0
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -274,17 +254,14 @@
 
     move-result p2
 
-    .line 64
     .end local p2
     :goto_8
     return p2
 
-    .line 63
     .restart local p2
     :catch_9
     move-exception v0
 
-    .line 64
     .local v0, e:Ljava/lang/NumberFormatException;
     goto :goto_8
 .end method
@@ -300,7 +277,6 @@
     .end annotation
 
     .prologue
-    .line 70
     :try_start_0
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -314,11 +290,9 @@
 
     return v1
 
-    .line 71
     :catch_9
     move-exception v0
 
-    .line 72
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v1, Lmiui/app/screenelement/ScreenElementLoadException;
 
@@ -356,7 +330,6 @@
     .parameter "def"
 
     .prologue
-    .line 27
     :try_start_0
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -368,17 +341,14 @@
 
     move-result p2
 
-    .line 29
     .end local p2
     :goto_8
     return p2
 
-    .line 28
     .restart local p2
     :catch_9
     move-exception v0
 
-    .line 29
     .local v0, e:Ljava/lang/NumberFormatException;
     goto :goto_8
 .end method
@@ -394,7 +364,6 @@
     .end annotation
 
     .prologue
-    .line 35
     :try_start_0
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -408,11 +377,9 @@
 
     return v1
 
-    .line 36
     :catch_9
     move-exception v0
 
-    .line 37
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v1, Lmiui/app/screenelement/ScreenElementLoadException;
 
@@ -450,7 +417,6 @@
     .parameter "def"
 
     .prologue
-    .line 45
     :try_start_0
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -462,17 +428,14 @@
 
     move-result-wide p2
 
-    .line 47
     .end local p2
     :goto_8
     return-wide p2
 
-    .line 46
     .restart local p2
     :catch_9
     move-exception v0
 
-    .line 47
     .local v0, e:Ljava/lang/NumberFormatException;
     goto :goto_8
 .end method
@@ -488,7 +451,6 @@
     .end annotation
 
     .prologue
-    .line 53
     :try_start_0
     invoke-interface {p0, p1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
@@ -502,11 +464,9 @@
 
     return-wide v1
 
-    .line 54
     :catch_9
     move-exception v0
 
-    .line 55
     .local v0, e:Ljava/lang/NumberFormatException;
     new-instance v1, Lmiui/app/screenelement/ScreenElementLoadException;
 
@@ -545,22 +505,18 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 95
     if-nez p0, :cond_5
 
     move-object v1, v3
 
-    .line 105
     :goto_4
     return-object v1
 
-    .line 98
     :cond_5
     invoke-interface {p0}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v2
 
-    .line 99
     .local v2, nl:Lorg/w3c/dom/NodeList;
     const/4 v0, 0x0
 
@@ -572,12 +528,10 @@
 
     if-ge v0, v4, :cond_2b
 
-    .line 100
     invoke-interface {v2, v0}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v1
 
-    .line 101
     .local v1, item:Lorg/w3c/dom/Node;
     invoke-interface {v1}, Lorg/w3c/dom/Node;->getNodeType()S
 
@@ -597,12 +551,10 @@
 
     if-eqz v4, :cond_28
 
-    .line 102
     check-cast v1, Lorg/w3c/dom/Element;
 
     goto :goto_4
 
-    .line 99
     :cond_28
     add-int/lit8 v0, v0, 0x1
 
@@ -612,7 +564,6 @@
     :cond_2b
     move-object v1, v3
 
-    .line 105
     goto :goto_4
 .end method
 
@@ -623,12 +574,10 @@
     .parameter "vars"
 
     .prologue
-    .line 242
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 243
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedNumberVariable;
     invoke-virtual {v0}, Lmiui/app/screenelement/util/IndexedNumberVariable;->get()Ljava/lang/Double;
 
@@ -647,7 +596,6 @@
     .parameter "vars"
 
     .prologue
-    .line 238
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lmiui/app/screenelement/util/Utils;->getVariableNumber(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)D
@@ -664,12 +612,10 @@
     .parameter "vars"
 
     .prologue
-    .line 233
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 234
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedStringVariable;
     invoke-virtual {v0}, Lmiui/app/screenelement/util/IndexedStringVariable;->get()Ljava/lang/String;
 
@@ -684,7 +630,6 @@
     .parameter "vars"
 
     .prologue
-    .line 229
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1}, Lmiui/app/screenelement/util/Utils;->getVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)Ljava/lang/String;
@@ -702,25 +647,20 @@
     .prologue
     const/16 v0, 0xff
 
-    .line 200
     if-lt p0, v0, :cond_5
 
-    .line 205
     .end local p1
     :goto_4
     return p1
 
-    .line 202
     .restart local p1
     :cond_5
     if-lt p1, v0, :cond_9
 
     move p1, p0
 
-    .line 203
     goto :goto_4
 
-    .line 205
     :cond_9
     mul-int v0, p0, p1
 
@@ -745,18 +685,15 @@
     .parameter "nearestEnd"
 
     .prologue
-    .line 143
     invoke-virtual {p1, p0}, Lmiui/app/screenelement/util/Utils$Point;->minus(Lmiui/app/screenelement/util/Utils$Point;)Lmiui/app/screenelement/util/Utils$Point;
 
     move-result-object v0
 
-    .line 144
     .local v0, AB:Lmiui/app/screenelement/util/Utils$Point;
     invoke-virtual {p2, p0}, Lmiui/app/screenelement/util/Utils$Point;->minus(Lmiui/app/screenelement/util/Utils$Point;)Lmiui/app/screenelement/util/Utils$Point;
 
     move-result-object v1
 
-    .line 145
     .local v1, AC:Lmiui/app/screenelement/util/Utils$Point;
     iget-wide v5, v0, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
@@ -772,7 +709,6 @@
 
     add-double v3, v5, v7
 
-    .line 146
     .local v3, r:D
     const/4 v5, 0x0
 
@@ -782,7 +718,6 @@
 
     div-double/2addr v3, v5
 
-    .line 147
     const-wide/16 v5, 0x0
 
     cmpg-double v5, v3, v5
@@ -795,7 +730,6 @@
 
     if-lez v5, :cond_33
 
-    .line 148
     :cond_26
     if-nez p3, :cond_2b
 
@@ -806,11 +740,9 @@
     :goto_29
     move-object v2, p0
 
-    .line 154
     :goto_2a
     return-object v2
 
-    .line 148
     .restart local p0
     :cond_2b
     const-wide/16 v5, 0x0
@@ -823,11 +755,9 @@
 
     goto :goto_29
 
-    .line 150
     :cond_33
     move-object v2, v0
 
-    .line 151
     .local v2, D:Lmiui/app/screenelement/util/Utils$Point;
     iget-wide v5, v2, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
@@ -835,14 +765,12 @@
 
     iput-wide v5, v2, Lmiui/app/screenelement/util/Utils$Point;->x:D
 
-    .line 152
     iget-wide v5, v2, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
     mul-double/2addr v5, v3
 
     iput-wide v5, v2, Lmiui/app/screenelement/util/Utils$Point;->y:D
 
-    .line 153
     invoke-virtual {v2, p0}, Lmiui/app/screenelement/util/Utils$Point;->Offset(Lmiui/app/screenelement/util/Utils$Point;)V
 
     goto :goto_2a
@@ -856,16 +784,13 @@
     .parameter "value"
 
     .prologue
-    .line 224
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 225
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedNumberVariable;
     invoke-virtual {v0, p3}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(Ljava/lang/Double;)V
 
-    .line 226
     return-void
 .end method
 
@@ -876,12 +801,10 @@
     .parameter "value"
 
     .prologue
-    .line 220
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Lmiui/app/screenelement/util/Utils;->putVariableNumber(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/Double;)V
 
-    .line 221
     return-void
 .end method
 
@@ -893,16 +816,13 @@
     .parameter "str"
 
     .prologue
-    .line 215
     new-instance v0, Lmiui/app/screenelement/util/IndexedStringVariable;
 
     invoke-direct {v0, p0, p1, p2}, Lmiui/app/screenelement/util/IndexedStringVariable;-><init>(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 216
     .local v0, tmp:Lmiui/app/screenelement/util/IndexedStringVariable;
     invoke-virtual {v0, p3}, Lmiui/app/screenelement/util/IndexedStringVariable;->set(Ljava/lang/String;)V
 
-    .line 217
     return-void
 .end method
 
@@ -913,12 +833,10 @@
     .parameter "str"
 
     .prologue
-    .line 211
     const/4 v0, 0x0
 
     invoke-static {v0, p0, p1, p2}, Lmiui/app/screenelement/util/Utils;->putVariableString(Ljava/lang/String;Ljava/lang/String;Lmiui/app/screenelement/data/Variables;Ljava/lang/String;)V
 
-    .line 212
     return-void
 .end method
 
@@ -928,15 +846,12 @@
     .parameter "def"
 
     .prologue
-    .line 175
     if-nez p0, :cond_3
 
-    .line 180
     .end local p1
     :goto_2
     return-wide p1
 
-    .line 178
     .restart local p1
     :cond_3
     :try_start_3
@@ -948,11 +863,9 @@
 
     goto :goto_2
 
-    .line 179
     :catch_8
     move-exception v0
 
-    .line 180
     .local v0, e:Ljava/lang/NumberFormatException;
     goto :goto_2
 .end method
@@ -964,12 +877,10 @@
     .parameter "l"
 
     .prologue
-    .line 189
     invoke-interface {p0}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v0
 
-    .line 190
     .local v0, children:Lorg/w3c/dom/NodeList;
     const/4 v1, 0x0
 
@@ -981,12 +892,10 @@
 
     if-ge v1, v3, :cond_2a
 
-    .line 191
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
-    .line 192
     .local v2, node:Lorg/w3c/dom/Node;
     invoke-interface {v2}, Lorg/w3c/dom/Node;->getNodeType()S
 
@@ -1008,20 +917,17 @@
 
     if-eqz v3, :cond_27
 
-    .line 194
     :cond_22
     check-cast v2, Lorg/w3c/dom/Element;
 
     .end local v2           #node:Lorg/w3c/dom/Node;
     invoke-interface {p2, v2}, Lmiui/app/screenelement/util/Utils$XmlTraverseListener;->onChild(Lorg/w3c/dom/Element;)V
 
-    .line 190
     :cond_27
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_5
 
-    .line 197
     :cond_2a
     return-void
 .end method

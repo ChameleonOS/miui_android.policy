@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 311
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$2;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,6 +41,5 @@
     .parameter "v"
 
     .prologue
-    .line 314
     return-void
 .end method

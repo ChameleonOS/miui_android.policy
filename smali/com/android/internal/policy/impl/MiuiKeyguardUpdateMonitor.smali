@@ -17,13 +17,10 @@
     .parameter "context"
 
     .prologue
-    .line 14
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;)V
 
-    .line 15
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
-    .line 16
     new-instance v0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor$1;
 
     const/4 v1, 0x0
@@ -32,14 +29,12 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mLowBatteryThresholdObserver:Landroid/database/ContentObserver;
 
-    .line 28
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mLowBatteryThresholdObserver:Landroid/database/ContentObserver;
 
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/database/ContentObserver;->onChange(Z)V
 
-    .line 29
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -58,7 +53,6 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
-    .line 33
     return-void
 .end method
 
@@ -67,7 +61,6 @@
     .parameter "x0"
 
     .prologue
-    .line 8
     iget v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mLowBatteryThreshold:I
 
     return v0
@@ -79,7 +72,6 @@
     .parameter "x1"
 
     .prologue
-    .line 8
     iput p1, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mLowBatteryThreshold:I
 
     return p1
@@ -90,7 +82,6 @@
     .parameter "x0"
 
     .prologue
-    .line 8
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -107,7 +98,6 @@
     .end annotation
 
     .prologue
-    .line 37
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiKeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -118,9 +108,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    .line 38
     invoke-super {p0}, Ljava/lang/Object;->finalize()V
 
-    .line 39
     return-void
 .end method

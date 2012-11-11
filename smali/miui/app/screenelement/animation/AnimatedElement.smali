@@ -68,23 +68,18 @@
     .end annotation
 
     .prologue
-    .line 63
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 57
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
-    .line 64
     iput-object p2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    .line 65
     invoke-virtual {p0, p1}, Lmiui/app/screenelement/animation/AnimatedElement;->load(Lorg/w3c/dom/Element;)V
 
-    .line 66
     return-void
 .end method
 
@@ -95,7 +90,6 @@
     .parameter "compatibleName"
 
     .prologue
-    .line 103
     invoke-interface {p1, p2}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -104,7 +98,6 @@
 
     move-result-object v0
 
-    .line 104
     .local v0, exp:Lmiui/app/screenelement/data/Expression;
     if-nez v0, :cond_18
 
@@ -114,7 +107,6 @@
 
     if-nez v1, :cond_18
 
-    .line 105
     invoke-interface {p1, p3}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -123,7 +115,6 @@
 
     move-result-object v0
 
-    .line 107
     :cond_18
     return-object v0
 .end method
@@ -138,22 +129,18 @@
     .end annotation
 
     .prologue
-    .line 123
     const-string v1, "AlphaAnimation"
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v0
 
-    .line 124
     .local v0, ele:Lorg/w3c/dom/Element;
     if-nez v0, :cond_9
 
-    .line 132
     :goto_8
     return-void
 
-    .line 127
     :cond_9
     new-instance v1, Lmiui/app/screenelement/animation/AlphaAnimation;
 
@@ -163,7 +150,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlphas:Lmiui/app/screenelement/animation/AlphaAnimation;
 
-    .line 128
     iget-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlphas:Lmiui/app/screenelement/animation/AlphaAnimation;
@@ -183,22 +169,18 @@
     .end annotation
 
     .prologue
-    .line 148
     const-string v1, "PositionAnimation"
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v0
 
-    .line 149
     .local v0, ele:Lorg/w3c/dom/Element;
     if-nez v0, :cond_9
 
-    .line 157
     :goto_8
     return-void
 
-    .line 152
     :cond_9
     new-instance v1, Lmiui/app/screenelement/animation/PositionAnimation;
 
@@ -208,7 +190,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mPositions:Lmiui/app/screenelement/animation/PositionAnimation;
 
-    .line 153
     iget-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mPositions:Lmiui/app/screenelement/animation/PositionAnimation;
@@ -228,22 +209,18 @@
     .end annotation
 
     .prologue
-    .line 160
     const-string v1, "RotationAnimation"
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v0
 
-    .line 161
     .local v0, ele:Lorg/w3c/dom/Element;
     if-nez v0, :cond_9
 
-    .line 169
     :goto_8
     return-void
 
-    .line 164
     :cond_9
     new-instance v1, Lmiui/app/screenelement/animation/RotationAnimation;
 
@@ -253,7 +230,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mRotations:Lmiui/app/screenelement/animation/RotationAnimation;
 
-    .line 165
     iget-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mRotations:Lmiui/app/screenelement/animation/RotationAnimation;
@@ -273,22 +249,18 @@
     .end annotation
 
     .prologue
-    .line 111
     const-string v1, "SizeAnimation"
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v0
 
-    .line 112
     .local v0, ele:Lorg/w3c/dom/Element;
     if-nez v0, :cond_9
 
-    .line 120
     :goto_8
     return-void
 
-    .line 115
     :cond_9
     new-instance v1, Lmiui/app/screenelement/animation/SizeAnimation;
 
@@ -298,7 +270,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
-    .line 116
     iget-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
@@ -318,22 +289,18 @@
     .end annotation
 
     .prologue
-    .line 135
     const-string v1, "SourcesAnimation"
 
     invoke-static {p1, v1}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
 
     move-result-object v0
 
-    .line 136
     .local v0, ele:Lorg/w3c/dom/Element;
     if-nez v0, :cond_9
 
-    .line 145
     :goto_8
     return-void
 
-    .line 140
     :cond_9
     new-instance v1, Lmiui/app/screenelement/animation/SourcesAnimation;
 
@@ -343,7 +310,6 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
-    .line 141
     iget-object v1, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
@@ -361,7 +327,6 @@
     .prologue
     const/16 v2, 0xff
 
-    .line 258
     iget-object v3, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlphaExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v3, :cond_20
@@ -378,7 +343,6 @@
 
     double-to-int v0, v3
 
-    .line 259
     .local v0, alpha:I
     :goto_11
     iget-object v3, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlphas:Lmiui/app/screenelement/animation/AlphaAnimation;
@@ -391,7 +355,6 @@
 
     move-result v1
 
-    .line 260
     .local v1, alpha1:I
     :goto_1b
     invoke-static {v0, v1}, Lmiui/app/screenelement/util/Utils;->mixAlpha(II)I
@@ -405,14 +368,12 @@
     :cond_20
     move v0, v2
 
-    .line 258
     goto :goto_11
 
     .restart local v0       #alpha:I
     :cond_22
     move v1, v2
 
-    .line 259
     goto :goto_1b
 .end method
 
@@ -420,12 +381,10 @@
     .registers 3
 
     .prologue
-    .line 230
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     if-eqz v0, :cond_c
 
-    .line 231
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/SizeAnimation;->getHeight()D
@@ -434,7 +393,6 @@
 
     double-to-float v0, v0
 
-    .line 233
     :goto_b
     return v0
 
@@ -468,12 +426,10 @@
     .registers 3
 
     .prologue
-    .line 244
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     if-eqz v0, :cond_c
 
-    .line 245
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/SizeAnimation;->getMaxHeight()D
@@ -482,7 +438,6 @@
 
     double-to-float v0, v0
 
-    .line 247
     :goto_b
     return v0
 
@@ -516,12 +471,10 @@
     .registers 3
 
     .prologue
-    .line 237
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     if-eqz v0, :cond_c
 
-    .line 238
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/SizeAnimation;->getMaxWidth()D
@@ -530,7 +483,6 @@
 
     double-to-float v0, v0
 
-    .line 240
     :goto_b
     return v0
 
@@ -564,7 +516,6 @@
     .registers 5
 
     .prologue
-    .line 264
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mCenterXExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v2, :cond_10
@@ -579,14 +530,12 @@
 
     move-result-wide v0
 
-    .line 265
     .local v0, x:D
     :goto_e
     double-to-float v2, v0
 
     return v2
 
-    .line 264
     .end local v0           #x:D
     :cond_10
     const-wide/16 v0, 0x0
@@ -598,7 +547,6 @@
     .registers 5
 
     .prologue
-    .line 269
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mCenterYExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v2, :cond_10
@@ -613,14 +561,12 @@
 
     move-result-wide v0
 
-    .line 270
     .local v0, y:D
     :goto_e
     double-to-float v2, v0
 
     return v2
 
-    .line 269
     .end local v0           #y:D
     :cond_10
     const-wide/16 v0, 0x0
@@ -632,7 +578,6 @@
     .registers 5
 
     .prologue
-    .line 252
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mRotationExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v2, :cond_1c
@@ -647,7 +592,6 @@
 
     move-result-wide v0
 
-    .line 253
     .local v0, angle:D
     :goto_e
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mRotations:Lmiui/app/screenelement/animation/RotationAnimation;
@@ -669,14 +613,12 @@
 
     return v2
 
-    .line 252
     .end local v0           #angle:D
     :cond_1c
     const-wide/16 v0, 0x0
 
     goto :goto_e
 
-    .line 253
     .restart local v0       #angle:D
     :cond_1f
     const/4 v2, 0x0
@@ -688,7 +630,6 @@
     .registers 6
 
     .prologue
-    .line 188
     iget-object v3, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSrcFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
     iget-object v4, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -699,20 +640,17 @@
 
     move-result-object v2
 
-    .line 189
     .local v2, src:Ljava/lang/String;
     iget-object v3, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
     if-eqz v3, :cond_14
 
-    .line 190
     iget-object v3, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
     invoke-virtual {v3}, Lmiui/app/screenelement/animation/SourcesAnimation;->getSrc()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 192
     :cond_14
     if-eqz v2, :cond_2d
 
@@ -720,7 +658,6 @@
 
     if-eqz v3, :cond_2d
 
-    .line 193
     iget-object v3, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSrcIdExpression:Lmiui/app/screenelement/data/Expression;
 
     iget-object v4, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -733,7 +670,6 @@
 
     double-to-long v0, v3
 
-    .line 194
     .local v0, id:J
     invoke-static {v0, v1}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
@@ -743,7 +679,6 @@
 
     move-result-object v2
 
-    .line 196
     .end local v0           #id:J
     :cond_2d
     return-object v2
@@ -753,12 +688,10 @@
     .registers 3
 
     .prologue
-    .line 223
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     if-eqz v0, :cond_c
 
-    .line 224
     iget-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSizes:Lmiui/app/screenelement/animation/SizeAnimation;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/SizeAnimation;->getWidth()D
@@ -767,7 +700,6 @@
 
     double-to-float v0, v0
 
-    .line 225
     :goto_b
     return v0
 
@@ -801,7 +733,6 @@
     .registers 5
 
     .prologue
-    .line 200
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mBaseXExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v2, :cond_26
@@ -816,14 +747,12 @@
 
     move-result-wide v0
 
-    .line 201
     .local v0, x:D
     :goto_e
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
     if-eqz v2, :cond_19
 
-    .line 202
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/animation/SourcesAnimation;->getX()D
@@ -832,13 +761,11 @@
 
     add-double/2addr v0, v2
 
-    .line 204
     :cond_19
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mPositions:Lmiui/app/screenelement/animation/PositionAnimation;
 
     if-eqz v2, :cond_24
 
-    .line 205
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mPositions:Lmiui/app/screenelement/animation/PositionAnimation;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/animation/PositionAnimation;->getX()D
@@ -847,13 +774,11 @@
 
     add-double/2addr v0, v2
 
-    .line 207
     :cond_24
     double-to-float v2, v0
 
     return v2
 
-    .line 200
     .end local v0           #x:D
     :cond_26
     const-wide/16 v0, 0x0
@@ -865,7 +790,6 @@
     .registers 5
 
     .prologue
-    .line 211
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mBaseYExpression:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v2, :cond_26
@@ -880,14 +804,12 @@
 
     move-result-wide v0
 
-    .line 212
     .local v0, y:D
     :goto_e
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
     if-eqz v2, :cond_19
 
-    .line 213
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSources:Lmiui/app/screenelement/animation/SourcesAnimation;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/animation/SourcesAnimation;->getY()D
@@ -896,13 +818,11 @@
 
     add-double/2addr v0, v2
 
-    .line 215
     :cond_19
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mPositions:Lmiui/app/screenelement/animation/PositionAnimation;
 
     if-eqz v2, :cond_24
 
-    .line 216
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mPositions:Lmiui/app/screenelement/animation/PositionAnimation;
 
     invoke-virtual {v2}, Lmiui/app/screenelement/animation/PositionAnimation;->getY()D
@@ -911,13 +831,11 @@
 
     add-double/2addr v0, v2
 
-    .line 218
     :cond_24
     double-to-float v2, v0
 
     return v2
 
-    .line 211
     .end local v0           #y:D
     :cond_26
     const-wide/16 v0, 0x0
@@ -929,7 +847,6 @@
     .registers 4
 
     .prologue
-    .line 172
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -950,13 +867,11 @@
 
     check-cast v0, Lmiui/app/screenelement/animation/BaseAnimation;
 
-    .line 173
     .local v0, ani:Lmiui/app/screenelement/animation/BaseAnimation;
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/BaseAnimation;->init()V
 
     goto :goto_6
 
-    .line 175
     .end local v0           #ani:Lmiui/app/screenelement/animation/BaseAnimation;
     :cond_16
     return-void
@@ -966,7 +881,6 @@
     .registers 2
 
     .prologue
-    .line 184
     iget-boolean v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlignAbsolute:Z
 
     return v0
@@ -984,17 +898,14 @@
     .prologue
     const/4 v2, 0x0
 
-    .line 69
     if-nez p1, :cond_12
 
-    .line 70
     const-string v0, "AnimatedElement"
 
     const-string v1, "node is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 71
     new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v1, "node is null"
@@ -1003,7 +914,6 @@
 
     throw v0
 
-    .line 79
     :cond_12
     const-string v0, "x"
 
@@ -1015,7 +925,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mBaseXExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 80
     const-string v0, "y"
 
     const-string v1, "top"
@@ -1026,7 +935,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mBaseYExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 81
     const-string v0, "w"
 
     const-string v1, "width"
@@ -1037,7 +945,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mWidthExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 82
     const-string v0, "h"
 
     const-string v1, "height"
@@ -1048,7 +955,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mHeightExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 83
     const-string v0, "angle"
 
     const-string v1, "rotation"
@@ -1059,7 +965,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mRotationExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 84
     const-string v0, "centerX"
 
     const-string v1, "pivotX"
@@ -1070,7 +975,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mCenterXExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 85
     const-string v0, "centerY"
 
     const-string v1, "pivotY"
@@ -1081,7 +985,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mCenterYExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 86
     const-string v0, "srcid"
 
     invoke-direct {p0, p1, v0, v2}, Lmiui/app/screenelement/animation/AnimatedElement;->createExp(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
@@ -1090,7 +993,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSrcIdExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 87
     const-string v0, "alpha"
 
     invoke-direct {p0, p1, v0, v2}, Lmiui/app/screenelement/animation/AnimatedElement;->createExp(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)Lmiui/app/screenelement/data/Expression;
@@ -1099,7 +1001,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlphaExpression:Lmiui/app/screenelement/data/Expression;
 
-    .line 88
     const-string v1, "src"
 
     const-string v2, "srcFormat"
@@ -1118,14 +1019,12 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mSrcFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
-    .line 90
     const-string v0, "align"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    .line 91
     .local v6, align:Ljava/lang/String;
     const-string v0, "absolute"
 
@@ -1135,28 +1034,21 @@
 
     if-eqz v0, :cond_8a
 
-    .line 92
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAlignAbsolute:Z
 
-    .line 95
     :cond_8a
     invoke-direct {p0, p1}, Lmiui/app/screenelement/animation/AnimatedElement;->loadSourceAnimations(Lorg/w3c/dom/Element;)V
 
-    .line 96
     invoke-direct {p0, p1}, Lmiui/app/screenelement/animation/AnimatedElement;->loadPositionAnimations(Lorg/w3c/dom/Element;)V
 
-    .line 97
     invoke-direct {p0, p1}, Lmiui/app/screenelement/animation/AnimatedElement;->loadRotationAnimations(Lorg/w3c/dom/Element;)V
 
-    .line 98
     invoke-direct {p0, p1}, Lmiui/app/screenelement/animation/AnimatedElement;->loadSizeAnimations(Lorg/w3c/dom/Element;)V
 
-    .line 99
     invoke-direct {p0, p1}, Lmiui/app/screenelement/animation/AnimatedElement;->loadAlphaAnimations(Lorg/w3c/dom/Element;)V
 
-    .line 100
     return-void
 .end method
 
@@ -1165,7 +1057,6 @@
     .parameter "time"
 
     .prologue
-    .line 178
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1186,13 +1077,11 @@
 
     check-cast v0, Lmiui/app/screenelement/animation/BaseAnimation;
 
-    .line 179
     .local v0, ani:Lmiui/app/screenelement/animation/BaseAnimation;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->reset(J)V
 
     goto :goto_6
 
-    .line 181
     .end local v0           #ani:Lmiui/app/screenelement/animation/BaseAnimation;
     :cond_16
     return-void
@@ -1203,7 +1092,6 @@
     .parameter "currentTime"
 
     .prologue
-    .line 274
     iget-object v2, p0, Lmiui/app/screenelement/animation/AnimatedElement;->mAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -1224,13 +1112,11 @@
 
     check-cast v0, Lmiui/app/screenelement/animation/BaseAnimation;
 
-    .line 275
     .local v0, ani:Lmiui/app/screenelement/animation/BaseAnimation;
     invoke-virtual {v0, p1, p2}, Lmiui/app/screenelement/animation/BaseAnimation;->tick(J)V
 
     goto :goto_6
 
-    .line 277
     .end local v0           #ani:Lmiui/app/screenelement/animation/BaseAnimation;
     :cond_16
     return-void

@@ -20,10 +20,8 @@
     .end annotation
 
     .prologue
-    .line 18
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ImageScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 19
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v1, v1, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -34,18 +32,15 @@
 
     check-cast v0, Landroid/graphics/drawable/BitmapDrawable;
 
-    .line 21
     .local v0, drawable:Landroid/graphics/drawable/BitmapDrawable;
     if-eqz v0, :cond_15
 
-    .line 22
     invoke-virtual {v0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
 
     move-result-object v1
 
     iput-object v1, p0, Lmiui/app/screenelement/elements/ImageScreenElement;->mBitmap:Landroid/graphics/Bitmap;
 
-    .line 24
     :cond_15
     return-void
 .end method
@@ -56,7 +51,6 @@
     .registers 2
 
     .prologue
-    .line 39
     iget-object v0, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/AnimatedElement;->getHeight()F
@@ -70,7 +64,6 @@
     .registers 2
 
     .prologue
-    .line 49
     iget-object v0, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/AnimatedElement;->getMaxHeight()F
@@ -84,7 +77,6 @@
     .registers 2
 
     .prologue
-    .line 44
     iget-object v0, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/AnimatedElement;->getMaxWidth()F
@@ -98,7 +90,6 @@
     .registers 2
 
     .prologue
-    .line 34
     iget-object v0, p0, Lmiui/app/screenelement/elements/AnimatedScreenElement;->mAni:Lmiui/app/screenelement/animation/AnimatedElement;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/animation/AnimatedElement;->getWidth()F
@@ -112,7 +103,6 @@
     .registers 2
 
     .prologue
-    .line 28
     const/4 v0, 0x0
 
     return v0

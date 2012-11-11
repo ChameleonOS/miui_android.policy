@@ -30,7 +30,6 @@
     .parameter
 
     .prologue
-    .line 266
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     iput-boolean p2, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->val$success:Z
@@ -48,12 +47,10 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 268
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->val$success:Z
 
     if-eqz v1, :cond_77
 
-    .line 270
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -63,7 +60,6 @@
 
     invoke-virtual {v1, v3}, Lcom/android/internal/widget/LockPatternUtils;->setPermanentlyLocked(Z)V
 
-    .line 271
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -73,7 +69,6 @@
 
     invoke-virtual {v1, v3}, Lcom/android/internal/widget/LockPatternUtils;->setLockPatternEnabled(Z)V
 
-    .line 272
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
@@ -85,12 +80,10 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->saveLockPattern(Ljava/util/List;)V
 
-    .line 276
     new-instance v0, Landroid/content/Intent;
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    .line 277
     .local v0, intent:Landroid/content/Intent;
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
@@ -101,12 +94,10 @@
 
     if-eqz v1, :cond_61
 
-    .line 278
     const-string v1, "com.xiaomi.action.DISABLE_FIND_DEVICE"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 279
     const-string v2, "account"
 
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
@@ -124,7 +115,6 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    .line 280
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mContext:Landroid/content/Context;
@@ -134,7 +124,6 @@
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    .line 287
     :goto_4d
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
@@ -145,7 +134,6 @@
 
     invoke-interface {v1}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->reportSuccessfulUnlockAttempt()V
 
-    .line 290
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;
@@ -157,12 +145,10 @@
 
     invoke-interface {v1, v2}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->keyguardDone(Z)V
 
-    .line 296
     .end local v0           #intent:Landroid/content/Intent;
     :goto_60
     return-void
 
-    .line 282
     .restart local v0       #intent:Landroid/content/Intent;
     :cond_61
     const-string v1, "com.android.settings"
@@ -171,12 +157,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    .line 283
     const/high16 v1, 0x1000
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
-    .line 284
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mContext:Landroid/content/Context;
@@ -188,7 +172,6 @@
 
     goto :goto_4d
 
-    .line 292
     .end local v0           #intent:Landroid/content/Intent;
     :cond_77
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
@@ -202,7 +185,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
-    .line 293
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mPassword:Landroid/widget/EditText;
@@ -214,7 +196,6 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setText(Ljava/lang/CharSequence;)V
 
-    .line 294
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen$3;->this$0:Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiAccountUnlockScreen;->mCallback:Lcom/android/internal/policy/impl/KeyguardScreenCallback;

@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 107
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$1;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 4
 
     .prologue
-    .line 109
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$1;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     iget-object v0, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mKeyguardMediator:Lcom/android/internal/policy/impl/KeyguardViewMediator;
@@ -70,7 +68,6 @@
 
     if-nez v0, :cond_23
 
-    .line 113
     :cond_1b
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$1;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
@@ -78,11 +75,9 @@
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    .line 118
     :goto_22
     return-void
 
-    .line 116
     :cond_23
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager$1;->this$0:Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 

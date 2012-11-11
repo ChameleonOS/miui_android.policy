@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 1521
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +45,6 @@
 
     const/4 v2, 0x0
 
-    .line 1529
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumBm:Landroid/graphics/Bitmap;
@@ -56,7 +54,6 @@
 
     if-eqz v0, :cond_40
 
-    .line 1530
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
@@ -73,7 +70,6 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1531
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
@@ -83,7 +79,6 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 1537
     :goto_23
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
@@ -94,7 +89,6 @@
 
     invoke-virtual {v0, v2}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setVisibility(I)V
 
-    .line 1538
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
@@ -106,7 +100,6 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1539
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mTempAlbumView:Lcom/miui/internal/policy/impl/AlbumFrameView;
@@ -116,10 +109,8 @@
 
     invoke-virtual {v0, v3}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setVisibility(I)V
 
-    .line 1540
     return-void
 
-    .line 1533
     :cond_40
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
@@ -137,7 +128,6 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/AlbumFrameView;->setDisplayBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 1534
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController$1;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen$MusicController;->mMusicBatteryIndicator:Landroid/widget/ImageView;
@@ -155,7 +145,6 @@
     .parameter "animation"
 
     .prologue
-    .line 1545
     return-void
 .end method
 
@@ -164,6 +153,5 @@
     .parameter "animation"
 
     .prologue
-    .line 1525
     return-void
 .end method

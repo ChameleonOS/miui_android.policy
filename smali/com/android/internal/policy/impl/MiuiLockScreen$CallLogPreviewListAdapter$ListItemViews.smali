@@ -32,7 +32,6 @@
     .parameter
 
     .prologue
-    .line 1199
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$CallLogPreviewListAdapter$ListItemViews;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$CallLogPreviewListAdapter;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V

@@ -115,12 +115,10 @@
     .parameter "context"
 
     .prologue
-    .line 175
     const/4 v0, 0x0
 
     invoke-direct {p0, p1, v0}, Lcom/miui/internal/policy/impl/SlidingPanel;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 176
     return-void
 .end method
 
@@ -136,60 +134,46 @@
 
     const/4 v4, 0x0
 
-    .line 182
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    .line 39
     const/16 v2, 0xe
 
     iput v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->MIN_MOVING_THRESHOLD:I
 
-    .line 42
     iput v4, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mGrabbedState:I
 
-    .line 43
     iput-boolean v4, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
-    .line 44
     iput-boolean v4, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLongVibrate:Z
 
-    .line 56
     iput v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTrackingPointerId:I
 
-    .line 59
     iput v4, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDownY:I
 
-    .line 64
     const-wide/16 v5, 0x0
 
     iput-wide v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLastSetGrabstateTime:J
 
-    .line 72
     const/4 v2, 0x2
 
     new-array v2, v2, [I
 
     iput-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
-    .line 326
     new-instance v2, Lcom/miui/internal/policy/impl/SlidingPanel$2;
 
     invoke-direct {v2, p0}, Lcom/miui/internal/policy/impl/SlidingPanel$2;-><init>(Lcom/miui/internal/policy/impl/SlidingPanel;)V
 
     iput-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mSingleClick:Ljava/lang/Runnable;
 
-    .line 592
     iput-boolean v4, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPaused:Z
 
-    .line 598
     iput v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBackgroundMode:I
 
-    .line 184
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    .line 185
     .local v0, res:Landroid/content/res/Resources;
     invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
@@ -199,7 +183,6 @@
 
     iput v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayWidth:I
 
-    .line 186
     invoke-virtual {v0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v2
@@ -208,26 +191,21 @@
 
     iput v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayHeight:I
 
-    .line 187
     iget v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayWidth:I
 
     iget v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayHeight:I
 
     if-le v2, v5, :cond_4a
 
-    .line 188
     iget v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayWidth:I
 
-    .line 189
     .local v1, temp:I
     iget v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayHeight:I
 
     iput v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayWidth:I
 
-    .line 190
     iput v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayHeight:I
 
-    .line 193
     .end local v1           #temp:I
     :cond_4a
     const v2, 0x6090001
@@ -243,18 +221,14 @@
     :goto_54
     iput-boolean v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsShowBatteryLevel:Z
 
-    .line 194
     invoke-virtual {p0, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->setOrientation(I)V
 
-    .line 195
     const/16 v2, 0x50
 
     invoke-virtual {p0, v2}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGravity(I)V
 
-    .line 197
     invoke-virtual {p0, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->setChildrenDrawnWithCacheEnabled(Z)V
 
-    .line 198
     new-instance v2, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     const/4 v5, 0x0
@@ -263,35 +237,28 @@
 
     iput-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
-    .line 199
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->setupContentArea()V
 
-    .line 201
     invoke-virtual {p0, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->setHapticFeedbackEnabled(Z)V
 
-    .line 202
     invoke-virtual {p0, v4}, Lcom/miui/internal/policy/impl/SlidingPanel;->setBackgroundFor(I)V
 
-    .line 203
     iget v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegionHeight:I
 
     div-int/lit8 v2, v2, 0x8
 
     iput v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->MOVING_THRESHOLD:I
 
-    .line 205
     iget v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->MOVING_THRESHOLD:I
 
     iget v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->MIN_MOVING_THRESHOLD:I
 
     if-ge v2, v5, :cond_82
 
-    .line 206
     iget v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->MIN_MOVING_THRESHOLD:I
 
     iput v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->MOVING_THRESHOLD:I
 
-    .line 209
     :cond_82
     new-instance v2, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;
 
@@ -299,14 +266,12 @@
 
     iput-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mAnimation:Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;
 
-    .line 210
     iget-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mAnimation:Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;
 
     const-wide/16 v4, 0x50
 
     invoke-virtual {v2, v4, v5}, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->setDuration(J)V
 
-    .line 211
     iget-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mAnimation:Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;
 
     new-instance v4, Lcom/miui/internal/policy/impl/SlidingPanel$1;
@@ -315,7 +280,6 @@
 
     invoke-virtual {v2, v4}, Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 223
     new-instance v2, Lmiui/util/HapticFeedbackUtil;
 
     iget-object v4, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -324,13 +288,11 @@
 
     iput-object v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mHapticFeedbackUtil:Lmiui/util/HapticFeedbackUtil;
 
-    .line 224
     return-void
 
     :cond_a4
     move v2, v4
 
-    .line 193
     goto :goto_54
 .end method
 
@@ -339,7 +301,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mScrollY:I
 
     return v0
@@ -350,7 +311,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayHeight:I
 
     return v0
@@ -361,7 +321,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-boolean v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPaused:Z
 
     return v0
@@ -372,7 +331,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-boolean v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsShowBatteryLevel:Z
 
     return v0
@@ -383,7 +341,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     return-object v0
@@ -394,7 +351,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayWidth:I
 
     return v0
@@ -405,7 +361,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     return-object v0
@@ -416,7 +371,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -427,7 +381,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -438,7 +391,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -449,7 +401,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     return-object v0
@@ -460,7 +411,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
 
     return-object v0
@@ -471,7 +421,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-boolean v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPressing:Z
 
     return v0
@@ -482,7 +431,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->resetSlidingPanel()V
 
     return-void
@@ -493,7 +441,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mSingleClick:Ljava/lang/Runnable;
 
     return-object v0
@@ -504,7 +451,6 @@
     .parameter "x0"
 
     .prologue
-    .line 33
     iget-boolean v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
 
     return v0
@@ -516,7 +462,6 @@
     .parameter "x1"
 
     .prologue
-    .line 33
     invoke-direct {p0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
     return-void
@@ -528,7 +473,6 @@
     .parameter "x1"
 
     .prologue
-    .line 33
     iput-wide p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLastDownTime:J
 
     return-wide p1
@@ -540,7 +484,6 @@
     .parameter "x1"
 
     .prologue
-    .line 33
     iput p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBackgroundMode:I
 
     return p1
@@ -551,17 +494,14 @@
     .parameter "whichHandle"
 
     .prologue
-    .line 552
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
     if-eqz v0, :cond_9
 
-    .line 553
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
     invoke-interface {v0, p0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;->onTrigger(Landroid/view/View;I)V
 
-    .line 555
     :cond_9
     return-void
 .end method
@@ -571,32 +511,25 @@
     .parameter "slider"
 
     .prologue
-    .line 895
     const/4 v0, 0x0
 
-    .line 897
     .local v0, result:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
     packed-switch p1, :pswitch_data_c
 
-    .line 906
     :goto_4
     :pswitch_4
     return-object v0
 
-    .line 899
     :pswitch_5
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
-    .line 900
     goto :goto_4
 
-    .line 903
     :pswitch_8
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     goto :goto_4
 
-    .line 897
     nop
 
     :pswitch_data_c
@@ -617,14 +550,12 @@
 
     const/4 v7, 0x0
 
-    .line 347
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     invoke-direct {p0, p1, p2, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->withinView(FFLandroid/view/View;)Z
 
     move-result v0
 
-    .line 348
     .local v0, leftHit:Z
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
@@ -632,7 +563,6 @@
 
     move-result v1
 
-    .line 349
     .local v1, rightHit:Z
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
@@ -640,7 +570,6 @@
 
     move-result v2
 
-    .line 350
     .local v2, timeViewHit:Z
     if-nez v0, :cond_1d
 
@@ -648,39 +577,30 @@
 
     if-nez v2, :cond_1d
 
-    .line 351
     iput-boolean v8, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mWaitForHandleMotionEvent:Z
 
-    .line 388
     :goto_1c
     return-void
 
-    .line 354
     :cond_1d
     iput-boolean v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
 
-    .line 355
     iput-boolean v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
-    .line 356
     float-to-int v3, p2
 
     iput v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDownY:I
 
-    .line 358
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mHapticFeedbackUtil:Lmiui/util/HapticFeedbackUtil;
 
     invoke-virtual {v3, v8, v7}, Lmiui/util/HapticFeedbackUtil;->performHapticFeedback(IZ)Z
 
-    .line 359
     if-eqz v2, :cond_6e
 
-    .line 360
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
     iput-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
-    .line 362
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
@@ -695,24 +615,20 @@
 
     if-lez v3, :cond_65
 
-    .line 363
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v3
 
     iput-wide v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLastDownTime:J
 
-    .line 364
     invoke-direct {p0, v7}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
-    .line 365
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mSingleClick:Ljava/lang/Runnable;
 
     const-wide/16 v4, 0x96
 
     invoke-virtual {p0, v3, v4, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 381
     :goto_4c
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -720,74 +636,60 @@
 
     iput-wide v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLastSetGrabstateTime:J
 
-    .line 382
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
     if-eqz v3, :cond_62
 
-    .line 383
     iput-boolean v8, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPressing:Z
 
-    .line 384
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
     invoke-virtual {v3, v8}, Landroid/view/View;->setPressed(Z)V
 
-    .line 385
     iget v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBackgroundMode:I
 
     invoke-virtual {p0, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->setBackgroundFor(I)V
 
-    .line 387
     :cond_62
     iput-boolean v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mWaitForHandleMotionEvent:Z
 
     goto :goto_1c
 
-    .line 368
     :cond_65
     const-wide/16 v3, 0x0
 
     iput-wide v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLastDownTime:J
 
-    .line 369
     const/4 v3, 0x6
 
     invoke-direct {p0, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
     goto :goto_4c
 
-    .line 371
     :cond_6e
     if-eqz v0, :cond_78
 
-    .line 372
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     iput-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
-    .line 373
     invoke-direct {p0, v8}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
     goto :goto_4c
 
-    .line 374
     :cond_78
     if-eqz v1, :cond_83
 
-    .line 375
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     iput-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
-    .line 376
     const/4 v3, 0x2
 
     invoke-direct {p0, v3}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
     goto :goto_4c
 
-    .line 379
     :cond_83
     const/4 v3, 0x4
 
@@ -800,7 +702,6 @@
     .registers 3
 
     .prologue
-    .line 521
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mScrollY:I
 
     neg-int v0, v0
@@ -828,7 +729,6 @@
     .registers 3
 
     .prologue
-    .line 525
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mScrollY:I
 
     neg-int v0, v0
@@ -854,14 +754,12 @@
     .parameter "y"
 
     .prologue
-    .line 529
     float-to-int v1, p2
 
     iget v2, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDownY:I
 
     sub-int v0, v1, v2
 
-    .line 532
     .local v0, deltaY:I
     iget v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mFooterRegionHeight:I
 
@@ -869,17 +767,14 @@
 
     move-result v0
 
-    .line 533
     if-lez v0, :cond_12
 
-    .line 534
     const/4 v1, 0x0
 
     neg-int v2, v0
 
     invoke-virtual {p0, v1, v2}, Lcom/miui/internal/policy/impl/SlidingPanel;->scrollTo(II)V
 
-    .line 536
     :cond_12
     return-void
 .end method
@@ -888,24 +783,20 @@
     .registers 2
 
     .prologue
-    .line 338
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBackgroundMode:I
 
     invoke-virtual {p0, v0}, Lcom/miui/internal/policy/impl/SlidingPanel;->setBackgroundFor(I)V
 
-    .line 339
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->hitDownThreshold()Z
 
     move-result v0
 
     if-nez v0, :cond_f
 
-    .line 340
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
-    .line 342
     :cond_f
     return-void
 .end method
@@ -915,43 +806,35 @@
     .parameter "newState"
 
     .prologue
-    .line 562
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_f
 
-    .line 564
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
     if-eqz v0, :cond_e
 
-    .line 565
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
     iget v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mGrabbedState:I
 
     invoke-interface {v0, p0, v1}, Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;->onGrabbedStateChange(Landroid/view/View;I)V
 
-    .line 573
     :cond_e
     :goto_e
     return-void
 
-    .line 567
     :cond_f
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mGrabbedState:I
 
     if-eq p1, v0, :cond_e
 
-    .line 568
     iput p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mGrabbedState:I
 
-    .line 569
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
     if-eqz v0, :cond_e
 
-    .line 570
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
     iget v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mGrabbedState:I
@@ -975,14 +858,12 @@
 
     const/4 v9, -0x1
 
-    .line 227
     new-instance v3, Landroid/widget/FrameLayout;
 
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     invoke-direct {v3, v6}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
-    .line 228
     .local v3, controlRegionWrapper:Landroid/widget/FrameLayout;
     new-instance v4, Landroid/view/View;
 
@@ -990,7 +871,6 @@
 
     invoke-direct {v4, v6}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    .line 229
     .local v4, defaultContorlView:Landroid/view/View;
     new-instance v6, Landroid/widget/FrameLayout$LayoutParams;
 
@@ -998,7 +878,6 @@
 
     invoke-virtual {v3, v4, v6}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 234
     new-instance v6, Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -1007,14 +886,12 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mControlRegion:Landroid/widget/FrameLayout;
 
-    .line 235
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mControlRegion:Landroid/widget/FrameLayout;
 
     const/16 v7, 0x8
 
     invoke-virtual {v6, v7}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 236
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mControlRegion:Landroid/widget/FrameLayout;
 
     new-instance v7, Landroid/widget/FrameLayout$LayoutParams;
@@ -1023,7 +900,6 @@
 
     invoke-virtual {v3, v6, v7}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 240
     new-instance v6, Landroid/widget/LinearLayout$LayoutParams;
 
     const/4 v7, 0x0
@@ -1034,7 +910,6 @@
 
     invoke-virtual {p0, v3, v6}, Lcom/miui/internal/policy/impl/SlidingPanel;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 243
     new-instance v6, Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -1043,7 +918,6 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
 
-    .line 244
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
 
     new-instance v7, Landroid/widget/FrameLayout$LayoutParams;
@@ -1052,7 +926,6 @@
 
     invoke-virtual {p0, v6, v7}, Lcom/miui/internal/policy/impl/SlidingPanel;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 247
     new-instance v6, Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -1061,21 +934,18 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
-    .line 248
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     const/4 v7, 0x1
 
     invoke-virtual {v6, v7}, Landroid/widget/FrameLayout;->setDrawingCacheEnabled(Z)V
 
-    .line 249
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     const v7, 0x6020090
 
     invoke-virtual {v6, v7}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
-    .line 251
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
@@ -1086,7 +956,6 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 254
     new-instance v6, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -1095,21 +964,18 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
-    .line 255
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     const v7, 0x602006f
 
     invoke-virtual {v6, v7}, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;->setBackgroundResource(I)V
 
-    .line 256
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     const v7, 0x602006e
 
     invoke-virtual {v6, v7}, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;->setImage(I)V
 
-    .line 257
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLeftSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
@@ -1120,7 +986,6 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 262
     new-instance v6, Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -1129,14 +994,12 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
-    .line 263
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
     const v7, 0x6020084
 
     invoke-virtual {v6, v7}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
-    .line 264
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
@@ -1147,7 +1010,6 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 269
     new-instance v6, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
@@ -1156,21 +1018,18 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
-    .line 270
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     const v7, 0x6020075
 
     invoke-virtual {v6, v7}, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;->setBackgroundResource(I)V
 
-    .line 271
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     const v7, 0x6020074
 
     invoke-virtual {v6, v7}, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;->setImage(I)V
 
-    .line 272
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     iget-object v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mRightSlider:Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
@@ -1181,24 +1040,20 @@
 
     invoke-virtual {v6, v7, v8}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 277
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     invoke-virtual {v6}, Landroid/widget/FrameLayout;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    .line 278
     .local v1, buttonRegionBg:Landroid/graphics/drawable/Drawable;
     new-instance v5, Landroid/graphics/Rect;
 
     invoke-direct {v5}, Landroid/graphics/Rect;-><init>()V
 
-    .line 279
     .local v5, rect:Landroid/graphics/Rect;
     invoke-virtual {v1, v5}, Landroid/graphics/drawable/Drawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    .line 280
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v6
@@ -1213,25 +1068,21 @@
 
     iput v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegionHeight:I
 
-    .line 281
     iget v6, v5, Landroid/graphics/Rect;->bottom:I
 
     iput v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mFooterRegionHeight:I
 
-    .line 283
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     invoke-direct {v0, v6}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 284
     .local v0, bottomAnim:Landroid/widget/ImageView;
     const v6, 0x602009a
 
     invoke-virtual {v0, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 285
     invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v6
@@ -1240,7 +1091,6 @@
 
     iput-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBottomAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
-    .line 286
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
 
     new-instance v7, Landroid/widget/FrameLayout$LayoutParams;
@@ -1251,20 +1101,17 @@
 
     invoke-virtual {v6, v0, v7}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 290
     new-instance v2, Landroid/widget/ImageView;
 
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContext:Landroid/content/Context;
 
     invoke-direct {v2, v6}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    .line 291
     .local v2, contentAreaMask:Landroid/widget/ImageView;
     const v6, 0x6020092
 
     invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 292
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
 
     new-instance v7, Landroid/widget/FrameLayout$LayoutParams;
@@ -1273,7 +1120,6 @@
 
     invoke-virtual {v6, v2, v7}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 294
     return-void
 .end method
 
@@ -1285,12 +1131,10 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 504
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
     invoke-virtual {p2, v3}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 505
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
     aget v3, v3, v2
@@ -1309,7 +1153,6 @@
 
     sub-int v1, v3, v4
 
-    .line 506
     .local v1, startY:I
     iget-object v3, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
@@ -1327,7 +1170,6 @@
 
     sub-int v0, v3, v4
 
-    .line 507
     .local v0, endY:I
     int-to-float v3, v1
 
@@ -1361,12 +1203,10 @@
 
     const/4 v5, 0x0
 
-    .line 511
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
     invoke-virtual {p3, v6}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    .line 512
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
     aget v6, v6, v5
@@ -1377,7 +1217,6 @@
 
     add-int v2, v6, v7
 
-    .line 513
     .local v2, startX:I
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
@@ -1395,13 +1234,11 @@
 
     sub-int v0, v6, v7
 
-    .line 514
     .local v0, endX:I
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
     aget v3, v6, v4
 
-    .line 515
     .local v3, startY:I
     iget-object v6, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
@@ -1413,7 +1250,6 @@
 
     add-int v1, v6, v7
 
-    .line 516
     .local v1, endY:I
     int-to-float v6, v2
 
@@ -1454,12 +1290,10 @@
     .registers 2
 
     .prologue
-    .line 605
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->clearBatteryAnimations()V
 
-    .line 606
     return-void
 .end method
 
@@ -1467,7 +1301,6 @@
     .registers 3
 
     .prologue
-    .line 297
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegionHeight:I
 
     iget v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mFooterRegionHeight:I
@@ -1481,7 +1314,6 @@
     .registers 2
 
     .prologue
-    .line 576
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mControlRegion:Landroid/widget/FrameLayout;
 
     return-object v0
@@ -1492,7 +1324,6 @@
     .parameter "slider"
 
     .prologue
-    .line 914
     invoke-direct {p0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel;->getSlider(I)Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     move-result-object v0
@@ -1513,18 +1344,14 @@
     .parameter "b"
 
     .prologue
-    .line 319
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
 
-    .line 321
     if-eqz p1, :cond_a
 
-    .line 322
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->onResume()V
 
-    .line 324
     :cond_a
     return-void
 .end method
@@ -1533,27 +1360,22 @@
     .registers 2
 
     .prologue
-    .line 310
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPaused:Z
 
-    .line 311
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     invoke-virtual {v0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->onPasue()V
 
-    .line 312
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBottomAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
     if-eqz v0, :cond_11
 
-    .line 313
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBottomAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
 
-    .line 315
     :cond_11
     return-void
 .end method
@@ -1564,28 +1386,22 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 301
     iput-boolean v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPaused:Z
 
-    .line 302
     invoke-virtual {p0, v0, v0}, Lcom/miui/internal/policy/impl/SlidingPanel;->scrollTo(II)V
 
-    .line 303
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBackgroundMode:I
 
     invoke-virtual {p0, v0}, Lcom/miui/internal/policy/impl/SlidingPanel;->setBackgroundFor(I)V
 
-    .line 304
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBottomAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
     if-eqz v0, :cond_14
 
-    .line 305
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBottomAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
 
-    .line 307
     :cond_14
     return-void
 .end method
@@ -1603,47 +1419,39 @@
 
     const/4 v9, 0x0
 
-    .line 392
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    .line 393
     .local v0, action:I
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
     move-result v2
 
-    .line 394
     .local v2, pointerIndex:I
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTmpLocation:[I
 
     invoke-virtual {p0, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->getLocationOnScreen([I)V
 
-    .line 395
     const/4 v3, 0x0
 
     .local v3, x:F
     const/4 v4, 0x0
 
-    .line 397
     .local v4, y:F
     iget v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTrackingPointerId:I
 
     if-gez v5, :cond_3c
 
-    .line 398
     if-eq v0, v8, :cond_1b
 
     if-nez v0, :cond_3b
 
-    .line 399
     :cond_1b
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v3
 
-    .line 400
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v5
@@ -1656,7 +1464,6 @@
 
     add-float v4, v5, v6
 
-    .line 401
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mButtonRegion:Landroid/widget/FrameLayout;
 
     invoke-direct {p0, v4, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->withinTouchArea(FLandroid/view/View;)Z
@@ -1665,22 +1472,18 @@
 
     if-eqz v5, :cond_3b
 
-    .line 402
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v5
 
     iput v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTrackingPointerId:I
 
-    .line 403
     invoke-direct {p0, v3, v4}, Lcom/miui/internal/policy/impl/SlidingPanel;->handleMotionDown(FF)V
 
-    .line 500
     :cond_3b
     :goto_3b
     return v10
 
-    .line 407
     :cond_3c
     iget v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTrackingPointerId:I
 
@@ -1688,51 +1491,40 @@
 
     move-result v2
 
-    .line 408
     if-gez v2, :cond_6b
 
-    .line 409
     const/4 v5, 0x3
 
     invoke-virtual {p1, v5}, Landroid/view/MotionEvent;->setAction(I)V
 
-    .line 415
     :goto_48
     packed-switch v0, :pswitch_data_136
 
     :pswitch_4b
     goto :goto_3b
 
-    .line 458
     :cond_4c
     :pswitch_4c
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPressing:Z
 
-    .line 459
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mSingleClick:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 460
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
     if-eqz v5, :cond_105
 
-    .line 461
     iput v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTrackingPointerId:I
 
-    .line 462
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mWaitForHandleMotionEvent:Z
 
-    .line 463
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
 
     if-eqz v5, :cond_100
 
-    .line 464
     const/4 v1, 0x0
 
-    .line 465
     .local v1, handler:I
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
@@ -1740,23 +1532,19 @@
 
     if-ne v5, v6, :cond_f4
 
-    .line 466
     const/4 v1, 0x1
 
-    .line 472
     :goto_67
     invoke-direct {p0, v1}, Lcom/miui/internal/policy/impl/SlidingPanel;->dispatchTriggerEvent(I)V
 
     goto :goto_3b
 
-    .line 411
     .end local v1           #handler:I
     :cond_6b
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result v3
 
-    .line 412
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v5
@@ -1771,16 +1559,13 @@
 
     goto :goto_48
 
-    .line 417
     :pswitch_7b
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mWaitForHandleMotionEvent:Z
 
     if-eqz v5, :cond_82
 
-    .line 418
     invoke-direct {p0, v3, v4}, Lcom/miui/internal/policy/impl/SlidingPanel;->handleMotionDown(FF)V
 
-    .line 421
     :cond_82
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mWaitForHandleMotionEvent:Z
 
@@ -1808,19 +1593,15 @@
 
     if-ltz v5, :cond_3b
 
-    .line 426
     :cond_9a
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
 
     if-nez v5, :cond_a3
 
-    .line 427
     invoke-direct {p0, v8}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
-    .line 428
     iput-boolean v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
 
-    .line 432
     :cond_a3
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
@@ -1836,23 +1617,19 @@
 
     if-ltz v5, :cond_ba
 
-    .line 433
     const/4 v5, 0x4
 
     invoke-direct {p0, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->setGrabbedState(I)V
 
-    .line 434
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v5
 
     iput-wide v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLastSetGrabstateTime:J
 
-    .line 437
     :cond_ba
     invoke-direct {p0, v3, v4}, Lcom/miui/internal/policy/impl/SlidingPanel;->movePanel(FF)V
 
-    .line 438
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
     if-nez v5, :cond_c9
@@ -1863,10 +1640,8 @@
 
     if-eqz v5, :cond_c9
 
-    .line 439
     iput-boolean v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
-    .line 441
     :cond_c9
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->hitDownThreshold()Z
 
@@ -1874,10 +1649,8 @@
 
     if-nez v5, :cond_d1
 
-    .line 442
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
-    .line 444
     :cond_d1
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLongVibrate:Z
 
@@ -1889,15 +1662,12 @@
 
     if-eqz v5, :cond_e2
 
-    .line 445
     iput-boolean v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLongVibrate:Z
 
-    .line 446
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mHapticFeedbackUtil:Lmiui/util/HapticFeedbackUtil;
 
     invoke-virtual {v5, v9, v9}, Lmiui/util/HapticFeedbackUtil;->performHapticFeedback(IZ)Z
 
-    .line 448
     :cond_e2
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->hitVibrateThreshold()Z
 
@@ -1905,12 +1675,10 @@
 
     if-nez v5, :cond_3b
 
-    .line 449
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mLongVibrate:Z
 
     goto/16 :goto_3b
 
-    .line 454
     :pswitch_ec
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -1920,7 +1688,6 @@
 
     goto/16 :goto_3b
 
-    .line 467
     .restart local v1       #handler:I
     :cond_f4
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
@@ -1929,25 +1696,21 @@
 
     if-ne v5, v6, :cond_fd
 
-    .line 468
     const/4 v1, 0x2
 
     goto/16 :goto_67
 
-    .line 470
     :cond_fd
     const/4 v1, 0x3
 
     goto/16 :goto_67
 
-    .line 474
     .end local v1           #handler:I
     :cond_100
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->resetSlidingPanel()V
 
     goto/16 :goto_3b
 
-    .line 478
     :cond_105
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mHapticFeedbackUtil:Lmiui/util/HapticFeedbackUtil;
 
@@ -1955,62 +1718,49 @@
 
     invoke-virtual {v5, v6, v9}, Lmiui/util/HapticFeedbackUtil;->performHapticFeedback(IZ)Z
 
-    .line 481
     :pswitch_10b
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPressing:Z
 
-    .line 482
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mSingleClick:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 483
     iput v7, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTrackingPointerId:I
 
-    .line 484
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mWaitForHandleMotionEvent:Z
 
-    .line 485
     iput-boolean v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTriggered:Z
 
-    .line 486
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
     if-eqz v5, :cond_124
 
-    .line 487
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
     invoke-virtual {v5, v9}, Landroid/view/View;->setPressed(Z)V
 
-    .line 488
     const/4 v5, 0x0
 
     iput-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mCurrentDragView:Landroid/view/View;
 
-    .line 490
     :cond_124
     iput v9, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mDownY:I
 
-    .line 491
     iget-boolean v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mMoving:Z
 
     if-eqz v5, :cond_131
 
-    .line 492
     iget-object v5, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mAnimation:Lcom/miui/internal/policy/impl/SlidingPanel$SlidingPanelAnimation;
 
     invoke-virtual {p0, v5}, Lcom/miui/internal/policy/impl/SlidingPanel;->startAnimation(Landroid/view/animation/Animation;)V
 
     goto/16 :goto_3b
 
-    .line 494
     :cond_131
     invoke-direct {p0}, Lcom/miui/internal/policy/impl/SlidingPanel;->resetSlidingPanel()V
 
     goto/16 :goto_3b
 
-    .line 415
     :pswitch_data_136
     .packed-switch 0x1
         :pswitch_4c
@@ -2027,12 +1777,10 @@
     .parameter "mode"
 
     .prologue
-    .line 601
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     invoke-virtual {v0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->setBackgroundFor(I)V
 
-    .line 602
     return-void
 .end method
 
@@ -2041,12 +1789,10 @@
     .parameter "level"
 
     .prologue
-    .line 609
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
 
     invoke-virtual {v0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->setBatteryLevel(I)V
 
-    .line 610
     return-void
 .end method
 
@@ -2055,10 +1801,8 @@
     .parameter "listener"
 
     .prologue
-    .line 543
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mOnTriggerListener:Lcom/miui/internal/policy/impl/SlidingPanel$OnTriggerListener;
 
-    .line 544
     return-void
 .end method
 
@@ -2068,14 +1812,12 @@
     .parameter "text"
 
     .prologue
-    .line 910
     invoke-direct {p0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel;->getSlider(I)Lcom/miui/internal/policy/impl/SlidingPanel$Slider;
 
     move-result-object v0
 
     invoke-virtual {v0, p2}, Lcom/miui/internal/policy/impl/SlidingPanel$Slider;->setText(Ljava/lang/String;)V
 
-    .line 911
     return-void
 .end method
 
@@ -2087,10 +1829,8 @@
     .prologue
     const/4 v1, -0x2
 
-    .line 580
     if-nez p2, :cond_a
 
-    .line 581
     new-instance p2, Landroid/widget/FrameLayout$LayoutParams;
 
     .end local p2
@@ -2098,25 +1838,21 @@
 
     invoke-direct {p2, v1, v1, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
 
-    .line 587
     .restart local p2
     :cond_a
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->removeAllViews()V
 
-    .line 588
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0, p1, p2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 589
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel;->mTimeRegion:Landroid/widget/FrameLayout;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 590
     return-void
 .end method

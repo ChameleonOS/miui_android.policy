@@ -53,13 +53,10 @@
     .parameter "unlockerCallback"
 
     .prologue
-    .line 75
     invoke-direct {p0, p1}, Lmiui/app/screenelement/ScreenElementRoot;-><init>(Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 76
     iput-object p2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
-    .line 77
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "battery_state"
@@ -72,7 +69,6 @@
 
     iput-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mBatteryState:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 78
     new-instance v0, Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     const-string v1, "battery_level"
@@ -85,7 +81,6 @@
 
     iput-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mBatteryLevel:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
-    .line 79
     return-void
 .end method
 
@@ -102,7 +97,6 @@
     .end annotation
 
     .prologue
-    .line 192
     new-instance v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenElementGroup;
 
     iget-object v1, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -117,19 +111,16 @@
     .parameter "ele"
 
     .prologue
-    .line 197
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_b
 
-    .line 198
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     check-cast v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenElementGroup;
 
     invoke-virtual {v0, p1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenElementGroup;->endUnlockMoving(Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerScreenElement;)V
 
-    .line 199
     :cond_b
     return-void
 .end method
@@ -139,7 +130,6 @@
     .parameter "id"
 
     .prologue
-    .line 107
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
     invoke-interface {v0, p1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;->findTask(Ljava/lang/String;)Lmiui/app/screenelement/util/Task;
@@ -154,12 +144,10 @@
     .parameter "effectId"
 
     .prologue
-    .line 102
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
     invoke-interface {v0, p1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;->haptic(I)V
 
-    .line 103
     return-void
 .end method
 
@@ -169,10 +157,8 @@
     .prologue
     const/4 v2, 0x1
 
-    .line 162
     invoke-super {p0}, Lmiui/app/screenelement/ScreenElementRoot;->init()V
 
-    .line 165
     new-instance v0, Lmiui/security/ChooseLockSettingsHelper;
 
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -181,7 +167,6 @@
 
     invoke-direct {v0, v3}, Lmiui/security/ChooseLockSettingsHelper;-><init>(Landroid/content/Context;)V
 
-    .line 166
     .local v0, helper:Lmiui/security/ChooseLockSettingsHelper;
     iget-object v3, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -232,7 +217,6 @@
 
     if-nez v3, :cond_50
 
-    .line 174
     .local v2, showSmsBodySetting:Z
     :goto_3d
     new-instance v1, Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -245,7 +229,6 @@
 
     invoke-direct {v1, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;-><init>(Ljava/lang/String;Lmiui/app/screenelement/data/Variables;)V
 
-    .line 175
     .local v1, showSms:Lmiui/app/screenelement/util/IndexedNumberVariable;
     if-eqz v2, :cond_52
 
@@ -254,10 +237,8 @@
     :goto_4c
     invoke-virtual {v1, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 176
     return-void
 
-    .line 166
     .end local v1           #showSms:Lmiui/app/screenelement/util/IndexedNumberVariable;
     .end local v2           #showSmsBodySetting:Z
     :cond_50
@@ -265,7 +246,6 @@
 
     goto :goto_3d
 
-    .line 175
     .restart local v1       #showSms:Lmiui/app/screenelement/util/IndexedNumberVariable;
     .restart local v2       #showSmsBodySetting:Z
     :cond_52
@@ -278,7 +258,6 @@
     .registers 2
 
     .prologue
-    .line 208
     iget-boolean v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mDisplayDesktop:Z
 
     return v0
@@ -289,24 +268,20 @@
     .parameter "m"
 
     .prologue
-    .line 111
     invoke-super {p0, p1}, Lmiui/app/screenelement/ScreenElementRoot;->onAddVariableUpdater(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
-    .line 112
     new-instance v0, Lmiui/app/screenelement/data/BatteryVariableUpdater;
 
     invoke-direct {v0, p1}, Lmiui/app/screenelement/data/BatteryVariableUpdater;-><init>(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
     invoke-virtual {p1, v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->add(Lmiui/app/screenelement/data/VariableUpdater;)V
 
-    .line 113
     new-instance v0, Lmiui/app/screenelement/data/VolumeVariableUpdater;
 
     invoke-direct {v0, p1}, Lmiui/app/screenelement/data/VolumeVariableUpdater;-><init>(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
     invoke-virtual {p1, v0}, Lmiui/app/screenelement/data/VariableUpdaterManager;->add(Lmiui/app/screenelement/data/VariableUpdater;)V
 
-    .line 114
     return-void
 .end method
 
@@ -316,12 +291,10 @@
     .parameter "a"
 
     .prologue
-    .line 213
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
     invoke-interface {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;->pokeWakelock()V
 
-    .line 214
     return-void
 .end method
 
@@ -330,21 +303,17 @@
     .parameter "root"
 
     .prologue
-    .line 179
     invoke-super {p0, p1}, Lmiui/app/screenelement/ScreenElementRoot;->onLoad(Lorg/w3c/dom/Element;)Z
 
     move-result v0
 
     if-nez v0, :cond_8
 
-    .line 180
     const/4 v0, 0x0
 
-    .line 188
     :goto_7
     return v0
 
-    .line 182
     :cond_8
     const-string v0, "displayDesktop"
 
@@ -358,7 +327,6 @@
 
     iput-boolean v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mDisplayDesktop:Z
 
-    .line 183
     const-string v0, "frameRateCharging"
 
     iget v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
@@ -369,7 +337,6 @@
 
     iput v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mFrameRateCharging:F
 
-    .line 184
     const-string v0, "frameRateBatteryLow"
 
     iget v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
@@ -380,7 +347,6 @@
 
     iput v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mFrameRateBatteryLow:F
 
-    .line 185
     const-string v0, "frameRateBatteryFull"
 
     iget v1, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
@@ -391,12 +357,10 @@
 
     iput v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mFrameRateBatteryFull:F
 
-    .line 187
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mVariableBinderManager:Lmiui/app/screenelement/data/VariableBinderManager;
 
     invoke-static {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/BuiltinVariableBinders;->fill(Lmiui/app/screenelement/data/VariableBinderManager;)V
 
-    .line 188
     const/4 v0, 0x1
 
     goto :goto_7
@@ -411,151 +375,121 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 117
     iget-object v2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mBatteryLevel:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     int-to-double v3, p3
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 118
     iget-object v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-nez v2, :cond_c
 
-    .line 158
     :cond_b
     :goto_b
     return-void
 
-    .line 122
     :cond_c
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->curCategory:Ljava/lang/String;
 
-    .line 123
     .local v0, newCategory:Ljava/lang/String;
     const/4 v1, 0x0
 
-    .line 124
     .local v1, state:I
     if-eqz p1, :cond_65
 
-    .line 125
     if-eqz p2, :cond_5d
 
-    .line 126
     const/16 v2, 0x64
 
     if-lt p3, v2, :cond_55
 
-    .line 127
     const-string v0, "BatteryFull"
 
-    .line 128
     const/4 v1, 0x3
 
-    .line 129
     iget v2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mFrameRateBatteryFull:F
 
     iput v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
 
-    .line 147
     :goto_1e
     iget-object v2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->curCategory:Ljava/lang/String;
 
     if-eq v0, v2, :cond_b
 
-    .line 149
     iget v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
 
     invoke-virtual {p0, v2}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->requestFramerate(F)V
 
-    .line 150
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->requestUpdate()V
 
-    .line 151
     iget-object v2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mBatteryState:Lmiui/app/screenelement/util/IndexedNumberVariable;
 
     int-to-double v3, v1
 
     invoke-virtual {v2, v3, v4}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 152
     iget-object v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     const-string v3, "BatteryFull"
 
     invoke-virtual {v2, v3, v5}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 153
     iget-object v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     const-string v3, "Charging"
 
     invoke-virtual {v2, v3, v5}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 154
     iget-object v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     const-string v3, "BatteryLow"
 
     invoke-virtual {v2, v3, v5}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 155
     iget-object v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     const-string v3, "Normal"
 
     invoke-virtual {v2, v3, v5}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 156
     iget-object v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     const/4 v3, 0x1
 
     invoke-virtual {v2, v0, v3}, Lmiui/app/screenelement/elements/ElementGroup;->showCategory(Ljava/lang/String;Z)V
 
-    .line 157
     iput-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->curCategory:Ljava/lang/String;
 
     goto :goto_b
 
-    .line 131
     :cond_55
     const-string v0, "Charging"
 
-    .line 132
     const/4 v1, 0x1
 
-    .line 133
     iget v2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mFrameRateCharging:F
 
     iput v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
 
     goto :goto_1e
 
-    .line 136
     :cond_5d
     const-string v0, "BatteryLow"
 
-    .line 137
     const/4 v1, 0x2
 
-    .line 138
     iget v2, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mFrameRateBatteryLow:F
 
     iput v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
 
     goto :goto_1e
 
-    .line 141
     :cond_65
     const-string v0, "Normal"
 
-    .line 142
     const/4 v1, 0x0
 
-    .line 143
     iget v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mNormalFrameRate:F
 
     iput v2, p0, Lmiui/app/screenelement/ScreenElementRoot;->mFrameRate:F
@@ -568,22 +502,18 @@
     .parameter "event"
 
     .prologue
-    .line 83
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-nez v0, :cond_c
 
-    .line 84
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
     const/4 v1, 0x0
 
     invoke-interface {v0, v1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;->unlocked(Landroid/content/Intent;)V
 
-    .line 85
     const/4 v0, 0x0
 
-    .line 88
     :goto_b
     return v0
 
@@ -599,12 +529,10 @@
     .registers 2
 
     .prologue
-    .line 92
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
     invoke-interface {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;->pokeWakelock()V
 
-    .line 93
     return-void
 .end method
 
@@ -612,7 +540,6 @@
     .registers 2
 
     .prologue
-    .line 97
     iget-object v0, p0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot;->mUnlockerCallback:Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;
 
     invoke-interface {v0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenRoot$UnlockerCallback;->isSoundEnable()Z
@@ -627,19 +554,16 @@
     .parameter "ele"
 
     .prologue
-    .line 203
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     if-eqz v0, :cond_b
 
-    .line 204
     iget-object v0, p0, Lmiui/app/screenelement/ScreenElementRoot;->mElementGroup:Lmiui/app/screenelement/elements/ElementGroup;
 
     check-cast v0, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenElementGroup;
 
     invoke-virtual {v0, p1}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/LockScreenElementGroup;->startUnlockMoving(Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/UnlockerScreenElement;)V
 
-    .line 205
     :cond_b
     return-void
 .end method

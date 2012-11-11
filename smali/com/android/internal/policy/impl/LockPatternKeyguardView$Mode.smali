@@ -40,7 +40,6 @@
 
     const/4 v2, 0x0
 
-    .line 197
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     const-string v1, "LockScreen"
@@ -49,7 +48,6 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->LockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
-    .line 198
     new-instance v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     const-string v1, "UnlockScreen"
@@ -58,7 +56,6 @@
 
     sput-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->UnlockScreen:Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
-    .line 196
     const/4 v0, 0x2
 
     new-array v0, v0, [Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
@@ -87,7 +84,6 @@
     .end annotation
 
     .prologue
-    .line 196
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -98,7 +94,6 @@
     .parameter "name"
 
     .prologue
-    .line 196
     const-class v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -114,7 +109,6 @@
     .registers 1
 
     .prologue
-    .line 196
     sget-object v0, Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->$VALUES:[Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;
 
     invoke-virtual {v0}, [Lcom/android/internal/policy/impl/LockPatternKeyguardView$Mode;->clone()Ljava/lang/Object;

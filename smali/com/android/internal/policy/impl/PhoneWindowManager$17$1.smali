@@ -26,7 +26,6 @@
     .parameter "x1"
 
     .prologue
-    .line 4019
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$17$1;->this$1:Lcom/android/internal/policy/impl/PhoneWindowManager$17;
 
     invoke-direct {p0, p2, p3}, Landroid/app/ProgressDialog;-><init>(Landroid/content/Context;I)V
@@ -41,7 +40,6 @@
     .parameter "ev"
 
     .prologue
-    .line 4035
     const/4 v0, 0x1
 
     return v0
@@ -52,7 +50,6 @@
     .parameter "event"
 
     .prologue
-    .line 4023
     const/4 v0, 0x1
 
     return v0
@@ -63,7 +60,6 @@
     .parameter "event"
 
     .prologue
-    .line 4026
     const/4 v0, 0x1
 
     return v0
@@ -74,7 +70,6 @@
     .parameter "event"
 
     .prologue
-    .line 4039
     const/4 v0, 0x1
 
     return v0
@@ -85,7 +80,6 @@
     .parameter "ev"
 
     .prologue
-    .line 4029
     const/4 v0, 0x1
 
     return v0
@@ -96,7 +90,6 @@
     .parameter "ev"
 
     .prologue
-    .line 4032
     const/4 v0, 0x1
 
     return v0

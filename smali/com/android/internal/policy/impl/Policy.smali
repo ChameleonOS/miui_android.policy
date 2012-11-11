@@ -17,7 +17,6 @@
     .registers 8
 
     .prologue
-    .line 42
     const/4 v5, 0x7
 
     new-array v5, v5, [Ljava/lang/String;
@@ -66,7 +65,6 @@
 
     sput-object v5, Lcom/android/internal/policy/impl/Policy;->preload_classes:[Ljava/lang/String;
 
-    .line 55
     sget-object v0, Lcom/android/internal/policy/impl/Policy;->preload_classes:[Ljava/lang/String;
 
     .local v0, arr$:[Ljava/lang/String;
@@ -81,24 +79,20 @@
 
     aget-object v4, v0, v2
 
-    .line 57
     .local v4, s:Ljava/lang/String;
     :try_start_30
     invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
     :try_end_33
     .catch Ljava/lang/ClassNotFoundException; {:try_start_30 .. :try_end_33} :catch_36
 
-    .line 55
     :goto_33
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2c
 
-    .line 58
     :catch_36
     move-exception v1
 
-    .line 59
     .local v1, ex:Ljava/lang/ClassNotFoundException;
     const-string v5, "PhonePolicy"
 
@@ -124,7 +118,6 @@
 
     goto :goto_33
 
-    .line 62
     .end local v1           #ex:Ljava/lang/ClassNotFoundException;
     .end local v4           #s:Ljava/lang/String;
     :cond_50
@@ -135,7 +128,6 @@
     .registers 1
 
     .prologue
-    .line 39
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -151,7 +143,6 @@
     .end annotation
 
     .prologue
-    .line 79
     new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;
 
     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/MiuiPhoneFallbackEventHandler;-><init>(Landroid/content/Context;)V
@@ -164,7 +155,6 @@
     .parameter "context"
 
     .prologue
-    .line 69
     new-instance v0, Lcom/android/internal/policy/impl/PhoneLayoutInflater;
 
     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/PhoneLayoutInflater;-><init>(Landroid/content/Context;)V
@@ -177,7 +167,6 @@
     .parameter "context"
 
     .prologue
-    .line 65
     new-instance v0, Lcom/android/internal/policy/impl/PhoneWindow;
 
     invoke-direct {v0, p1}, Lcom/android/internal/policy/impl/PhoneWindow;-><init>(Landroid/content/Context;)V
@@ -192,7 +181,6 @@
     .end annotation
 
     .prologue
-    .line 74
     new-instance v0, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;
 
     invoke-direct {v0}, Lcom/android/internal/policy/impl/MiuiPhoneWindowManager;-><init>()V

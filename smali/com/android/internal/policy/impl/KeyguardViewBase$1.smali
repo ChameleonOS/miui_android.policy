@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 60
     iput-object p1, p0, Lcom/android/internal/policy/impl/KeyguardViewBase$1;->this$0:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -39,14 +38,12 @@
     .parameter "canvas"
 
     .prologue
-    .line 63
     const/high16 v0, 0x7000
 
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->drawColor(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 64
     return-void
 .end method
 
@@ -54,7 +51,6 @@
     .registers 2
 
     .prologue
-    .line 76
     const/4 v0, -0x3
 
     return v0
@@ -65,7 +61,6 @@
     .parameter "alpha"
 
     .prologue
-    .line 68
     return-void
 .end method
 
@@ -74,6 +69,5 @@
     .parameter "cf"
 
     .prologue
-    .line 72
     return-void
 .end method

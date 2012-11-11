@@ -19,13 +19,10 @@
     .parameter "type"
 
     .prologue
-    .line 12
     invoke-direct {p0, p1}, Lmiui/app/screenelement/data/VariableUpdater;-><init>(Lmiui/app/screenelement/data/VariableUpdaterManager;)V
 
-    .line 13
     iput-object p2, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mType:Lmiui/app/screenelement/NotifierManager$NotifierType;
 
-    .line 14
     invoke-virtual {p1}, Lmiui/app/screenelement/data/VariableUpdaterManager;->getContext()Lmiui/app/screenelement/ScreenContext;
 
     move-result-object v0
@@ -40,7 +37,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mNotifierManager:Lmiui/app/screenelement/NotifierManager;
 
-    .line 15
     return-void
 .end method
 
@@ -50,14 +46,12 @@
     .registers 3
 
     .prologue
-    .line 30
     iget-object v0, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mNotifierManager:Lmiui/app/screenelement/NotifierManager;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mType:Lmiui/app/screenelement/NotifierManager$NotifierType;
 
     invoke-virtual {v0, v1, p0}, Lmiui/app/screenelement/NotifierManager;->releaseNotifier(Lmiui/app/screenelement/NotifierManager$NotifierType;Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 31
     return-void
 .end method
 
@@ -65,14 +59,12 @@
     .registers 3
 
     .prologue
-    .line 18
     iget-object v0, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mNotifierManager:Lmiui/app/screenelement/NotifierManager;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mType:Lmiui/app/screenelement/NotifierManager$NotifierType;
 
     invoke-virtual {v0, v1, p0}, Lmiui/app/screenelement/NotifierManager;->acquireNotifier(Lmiui/app/screenelement/NotifierManager$NotifierType;Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 19
     return-void
 .end method
 
@@ -83,14 +75,12 @@
     .registers 3
 
     .prologue
-    .line 26
     iget-object v0, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mNotifierManager:Lmiui/app/screenelement/NotifierManager;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mType:Lmiui/app/screenelement/NotifierManager$NotifierType;
 
     invoke-virtual {v0, v1, p0}, Lmiui/app/screenelement/NotifierManager;->pause(Lmiui/app/screenelement/NotifierManager$NotifierType;Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 27
     return-void
 .end method
 
@@ -98,13 +88,11 @@
     .registers 3
 
     .prologue
-    .line 22
     iget-object v0, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mNotifierManager:Lmiui/app/screenelement/NotifierManager;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/NotifierVariableUpdater;->mType:Lmiui/app/screenelement/NotifierManager$NotifierType;
 
     invoke-virtual {v0, v1, p0}, Lmiui/app/screenelement/NotifierManager;->resume(Lmiui/app/screenelement/NotifierManager$NotifierType;Lmiui/app/screenelement/NotifierManager$OnNotifyListener;)V
 
-    .line 23
     return-void
 .end method

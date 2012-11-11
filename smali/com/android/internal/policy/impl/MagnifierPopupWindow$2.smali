@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 272
     iput-object p1, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$2;->this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -39,25 +38,21 @@
     .parameter "msg"
 
     .prologue
-    .line 274
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_b
 
-    .line 275
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$2;->this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
     #calls: Lcom/android/internal/policy/impl/MagnifierPopupWindow;->showMagnifier()V
     invoke-static {v0}, Lcom/android/internal/policy/impl/MagnifierPopupWindow;->access$1100(Lcom/android/internal/policy/impl/MagnifierPopupWindow;)V
 
-    .line 281
     :cond_a
     :goto_a
     return-void
 
-    .line 276
     :cond_b
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -65,7 +60,6 @@
 
     if-ne v0, v1, :cond_1a
 
-    .line 277
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$2;->this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
     #getter for: Lcom/android/internal/policy/impl/MagnifierPopupWindow;->mMagnifierView:Lcom/android/internal/policy/impl/MagnifierPopupWindow$MagnifierView;
@@ -77,7 +71,6 @@
 
     goto :goto_a
 
-    .line 278
     :cond_1a
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -85,7 +78,6 @@
 
     if-ne v0, v1, :cond_a
 
-    .line 279
     iget-object v0, p0, Lcom/android/internal/policy/impl/MagnifierPopupWindow$2;->this$0:Lcom/android/internal/policy/impl/MagnifierPopupWindow;
 
     #calls: Lcom/android/internal/policy/impl/MagnifierPopupWindow;->refreshMagnifier()V

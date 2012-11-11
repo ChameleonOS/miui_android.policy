@@ -37,7 +37,6 @@
     .parameter
 
     .prologue
-    .line 281
     iput-object p1, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +60,6 @@
     .end annotation
 
     .prologue
-    .line 284
     .local p1, future:Landroid/accounts/AccountManagerFuture;,"Landroid/accounts/AccountManagerFuture<Landroid/os/Bundle;>;"
     :try_start_0
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
@@ -75,14 +73,12 @@
 
     invoke-interface {v3, v4}, Lcom/android/internal/policy/impl/KeyguardScreenCallback;->pokeWakelock(I)V
 
-    .line 285
     invoke-interface {p1}, Landroid/accounts/AccountManagerFuture;->getResult()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/os/Bundle;
 
-    .line 286
     .local v1, result:Landroid/os/Bundle;
     const-string v3, "booleanResult"
 
@@ -90,7 +86,6 @@
 
     move-result v2
 
-    .line 287
     .local v2, verified:Z
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
@@ -102,7 +97,6 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_1c} :catch_41
     .catch Landroid/accounts/AuthenticatorException; {:try_start_0 .. :try_end_1c} :catch_57
 
-    .line 295
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLogin:Landroid/widget/EditText;
@@ -116,17 +110,14 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/EditText;->post(Ljava/lang/Runnable;)Z
 
-    .line 301
     .end local v1           #result:Landroid/os/Bundle;
     .end local v2           #verified:Z
     :goto_2a
     return-void
 
-    .line 288
     :catch_2b
     move-exception v0
 
-    .line 289
     .local v0, e:Landroid/accounts/OperationCanceledException;
     :try_start_2c
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
@@ -138,7 +129,6 @@
     :try_end_32
     .catchall {:try_start_2c .. :try_end_32} :catchall_6d
 
-    .line 295
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLogin:Landroid/widget/EditText;
@@ -154,12 +144,10 @@
 
     goto :goto_2a
 
-    .line 290
     .end local v0           #e:Landroid/accounts/OperationCanceledException;
     :catch_41
     move-exception v0
 
-    .line 291
     .local v0, e:Ljava/io/IOException;
     :try_start_42
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
@@ -171,7 +159,6 @@
     :try_end_48
     .catchall {:try_start_42 .. :try_end_48} :catchall_6d
 
-    .line 295
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLogin:Landroid/widget/EditText;
@@ -187,12 +174,10 @@
 
     goto :goto_2a
 
-    .line 292
     .end local v0           #e:Ljava/io/IOException;
     :catch_57
     move-exception v0
 
-    .line 293
     .local v0, e:Landroid/accounts/AuthenticatorException;
     :try_start_58
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
@@ -204,7 +189,6 @@
     :try_end_5e
     .catchall {:try_start_58 .. :try_end_5e} :catchall_6d
 
-    .line 295
     iget-object v3, p0, Lcom/android/internal/policy/impl/AccountUnlockScreen$2;->this$0:Lcom/android/internal/policy/impl/AccountUnlockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/AccountUnlockScreen;->mLogin:Landroid/widget/EditText;

@@ -26,12 +26,10 @@
     .parameter
 
     .prologue
-    .line 1047
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater$ContactInfo;->this$1:Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 1048
     const-string v0, ""
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$PreviewCursorAdpater$ContactInfo;->name:Ljava/lang/String;

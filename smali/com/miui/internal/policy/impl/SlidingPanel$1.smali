@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 211
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$1;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .parameter "animation"
 
     .prologue
-    .line 217
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$1;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPressing:Z
@@ -52,13 +50,11 @@
 
     if-nez v0, :cond_d
 
-    .line 218
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$1;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #calls: Lcom/miui/internal/policy/impl/SlidingPanel;->resetSlidingPanel()V
     invoke-static {v0}, Lcom/miui/internal/policy/impl/SlidingPanel;->access$400(Lcom/miui/internal/policy/impl/SlidingPanel;)V
 
-    .line 220
     :cond_d
     return-void
 .end method
@@ -68,7 +64,6 @@
     .parameter "animation"
 
     .prologue
-    .line 214
     return-void
 .end method
 
@@ -77,6 +72,5 @@
     .parameter "animation"
 
     .prologue
-    .line 212
     return-void
 .end method

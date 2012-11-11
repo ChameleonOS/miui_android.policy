@@ -28,7 +28,6 @@
     .parameter
 
     .prologue
-    .line 980
     iput-object p1, p0, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;->this$0:Lmiui/app/screenelement/elements/AdvancedSlider;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .parameter "x1"
 
     .prologue
-    .line 980
     invoke-direct {p0, p1}, Lmiui/app/screenelement/elements/AdvancedSlider$CheckTouchResult;-><init>(Lmiui/app/screenelement/elements/AdvancedSlider;)V
 
     return-void

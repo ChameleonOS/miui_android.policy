@@ -34,22 +34,18 @@
     .end annotation
 
     .prologue
-    .line 28
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/TextScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 19
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
-    .line 21
     const/4 v0, -0x1
 
     iput v0, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCurDay:I
 
-    .line 29
     const-string v0, "value"
 
     invoke-interface {p1, v0}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -62,7 +58,6 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mValue:Lmiui/app/screenelement/data/Expression;
 
-    .line 30
     return-void
 .end method
 
@@ -74,7 +69,6 @@
     .prologue
     const/4 v9, 0x5
 
-    .line 40
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mValue:Lmiui/app/screenelement/data/Expression;
 
     if-eqz v5, :cond_1d
@@ -91,7 +85,6 @@
 
     double-to-long v1, v5
 
-    .line 43
     .local v1, ms:J
     :goto_10
     iget-wide v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mPreValue:J
@@ -104,14 +97,11 @@
 
     if-gez v5, :cond_22
 
-    .line 44
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mText:Ljava/lang/String;
 
-    .line 68
     :goto_1c
     return-object v5
 
-    .line 40
     .end local v1           #ms:J
     :cond_1d
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -120,28 +110,23 @@
 
     goto :goto_10
 
-    .line 46
     .restart local v1       #ms:J
     :cond_22
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
     invoke-virtual {v5, v1, v2}, Ljava/util/Calendar;->setTimeInMillis(J)V
 
-    .line 48
     invoke-virtual {p0}, Lmiui/app/screenelement/elements/DateTimeScreenElement;->getFormat()Ljava/lang/String;
 
     move-result-object v0
 
-    .line 49
     .local v0, format:Ljava/lang/String;
     if-nez v0, :cond_2f
 
-    .line 50
     const/4 v5, 0x0
 
     goto :goto_1c
 
-    .line 53
     :cond_2f
     const-string v5, "NNNN"
 
@@ -151,7 +136,6 @@
 
     if-eqz v5, :cond_9e
 
-    .line 54
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
     invoke-virtual {v5, v9}, Ljava/util/Calendar;->get(I)I
@@ -162,7 +146,6 @@
 
     if-eq v5, v6, :cond_96
 
-    .line 55
     iget-object v5, p0, Lmiui/app/screenelement/elements/ScreenElement;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     iget-object v5, v5, Lmiui/app/screenelement/ScreenContext;->mContext:Landroid/content/Context;
@@ -171,7 +154,6 @@
 
     move-result-object v3
 
-    .line 56
     .local v3, res:Landroid/content/res/Resources;
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
@@ -181,18 +163,15 @@
 
     iput-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mLunarDate:Ljava/lang/String;
 
-    .line 57
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
     invoke-static {v3, v5}, Lmiui/util/LunarDate;->getSolarTerm(Landroid/content/res/Resources;Ljava/util/Calendar;)Ljava/lang/String;
 
     move-result-object v4
 
-    .line 58
     .local v4, term:Ljava/lang/String;
     if-eqz v4, :cond_74
 
-    .line 59
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -219,7 +198,6 @@
 
     iput-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mLunarDate:Ljava/lang/String;
 
-    .line 61
     :cond_74
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
@@ -229,7 +207,6 @@
 
     iput v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCurDay:I
 
-    .line 62
     const-string v5, "DateTimeScreenElement"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -254,7 +231,6 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 64
     .end local v3           #res:Landroid/content/res/Resources;
     .end local v4           #term:Ljava/lang/String;
     :cond_96
@@ -266,7 +242,6 @@
 
     move-result-object v0
 
-    .line 66
     :cond_9e
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
@@ -280,10 +255,8 @@
 
     iput-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mText:Ljava/lang/String;
 
-    .line 67
     iput-wide v1, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mPreValue:J
 
-    .line 68
     iget-object v5, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mText:Ljava/lang/String;
 
     goto/16 :goto_1c
@@ -293,16 +266,13 @@
     .registers 2
 
     .prologue
-    .line 34
     invoke-super {p0}, Lmiui/app/screenelement/elements/TextScreenElement;->resume()V
 
-    .line 35
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
     move-result-object v0
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/DateTimeScreenElement;->mCalendar:Ljava/util/Calendar;
 
-    .line 36
     return-void
 .end method

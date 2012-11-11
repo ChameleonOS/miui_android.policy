@@ -38,12 +38,10 @@
     .parameter
 
     .prologue
-    .line 612
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 613
     const/16 v0, 0x64
 
     iput v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->MAX_BATTERY_LEVEL:I
@@ -57,7 +55,6 @@
     .parameter "x1"
 
     .prologue
-    .line 612
     invoke-direct {p0, p1}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;-><init>(Lcom/miui/internal/policy/impl/SlidingPanel;)V
 
     return-void
@@ -68,7 +65,6 @@
     .parameter "x0"
 
     .prologue
-    .line 612
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationRunnable:Ljava/lang/Runnable;
 
     return-object v0
@@ -79,7 +75,6 @@
     .parameter "x0"
 
     .prologue
-    .line 612
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
     return-object v0
@@ -90,7 +85,6 @@
     .parameter "x0"
 
     .prologue
-    .line 612
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
 
     return-object v0
@@ -102,16 +96,13 @@
     .registers 3
 
     .prologue
-    .line 691
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     if-nez v0, :cond_5
 
-    .line 697
     :goto_4
     return-void
 
-    .line 694
     :cond_5
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
@@ -119,12 +110,10 @@
 
     invoke-virtual {v0, v1}, Lcom/miui/internal/policy/impl/SlidingPanel;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    .line 695
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
 
-    .line 696
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->clearAnimation()V
@@ -136,7 +125,6 @@
     .registers 2
 
     .prologue
-    .line 807
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_16
@@ -172,22 +160,18 @@
     .registers 3
 
     .prologue
-    .line 817
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     if-eqz v0, :cond_e
 
-    .line 818
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     const/16 v1, 0x8
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 819
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->clearBatteryAnimations()V
 
-    .line 821
     :cond_e
     return-void
 .end method
@@ -196,7 +180,6 @@
     .registers 2
 
     .prologue
-    .line 824
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     if-eqz v0, :cond_16
@@ -214,13 +197,10 @@
 
     if-eqz v0, :cond_16
 
-    .line 825
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->clearBatteryAnimations()V
 
-    .line 826
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->setBatteryAnimations()V
 
-    .line 828
     :cond_16
     return-void
 .end method
@@ -234,13 +214,11 @@
 
     const/4 v8, 0x0
 
-    .line 621
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #setter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mBackgroundMode:I
     invoke-static {v10, p1}, Lcom/miui/internal/policy/impl/SlidingPanel;->access$902(Lcom/miui/internal/policy/impl/SlidingPanel;I)I
 
-    .line 622
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mIsPaused:Z
@@ -250,12 +228,10 @@
 
     if-eqz v10, :cond_11
 
-    .line 688
     :cond_10
     :goto_10
     return-void
 
-    .line 625
     :cond_11
     if-nez p1, :cond_1b
 
@@ -273,7 +249,6 @@
 
     if-nez v10, :cond_28
 
-    .line 627
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mBattery:Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;
@@ -283,31 +258,24 @@
 
     invoke-virtual {v10}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->setupBatteryArea()V
 
-    .line 629
     :cond_28
     const v7, 0x60200ba
 
-    .line 630
     .local v7, resId:I
     const/4 v4, 0x0
 
-    .line 631
     .local v4, batteryAnimationProgressId:I
     const/4 v2, 0x0
 
-    .line 632
     .local v2, batteryAnimationArrowId:I
     const/4 v3, 0x0
 
-    .line 633
     .local v3, batteryAnimationLightId:I
     const/4 v6, -0x1
 
-    .line 634
     .local v6, progressMarginLeft:I
     packed-switch p1, :pswitch_data_ce
 
-    .line 658
     :cond_32
     :goto_32
     :pswitch_32
@@ -320,10 +288,8 @@
 
     if-eqz v10, :cond_3d
 
-    .line 659
     const v7, 0x60200bb
 
-    .line 662
     :cond_3d
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
@@ -334,39 +300,32 @@
 
     invoke-virtual {v10, v7}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
-    .line 663
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     if-eqz v10, :cond_10
 
-    .line 666
     if-eqz v4, :cond_ca
 
     move v0, v8
 
-    .line 667
     .local v0, BatteryVisibility:I
     :goto_4d
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     invoke-virtual {v10, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 668
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
 
     invoke-virtual {v10, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 669
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
 
     invoke-virtual {v10, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 670
     const/4 v10, -0x1
 
     if-eq v6, v10, :cond_6e
 
-    .line 671
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
 
     invoke-virtual {v10}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -375,84 +334,67 @@
 
     check-cast v5, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 672
     .local v5, progressLayout:Landroid/widget/FrameLayout$LayoutParams;
     iput v6, v5, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 673
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
 
     invoke-virtual {v10, v5}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 677
     .end local v5           #progressLayout:Landroid/widget/FrameLayout$LayoutParams;
     :cond_6e
     if-eqz v2, :cond_cc
 
     move v1, v8
 
-    .line 678
     .local v1, animVisibility:I
     :goto_71
     iget-object v8, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
     invoke-virtual {v8, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 679
     iget-object v8, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
 
     invoke-virtual {v8, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 680
     iget-object v8, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
     invoke-virtual {v8, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 681
     iget-object v8, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
 
     invoke-virtual {v8, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    .line 682
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->clearBatteryAnimations()V
 
-    .line 683
     if-eqz v3, :cond_10
 
     if-eqz v2, :cond_10
 
     if-eqz v4, :cond_10
 
-    .line 686
     invoke-virtual {p0}, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->setBatteryAnimations()V
 
     goto/16 :goto_10
 
-    .line 636
     .end local v0           #BatteryVisibility:I
     .end local v1           #animVisibility:I
     :pswitch_93
     const v3, 0x602008c
 
-    .line 637
     const v4, 0x6020089
 
-    .line 638
     const v2, 0x602008b
 
     goto :goto_32
 
-    .line 645
     :pswitch_9d
     const v4, 0x602008f
 
-    .line 647
     const/4 v6, 0x0
 
-    .line 648
     goto :goto_32
 
-    .line 650
     :pswitch_a2
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
@@ -463,10 +405,8 @@
 
     if-eqz v10, :cond_32
 
-    .line 651
     const v4, 0x6020089
 
-    .line 652
     iget-object v10, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mDisplayWidth:I
@@ -508,17 +448,14 @@
     :cond_ca
     move v0, v9
 
-    .line 666
     goto :goto_4d
 
     .restart local v0       #BatteryVisibility:I
     :cond_cc
     move v1, v9
 
-    .line 677
     goto :goto_71
 
-    .line 634
     :pswitch_data_ce
     .packed-switch 0x0
         :pswitch_a2
@@ -532,18 +469,14 @@
     .registers 28
 
     .prologue
-    .line 701
     const/16 v12, 0x3e8
 
-    .line 702
     .local v12, duration1:I
     const/16 v13, 0x3e8
 
-    .line 703
     .local v13, duration2:I
     const/16 v11, 0xdac
 
-    .line 705
     .local v11, delayDuration:I
     move-object/from16 v0, p0
 
@@ -600,7 +533,6 @@
 
     move/from16 v17, v0
 
-    .line 706
     .local v17, lightOffset:I
     move-object/from16 v0, p0
 
@@ -615,11 +547,9 @@
 
     sub-int v22, v23, v17
 
-    .line 707
     .local v22, progressMarginLeft:I
     move/from16 v5, v22
 
-    .line 709
     .local v5, arrowOffset:I
     move-object/from16 v0, p0
 
@@ -633,16 +563,13 @@
 
     check-cast v20, Landroid/graphics/drawable/NinePatchDrawable;
 
-    .line 710
     .local v20, progressDrawable:Landroid/graphics/drawable/NinePatchDrawable;
     if-eqz v20, :cond_70
 
-    .line 711
     new-instance v19, Landroid/graphics/Rect;
 
     invoke-direct/range {v19 .. v19}, Landroid/graphics/Rect;-><init>()V
 
-    .line 712
     .local v19, padding:Landroid/graphics/Rect;
     move-object/from16 v0, v20
 
@@ -650,7 +577,6 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/NinePatchDrawable;->getPadding(Landroid/graphics/Rect;)Z
 
-    .line 713
     move-object/from16 v0, v19
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
@@ -659,7 +585,6 @@
 
     sub-int v17, v17, v23
 
-    .line 714
     move-object/from16 v0, v19
 
     iget v0, v0, Landroid/graphics/Rect;->right:I
@@ -668,7 +593,6 @@
 
     add-int v5, v5, v23
 
-    .line 717
     .end local v19           #padding:Landroid/graphics/Rect;
     :cond_70
     move-object/from16 v0, p0
@@ -683,7 +607,6 @@
 
     check-cast v21, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 718
     .local v21, progressLayout:Landroid/widget/FrameLayout$LayoutParams;
     move/from16 v0, v22
 
@@ -697,7 +620,6 @@
 
     iput v0, v1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 719
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
@@ -710,7 +632,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 721
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
@@ -723,7 +644,6 @@
 
     check-cast v16, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 722
     .local v16, lightLayout:Landroid/widget/FrameLayout$LayoutParams;
     move/from16 v0, v17
 
@@ -731,7 +651,6 @@
 
     iput v0, v1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    .line 723
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
@@ -744,7 +663,6 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 725
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
@@ -755,7 +673,6 @@
 
     move-result-object v4
 
-    .line 726
     .local v4, arrowDrawable:Landroid/graphics/drawable/Drawable;
     move-object/from16 v0, p0
 
@@ -769,7 +686,6 @@
 
     check-cast v7, Landroid/widget/FrameLayout$LayoutParams;
 
-    .line 727
     .local v7, barLayout:Landroid/widget/FrameLayout$LayoutParams;
     invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
@@ -785,7 +701,6 @@
 
     iput v0, v7, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
 
-    .line 728
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
@@ -796,7 +711,6 @@
 
     invoke-virtual {v0, v7}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 731
     new-instance v9, Landroid/view/animation/TranslateAnimation;
 
     const/16 v23, 0x0
@@ -825,7 +739,6 @@
 
     invoke-direct {v9, v0, v1, v2, v3}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
 
-    .line 732
     .local v9, barTranslate1:Landroid/view/animation/TranslateAnimation;
     int-to-long v0, v12
 
@@ -835,7 +748,6 @@
 
     invoke-virtual {v9, v0, v1}, Landroid/view/animation/TranslateAnimation;->setDuration(J)V
 
-    .line 733
     new-instance v23, Landroid/view/animation/AccelerateInterpolator;
 
     invoke-direct/range {v23 .. v23}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
@@ -844,7 +756,6 @@
 
     invoke-virtual {v9, v0}, Landroid/view/animation/TranslateAnimation;->setInterpolator(Landroid/view/animation/Interpolator;)V
 
-    .line 736
     invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v23
@@ -853,7 +764,6 @@
 
     add-int v18, v5, v23
 
-    .line 737
     .local v18, offsetX:I
     new-instance v10, Landroid/view/animation/TranslateAnimation;
 
@@ -893,7 +803,6 @@
 
     invoke-direct {v10, v0, v1, v2, v3}, Landroid/view/animation/TranslateAnimation;-><init>(FFFF)V
 
-    .line 739
     .local v10, barTranslate2:Landroid/view/animation/TranslateAnimation;
     new-instance v6, Landroid/view/animation/AlphaAnimation;
 
@@ -907,7 +816,6 @@
 
     invoke-direct {v6, v0, v1}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    .line 741
     .local v6, barAlpha2:Landroid/view/animation/AlphaAnimation;
     new-instance v8, Landroid/view/animation/AnimationSet;
 
@@ -917,14 +825,11 @@
 
     invoke-direct {v8, v0}, Landroid/view/animation/AnimationSet;-><init>(Z)V
 
-    .line 742
     .local v8, barSet2:Landroid/view/animation/AnimationSet;
     invoke-virtual {v8, v10}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 743
     invoke-virtual {v8, v6}, Landroid/view/animation/AnimationSet;->addAnimation(Landroid/view/animation/Animation;)V
 
-    .line 744
     int-to-long v0, v13
 
     move-wide/from16 v23, v0
@@ -933,7 +838,6 @@
 
     invoke-virtual {v8, v0, v1}, Landroid/view/animation/AnimationSet;->setDuration(J)V
 
-    .line 746
     new-instance v23, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;
 
     move-object/from16 v0, p0
@@ -960,7 +864,6 @@
 
     invoke-virtual {v9, v0}, Landroid/view/animation/TranslateAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 747
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
@@ -971,7 +874,6 @@
 
     invoke-virtual {v0, v9}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 750
     new-instance v14, Landroid/view/animation/AlphaAnimation;
 
     const/16 v23, 0x0
@@ -984,7 +886,6 @@
 
     invoke-direct {v14, v0, v1}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    .line 751
     .local v14, lightAlpha1:Landroid/view/animation/AlphaAnimation;
     const/16 v23, 0x1
 
@@ -992,7 +893,6 @@
 
     invoke-virtual {v14, v0}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
 
-    .line 752
     int-to-long v0, v12
 
     move-wide/from16 v23, v0
@@ -1001,7 +901,6 @@
 
     invoke-virtual {v14, v0, v1}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 755
     new-instance v15, Landroid/view/animation/AlphaAnimation;
 
     const/high16 v23, 0x3f80
@@ -1014,7 +913,6 @@
 
     invoke-direct {v15, v0, v1}, Landroid/view/animation/AlphaAnimation;-><init>(FF)V
 
-    .line 756
     .local v15, lightAlpha2:Landroid/view/animation/AlphaAnimation;
     const/16 v23, 0x1
 
@@ -1022,7 +920,6 @@
 
     invoke-virtual {v15, v0}, Landroid/view/animation/AlphaAnimation;->setFillAfter(Z)V
 
-    .line 757
     int-to-long v0, v13
 
     move-wide/from16 v23, v0
@@ -1031,7 +928,6 @@
 
     invoke-virtual {v15, v0, v1}, Landroid/view/animation/AlphaAnimation;->setDuration(J)V
 
-    .line 759
     new-instance v23, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;
 
     move-object/from16 v0, p0
@@ -1058,7 +954,6 @@
 
     invoke-virtual {v14, v0}, Landroid/view/animation/AlphaAnimation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    .line 760
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
@@ -1069,7 +964,6 @@
 
     invoke-virtual {v0, v14}, Landroid/widget/ImageView;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 761
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationRunnable:Ljava/lang/Runnable;
@@ -1078,7 +972,6 @@
 
     if-nez v23, :cond_1fa
 
-    .line 762
     new-instance v23, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo$1;
 
     move-object/from16 v0, v23
@@ -1093,7 +986,6 @@
 
     iput-object v0, v1, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationRunnable:Ljava/lang/Runnable;
 
-    .line 772
     :cond_1fa
     move-object/from16 v0, p0
 
@@ -1111,7 +1003,6 @@
 
     invoke-virtual/range {v23 .. v26}, Lcom/miui/internal/policy/impl/SlidingPanel;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 773
     return-void
 .end method
 
@@ -1120,7 +1011,6 @@
     .parameter "level"
 
     .prologue
-    .line 813
     iget v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->MAX_BATTERY_LEVEL:I
 
     if-le p1, v0, :cond_6
@@ -1131,7 +1021,6 @@
     :cond_6
     iput p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryLevel:I
 
-    .line 814
     return-void
 .end method
 
@@ -1145,7 +1034,6 @@
 
     const/4 v5, -0x2
 
-    .line 776
     new-instance v0, Landroid/widget/FrameLayout;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -1159,19 +1047,16 @@
 
     iput-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
-    .line 777
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0, v4}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 778
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     const v1, 0x6020088
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
-    .line 779
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -1185,12 +1070,10 @@
 
     iput-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
 
-    .line 780
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 781
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationProgress:Landroid/widget/ImageView;
@@ -1201,7 +1084,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 786
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -1215,12 +1097,10 @@
 
     iput-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
-    .line 787
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 788
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationArrow:Landroid/widget/ImageView;
@@ -1233,7 +1113,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 793
     new-instance v0, Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
@@ -1247,12 +1126,10 @@
 
     iput-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
 
-    .line 794
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    .line 795
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryArea:Landroid/widget/FrameLayout;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->mBatteryAnimationLight:Landroid/widget/ImageView;
@@ -1263,7 +1140,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 800
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$BatteryInfo;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     #getter for: Lcom/miui/internal/policy/impl/SlidingPanel;->mContentArea:Landroid/widget/FrameLayout;
@@ -1283,6 +1159,5 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 804
     return-void
 .end method

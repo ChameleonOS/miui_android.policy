@@ -13,9 +13,7 @@
     .parameter "detailMessage"
 
     .prologue
-    .line 7
     invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
 
-    .line 8
     return-void
 .end method

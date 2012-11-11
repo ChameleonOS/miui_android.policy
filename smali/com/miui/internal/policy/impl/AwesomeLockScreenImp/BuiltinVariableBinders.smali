@@ -8,7 +8,6 @@
     .registers 1
 
     .prologue
-    .line 7
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -19,13 +18,10 @@
     .parameter "m"
 
     .prologue
-    .line 9
     invoke-static {p0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/BuiltinVariableBinders;->fillMissedCall(Lmiui/app/screenelement/data/VariableBinderManager;)V
 
-    .line 10
     invoke-static {p0}, Lcom/miui/internal/policy/impl/AwesomeLockScreenImp/BuiltinVariableBinders;->fillUnreadSms(Lmiui/app/screenelement/data/VariableBinderManager;)V
 
-    .line 11
     return-void
 .end method
 
@@ -34,7 +30,6 @@
     .parameter "m"
 
     .prologue
-    .line 14
     const/4 v2, 0x2
 
     new-array v0, v2, [Ljava/lang/String;
@@ -51,11 +46,9 @@
 
     aput-object v3, v0, v2
 
-    .line 17
     .local v0, columns:[Ljava/lang/String;
     const-string v1, "type=3 AND new=1"
 
-    .line 18
     .local v1, where:Ljava/lang/String;
     const-string v2, "content://call_log/calls"
 
@@ -75,7 +68,6 @@
 
     invoke-virtual {v2, v3}, Lmiui/app/screenelement/data/ContentProviderBinder$Builder;->setCountName(Ljava/lang/String;)Lmiui/app/screenelement/data/ContentProviderBinder$Builder;
 
-    .line 20
     return-void
 .end method
 
@@ -84,7 +76,6 @@
     .parameter "m"
 
     .prologue
-    .line 23
     const/4 v1, 0x1
 
     new-array v0, v1, [Ljava/lang/String;
@@ -95,7 +86,6 @@
 
     aput-object v2, v0, v1
 
-    .line 26
     .local v0, columns:[Ljava/lang/String;
     const-string v1, "content://sms/inbox"
 
@@ -117,6 +107,5 @@
 
     invoke-virtual {v1, v2}, Lmiui/app/screenelement/data/ContentProviderBinder$Builder;->setCountName(Ljava/lang/String;)Lmiui/app/screenelement/data/ContentProviderBinder$Builder;
 
-    .line 28
     return-void
 .end method

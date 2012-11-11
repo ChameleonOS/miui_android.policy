@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 151
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,7 +39,6 @@
     .parameter "intent"
 
     .prologue
-    .line 154
     const-string v1, "miui.intent.extra.IS_ENABLE"
 
     const/4 v2, 0x0
@@ -49,7 +47,6 @@
 
     move-result v0
 
-    .line 156
     .local v0, enabled:Z
     iget-object v1, p0, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView$1;->this$0:Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;
 
@@ -59,6 +56,5 @@
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/MiuiLockPatternKeyguardView;->post(Ljava/lang/Runnable;)Z
 
-    .line 162
     return-void
 .end method

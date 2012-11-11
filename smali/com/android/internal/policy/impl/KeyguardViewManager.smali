@@ -49,7 +49,6 @@
     .registers 1
 
     .prologue
-    .line 80
     const-string v0, "KeyguardViewManager"
 
     sput-object v0, Lcom/android/internal/policy/impl/KeyguardViewManager;->TAG:Ljava/lang/String;
@@ -71,16 +70,12 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 109
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 90
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mNeedsInput:Z
 
-    .line 95
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mScreenOn:Z
 
-    .line 110
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
     const v1, 0x103006b
@@ -89,19 +84,14 @@
 
     iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
 
-    .line 111
     iput-object p2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
-    .line 112
     iput-object p3, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mCallback:Lcom/android/internal/policy/impl/KeyguardViewCallback;
 
-    .line 113
     iput-object p4, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
 
-    .line 115
     iput-object p5, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mUpdateMonitor:Lcom/android/internal/policy/impl/KeyguardUpdateMonitor;
 
-    .line 116
     return-void
 .end method
 
@@ -110,7 +100,6 @@
     .parameter "x0"
 
     .prologue
-    .line 50
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     return-object v0
@@ -125,7 +114,6 @@
     .end annotation
 
     .prologue
-    .line 52
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     return-object v0
@@ -138,7 +126,6 @@
     .end annotation
 
     .prologue
-    .line 55
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
 
     return-object v0
@@ -151,7 +138,6 @@
     .end annotation
 
     .prologue
-    .line 58
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     return-object v0
@@ -161,7 +147,6 @@
     .registers 6
 
     .prologue
-    .line 326
     monitor-enter p0
 
     :try_start_1
@@ -169,28 +154,23 @@
 
     if-eqz v1, :cond_21
 
-    .line 327
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     const/16 v2, 0x8
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 330
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     if-eqz v1, :cond_21
 
-    .line 331
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
-    .line 332
     .local v0, lastView:Lcom/android/internal/policy/impl/KeyguardViewBase;
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
-    .line 333
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     new-instance v2, Lcom/android/internal/policy/impl/KeyguardViewManager$2;
@@ -203,14 +183,12 @@
     :try_end_21
     .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
-    .line 343
     .end local v0           #lastView:Lcom/android/internal/policy/impl/KeyguardViewBase;
     :cond_21
     monitor-exit p0
 
     return-void
 
-    .line 326
     :catchall_23
     move-exception v1
 
@@ -223,7 +201,6 @@
     .registers 2
 
     .prologue
-    .line 349
     monitor-enter p0
 
     :try_start_1
@@ -265,7 +242,6 @@
     .registers 2
 
     .prologue
-    .line 257
     monitor-enter p0
 
     const/4 v0, 0x0
@@ -273,25 +249,21 @@
     :try_start_2
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mScreenOn:Z
 
-    .line 258
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     if-eqz v0, :cond_d
 
-    .line 259
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->onScreenTurnedOff()V
     :try_end_d
     .catchall {:try_start_2 .. :try_end_d} :catchall_f
 
-    .line 261
     :cond_d
     monitor-exit p0
 
     return-void
 
-    .line 257
     :catchall_f
     move-exception v0
 
@@ -305,7 +277,6 @@
     .parameter "showListener"
 
     .prologue
-    .line 266
     monitor-enter p0
 
     const/4 v0, 0x1
@@ -313,17 +284,14 @@
     :try_start_2
     iput-boolean v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mScreenOn:Z
 
-    .line 267
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     if-eqz v0, :cond_29
 
-    .line 268
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->onScreenTurnedOn()V
 
-    .line 272
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->getVisibility()I
@@ -332,7 +300,6 @@
 
     if-nez v0, :cond_21
 
-    .line 275
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     new-instance v1, Lcom/android/internal/policy/impl/KeyguardViewManager$1;
@@ -343,13 +310,11 @@
     :try_end_1f
     .catchall {:try_start_2 .. :try_end_1f} :catchall_26
 
-    .line 290
     :goto_1f
     monitor-exit p0
 
     return-void
 
-    .line 285
     :cond_21
     const/4 v0, 0x0
 
@@ -360,7 +325,6 @@
 
     goto :goto_1f
 
-    .line 266
     :catchall_26
     move-exception v0
 
@@ -368,7 +332,6 @@
 
     throw v0
 
-    .line 288
     :cond_29
     const/4 v0, 0x0
 
@@ -384,7 +347,6 @@
     .registers 2
 
     .prologue
-    .line 250
     monitor-enter p0
 
     :try_start_1
@@ -392,20 +354,17 @@
 
     if-eqz v0, :cond_a
 
-    .line 251
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->reset()V
     :try_end_a
     .catchall {:try_start_1 .. :try_end_a} :catchall_c
 
-    .line 253
     :cond_a
     monitor-exit p0
 
     return-void
 
-    .line 250
     :catchall_c
     move-exception v0
 
@@ -419,18 +378,14 @@
     .parameter "needsInput"
 
     .prologue
-    .line 232
     iput-boolean p1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mNeedsInput:Z
 
-    .line 233
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     if-eqz v0, :cond_1b
 
-    .line 234
     if-eqz p1, :cond_1c
 
-    .line 235
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
@@ -441,7 +396,6 @@
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 241
     :goto_12
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
@@ -451,11 +405,9 @@
 
     invoke-interface {v0, v1, v2}, Landroid/view/ViewManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 243
     :cond_1b
     return-void
 
-    .line 238
     :cond_1c
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
@@ -483,7 +435,6 @@
 
     const/4 v6, 0x0
 
-    .line 144
     monitor-enter p0
 
     :try_start_5
@@ -493,7 +444,6 @@
 
     move-result-object v7
 
-    .line 145
     .local v7, res:Landroid/content/res/Resources;
     const-string v2, "lockscreen.rot_override"
 
@@ -516,14 +466,12 @@
     :cond_1d
     move v6, v1
 
-    .line 148
     .local v6, enableScreenRotation:Z
     :cond_1e
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     if-nez v1, :cond_97
 
-    .line 151
     new-instance v1, Lcom/android/internal/policy/impl/KeyguardViewManager$KeyguardViewHost;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
@@ -536,25 +484,20 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
-    .line 153
     const/4 v8, -0x1
 
-    .line 154
     .local v8, stretch:I
     const v4, 0x4100900
 
-    .line 160
     .local v4, flags:I
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mNeedsInput:Z
 
     if-nez v1, :cond_39
 
-    .line 161
     const/high16 v1, 0x2
 
     or-int/2addr v4, v1
 
-    .line 163
     :cond_39
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
 
@@ -576,10 +519,8 @@
 
     if-eqz v1, :cond_4e
 
-    .line 165
     or-int/2addr v4, v10
 
-    .line 167
     :cond_4e
     new-instance v0, Landroid/view/WindowManager$LayoutParams;
 
@@ -593,18 +534,15 @@
 
     invoke-direct/range {v0 .. v5}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIII)V
 
-    .line 170
     .local v0, lp:Landroid/view/WindowManager$LayoutParams;
     const/16 v1, 0x10
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    .line 171
     const v1, 0x10301de
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    .line 172
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
 
     const-string v2, "window"
@@ -625,63 +563,53 @@
 
     if-eqz v1, :cond_80
 
-    .line 174
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
     or-int/2addr v1, v10
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    .line 175
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     or-int/lit8 v1, v1, 0x2
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 179
     :cond_80
     const/4 v1, 0x1
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 180
     iget v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     or-int/lit8 v1, v1, 0x8
 
     iput v1, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    .line 181
     const-string v1, "Keyguard"
 
     invoke-virtual {v0, v1}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    .line 182
     iput-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-    .line 184
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     invoke-interface {v1, v2, v0}, Landroid/view/ViewManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 187
     .end local v0           #lp:Landroid/view/WindowManager$LayoutParams;
     .end local v4           #flags:I
     .end local v8           #stretch:I
     :cond_97
     if-eqz v6, :cond_11c
 
-    .line 189
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
     const/4 v2, 0x4
 
     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->screenOrientation:I
 
-    .line 195
     :goto_9e
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
@@ -691,12 +619,10 @@
 
     invoke-interface {v1, v2, v3}, Landroid/view/ViewManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 197
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     if-nez v1, :cond_d8
 
-    .line 199
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardViewProperties:Lcom/android/internal/policy/impl/KeyguardViewProperties;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mContext:Landroid/content/Context;
@@ -711,14 +637,12 @@
 
     iput-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
-    .line 201
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     const v2, 0x1020236
 
     invoke-virtual {v1, v2}, Lcom/android/internal/policy/impl/KeyguardViewBase;->setId(I)V
 
-    .line 203
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
 
     const/4 v1, -0x1
@@ -727,7 +651,6 @@
 
     invoke-direct {v0, v1, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    .line 207
     .local v0, lp:Landroid/view/ViewGroup$LayoutParams;
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
@@ -735,22 +658,18 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 209
     iget-boolean v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mScreenOn:Z
 
     if-eqz v1, :cond_d8
 
-    .line 210
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->show()V
 
-    .line 218
     .end local v0           #lp:Landroid/view/ViewGroup$LayoutParams;
     :cond_d8
     const/high16 v9, 0x60
 
-    .line 222
     .local v9, visFlags:I
     sget-object v1, Lcom/android/internal/policy/impl/KeyguardViewManager;->TAG:Ljava/lang/String;
 
@@ -786,15 +705,12 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 223
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, v9}, Landroid/widget/FrameLayout;->setSystemUiVisibility(I)V
 
-    .line 225
     invoke-static {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager$Injector;->updateDisplayDesktopFlag(Lcom/android/internal/policy/impl/KeyguardViewManager;)V
 
-    .line 226
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mViewManager:Landroid/view/ViewManager;
 
     iget-object v2, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
@@ -803,26 +719,22 @@
 
     invoke-interface {v1, v2, v3}, Landroid/view/ViewManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    .line 227
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardHost:Landroid/widget/FrameLayout;
 
     const/4 v2, 0x0
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    .line 228
     iget-object v1, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->requestFocus()Z
     :try_end_11a
     .catchall {:try_start_5 .. :try_end_11a} :catchall_123
 
-    .line 229
     monitor-exit p0
 
     return-void
 
-    .line 192
     .end local v9           #visFlags:I
     :cond_11c
     :try_start_11c
@@ -836,7 +748,6 @@
 
     goto/16 :goto_9e
 
-    .line 144
     .end local v6           #enableScreenRotation:Z
     .end local v7           #res:Landroid/content/res/Resources;
     :catchall_123
@@ -851,25 +762,21 @@
     .registers 2
 
     .prologue
-    .line 294
     monitor-enter p0
 
     :try_start_1
     invoke-virtual {p0}, Lcom/android/internal/policy/impl/KeyguardViewManager;->show()V
 
-    .line 295
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v0}, Lcom/android/internal/policy/impl/KeyguardViewBase;->verifyUnlock()V
     :try_end_9
     .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
-    .line 296
     monitor-exit p0
 
     return-void
 
-    .line 294
     :catchall_b
     move-exception v0
 
@@ -883,24 +790,19 @@
     .parameter "keyCode"
 
     .prologue
-    .line 311
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     if-eqz v0, :cond_b
 
-    .line 312
     iget-object v0, p0, Lcom/android/internal/policy/impl/KeyguardViewManager;->mKeyguardView:Lcom/android/internal/policy/impl/KeyguardViewBase;
 
     invoke-virtual {v0, p1}, Lcom/android/internal/policy/impl/KeyguardViewBase;->wakeWhenReadyTq(I)V
 
-    .line 313
     const/4 v0, 0x1
 
-    .line 316
     :goto_a
     return v0
 
-    .line 315
     :cond_b
     sget-object v0, Lcom/android/internal/policy/impl/KeyguardViewManager;->TAG:Ljava/lang/String;
 
@@ -908,7 +810,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 316
     const/4 v0, 0x0
 
     goto :goto_a

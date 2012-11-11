@@ -23,7 +23,6 @@
     .registers 1
 
     .prologue
-    .line 70
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
     return-void
@@ -34,7 +33,6 @@
     .parameter "stateExtra"
 
     .prologue
-    .line 73
     const-string v1, "IMSI"
 
     invoke-virtual {v1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -43,15 +41,12 @@
 
     if-eqz v1, :cond_b
 
-    .line 74
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
 
-    .line 80
     .local v0, state:Lcom/android/internal/telephony/IccCard$State;
     :goto_a
     return-object v0
 
-    .line 75
     .end local v0           #state:Lcom/android/internal/telephony/IccCard$State;
     :cond_b
     const-string v1, "LOADED"
@@ -62,13 +57,11 @@
 
     if-eqz v1, :cond_16
 
-    .line 76
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->READY:Lcom/android/internal/telephony/IccCard$State;
 
     .restart local v0       #state:Lcom/android/internal/telephony/IccCard$State;
     goto :goto_a
 
-    .line 78
     .end local v0           #state:Lcom/android/internal/telephony/IccCard$State;
     :cond_16
     sget-object v0, Lcom/android/internal/telephony/IccCard$State;->UNKNOWN:Lcom/android/internal/telephony/IccCard$State;

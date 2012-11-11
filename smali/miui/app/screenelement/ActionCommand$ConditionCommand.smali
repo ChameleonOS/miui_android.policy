@@ -27,20 +27,16 @@
     .parameter "condition"
 
     .prologue
-    .line 863
     invoke-virtual {p1}, Lmiui/app/screenelement/ActionCommand;->getContext()Lmiui/app/screenelement/ScreenContext;
 
     move-result-object v0
 
     invoke-direct {p0, v0}, Lmiui/app/screenelement/ActionCommand;-><init>(Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 864
     iput-object p1, p0, Lmiui/app/screenelement/ActionCommand$ConditionCommand;->mCommand:Lmiui/app/screenelement/ActionCommand;
 
-    .line 865
     iput-object p2, p0, Lmiui/app/screenelement/ActionCommand$ConditionCommand;->mCondition:Lmiui/app/screenelement/data/Expression;
 
-    .line 866
     return-void
 .end method
 
@@ -50,7 +46,6 @@
     .registers 5
 
     .prologue
-    .line 874
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$ConditionCommand;->mCondition:Lmiui/app/screenelement/data/Expression;
 
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand;->mContext:Lmiui/app/screenelement/ScreenContext;
@@ -67,12 +62,10 @@
 
     if-lez v0, :cond_15
 
-    .line 875
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$ConditionCommand;->mCommand:Lmiui/app/screenelement/ActionCommand;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->perform()V
 
-    .line 877
     :cond_15
     return-void
 .end method
@@ -81,11 +74,9 @@
     .registers 2
 
     .prologue
-    .line 869
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$ConditionCommand;->mCommand:Lmiui/app/screenelement/ActionCommand;
 
     invoke-virtual {v0}, Lmiui/app/screenelement/ActionCommand;->init()V
 
-    .line 870
     return-void
 .end method

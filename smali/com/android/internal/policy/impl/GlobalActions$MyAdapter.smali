@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 341
     iput-object p1, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     invoke-direct {p0}, Landroid/widget/BaseAdapter;-><init>()V
@@ -38,7 +37,6 @@
     .parameter "x1"
 
     .prologue
-    .line 341
     invoke-direct {p0, p1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;-><init>(Lcom/android/internal/policy/impl/GlobalActions;)V
 
     return-void
@@ -50,7 +48,6 @@
     .registers 2
 
     .prologue
-    .line 367
     const/4 v0, 0x0
 
     return v0
@@ -60,10 +57,8 @@
     .registers 5
 
     .prologue
-    .line 344
     const/4 v1, 0x0
 
-    .line 346
     .local v1, count:I
     const/4 v2, 0x0
 
@@ -82,7 +77,6 @@
 
     if-ge v2, v3, :cond_3c
 
-    .line 347
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
@@ -96,7 +90,6 @@
 
     check-cast v0, Lcom/android/internal/policy/impl/GlobalActions$Action;
 
-    .line 349
     .local v0, action:Lcom/android/internal/policy/impl/GlobalActions$Action;
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -113,14 +106,12 @@
 
     if-nez v3, :cond_2b
 
-    .line 346
     :cond_28
     :goto_28
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 352
     :cond_2b
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -137,13 +128,11 @@
 
     if-eqz v3, :cond_28
 
-    .line 355
     :cond_39
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_28
 
-    .line 357
     .end local v0           #action:Lcom/android/internal/policy/impl/GlobalActions$Action;
     :cond_3c
     return v1
@@ -154,10 +143,8 @@
     .parameter "position"
 
     .prologue
-    .line 372
     const/4 v1, 0x0
 
-    .line 373
     .local v1, filteredPos:I
     const/4 v2, 0x0
 
@@ -176,7 +163,6 @@
 
     if-ge v2, v3, :cond_3f
 
-    .line 374
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/GlobalActions;->mItems:Ljava/util/ArrayList;
@@ -190,7 +176,6 @@
 
     check-cast v0, Lcom/android/internal/policy/impl/GlobalActions$Action;
 
-    .line 375
     .local v0, action:Lcom/android/internal/policy/impl/GlobalActions$Action;
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -207,14 +192,12 @@
 
     if-nez v3, :cond_2b
 
-    .line 373
     :cond_28
     :goto_28
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_2
 
-    .line 378
     :cond_2b
     iget-object v3, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -231,20 +214,16 @@
 
     if-eqz v3, :cond_28
 
-    .line 381
     :cond_39
     if-ne v1, p1, :cond_3c
 
-    .line 382
     return-object v0
 
-    .line 384
     :cond_3c
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_28
 
-    .line 387
     .end local v0           #action:Lcom/android/internal/policy/impl/GlobalActions$Action;
     :cond_3f
     new-instance v3, Ljava/lang/IllegalArgumentException;
@@ -331,7 +310,6 @@
     .parameter "x0"
 
     .prologue
-    .line 341
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->getItem(I)Lcom/android/internal/policy/impl/GlobalActions$Action;
 
     move-result-object v0
@@ -344,7 +322,6 @@
     .parameter "position"
 
     .prologue
-    .line 396
     int-to-long v0, p1
 
     return-wide v0
@@ -357,12 +334,10 @@
     .parameter "parent"
 
     .prologue
-    .line 400
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->getItem(I)Lcom/android/internal/policy/impl/GlobalActions$Action;
 
     move-result-object v0
 
-    .line 401
     .local v0, action:Lcom/android/internal/policy/impl/GlobalActions$Action;
     iget-object v1, p0, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->this$0:Lcom/android/internal/policy/impl/GlobalActions;
 
@@ -394,7 +369,6 @@
     .parameter "position"
 
     .prologue
-    .line 362
     invoke-virtual {p0, p1}, Lcom/android/internal/policy/impl/GlobalActions$MyAdapter;->getItem(I)Lcom/android/internal/policy/impl/GlobalActions$Action;
 
     move-result-object v0

@@ -20,10 +20,8 @@
     .parameter "c"
 
     .prologue
-    .line 274
     invoke-direct {p0, p1}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;-><init>(Landroid/content/Context;)V
 
-    .line 275
     return-void
 .end method
 
@@ -33,7 +31,6 @@
     .registers 2
 
     .prologue
-    .line 278
     const-string v0, "android.bluetooth.adapter.action.STATE_CHANGED"
 
     return-object v0

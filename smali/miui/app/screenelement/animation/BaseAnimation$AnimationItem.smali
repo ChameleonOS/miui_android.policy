@@ -31,16 +31,12 @@
     .parameter "context"
 
     .prologue
-    .line 28
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 29
     iput-object p1, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mAttrs:[Ljava/lang/String;
 
-    .line 30
     iput-object p2, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    .line 31
     return-void
 .end method
 
@@ -53,7 +49,6 @@
     .prologue
     const-wide/16 v0, 0x0
 
-    .line 34
     if-ltz p1, :cond_d
 
     iget-object v2, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mExps:[Lmiui/app/screenelement/data/Expression;
@@ -66,7 +61,6 @@
 
     if-nez v2, :cond_26
 
-    .line 35
     :cond_d
     const-string v2, "BaseAnimation"
 
@@ -90,7 +84,6 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 38
     :cond_25
     :goto_25
     return-wide v0
@@ -127,7 +120,6 @@
     .end annotation
 
     .prologue
-    .line 43
     :try_start_0
     const-string v7, "time"
 
@@ -143,12 +135,10 @@
     :try_end_c
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_c} :catch_33
 
-    .line 49
     iget-object v7, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mAttrs:[Ljava/lang/String;
 
     if-eqz v7, :cond_43
 
-    .line 50
     iget-object v7, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mAttrs:[Ljava/lang/String;
 
     array-length v7, v7
@@ -157,10 +147,8 @@
 
     iput-object v7, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mExps:[Lmiui/app/screenelement/data/Expression;
 
-    .line 51
     const/4 v2, 0x0
 
-    .line 52
     .local v2, i:I
     iget-object v0, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mAttrs:[Ljava/lang/String;
 
@@ -180,7 +168,6 @@
 
     aget-object v6, v0, v4
 
-    .line 53
     .local v6, s:Ljava/lang/String;
     iget-object v7, p0, Lmiui/app/screenelement/animation/BaseAnimation$AnimationItem;->mExps:[Lmiui/app/screenelement/data/Expression;
 
@@ -198,7 +185,6 @@
 
     aput-object v8, v7, v3
 
-    .line 52
     add-int/lit8 v4, v4, 0x1
 
     move v3, v2
@@ -207,7 +193,6 @@
     .restart local v3       #i:I
     goto :goto_1d
 
-    .line 44
     .end local v0           #arr$:[Ljava/lang/String;
     .end local v3           #i:I
     .end local v4           #i$:I
@@ -216,7 +201,6 @@
     :catch_33
     move-exception v1
 
-    .line 45
     .local v1, e:Ljava/lang/NumberFormatException;
     const-string v7, "BaseAnimation"
 
@@ -224,7 +208,6 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 46
     new-instance v7, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v8, "fail to get time attribute"
@@ -233,7 +216,6 @@
 
     throw v7
 
-    .line 56
     .end local v1           #e:Ljava/lang/NumberFormatException;
     :cond_43
     return-object p0

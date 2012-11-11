@@ -35,10 +35,8 @@
     .registers 2
 
     .prologue
-    .line 8
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 32
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -53,7 +51,6 @@
     .parameter "x0"
 
     .prologue
-    .line 8
     invoke-direct {p0}, Lmiui/app/screenelement/FramerateTokenList;->onChange()V
 
     return-void
@@ -63,16 +60,13 @@
     .registers 6
 
     .prologue
-    .line 45
     const/4 v1, 0x0
 
-    .line 46
     .local v1, r:F
     iget-object v4, p0, Lmiui/app/screenelement/FramerateTokenList;->mList:Ljava/util/ArrayList;
 
     monitor-enter v4
 
-    .line 47
     :try_start_4
     iget-object v3, p0, Lmiui/app/screenelement/FramerateTokenList;->mList:Ljava/util/ArrayList;
 
@@ -95,7 +89,6 @@
 
     check-cast v2, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
 
-    .line 48
     .local v2, t:Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
     iget v3, v2, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->mFramerate:F
 
@@ -103,25 +96,20 @@
 
     if-lez v3, :cond_a
 
-    .line 49
     iget v1, v2, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;->mFramerate:F
 
     goto :goto_a
 
-    .line 51
     .end local v2           #t:Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
     :cond_1f
     monitor-exit v4
     :try_end_20
     .catchall {:try_start_4 .. :try_end_20} :catchall_23
 
-    .line 52
     iput v1, p0, Lmiui/app/screenelement/FramerateTokenList;->mCurFramerate:F
 
-    .line 53
     return-void
 
-    .line 51
     .end local v0           #i$:Ljava/util/Iterator;
     :catchall_23
     move-exception v3
@@ -141,7 +129,6 @@
     .parameter "name"
 
     .prologue
-    .line 36
     const-string v1, "FramerateTokenList"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -164,30 +151,24 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 37
     new-instance v0, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
 
     invoke-direct {v0, p0, p1}, Lmiui/app/screenelement/FramerateTokenList$FramerateToken;-><init>(Lmiui/app/screenelement/FramerateTokenList;Ljava/lang/String;)V
 
-    .line 38
     .local v0, token:Lmiui/app/screenelement/FramerateTokenList$FramerateToken;
     iget-object v2, p0, Lmiui/app/screenelement/FramerateTokenList;->mList:Ljava/util/ArrayList;
 
     monitor-enter v2
 
-    .line 39
     :try_start_20
     iget-object v1, p0, Lmiui/app/screenelement/FramerateTokenList;->mList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 40
     monitor-exit v2
 
-    .line 41
     return-object v0
 
-    .line 40
     :catchall_27
     move-exception v1
 
@@ -202,7 +183,6 @@
     .registers 2
 
     .prologue
-    .line 56
     iget v0, p0, Lmiui/app/screenelement/FramerateTokenList;->mCurFramerate:F
 
     return v0

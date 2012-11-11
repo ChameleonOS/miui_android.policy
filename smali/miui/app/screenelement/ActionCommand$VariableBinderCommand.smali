@@ -42,18 +42,14 @@
     .parameter "ele"
 
     .prologue
-    .line 785
     invoke-direct {p0, p1}, Lmiui/app/screenelement/ActionCommand;-><init>(Lmiui/app/screenelement/ScreenContext;)V
 
-    .line 777
     sget-object v1, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;->Invalid:Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;
 
     iput-object v1, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mCommand:Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;
 
-    .line 786
     iput-object p2, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
-    .line 787
     const-string v1, "name"
 
     invoke-interface {p3, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
@@ -62,14 +58,12 @@
 
     iput-object v1, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mName:Ljava/lang/String;
 
-    .line 788
     const-string v1, "command"
 
     invoke-interface {p3, v1}, Lorg/w3c/dom/Element;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    .line 789
     .local v0, command:Ljava/lang/String;
     const-string v1, "refresh"
 
@@ -79,12 +73,10 @@
 
     if-eqz v1, :cond_23
 
-    .line 790
     sget-object v1, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;->Refresh:Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;
 
     iput-object v1, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mCommand:Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;
 
-    .line 792
     :cond_23
     return-void
 .end method
@@ -95,12 +87,10 @@
     .registers 3
 
     .prologue
-    .line 800
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mBinder:Lmiui/app/screenelement/data/VariableBinder;
 
     if-eqz v0, :cond_11
 
-    .line 801
     sget-object v0, Lmiui/app/screenelement/ActionCommand$1;->$SwitchMap$miui$app$screenelement$ActionCommand$VariableBinderCommand$Command:[I
 
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mCommand:Lmiui/app/screenelement/ActionCommand$VariableBinderCommand$Command;
@@ -113,12 +103,10 @@
 
     packed-switch v0, :pswitch_data_18
 
-    .line 807
     :cond_11
     :goto_11
     return-void
 
-    .line 803
     :pswitch_12
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mBinder:Lmiui/app/screenelement/data/VariableBinder;
 
@@ -126,7 +114,6 @@
 
     goto :goto_11
 
-    .line 801
     :pswitch_data_18
     .packed-switch 0x1
         :pswitch_12
@@ -137,7 +124,6 @@
     .registers 3
 
     .prologue
-    .line 795
     iget-object v0, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mRoot:Lmiui/app/screenelement/ScreenElementRoot;
 
     iget-object v1, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mName:Ljava/lang/String;
@@ -148,6 +134,5 @@
 
     iput-object v0, p0, Lmiui/app/screenelement/ActionCommand$VariableBinderCommand;->mBinder:Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 796
     return-void
 .end method

@@ -50,27 +50,22 @@
     .parameter "root"
 
     .prologue
-    .line 154
     invoke-direct {p0, p1, p2, p3}, Lmiui/app/screenelement/elements/ScreenElement;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/ScreenElementRoot;)V
 
-    .line 32
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mArray:Ljava/util/ArrayList;
 
-    .line 34
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mVars:Ljava/util/ArrayList;
 
-    .line 155
     if-eqz p1, :cond_41
 
-    .line 156
     const-string v0, "string"
 
     const-string v1, "type"
@@ -85,7 +80,6 @@
 
     iput-boolean v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mIsStringType:Z
 
-    .line 158
     const-string v0, "Vars"
 
     invoke-static {p1, v0}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
@@ -100,7 +94,6 @@
 
     invoke-static {v0, v1, v2}, Lmiui/app/screenelement/util/Utils;->traverseXmlElementChildren(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/util/Utils$XmlTraverseListener;)V
 
-    .line 165
     const-string v0, "Items"
 
     invoke-static {p1, v0}, Lmiui/app/screenelement/util/Utils;->getChild(Lorg/w3c/dom/Element;Ljava/lang/String;)Lorg/w3c/dom/Element;
@@ -115,7 +108,6 @@
 
     invoke-static {v0, v1, v2}, Lmiui/app/screenelement/util/Utils;->traverseXmlElementChildren(Lorg/w3c/dom/Element;Ljava/lang/String;Lmiui/app/screenelement/util/Utils$XmlTraverseListener;)V
 
-    .line 172
     :cond_41
     return-void
 .end method
@@ -125,7 +117,6 @@
     .parameter "x0"
 
     .prologue
-    .line 23
     iget-boolean v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mIsStringType:Z
 
     return v0
@@ -136,7 +127,6 @@
     .parameter "x0"
 
     .prologue
-    .line 23
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mArray:Ljava/util/ArrayList;
 
     return-object v0
@@ -147,7 +137,6 @@
     .parameter "x0"
 
     .prologue
-    .line 23
     iget-object v0, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mVars:Ljava/util/ArrayList;
 
     return-object v0
@@ -160,7 +149,6 @@
     .parameter "c"
 
     .prologue
-    .line 177
     return-void
 .end method
 
@@ -168,7 +156,6 @@
     .registers 4
 
     .prologue
-    .line 187
     iget-object v2, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mVars:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -189,13 +176,11 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/VariableArrayElement$Var;
 
-    .line 188
     .local v1, v:Lmiui/app/screenelement/elements/VariableArrayElement$Var;
     invoke-virtual {v1}, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->init()V
 
     goto :goto_6
 
-    .line 190
     .end local v1           #v:Lmiui/app/screenelement/elements/VariableArrayElement$Var;
     :cond_16
     return-void
@@ -206,7 +191,6 @@
     .parameter "currentTime"
 
     .prologue
-    .line 181
     iget-object v2, p0, Lmiui/app/screenelement/elements/VariableArrayElement;->mVars:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -227,13 +211,11 @@
 
     check-cast v1, Lmiui/app/screenelement/elements/VariableArrayElement$Var;
 
-    .line 182
     .local v1, v:Lmiui/app/screenelement/elements/VariableArrayElement$Var;
     invoke-virtual {v1}, Lmiui/app/screenelement/elements/VariableArrayElement$Var;->tick()V
 
     goto :goto_6
 
-    .line 184
     .end local v1           #v:Lmiui/app/screenelement/elements/VariableArrayElement$Var;
     :cond_16
     return-void

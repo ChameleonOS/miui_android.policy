@@ -39,26 +39,20 @@
     .end annotation
 
     .prologue
-    .line 34
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 20
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
-    .line 35
     iput-object p2, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mContext:Lmiui/app/screenelement/ScreenContext;
 
-    .line 36
     if-eqz p1, :cond_11
 
-    .line 37
     invoke-direct {p0, p1}, Lmiui/app/screenelement/data/VariableBinderManager;->load(Lorg/w3c/dom/Element;)V
 
-    .line 38
     :cond_11
     return-void
 .end method
@@ -70,12 +64,10 @@
     .parameter "m"
 
     .prologue
-    .line 83
     invoke-interface {p0}, Lorg/w3c/dom/Element;->getTagName()Ljava/lang/String;
 
     move-result-object v1
 
-    .line 85
     .local v1, tag:Ljava/lang/String;
     :try_start_4
     const-string v2, "ContentProviderBinder"
@@ -86,16 +78,13 @@
 
     if-eqz v2, :cond_12
 
-    .line 86
     new-instance v2, Lmiui/app/screenelement/data/ContentProviderBinder;
 
     invoke-direct {v2, p0, p1, p2}, Lmiui/app/screenelement/data/ContentProviderBinder;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/data/ContentProviderBinder$QueryCompleteListener;)V
 
-    .line 92
     :goto_11
     return-object v2
 
-    .line 87
     :cond_12
     const-string v2, "WebServiceBinder"
 
@@ -105,7 +94,6 @@
 
     if-eqz v2, :cond_24
 
-    .line 88
     new-instance v2, Lmiui/app/screenelement/data/WebServiceBinder;
 
     invoke-direct {v2, p0, p1}, Lmiui/app/screenelement/data/WebServiceBinder;-><init>(Lorg/w3c/dom/Element;Lmiui/app/screenelement/ScreenContext;)V
@@ -114,15 +102,12 @@
 
     goto :goto_11
 
-    .line 89
     :catch_20
     move-exception v0
 
-    .line 90
     .local v0, e:Lmiui/app/screenelement/ScreenElementLoadException;
     invoke-virtual {v0}, Lmiui/app/screenelement/ScreenElementLoadException;->printStackTrace()V
 
-    .line 92
     .end local v0           #e:Lmiui/app/screenelement/ScreenElementLoadException;
     :cond_24
     const/4 v2, 0x0
@@ -140,17 +125,14 @@
     .end annotation
 
     .prologue
-    .line 73
     if-nez p1, :cond_11
 
-    .line 74
     const-string v0, "VariableBinderManager"
 
     const-string v1, "node is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 75
     new-instance v0, Lmiui/app/screenelement/ScreenElementLoadException;
 
     const-string v1, "node is null"
@@ -159,11 +141,9 @@
 
     throw v0
 
-    .line 78
     :cond_11
     invoke-direct {p0, p1}, Lmiui/app/screenelement/data/VariableBinderManager;->loadBinders(Lorg/w3c/dom/Element;)V
 
-    .line 79
     return-void
 .end method
 
@@ -177,12 +157,10 @@
     .end annotation
 
     .prologue
-    .line 96
     invoke-interface {p1}, Lorg/w3c/dom/Element;->getChildNodes()Lorg/w3c/dom/NodeList;
 
     move-result-object v0
 
-    .line 97
     .local v0, children:Lorg/w3c/dom/NodeList;
     const/4 v1, 0x0
 
@@ -194,7 +172,6 @@
 
     if-ge v1, v4, :cond_2c
 
-    .line 98
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v4
@@ -207,14 +184,12 @@
 
     if-ne v4, v5, :cond_29
 
-    .line 99
     invoke-interface {v0, v1}, Lorg/w3c/dom/NodeList;->item(I)Lorg/w3c/dom/Node;
 
     move-result-object v2
 
     check-cast v2, Lorg/w3c/dom/Element;
 
-    .line 100
     .local v2, item:Lorg/w3c/dom/Element;
     iget-object v4, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mContext:Lmiui/app/screenelement/ScreenContext;
 
@@ -222,16 +197,13 @@
 
     move-result-object v3
 
-    .line 101
     .local v3, vb:Lmiui/app/screenelement/data/VariableBinder;
     if-eqz v3, :cond_29
 
-    .line 102
     iget-object v4, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 97
     .end local v2           #item:Lorg/w3c/dom/Element;
     .end local v3           #vb:Lmiui/app/screenelement/data/VariableBinder;
     :cond_29
@@ -239,7 +211,6 @@
 
     goto :goto_5
 
-    .line 106
     :cond_2c
     return-void
 .end method
@@ -251,7 +222,6 @@
     .parameter "uri"
 
     .prologue
-    .line 109
     new-instance v0, Lmiui/app/screenelement/util/TextFormatter;
 
     invoke-direct {v0, p1}, Lmiui/app/screenelement/util/TextFormatter;-><init>(Ljava/lang/String;)V
@@ -269,7 +239,6 @@
     .parameter "uriParas"
 
     .prologue
-    .line 113
     new-instance v0, Lmiui/app/screenelement/util/TextFormatter;
 
     invoke-direct {v0, p1, p2}, Lmiui/app/screenelement/util/TextFormatter;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -286,23 +255,19 @@
     .parameter "uri"
 
     .prologue
-    .line 117
     new-instance v0, Lmiui/app/screenelement/data/ContentProviderBinder;
 
     iget-object v1, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mContext:Lmiui/app/screenelement/ScreenContext;
 
     invoke-direct {v0, v1, p0}, Lmiui/app/screenelement/data/ContentProviderBinder;-><init>(Lmiui/app/screenelement/ScreenContext;Lmiui/app/screenelement/data/ContentProviderBinder$QueryCompleteListener;)V
 
-    .line 118
     .local v0, binder:Lmiui/app/screenelement/data/ContentProviderBinder;
     iput-object p1, v0, Lmiui/app/screenelement/data/ContentProviderBinder;->mUriFormatter:Lmiui/app/screenelement/util/TextFormatter;
 
-    .line 119
     iget-object v1, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    .line 120
     new-instance v1, Lmiui/app/screenelement/data/ContentProviderBinder$Builder;
 
     invoke-direct {v1, v0}, Lmiui/app/screenelement/data/ContentProviderBinder$Builder;-><init>(Lmiui/app/screenelement/data/ContentProviderBinder;)V
@@ -315,7 +280,6 @@
     .parameter "name"
 
     .prologue
-    .line 65
     iget-object v2, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -336,7 +300,6 @@
 
     check-cast v0, Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 66
     .local v0, binder:Lmiui/app/screenelement/data/VariableBinder;
     invoke-interface {v0}, Lmiui/app/screenelement/data/VariableBinder;->getName()Ljava/lang/CharSequence;
 
@@ -348,7 +311,6 @@
 
     if-eqz v2, :cond_6
 
-    .line 69
     .end local v0           #binder:Lmiui/app/screenelement/data/VariableBinder;
     :goto_1c
     return-object v0
@@ -363,7 +325,6 @@
     .registers 4
 
     .prologue
-    .line 47
     iget-object v2, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -384,13 +345,11 @@
 
     check-cast v0, Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 48
     .local v0, binder:Lmiui/app/screenelement/data/VariableBinder;
     invoke-interface {v0}, Lmiui/app/screenelement/data/VariableBinder;->finish()V
 
     goto :goto_6
 
-    .line 50
     .end local v0           #binder:Lmiui/app/screenelement/data/VariableBinder;
     :cond_16
     return-void
@@ -400,7 +359,6 @@
     .registers 4
 
     .prologue
-    .line 41
     iget-object v2, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -421,13 +379,11 @@
 
     check-cast v0, Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 42
     .local v0, binder:Lmiui/app/screenelement/data/VariableBinder;
     invoke-interface {v0}, Lmiui/app/screenelement/data/VariableBinder;->init()V
 
     goto :goto_6
 
-    .line 44
     .end local v0           #binder:Lmiui/app/screenelement/data/VariableBinder;
     :cond_16
     return-void
@@ -438,7 +394,6 @@
     .parameter "name"
 
     .prologue
-    .line 126
     iget-object v4, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -460,7 +415,6 @@
 
     check-cast v0, Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 127
     .local v0, binder:Lmiui/app/screenelement/data/VariableBinder;
     instance-of v4, v0, Lmiui/app/screenelement/data/ContentProviderBinder;
 
@@ -468,16 +422,13 @@
 
     move-object v1, v0
 
-    .line 128
     check-cast v1, Lmiui/app/screenelement/data/ContentProviderBinder;
 
-    .line 129
     .local v1, cp:Lmiui/app/screenelement/data/ContentProviderBinder;
     invoke-virtual {v1}, Lmiui/app/screenelement/data/ContentProviderBinder;->getDependency()Ljava/lang/String;
 
     move-result-object v2
 
-    .line 130
     .local v2, dependency:Ljava/lang/String;
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -491,12 +442,10 @@
 
     if-eqz v4, :cond_6
 
-    .line 131
     invoke-virtual {v1}, Lmiui/app/screenelement/data/ContentProviderBinder;->startQuery()V
 
     goto :goto_6
 
-    .line 135
     .end local v0           #binder:Lmiui/app/screenelement/data/VariableBinder;
     .end local v1           #cp:Lmiui/app/screenelement/data/ContentProviderBinder;
     .end local v2           #dependency:Ljava/lang/String;
@@ -508,7 +457,6 @@
     .registers 4
 
     .prologue
-    .line 53
     iget-object v2, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -529,13 +477,11 @@
 
     check-cast v0, Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 54
     .local v0, binder:Lmiui/app/screenelement/data/VariableBinder;
     invoke-interface {v0}, Lmiui/app/screenelement/data/VariableBinder;->pause()V
 
     goto :goto_6
 
-    .line 56
     .end local v0           #binder:Lmiui/app/screenelement/data/VariableBinder;
     :cond_16
     return-void
@@ -545,7 +491,6 @@
     .registers 4
 
     .prologue
-    .line 59
     iget-object v2, p0, Lmiui/app/screenelement/data/VariableBinderManager;->mVariableBinders:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -566,13 +511,11 @@
 
     check-cast v0, Lmiui/app/screenelement/data/VariableBinder;
 
-    .line 60
     .local v0, binder:Lmiui/app/screenelement/data/VariableBinder;
     invoke-interface {v0}, Lmiui/app/screenelement/data/VariableBinder;->resume()V
 
     goto :goto_6
 
-    .line 62
     .end local v0           #binder:Lmiui/app/screenelement/data/VariableBinder;
     :cond_16
     return-void

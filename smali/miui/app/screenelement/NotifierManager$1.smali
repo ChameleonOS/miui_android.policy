@@ -23,7 +23,6 @@
     .registers 3
 
     .prologue
-    .line 43
     invoke-static {}, Lmiui/app/screenelement/NotifierManager$NotifierType;->values()[Lmiui/app/screenelement/NotifierManager$NotifierType;
 
     move-result-object v0

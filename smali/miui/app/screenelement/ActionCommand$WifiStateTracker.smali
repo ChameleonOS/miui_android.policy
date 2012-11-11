@@ -31,13 +31,10 @@
     .prologue
     const/4 v0, 0x0
 
-    .line 424
     invoke-direct {p0}, Lmiui/app/screenelement/ActionCommand$StateTracker;-><init>()V
 
-    .line 427
     iput-boolean v0, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zConnected:Z
 
-    .line 429
     iput v0, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zScanAttempt:I
 
     return-void
@@ -48,7 +45,6 @@
     .parameter "x0"
 
     .prologue
-    .line 424
     invoke-direct {p0}, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;-><init>()V
 
     return-void
@@ -59,40 +55,33 @@
     .parameter "wifiState"
 
     .prologue
-    .line 504
     packed-switch p0, :pswitch_data_e
 
-    .line 514
     const/4 v0, 0x4
 
     :goto_4
     return v0
 
-    .line 506
     :pswitch_5
     const/4 v0, 0x0
 
     goto :goto_4
 
-    .line 508
     :pswitch_7
     const/4 v0, 0x1
 
     goto :goto_4
 
-    .line 510
     :pswitch_9
     const/4 v0, 0x3
 
     goto :goto_4
 
-    .line 512
     :pswitch_b
     const/4 v0, 0x2
 
     goto :goto_4
 
-    .line 504
     nop
 
     :pswitch_data_e
@@ -111,7 +100,6 @@
     .parameter "context"
 
     .prologue
-    .line 433
     const-string v1, "wifi"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -120,11 +108,9 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 434
     .local v0, wifiManager:Landroid/net/wifi/WifiManager;
     if-eqz v0, :cond_13
 
-    .line 435
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getWifiState()I
 
     move-result v1
@@ -133,7 +119,6 @@
 
     move-result v1
 
-    .line 437
     :goto_12
     return v1
 
@@ -155,7 +140,6 @@
 
     const/4 v7, 0x3
 
-    .line 472
     const-string v5, "android.net.wifi.WIFI_STATE_CHANGED"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -168,7 +152,6 @@
 
     if-eqz v5, :cond_24
 
-    .line 473
     const-string v5, "wifi_state"
 
     const/4 v6, -0x1
@@ -177,7 +160,6 @@
 
     move-result v2
 
-    .line 474
     .local v2, wifiState:I
     invoke-static {v2}, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->wifiStateToFiveState(I)I
 
@@ -185,22 +167,17 @@
 
     invoke-virtual {p0, p1, v5}, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->setCurrentState(Landroid/content/Context;I)V
 
-    .line 476
     if-ne v7, v2, :cond_23
 
-    .line 477
     iput-boolean v4, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zConnected:Z
 
-    .line 478
     iput v3, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zScanAttempt:I
 
-    .line 498
     .end local v2           #wifiState:I
     :cond_23
     :goto_23
     return-void
 
-    .line 480
     :cond_24
     const-string v5, "android.net.wifi.SCAN_RESULTS"
 
@@ -214,12 +191,10 @@
 
     if-eqz v5, :cond_3f
 
-    .line 481
     iget v4, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zScanAttempt:I
 
     if-ge v4, v7, :cond_23
 
-    .line 482
     iget v4, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zScanAttempt:I
 
     add-int/lit8 v4, v4, 0x1
@@ -228,12 +203,10 @@
 
     if-ne v4, v7, :cond_23
 
-    .line 483
     iput-boolean v3, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zConnected:Z
 
     goto :goto_23
 
-    .line 486
     :cond_3f
     const-string v5, "android.net.wifi.STATE_CHANGE"
 
@@ -247,10 +220,8 @@
 
     if-eqz v5, :cond_23
 
-    .line 487
     iput v7, p0, Lmiui/app/screenelement/ActionCommand$WifiStateTracker;->zScanAttempt:I
 
-    .line 489
     const-string v5, "networkInfo"
 
     invoke-virtual {p2, v5}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -259,13 +230,11 @@
 
     check-cast v0, Landroid/net/NetworkInfo;
 
-    .line 491
     .local v0, networkInfo:Landroid/net/NetworkInfo;
     invoke-virtual {v0}, Landroid/net/NetworkInfo;->getDetailedState()Landroid/net/NetworkInfo$DetailedState;
 
     move-result-object v1
 
-    .line 492
     .local v1, state:Landroid/net/NetworkInfo$DetailedState;
     sget-object v5, Landroid/net/NetworkInfo$DetailedState;->SCANNING:Landroid/net/NetworkInfo$DetailedState;
 
@@ -302,7 +271,6 @@
     .parameter "desiredState"
 
     .prologue
-    .line 442
     const-string v1, "wifi"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
@@ -311,22 +279,18 @@
 
     check-cast v0, Landroid/net/wifi/WifiManager;
 
-    .line 443
     .local v0, wifiManager:Landroid/net/wifi/WifiManager;
     if-nez v0, :cond_12
 
-    .line 444
     const-string v1, "ActionCommand"
 
     const-string v2, "No wifiManager."
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 468
     :goto_11
     return-void
 
-    .line 452
     :cond_12
     new-instance v1, Lmiui/app/screenelement/ActionCommand$WifiStateTracker$1;
 

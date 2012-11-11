@@ -33,18 +33,14 @@
     .parameter "next"
 
     .prologue
-    .line 835
     iput-object p1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;->this$0:Lcom/miui/internal/policy/impl/SlidingPanel;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    .line 836
     iput-object p2, p0, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;->zTarget:Landroid/view/View;
 
-    .line 837
     iput-object p3, p0, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;->zNext:Landroid/view/animation/Animation;
 
-    .line 838
     return-void
 .end method
 
@@ -55,14 +51,12 @@
     .parameter "animation"
 
     .prologue
-    .line 842
     iget-object v0, p0, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;->zTarget:Landroid/view/View;
 
     iget-object v1, p0, Lcom/miui/internal/policy/impl/SlidingPanel$AnimationSequenceListener;->zNext:Landroid/view/animation/Animation;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    .line 843
     return-void
 .end method
 
@@ -71,7 +65,6 @@
     .parameter "animation"
 
     .prologue
-    .line 847
     return-void
 .end method
 
@@ -80,6 +73,5 @@
     .parameter "animation"
 
     .prologue
-    .line 851
     return-void
 .end method

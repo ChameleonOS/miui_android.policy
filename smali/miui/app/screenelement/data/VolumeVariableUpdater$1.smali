@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 43
     iput-object p1, p0, Lmiui/app/screenelement/data/VolumeVariableUpdater$1;->this$0:Lmiui/app/screenelement/data/VolumeVariableUpdater;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 4
 
     .prologue
-    .line 46
     iget-object v0, p0, Lmiui/app/screenelement/data/VolumeVariableUpdater$1;->this$0:Lmiui/app/screenelement/data/VolumeVariableUpdater;
 
     #getter for: Lmiui/app/screenelement/data/VolumeVariableUpdater;->mVolumeType:Lmiui/app/screenelement/util/IndexedNumberVariable;
@@ -53,6 +51,5 @@
 
     invoke-virtual {v0, v1, v2}, Lmiui/app/screenelement/util/IndexedNumberVariable;->set(D)V
 
-    .line 47
     return-void
 .end method

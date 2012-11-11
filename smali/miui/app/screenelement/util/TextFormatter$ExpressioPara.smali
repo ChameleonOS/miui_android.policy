@@ -24,15 +24,12 @@
     .parameter "exp"
 
     .prologue
-    .line 180
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lmiui/app/screenelement/util/TextFormatter$FormatPara;-><init>(Lmiui/app/screenelement/util/TextFormatter$1;)V
 
-    .line 181
     iput-object p1, p0, Lmiui/app/screenelement/util/TextFormatter$ExpressioPara;->mExp:Lmiui/app/screenelement/data/Expression;
 
-    .line 182
     return-void
 .end method
 
@@ -43,7 +40,6 @@
     .parameter "var"
 
     .prologue
-    .line 186
     iget-object v0, p0, Lmiui/app/screenelement/util/TextFormatter$ExpressioPara;->mExp:Lmiui/app/screenelement/data/Expression;
 
     invoke-virtual {v0, p1}, Lmiui/app/screenelement/data/Expression;->evaluate(Lmiui/app/screenelement/data/Variables;)D

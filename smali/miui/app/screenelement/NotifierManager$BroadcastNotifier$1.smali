@@ -24,7 +24,6 @@
     .parameter
 
     .prologue
-    .line 215
     iput-object p1, p0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier$1;->this$0:Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -40,14 +39,12 @@
     .parameter "intent"
 
     .prologue
-    .line 218
     invoke-static {}, Lmiui/app/screenelement/NotifierManager;->access$000()Z
 
     move-result v0
 
     if-eqz v0, :cond_24
 
-    .line 219
     const-string v0, "NotifierManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -76,7 +73,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 221
     :cond_24
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier$1;->this$0:Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;
 
@@ -84,6 +80,5 @@
 
     invoke-virtual {v0, p1, p2, v1}, Lmiui/app/screenelement/NotifierManager$BroadcastNotifier;->onNotify(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/Object;)V
 
-    .line 222
     return-void
 .end method

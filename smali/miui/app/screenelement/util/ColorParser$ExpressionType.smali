@@ -48,7 +48,6 @@
 
     const/4 v2, 0x0
 
-    .line 27
     new-instance v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     const-string v1, "CONST"
@@ -57,7 +56,6 @@
 
     sput-object v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->CONST:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
-    .line 28
     new-instance v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     const-string v1, "VARIABLE"
@@ -66,7 +64,6 @@
 
     sput-object v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->VARIABLE:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
-    .line 29
     new-instance v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     const-string v1, "ARGB"
@@ -75,7 +72,6 @@
 
     sput-object v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->ARGB:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
-    .line 30
     new-instance v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     const-string v1, "INVALID"
@@ -84,7 +80,6 @@
 
     sput-object v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->INVALID:Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
-    .line 26
     const/4 v0, 0x4
 
     new-array v0, v0, [Lmiui/app/screenelement/util/ColorParser$ExpressionType;
@@ -121,7 +116,6 @@
     .end annotation
 
     .prologue
-    .line 26
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
@@ -132,7 +126,6 @@
     .parameter "name"
 
     .prologue
-    .line 26
     const-class v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -148,7 +141,6 @@
     .registers 1
 
     .prologue
-    .line 26
     sget-object v0, Lmiui/app/screenelement/util/ColorParser$ExpressionType;->$VALUES:[Lmiui/app/screenelement/util/ColorParser$ExpressionType;
 
     invoke-virtual {v0}, [Lmiui/app/screenelement/util/ColorParser$ExpressionType;->clone()Ljava/lang/Object;

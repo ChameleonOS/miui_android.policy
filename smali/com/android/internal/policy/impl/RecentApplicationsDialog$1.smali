@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 64
     iput-object p1, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;->this$0:Lcom/android/internal/policy/impl/RecentApplicationsDialog;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +42,6 @@
     .prologue
     const/4 v5, 0x0
 
-    .line 67
     iget-object v4, p0, Lcom/android/internal/policy/impl/RecentApplicationsDialog$1;->this$0:Lcom/android/internal/policy/impl/RecentApplicationsDialog;
 
     iget-object v0, v4, Lcom/android/internal/policy/impl/RecentApplicationsDialog;->mIcons:[Landroid/widget/TextView;
@@ -60,19 +58,15 @@
 
     aget-object v2, v0, v1
 
-    .line 68
     .local v2, icon:Landroid/widget/TextView;
     invoke-virtual {v2, v5, v5, v5, v5}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    .line 69
     invoke-virtual {v2, v5}, Landroid/widget/TextView;->setTag(Ljava/lang/Object;)V
 
-    .line 67
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_7
 
-    .line 71
     .end local v2           #icon:Landroid/widget/TextView;
     :cond_14
     return-void

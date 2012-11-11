@@ -26,7 +26,6 @@
     .parameter "x1"
 
     .prologue
-    .line 204
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$3;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     invoke-direct {p0, p2, p3}, Lcom/android/internal/policy/impl/MiuiGlobalActions$SinglePressAction;-><init>(II)V
@@ -40,7 +39,6 @@
     .registers 2
 
     .prologue
-    .line 207
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiGlobalActions$3;->this$0:Lcom/android/internal/policy/impl/MiuiGlobalActions;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiGlobalActions;->mWindowManagerFuncs:Landroid/view/WindowManagerPolicy$WindowManagerFuncs;
@@ -50,7 +48,6 @@
 
     invoke-interface {v0}, Landroid/view/WindowManagerPolicy$WindowManagerFuncs;->rebootSafeMode()V
 
-    .line 208
     return-void
 .end method
 
@@ -58,7 +55,6 @@
     .registers 2
 
     .prologue
-    .line 215
     const/4 v0, 0x1
 
     return v0
@@ -68,7 +64,6 @@
     .registers 2
 
     .prologue
-    .line 211
     const/4 v0, 0x1
 
     return v0

@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 304
     iput-object p1, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +41,6 @@
     .parameter "v"
 
     .prologue
-    .line 306
     iget-object v0, p0, Lcom/android/internal/policy/impl/MiuiLockScreen$1;->this$0:Lcom/android/internal/policy/impl/MiuiLockScreen;
 
     #getter for: Lcom/android/internal/policy/impl/MiuiLockScreen;->mCallback:Lcom/miui/internal/policy/impl/KeyguardScreenCallback;
@@ -52,6 +50,5 @@
 
     invoke-interface {v0}, Lcom/miui/internal/policy/impl/KeyguardScreenCallback;->takeEmergencyCallAction()V
 
-    .line 307
     return-void
 .end method

@@ -29,7 +29,6 @@
     .registers 3
 
     .prologue
-    .line 716
     invoke-static {}, Lmiui/app/screenelement/data/Expression$Tokenizer$TokenType;->values()[Lmiui/app/screenelement/data/Expression$Tokenizer$TokenType;
 
     move-result-object v0
@@ -151,7 +150,6 @@
     :try_end_56
     .catch Ljava/lang/NoSuchFieldError; {:try_start_4b .. :try_end_56} :catch_24b
 
-    .line 525
     :goto_56
     invoke-static {}, Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;->values()[Lmiui/app/screenelement/data/Expression$FunctionExpression$Fun;
 
@@ -594,7 +592,6 @@
     :try_end_19c
     .catch Ljava/lang/NoSuchFieldError; {:try_start_190 .. :try_end_19c} :catch_1fd
 
-    .line 367
     :goto_19c
     invoke-static {}, Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;->values()[Lmiui/app/screenelement/data/Expression$BinaryExpression$Ope;
 
@@ -685,7 +682,6 @@
     :try_end_1dc
     .catch Ljava/lang/NoSuchFieldError; {:try_start_1d1 .. :try_end_1dc} :catch_1f3
 
-    .line 303
     :goto_1dc
     invoke-static {}, Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;->values()[Lmiui/app/screenelement/data/Expression$UnaryExpression$Ope;
 
@@ -720,7 +716,6 @@
 
     goto :goto_1f0
 
-    .line 367
     :catch_1f3
     move-exception v0
 
@@ -746,7 +741,6 @@
 
     goto :goto_1b0
 
-    .line 525
     :catch_1fd
     move-exception v0
 
@@ -882,7 +876,6 @@
 
     goto/16 :goto_6a
 
-    .line 716
     :catch_24b
     move-exception v0
 

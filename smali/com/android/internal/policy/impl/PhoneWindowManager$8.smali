@@ -27,7 +27,6 @@
     .parameter
 
     .prologue
-    .line 2973
     iput-object p1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +40,6 @@
     .registers 5
 
     .prologue
-    .line 2975
     :try_start_0
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 
@@ -49,26 +47,21 @@
 
     move-result-object v1
 
-    .line 2976
     .local v1, statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     if-eqz v1, :cond_b
 
-    .line 2977
     invoke-interface {v1}, Lcom/android/internal/statusbar/IStatusBarService;->collapse()V
     :try_end_b
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_b} :catch_c
 
-    .line 2983
     .end local v1           #statusbar:Lcom/android/internal/statusbar/IStatusBarService;
     :cond_b
     :goto_b
     return-void
 
-    .line 2979
     :catch_c
     move-exception v0
 
-    .line 2981
     .local v0, ex:Landroid/os/RemoteException;
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager$8;->this$0:Lcom/android/internal/policy/impl/PhoneWindowManager;
 

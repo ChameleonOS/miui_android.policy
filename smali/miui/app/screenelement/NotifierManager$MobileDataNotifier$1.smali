@@ -25,7 +25,6 @@
     .parameter "x0"
 
     .prologue
-    .line 283
     iput-object p1, p0, Lmiui/app/screenelement/NotifierManager$MobileDataNotifier$1;->this$0:Lmiui/app/screenelement/NotifierManager$MobileDataNotifier;
 
     invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
@@ -42,14 +41,12 @@
     .prologue
     const/4 v3, 0x0
 
-    .line 286
     invoke-static {}, Lmiui/app/screenelement/NotifierManager;->access$000()Z
 
     move-result v0
 
     if-eqz v0, :cond_25
 
-    .line 287
     const-string v0, "NotifierManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -78,7 +75,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    .line 289
     :cond_25
     iget-object v0, p0, Lmiui/app/screenelement/NotifierManager$MobileDataNotifier$1;->this$0:Lmiui/app/screenelement/NotifierManager$MobileDataNotifier;
 
@@ -88,6 +84,5 @@
 
     invoke-virtual {v0, v3, v3, v1}, Lmiui/app/screenelement/NotifierManager$MobileDataNotifier;->onNotify(Landroid/content/Context;Landroid/content/Intent;Ljava/lang/Object;)V
 
-    .line 290
     return-void
 .end method
